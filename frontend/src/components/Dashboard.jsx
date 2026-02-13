@@ -30,15 +30,23 @@ const Dashboard = () => {
             });
     }, []);
 
+    const [searchQuery, setSearchQuery] = useState('');
+
     if (loading) return <div className="loading-screen">Loading Monitor...</div>;
     if (error) return <div className="error-screen">Error: {error}</div>;
     if (!data) return <div className="error-screen">No Data Available</div>;
 
-    const { results, updatedAt, searchTerm, filters } = data;
+    const { results, updatedAt, searchTerm } = data;
+
+    // Filter results based on client-side search
+    const filteredResults = results.filter(item =>
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.store.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     // Calculate Stats
-    const totalFound = results.length;
-    const lowestPrice = results.reduce((min, item) => (item.price < min ? item.price : min), Infinity);
+    const totalFound = filteredResults.length;
+    const lowestPrice = filteredResults.reduce((min, item) => (item.price < min ? item.price : min), Infinity);
     const bestPriceDisplay = totalFound > 0 ? `₪${lowestPrice}` : '-';
 
     // Format Date
@@ -50,6 +58,16 @@ const Dashboard = () => {
                 <h1>Sneaker Monitor 👟</h1>
                 <p className="last-updated">Last Updated: {lastUpdated}</p>
 
+                <div className="search-bar-container">
+                    <input
+                        type="text"
+                        placeholder="Search model, store..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="search-input"
+                    />
+                </div>
+
                 <div className="stats-grid">
                     <div className="stat-card">
                         <h3>Found</h3>
@@ -60,21 +78,21 @@ const Dashboard = () => {
                         <p className="stat-value">{bestPriceDisplay}</p>
                     </div>
                     <div className="stat-card">
-                        <h3>Search</h3>
+                        <h3>Scraper Query</h3>
                         <p className="stat-value small">{searchTerm}</p>
                     </div>
                 </div>
             </header>
 
             <main className="results-grid">
-                {results.length === 0 ? (
+                {filteredResults.length === 0 ? (
                     <div className="empty-state">
-                        No matches found for "{searchTerm}" with filters.
+                        No matches found for "{searchQuery}"
                         <br />
-                        Trying changing the search terms or sizes.
+                        (Scraped for: {searchTerm})
                     </div>
                 ) : (
-                    results.map((item, index) => (
+                    filteredResults.map((item, index) => (
                         <ShoeCard key={index} item={item} />
                     ))
                 )}
