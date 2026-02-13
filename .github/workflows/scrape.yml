@@ -33,7 +33,7 @@ jobs:
           DEBUG_LOGS: "false"
         run: |
           # Run the monitor script and export to data.json
-          node src/monitor.js "MB.05, MB.04, MB.03, LaMelo" "*" --json frontend/public/data.json
+          node src/monitor.js "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak" "*" --json frontend/public/data.json
 
       - name: Commit Data Method (if changed)
         if: github.event_name != 'push'
