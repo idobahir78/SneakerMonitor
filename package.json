@@ -1,0 +1,28 @@
+{
+    "name": "sneaker-monitor",
+    "version": "2.0.0",
+    "description": "Monitor Israeli sneaker stores + StockX for Puma LaMelo Ball using Puppeteer",
+    "main": "src/monitor.js",
+    "scripts": {
+        "start": "node src/monitor.js",
+        "test": "node src/test-scrapers.js"
+    },
+    "keywords": [
+        "scraper",
+        "sneakers",
+        "automation",
+        "puma",
+        "lamelo",
+        "puppeteer"
+    ],
+    "author": "Ido Bahir",
+    "license": "ISC",
+    "dependencies": {
+        "colors": "^1.4.0",
+        "dotenv": "^16.3.1",
+        "node-cron": "^3.0.3",
+        "puppeteer": "^21.5.0",
+        "puppeteer-extra": "^3.3.6",
+        "puppeteer-extra-plugin-stealth": "^2.11.2"
+    }
+}

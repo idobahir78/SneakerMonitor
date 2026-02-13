@@ -1,0 +1,49 @@
+
+name: Scrape Sneaker Data
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Run every 6 hours
+  workflow_dispatch: # Allow manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write # Allow committing back to the repo
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Scraper
+        # Using environment variable to prevent verbose logs in CI
+        env:
+          DEBUG_LOGS: "false"
+        run: |
+          # Run the monitor script and export to data.json in the frontend public folder
+          node src/monitor.js "MB.05, MB.04, MB.03, LaMelo" "*" --json frontend/public/data.json
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          
+          # Check if data.json has changed
+          git add frontend/public/data.json
+          
+          # Only commit if there are changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update sneaker data: $(date -u)"
+            git push
+          fi

@@ -1,0 +1,43 @@
+{
+    "updatedAt": "2024-05-20T12:00:00.000Z",
+    "searchTerm": "Sample Data",
+    "filters": {
+        "sizes": [
+            42,
+            43,
+            44
+        ]
+    },
+    "results": [
+        {
+            "store": "StockX",
+            "title": "Puma MB.03 Toxic",
+            "price": 650,
+            "sizes": [
+                "42",
+                "43",
+                "44"
+            ],
+            "link": "https://stockx.com"
+        },
+        {
+            "store": "Terminal X",
+            "title": "Puma MB.04 Iridescent",
+            "price": 599,
+            "sizes": [
+                "43",
+                "44"
+            ],
+            "link": "https://www.terminalx.com"
+        },
+        {
+            "store": "Foot Locker",
+            "title": "Puma LaMelo Ball MB.03 Blue Hive",
+            "price": 700,
+            "sizes": [
+                "42"
+            ],
+            "link": "https://www.footlocker.co.il"
+        }
+    ]
+}
