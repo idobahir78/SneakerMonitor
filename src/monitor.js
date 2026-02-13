@@ -25,7 +25,7 @@ const MegaSportScraper = require('./scrapers/mega-sport');
 const args = process.argv.slice(2);
 
 // Arg 0: Search Input
-const DEFAULT_SEARCH = "MB.05, MB.04, MB.03, LaMelo";
+const DEFAULT_SEARCH = "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak";
 const SEARCH_INPUT = args[0] ? args[0] : DEFAULT_SEARCH;
 
 // Arg 1: Size Input
