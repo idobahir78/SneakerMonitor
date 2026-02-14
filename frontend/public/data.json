@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-14T13:30:17.206Z",
+  "updatedAt": "2026-02-14T13:54:22.100Z",
   "searchTerm": "",
   "filters": {
     "sizes": null
@@ -1277,7 +1277,7 @@
     {
       "title": "סנדלי PUMA EVOLVE SANDAL AC INF - תינוקות",
       "price": 149.9,
-      "link": "https://www.megasport.co.il/products/pu38914804?_pos=1&_sid=386ca883a&_ss=r",
+      "link": "https://www.megasport.co.il/products/pu38914804?_pos=1&_sid=74b32e5ec&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/PU38914804_1.jpg?v=1748273833&width=533",
       "store": "Mega Sport"
     },
@@ -2635,13 +2635,6 @@
     },
     {
       "store": "StockX",
-      "title": "Puma LaMelo Ball MB.02 Lunar New Year Jade (Est. ILS)",
-      "price": 280,
-      "link": "https://stockx.com/puma-lamelo-ball-mb02-lunar-new-year-jade",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
       "title": "Puma LaMelo Ball MB.05 World Tour (Est. ILS)",
       "price": 288,
       "link": "https://stockx.com/puma-lamelo-ball-mb05-world-tour",
@@ -2652,6 +2645,13 @@
       "title": "Puma LaMelo Ball LaFrancé Icey (Est. ILS)",
       "price": 288,
       "link": "https://stockx.com/puma-lamelo-ball-lafrance-icey",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Puma LaMelo Ball LaFrancé Amour Wolf (Est. ILS)",
+      "price": 288,
+      "link": "https://stockx.com/puma-lamelo-ball-lafrance-amour-wolf",
       "sizes": []
     },
     {
@@ -2694,13 +2694,6 @@
       "title": "Puma LaMelo Ball MB.01 Golden Child (Est. ILS)",
       "price": 320,
       "link": "https://stockx.com/puma-lamelo-ball-mb01-golden-child",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Oak Tree (Est. ILS)",
-      "price": 332,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-oak-tree",
       "sizes": []
     },
     {
@@ -3474,6 +3467,13 @@
       "title": "Puma LaMelo Ball LaFrancé Amour Black (Est. ILS)",
       "price": 620,
       "link": "https://stockx.com/puma-lamelo-ball-lafrance-amour-black",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Puma LaMelo Ball MB.04 Teenage Mutant Ninja Turtles Raphael & Donatello (Est. ILS)",
+      "price": 620,
+      "link": "https://stockx.com/puma-lamelo-ball-mb04-teenage-mutant-ninja-turtles-raphael-and-donatello",
       "sizes": []
     },
     {
