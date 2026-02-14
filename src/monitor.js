@@ -26,13 +26,46 @@ const args = process.argv.slice(2);
 
 // Arg 0: Search Input
 const DEFAULT_SEARCH = "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak";
-const RAW_SEARCH_INPUT = args[0] ? args[0] : DEFAULT_SEARCH;
+
+// Check if we should load the last search from data.json (for scheduled runs)
+const shouldLoadLast = args.includes('--load-last');
+let RAW_SEARCH_INPUT = args[0] && !args[0].startsWith('--') ? args[0] : DEFAULT_SEARCH;
+let SIZE_INPUT = args[1]; // Can be undefined
+
+if (shouldLoadLast) {
+    try {
+        const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+        if (fs.existsSync(jsonPath)) {
+            const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+            if (data.lastSearchTerm) {
+                console.log(`🔄 Loaded last search term: "${data.lastSearchTerm}"`.cyan);
+                RAW_SEARCH_INPUT = data.lastSearchTerm;
+            }
+            if (data.lastFilters && data.lastFilters.sizes) {
+                // Convert array back to string if needed, or handle as array
+                // SizeUtils expects string input usually, but we need to check usage
+                // simpler approach: just rely on the fact that if we scheduled it, we might want to default to ALL or persist size too.
+                // For now, let's persist size input string if possible.
+                // Actually, data.json stores "filters: { sizes: [...] }" which are already processed.
+                // We need the RAW input string to re-process if we want to be safe, OR just use the processed sizes directly.
+                // Let's look for a "lastSizeInput" field we will add.
+                if (data.lastSizeInput) {
+                    console.log(`🔄 Loaded last size input: "${data.lastSizeInput}"`.cyan);
+                    SIZE_INPUT = data.lastSizeInput;
+                }
+            }
+        }
+    } catch (e) {
+        console.error("Failed to load last search:", e.message);
+    }
+}
+
 // Simplify query to improve match rate (e.g. "Lamelo MB.05" -> "MB.05")
 const SEARCH_INPUT = SmartSearch.simplifyQuery(RAW_SEARCH_INPUT);
 
 // Arg 1: Size Input
 const DEFAULT_SIZES = [44, 45, 9.5, 10.5, 11, 11.5, 12];
-const SIZE_INPUT = args[1]; // Can be undefined
+SIZE_INPUT = args[1]; // Can be undefined
 
 // Generate Regex patterns dynamically
 const TARGET_MODELS = SmartSearch.generatePatterns(SEARCH_INPUT);
@@ -140,6 +173,9 @@ async function run() {
             const dataToSave = {
                 updatedAt: new Date().toISOString(),
                 searchTerm: SEARCH_INPUT,
+                // Persist the RAW inputs so --load-last can use them next time
+                lastSearchTerm: RAW_SEARCH_INPUT,
+                lastSizeInput: SIZE_INPUT || '',
                 filters: { sizes: TARGET_SIZES },
                 results: filteredResults
             };

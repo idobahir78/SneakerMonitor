@@ -3,7 +3,7 @@ name: Scrape and Deploy
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Run every 6 hours
+    - cron: '0 * * * *' # Run hourly
   workflow_dispatch: # Manual trigger
     inputs:
       search_term:
@@ -43,12 +43,17 @@ jobs:
           SEARCH_INPUT: ${{ github.event.inputs.search_term }}
           SIZE_INPUT: ${{ github.event.inputs.sizes }}
         run: |
-          # Use inputs if provided, otherwise default to the broad list
-          TERM="${SEARCH_INPUT:-MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak}"
-          SIZES="${SIZE_INPUT:-*}"
+          # Use inputs if provided, otherwise default to "load last" logic
+          INPUT_TERM="${SEARCH_INPUT}"
+          INPUT_SIZES="${SIZE_INPUT}"
           
-          echo "Running scraper for: $TERM (Sizes: $SIZES)"
-          node src/monitor.js "$TERM" "$SIZES" --json frontend/public/data.json
+          if [ -z "$INPUT_TERM" ]; then
+             echo "No manual input provided. Running in 'Sticky Mode' (loading last search)..."
+             node src/monitor.js --load-last --json frontend/public/data.json
+          else
+             echo "Manual input provided: $INPUT_TERM (Sizes: $INPUT_SIZES)"
+             node src/monitor.js "$INPUT_TERM" "$INPUT_SIZES" --json frontend/public/data.json
+          fi
 
       - name: Commit Data Method (if changed)
         if: github.event_name != 'push'
