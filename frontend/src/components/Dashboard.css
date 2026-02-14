@@ -383,3 +383,28 @@ body {
     font-size: 0.7rem;
     color: #666;
 }
+
+/* Flash Animation for Auto-Refresh */
+@keyframes flashGreen {
+    0% {
+        color: var(--text-primary);
+        text-shadow: none;
+        transform: scale(1);
+    }
+
+    50% {
+        color: var(--success-color);
+        text-shadow: 0 0 10px var(--success-color);
+        transform: scale(1.05);
+    }
+
+    100% {
+        color: var(--text-primary);
+        text-shadow: none;
+        transform: scale(1);
+    }
+}
+
+.flash-update {
+    animation: flashGreen 1s ease-in-out;
+}

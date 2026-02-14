@@ -9,6 +9,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
+    const [refreshFlash, setRefreshFlash] = useState(false);
 
     const fetchData = () => {
         fetch('data.json')
@@ -19,7 +20,12 @@ const Dashboard = () => {
                 return response.json();
             })
             .then(jsonData => {
-                setData(jsonData);
+                // Check if data actually changed (optional optimization, but nice for UX)
+                if (JSON.stringify(jsonData) !== JSON.stringify(data)) {
+                    setData(jsonData);
+                    setRefreshFlash(true);
+                    setTimeout(() => setRefreshFlash(false), 2000); // 2-second flash
+                }
                 setLoading(false);
             })
             .catch(err => {
@@ -66,7 +72,7 @@ const Dashboard = () => {
 
             <header className="dashboard-header">
                 <h1>Sneaker Monitor 👟</h1>
-                <p className="last-updated">
+                <p className={`last-updated ${refreshFlash ? 'flash-update' : ''}`}>
                     Last Updated: {lastUpdated}
                     <span style={{ marginLeft: '10px', fontSize: '0.8em', opacity: 0.7 }}>
                         (↻ Auto-refresh on)
