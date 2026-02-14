@@ -26,7 +26,9 @@ const args = process.argv.slice(2);
 
 // Arg 0: Search Input
 const DEFAULT_SEARCH = "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak";
-const SEARCH_INPUT = args[0] ? args[0] : DEFAULT_SEARCH;
+const RAW_SEARCH_INPUT = args[0] ? args[0] : DEFAULT_SEARCH;
+// Simplify query to improve match rate (e.g. "Lamelo MB.05" -> "MB.05")
+const SEARCH_INPUT = SmartSearch.simplifyQuery(RAW_SEARCH_INPUT);
 
 // Arg 1: Size Input
 const DEFAULT_SIZES = [44, 45, 9.5, 10.5, 11, 11.5, 12];
