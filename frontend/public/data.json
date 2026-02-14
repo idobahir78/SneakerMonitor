@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-14T19:35:45.070Z",
+  "updatedAt": "2026-02-14T20:40:16.961Z",
   "searchTerm": "zoom",
   "lastSearchTerm": "zoom",
   "lastSizeInput": "--json",
@@ -31,14 +31,14 @@
     {
       "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY - גברים זהב",
       "price": 300.93,
-      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=38f5bf28f&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=b31d45a17&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFZ1386300_1.png?v=1749534417&width=533",
       "store": "Mega Sport"
     },
     {
       "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY TF - גברים",
       "price": 300.93,
-      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=38f5bf28f&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=b31d45a17&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFQ8449400_1.png?v=1750313646&width=533",
       "store": "Mega Sport"
     },
@@ -115,14 +115,14 @@
     {
       "title": "נעלי ריצה AIR ZOOM CROSSOVER 2 נוער - ילדים",
       "price": 369.9,
-      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=38f5bf28f&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=b31d45a17&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689003_1.png?v=1749553812&width=533",
       "store": "Mega Sport"
     },
     {
       "title": "נעלי כדורסל AIR ZOOM CROSSOVER 2 - ילדים",
       "price": 369.9,
-      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=38f5bf28f&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=b31d45a17&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689001_5.png?v=1749559197&width=533",
       "store": "Mega Sport"
     },
@@ -303,13 +303,6 @@
     },
     {
       "store": "StockX",
-      "title": "Nike Zoom Vomero 5 Photon Dust Pink Foam (Women's) (Est. ILS)",
-      "price": 540,
-      "link": "https://stockx.com/nike-zoom-vomero-5-photon-dust-pink-foam-womens",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
       "title": "Nike Air Zoom Pegasus Premium Persian Violet (Est. ILS)",
       "price": 540,
       "link": "https://stockx.com/nike-air-zoom-pegasus-premium-persian-violet",
@@ -386,6 +379,13 @@
     },
     {
       "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Photon Dust Pink Foam (Women's) (Est. ILS)",
+      "price": 556,
+      "link": "https://stockx.com/nike-zoom-vomero-5-photon-dust-pink-foam-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
       "title": "Nike Air Zoom Pegasus Premium Black Metallic Silver (Est. ILS)",
       "price": 556,
       "link": "https://stockx.com/nike-air-zoom-pegasus-premium-black-metallic-silver",
@@ -416,7 +416,7 @@
     {
       "title": "נעלי ריצה מקצועיות AIR ZOOM VOMERO 16 - נשים",
       "price": 629.9,
-      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=38f5bf28f&_ss=r",
+      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=b31d45a17&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIDA7698104_1.jpg?v=1748282514&width=533",
       "store": "Mega Sport"
     },
@@ -563,13 +563,6 @@
       "title": "Nike Zoom Fly 6 Glam",
       "price": 749.9,
       "link": "https://www.nike.com/il/t/zoom-fly-6-glam-road-running-shoes-u3LOb5PM/IO9572-400",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Nike Air Zoom GT Cut White Chrome (Est. ILS)",
-      "price": 756,
-      "link": "https://stockx.com/nike-air-zoom-gt-cut-white-chrome",
       "sizes": []
     }
   ]
