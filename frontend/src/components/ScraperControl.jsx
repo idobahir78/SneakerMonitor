@@ -11,11 +11,19 @@ const ScraperControl = ({ onTrigger }) => {
     useEffect(() => {
         const savedToken = localStorage.getItem('github_pat');
         if (savedToken) setToken(savedToken);
+
+        const savedSearch = localStorage.getItem('scraper_search');
+        if (savedSearch) setSearchTerm(savedSearch);
+
+        const savedSizes = localStorage.getItem('scraper_sizes');
+        if (savedSizes) setSizes(savedSizes);
     }, []);
 
-    const saveToken = () => {
+    const saveSettings = () => {
         localStorage.setItem('github_pat', token);
-        setMessage('Token saved!');
+        localStorage.setItem('scraper_search', searchTerm);
+        localStorage.setItem('scraper_sizes', sizes);
+        setMessage('Settings saved!');
         setTimeout(() => setMessage(''), 2000);
     };
 
@@ -25,6 +33,10 @@ const ScraperControl = ({ onTrigger }) => {
             setMessage('Please enter a GitHub Token first.');
             return;
         }
+
+        // Auto-save settings
+        localStorage.setItem('scraper_search', searchTerm);
+        localStorage.setItem('scraper_sizes', sizes);
 
         setStatus('loading');
         setMessage('Triggering robot...');
@@ -89,7 +101,7 @@ const ScraperControl = ({ onTrigger }) => {
                         onChange={(e) => setToken(e.target.value)}
                         placeholder="ghp_..."
                     />
-                    <button onClick={saveToken} className="save-btn">Save</button>
+                    <button onClick={saveSettings} className="save-btn">Save Settings</button>
                 </div>
                 <small className="hint">Required for acting as you.</small>
             </div>

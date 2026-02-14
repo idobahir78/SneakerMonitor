@@ -408,3 +408,10 @@ body {
 .flash-update {
     animation: flashGreen 1s ease-in-out;
 }
+
+.visit-site-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    opacity: 0.8;
+}

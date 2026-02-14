@@ -26,7 +26,7 @@ const ShoeCard = ({ item }) => {
                                 <span key={index} className="size-chip">{size}</span>
                             ))
                         ) : (
-                            <span className="no-sizes">Checking...</span>
+                            <span className="no-sizes visit-site-text">Visit Site to Check</span>
                         )}
                     </div>
                 </div>

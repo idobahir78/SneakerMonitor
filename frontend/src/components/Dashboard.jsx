@@ -12,7 +12,9 @@ const Dashboard = () => {
     const [refreshFlash, setRefreshFlash] = useState(false);
 
     const fetchData = () => {
-        fetch('data.json')
+        // Add timestamp to prevent caching
+        const cacheBuster = new Date().getTime();
+        fetch(`data.json?t=${cacheBuster}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Data file not found (run scraper first!)');
