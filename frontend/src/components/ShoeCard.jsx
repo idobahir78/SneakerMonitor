@@ -6,7 +6,11 @@ const ShoeCard = ({ item }) => {
     const storeName = item.store || 'Unknown';
 
     // Basic price formatting
-    const formattedPrice = item.price ? `₪${parseFloat(item.price).toFixed(2)}` : 'Price N/A';
+    // Check if price is a valid number (> 0)
+    const priceNum = parseFloat(item.price);
+    const formattedPrice = (priceNum && !isNaN(priceNum) && priceNum > 0)
+        ? `₪${priceNum.toFixed(2)}`
+        : 'Check Site';
 
     return (
         <div className="shoe-card">

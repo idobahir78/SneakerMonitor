@@ -46,9 +46,10 @@ class KitsClubScraper extends InteractionScraper {
                 return {
                     index,
                     title: titleEl ? titleEl.innerText.trim() : 'No Title',
-                    price: priceEl ? priceEl.innerText.trim() : 'No Price',
+                    price: priceEl ? parseFloat(priceEl.innerText.replace(/[^0-9.]/g, '')) : 0,
                     link: linkEl ? linkEl.href : '',
-                    image: imgEl ? imgEl.src : ''
+                    image: imgEl ? imgEl.src : '',
+                    store: 'Kits Club'
                 };
             });
         });

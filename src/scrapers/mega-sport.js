@@ -179,7 +179,13 @@ class MegaSportScraper extends InteractionScraper {
                     let price = 0;
 
                     if (priceEl) {
-                        price = parseFloat(priceEl.innerText.replace(/[^0-9.]/g, ''));
+                        // Handle multiple prices (e.g. "800 ₪ 500 ₪") by finding all numbers and taking the min
+                        const priceText = priceEl.innerText;
+                        const numbers = priceText.match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) {
+                            // Parse all numbers, filter out small styling artifacts if any, take min
+                            price = Math.min(...numbers.map(n => parseFloat(n)));
+                        }
                     }
 
                     // Strict filter: Title must basically match if it's very short, or just be valid
@@ -189,7 +195,7 @@ class MegaSportScraper extends InteractionScraper {
                             price: price,
                             link: link,
                             image: imgEl ? imgEl.src : '',
-                            brand: 'Mega Sport'
+                            store: 'Mega Sport'
                         });
                     }
                 }
