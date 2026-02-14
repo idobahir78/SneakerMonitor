@@ -54,39 +54,6 @@ class StockXScraper extends BaseScraper {
 
             console.log(`[DEBUG] StockX found ${tiles.length} potential tiles.`);
 
-            // NEW: Inspect __NEXT_DATA__ for hidden product info
-            try {
-                const nextData = JSON.parse(document.getElementById('__NEXT_DATA__').innerHTML);
-                console.log('[DEBUG] __NEXT_DATA__ Found!');
-
-                // Helper to safely log keys
-                const logKeys = (obj, label) => {
-                    if (obj && typeof obj === 'object') {
-                        console.log(`[DEBUG] ${label} Keys: ${Object.keys(obj).join(', ')}`);
-                    }
-                };
-
-                const props = nextData.props?.pageProps;
-                logKeys(props, 'pageProps');
-
-                // Check React Query (Dehydrated State)
-                const queries = props?.dehydratedState?.queries;
-                if (queries && Array.isArray(queries)) {
-                    console.log(`[DEBUG] Found ${queries.length} React Queries.`);
-                    queries.forEach((q, i) => {
-                        const data = q.state?.data;
-                        if (data?.browse?.results) {
-                            console.log(`[DEBUG] Query[${i}] has 'browse.results'! Length: ${data.browse.results.length}`);
-                            const first = data.browse.results[0];
-                            console.log(`[DEBUG] First Product Keys: ${Object.keys(first).join(', ')}`);
-                            if (first.variants) console.log(`[DEBUG] First Product Variants: ${JSON.stringify(first.variants).substring(0, 200)}...`);
-                        }
-                    });
-                }
-            } catch (e) {
-                console.log(`[DEBUG] Error parsing __NEXT_DATA__: ${e.message}`);
-            }
-
             tiles.forEach(tile => {
                 // Determine structure: Is 'tile' the link itself or a wrapper?
                 let linkEl = tile.tagName === 'A' ? tile : tile.querySelector('a');
@@ -98,25 +65,30 @@ class StockXScraper extends BaseScraper {
                 const lines = text.split('\n').filter(l => l.trim().length > 0);
 
                 let title = '';
-                let priceUSD = 0;
+                let price = 0;
 
                 if (lines.length > 0) {
                     title = lines[0]; // First line is usually title
 
-                    // Attempt to find price line (e.g. "$125", "Check Price")
-                    const priceLine = lines.find(l => l.includes('$') || l.match(/[0-9]+/));
-                    if (priceLine) {
-                        const priceMatch = priceLine.match(/[0-9.]+/);
-                        if (priceMatch) {
-                            priceUSD = parseFloat(priceMatch[0]);
+                    // 1. Try to find price in Shekels (No conversion)
+                    const shekelLine = lines.slice(1).find(l => l.includes('₪'));
+
+                    if (shekelLine) {
+                        const match = shekelLine.replace(/,/g, '').match(/[0-9.]+/);
+                        if (match) price = parseFloat(match[0]);
+                    }
+
+                    // 2. If not found, look for USD ($)
+                    if (price === 0) {
+                        const dollarLine = lines.slice(1).find(l => l.includes('$'));
+                        if (dollarLine) {
+                            const match = dollarLine.replace(/,/g, '').match(/[0-9.]+/);
+                            if (match) price = parseFloat(match[0]) * 3.8;
                         }
                     }
                 }
 
-                if (title) {
-                    // Convert USD to ILS (Approx 3.8)
-                    const price = priceUSD ? priceUSD * 3.8 : 0;
-
+                if (title && price > 0) {
                     // StockX grid does NOT show sizes. 
                     // We return empty array so monitor.js knows to include it as "Unknown Size" match.
                     const sizes = [];
@@ -133,6 +105,7 @@ class StockXScraper extends BaseScraper {
             return results;
         });
     }
+
     async parseSizes(page) {
         // StockX PDP: Extract sizes from __NEXT_DATA__
         return await page.evaluate(() => {
@@ -145,21 +118,9 @@ class StockXScraper extends BaseScraper {
 
                 if (product && product.variants) {
                     return product.variants.map(v => {
-                        // StockX size structure: v.traits.size (string)
-                        // v.hidden (bool) - verify if we should ignore hidden?
-                        // Usually available sizes are listed.
-                        // We might need to check if 'market.lowestAsk' exists to confirm it's buyable?
-                        // For now, listing all listed sizes.
                         const sizeTrait = v.traits?.find(t => t.name === 'Size');
                         return sizeTrait ? sizeTrait.value : null;
                     }).filter(s => s !== null);
-                }
-
-                // Fallback: React Query cache?
-                const queries = props?.dehydratedState?.queries;
-                if (queries) {
-                    // Try to find a query with product data
-                    // This is harder to pinpoint without exact key.
                 }
 
                 return [];

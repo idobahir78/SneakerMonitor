@@ -5,6 +5,15 @@ on:
   schedule:
     - cron: '0 */6 * * *' # Run every 6 hours
   workflow_dispatch: # Manual trigger
+    inputs:
+      search_term:
+        description: 'Sneaker Model (e.g. "Jordan 1, Dunk")'
+        required: false
+        default: 'MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak'
+      sizes:
+        description: 'Sizes (e.g. "42, 43" or "*")'
+        required: false
+        default: '*'
   push:
     branches: [ main ] # Trigger on push to build/deploy initially
 
@@ -31,9 +40,15 @@ jobs:
         if: github.event_name != 'push'
         env:
           DEBUG_LOGS: "false"
+          SEARCH_INPUT: ${{ github.event.inputs.search_term }}
+          SIZE_INPUT: ${{ github.event.inputs.sizes }}
         run: |
-          # Run the monitor script and export to data.json
-          node src/monitor.js "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak" "*" --json frontend/public/data.json
+          # Use inputs if provided, otherwise default to the broad list
+          TERM="${SEARCH_INPUT:-MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak}"
+          SIZES="${SIZE_INPUT:-*}"
+          
+          echo "Running scraper for: $TERM (Sizes: $SIZES)"
+          node src/monitor.js "$TERM" "$SIZES" --json frontend/public/data.json
 
       - name: Commit Data Method (if changed)
         if: github.event_name != 'push'
