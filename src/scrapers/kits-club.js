@@ -43,10 +43,19 @@ class KitsClubScraper extends InteractionScraper {
                 // Image selector for WooCommerce
                 const imgEl = item.querySelector('img');
 
+                let price = 0;
+                if (priceEl) {
+                    const priceText = priceEl.innerText;
+                    const numbers = priceText.match(/[0-9.]+/g);
+                    if (numbers && numbers.length > 0) {
+                        price = Math.min(...numbers.map(n => parseFloat(n)));
+                    }
+                }
+
                 return {
                     index,
                     title: titleEl ? titleEl.innerText.trim() : 'No Title',
-                    price: priceEl ? parseFloat(priceEl.innerText.replace(/[^0-9.]/g, '')) : 0,
+                    price: price,
                     link: linkEl ? linkEl.href : '',
                     image: imgEl ? imgEl.src : '',
                     store: 'Kits Club'

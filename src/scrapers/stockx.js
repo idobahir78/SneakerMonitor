@@ -66,6 +66,7 @@ class StockXScraper extends BaseScraper {
 
                 let title = '';
                 let price = 0;
+                let isEstimate = false;
 
                 if (lines.length > 0) {
                     title = lines[0]; // First line is usually title
@@ -83,12 +84,18 @@ class StockXScraper extends BaseScraper {
                         const dollarLine = lines.slice(1).find(l => l.includes('$'));
                         if (dollarLine) {
                             const match = dollarLine.replace(/,/g, '').match(/[0-9.]+/);
-                            if (match) price = parseFloat(match[0]) * 3.8;
+                            if (match) {
+                                // Update conversion rate to ~3.9-4.0 (safer upper bound)
+                                price = parseFloat(match[0]) * 4.0;
+                                isEstimate = true;
+                            }
                         }
                     }
                 }
 
                 if (title && price > 0) {
+                    // Start title with [Est.] if converted
+                    if (isEstimate) title += ' (Est. ILS)';
                     // StockX grid does NOT show sizes. 
                     // We return empty array so monitor.js knows to include it as "Unknown Size" match.
                     const sizes = [];

@@ -21,23 +21,23 @@ class TerminalXScraper extends BaseScraper {
             try {
                 const state = window.__INITIAL_STATE__;
                 let items = [];
-                
+
                 // Path: state.listingAndSearchStoreData.data.listing.products.items
-                if (state && 
-                    state.listingAndSearchStoreData && 
-                    state.listingAndSearchStoreData.data && 
-                    state.listingAndSearchStoreData.data.listing && 
+                if (state &&
+                    state.listingAndSearchStoreData &&
+                    state.listingAndSearchStoreData.data &&
+                    state.listingAndSearchStoreData.data.listing &&
                     state.listingAndSearchStoreData.data.listing.products &&
                     state.listingAndSearchStoreData.data.listing.products.items) {
-                     items = state.listingAndSearchStoreData.data.listing.products.items;
+                    items = state.listingAndSearchStoreData.data.listing.products.items;
                 } else if (state && state.products && state.products.items) {
-                     items = state.products.items;
+                    items = state.products.items;
                 }
 
                 if (items && Array.isArray(items) && items.length > 0) {
                     items.forEach(item => {
                         const title = item.name || item.meta_title || 'Unknown Product';
-                        
+
                         let price = 0;
                         if (item.final_price && item.final_price.value) {
                             price = item.final_price.value;
@@ -60,7 +60,7 @@ class TerminalXScraper extends BaseScraper {
                             });
                         }
                     });
-                     if (results.length > 0) return results;
+                    if (results.length > 0) return results;
                 }
             } catch (e) {
                 console.error('Terminal X JSON extraction failed:', e);
@@ -77,7 +77,11 @@ class TerminalXScraper extends BaseScraper {
                     const link = titleEl.href;
                     let priceText = '0';
                     if (priceEl) priceText = priceEl.innerText.trim();
-                    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                    const numbers = priceText.match(/[0-9.]+/g);
+                    let price = 0;
+                    if (numbers && numbers.length > 0) {
+                        price = Math.min(...numbers.map(n => parseFloat(n)));
+                    }
                     results.push({ store: 'Terminal X', title, price, link, sizes: [] });
                 }
             });
