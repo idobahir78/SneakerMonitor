@@ -1,401 +1,79 @@
 {
-  "updatedAt": "2026-02-14T10:57:42.994Z",
-  "searchTerm": "Lamelo",
+  "updatedAt": "2026-02-14T11:05:03.033Z",
+  "searchTerm": "Wade",
   "filters": {
     "sizes": null
   },
   "results": [
     {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Lo Ice White",
-      "price": 182.39999999999998,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-lo-ice-white",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Lo Team Black Dark Amethyst",
-      "price": 186.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-lo-team-black-dark-amethyst",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Love",
-      "price": 205.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-love",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Be You",
-      "price": 209,
-      "link": "https://stockx.com/puma-lamelo-ball-mb01-be-you",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Galaxy",
-      "price": 228,
-      "link": "https://stockx.com/puma-mb01-lamelo-ball-galaxy",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Digital Camo",
-      "price": 235.6,
-      "link": "https://stockx.com/puma-lamelo-ball-mb01-digital-camo",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Lo Green Gecko",
-      "price": 258.4,
-      "link": "https://stockx.com/puma-lamelo-ball-mb01-lo-green-gecko",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Iridescent Dreams",
-      "price": 258.4,
-      "link": "https://stockx.com/puma-lamelo-ball-mb01-iridescent-dreams",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.02 Lunar New Year Jade",
-      "price": 266,
-      "link": "https://stockx.com/puma-lamelo-ball-mb02-lunar-new-year-jade",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 World Tour",
-      "price": 273.59999999999997,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-world-tour",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Icey",
-      "price": 273.59999999999997,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-icey",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.03 Lo TB Team Regal Red",
-      "price": 281.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb03-lo-tb-team-regal-red",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Shine",
-      "price": 281.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-shine",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Amour Untouchable",
-      "price": 281.2,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-amour-untouchable",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Lo Alien Skin",
-      "price": 281.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-lo-alien-skin",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Lo UFO",
-      "price": 300.2,
-      "link": "https://stockx.com/puma-mb01-lo-ufo",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Golden Child",
-      "price": 304,
-      "link": "https://stockx.com/puma-lamelo-ball-mb01-golden-child",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Oak Tree",
-      "price": 315.4,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-oak-tree",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Crowd Surf",
-      "price": 319.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-crowd-surf",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Voltage",
-      "price": 319.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-voltage",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Lo Black White",
-      "price": 342,
-      "link": "https://stockx.com/puma-lamelo-ball-mb01-lo-black-white",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Scooby-Doo",
-      "price": 357.2,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-scooby-doo",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.02 Rick & Morty Adventures",
-      "price": 361,
-      "link": "https://stockx.com/puma-lamelo-ball-mb02-rick-and-morty-adventures",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Buzz City",
-      "price": 368.59999999999997,
-      "link": "https://stockx.com/puma-mb01-lamelo-ball-buzz-city",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Amour 3x Black",
-      "price": 380,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-amour-3x-black",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Reflections",
-      "price": 380,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-reflections",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Rick and Morty",
-      "price": 399,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-rick-and-morty",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Fast & Furious Supra",
-      "price": 402.79999999999995,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-fast-and-furious-supra",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Amour Moment",
-      "price": 437,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-amour-moment",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Bright Lights",
-      "price": 456,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-bright-lights",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Fast & Furious Skyline",
-      "price": 459.79999999999995,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-fast-and-furious-skyline",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Slide Red Fluorescent Orange",
-      "price": 475,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-slide-red-fluorescent-orange",
-      "sizes": []
-    },
-    {
-      "index": 3,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 Scooby Doo",
-      "price": 479,
-      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-scooby-doo/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-%E2%80%98PUMA-x-LAMELO-BALL-MB.04-%E2%80%98Scooby-Doo1-430x430.jpeg"
-    },
-    {
       "index": 1,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.03 LaFrancé Men’s Basketball Shoes",
+      "title": "נעלי כדורסל לי-נינג – Li-Ning Wade All City 12 v2 Skyline",
       "price": 489,
-      "link": "https://ballers.co.il/product/puma-puma-x-lamelo-ball-mb-03-lafrance-mens-basketball-shoes/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.03-LaFrance-Mens-Basketball-Shoes1-430x430.png"
-    },
-    {
-      "index": 2,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 LaFrancé",
-      "price": 499,
-      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-lafrance/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.04-LaFrance1-430x430.jpeg"
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Fast & Furious Suki",
-      "price": 513,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-fast-and-furious-suki",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.01 Not From Here Red Blast",
-      "price": 513,
-      "link": "https://stockx.com/puma-mb01-lamelo-ball-red-blast",
-      "sizes": []
+      "link": "https://ballers.co.il/product/li-ning-wade-all-city-12-v2-skyline/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-All-City-12-v21-430x430.jpeg"
     },
     {
       "index": 0,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.03 Toxic Men’s Basketball Shoes",
-      "price": 519,
-      "link": "https://ballers.co.il/product/puma-puma-x-lamelo-ball-mb-03-toxic-mens-basketball-shoes/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.03-Toxic-Mens-Basketball-Shoes1-430x430.jpg"
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Teenage Mutant Ninja Turtles Leonardo & Michelangelo",
-      "price": 570,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-teenage-mutant-ninja-turtles-leonardo-and-michelangelo",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé RNR Fast & Furious Dom Toretto",
-      "price": 573.8,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-rnr-fast-and-furious-dom-toretto",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Amour Black",
-      "price": 589,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-amour-black",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.04 Flare",
-      "price": 608,
-      "link": "https://stockx.com/puma-lamelo-ball-mb04-flare",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball LaFrancé Pastel Pink",
-      "price": 646,
-      "link": "https://stockx.com/puma-lamelo-ball-lafrance-pastel-pink",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Puma LaMelo Ball MB.05 Hive",
-      "price": 661.1999999999999,
-      "link": "https://stockx.com/puma-lamelo-ball-mb05-hive",
-      "sizes": []
-    },
-    {
-      "index": 0,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 TM NINJA TURTLES RAPHAEL & DONATELLO. מידות 36-46. משלוח חינם",
-      "price": "₪899.00 ₪659.00",
-      "link": "https://thekitsclub7.com/product/mb04-tmnt-rd/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2026/02/MB04-NINJA-PURPLE-RED-01-300x300.jpg"
-    },
-    {
-      "index": 1,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 TM NINJA TURTLES LEONARDO AND MICHELANGELO. מידות 36-46. משלוח חינם",
-      "price": "₪899.00 ₪659.00",
-      "link": "https://thekitsclub7.com/product/mb04-tmnt-lm/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2026/02/MB04-NINJA-ORANGE-BLUE-01-300x300.jpg"
+      "title": "נעלי כדורסל לי-נינג – Li-Ning Way Of Wade 11 White Hot",
+      "price": 549,
+      "link": "https://ballers.co.il/product/li-ning-way-of-wade-11-white-hot/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%E2%80%98Li-Ning-Way-Of-Wade-11-%E2%80%98White-Hot1-430x430.jpeg"
     },
     {
       "index": 2,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 LOVE. מידות 36-46. משלוח חינם",
-      "price": "₪899.00 ₪559.00",
-      "link": "https://thekitsclub7.com/product/mb04-love/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2024/10/MB.04-LOVE-web-01-300x300.jpg"
+      "title": "נעלי כדורסל לי-נינג – Ling Ning Way Of Wade 11 Overtown",
+      "price": 559,
+      "link": "https://ballers.co.il/product/ling-ning-way-of-wade-11-overtown/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Ling-Ning-Way-Of-Wade-111-430x430.jpeg"
     },
     {
       "index": 3,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 LAFRANCE. מידות 36-46. משלוח חינם",
-      "price": "₪899.00 ₪559.00",
-      "link": "https://thekitsclub7.com/product/mb04-lafrance/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2024/10/MB.04-LAFRANCE-web-01-300x300.jpg"
+      "title": "נעלי כדורסל לי-נינג – Li-Ning Wade Ice Blood2 Flammable Ice",
+      "price": 599,
+      "link": "https://ballers.co.il/product/li-ning-wade-ice-blood2-flammable-ice/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-Ice-Blood2-Flammable-Ice1-430x430.jpeg"
+    },
+    {
+      "index": 0,
+      "title": "גופיית כדורסל נוסטלגיה MIAMI HALL OF FAME WADE. מהדורה מיוחדת. משלוח חינם",
+      "price": "₪429.00 ₪259.00",
+      "link": "https://thekitsclub7.com/product/nostalgic-miami-hall-wade/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/10/MIAMI-WHITE-HALL-OF-FAME-2023-WADE-web-01-300x300.jpg"
+    },
+    {
+      "index": 1,
+      "title": "גופיית כדורסל אן.בי.איי 2023 מיאמי שחור WADE . משלוח חינם",
+      "price": "₪399.00 ₪199.00",
+      "link": "https://thekitsclub7.com/product/basket-jersey-2023-miami-black-wade/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/03/MIAMI-BLACK-2023-WADE-01-300x300.jpg"
+    },
+    {
+      "index": 2,
+      "title": "גופיית כדורסל MIAMI VICE WADE 21/22. משלוח חינם",
+      "price": "₪315.00 ₪199.00",
+      "link": "https://thekitsclub7.com/product/miami-vice-wade-21-22/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/06/MIAMI-CITY-WADE-01-300x300.jpg"
+    },
+    {
+      "index": 3,
+      "title": "גופיית משחק מיאמי וייס 2021 WADE. משלוח חינם",
+      "price": "₪315.00 ₪199.00",
+      "link": "https://thekitsclub7.com/product/miami-vice-2021-wade/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/12/MIAMI-VICE-WADE-web-01-300x300.jpg"
     },
     {
       "index": 4,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.03 BUZZ CITY. מידות 40-46. משלוח חינם",
-      "price": "₪759.00 ₪549.00",
-      "link": "https://thekitsclub7.com/product/mb03-buzz/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2024/05/MB-03-BUZZ-CITY-web-01-300x300.jpg"
+      "title": "גופיית משחק מיאמי 2021 WADE. משלוח חינם",
+      "price": "₪315.00 ₪199.00",
+      "link": "https://thekitsclub7.com/product/miami-2021-black-wade/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/12/MIAMI-Black-WADE-web-01-300x300.jpg"
     },
     {
       "index": 5,
-      "title": "טי שירט אן.בי.איי שארלוט לאמלו בול CHARLOTTE LAMELO BALL 2024 . משלוח חינם",
+      "title": "טי שירט MIAMI WADE לבן 01. משלוח חינם",
       "price": "₪199.00 החל מ: ₪139.00",
-      "link": "https://thekitsclub7.com/product/t-charlotte-ballt-2024/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2024/04/CHARLOTTE-T-SHIRT-GREEN-BALL-web-01-300x300.jpg"
-    },
-    {
-      "index": 6,
-      "title": "גופיית כדורסל אן.בי.איי 2024 שארלוט לאמלו בול CHARLOTTE CITY EDITION LAMELO BALL 2024 . משלוח חינם",
-      "price": "₪399.00 ₪199.00",
-      "link": "https://thekitsclub7.com/product/basket-jersey-2024-charlotte-city-ball/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/12/CHARLOTTE-CITY-2024-BALL-web-01-300x300.jpg"
-    },
-    {
-      "index": 7,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.03 TOXIC. מידות 36-46. משלוח חינם",
-      "price": "₪899.00 ₪599.00",
-      "link": "https://thekitsclub7.com/product/mb03-toxic/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/MB.03-TOXIC-web-01-300x300.jpg"
-    },
-    {
-      "index": 8,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.03 GUTTERMELO. מידות 40-46. משלוח חינם",
-      "price": "₪899.00 ₪629.00",
-      "link": "https://thekitsclub7.com/product/mb03-guttermelo/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/MB.03-GUTTERMELO-web-01-300x300.jpg"
-    },
-    {
-      "index": 9,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.03 BLUE HIVE. מידות 40-46. משלוח חינם",
-      "price": "₪859.00 ₪549.00",
-      "link": "https://thekitsclub7.com/product/mb03-bh/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/MB.03-BLUE-HIVE-web-01-300x300.jpg"
-    },
-    {
-      "index": 10,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.03 HILLS. מידות 40-46. משלוח חינם",
-      "price": "₪859.00 ₪549.00",
-      "link": "https://thekitsclub7.com/product/mb03-hills/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/MB.03-HILLS-web-01-300x300.jpg"
-    },
-    {
-      "index": 11,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.03 LA FRANCE. מידות 40-46. משלוח חינם",
-      "price": "₪759.00 ₪549.00",
-      "link": "https://thekitsclub7.com/product/mb03-la-france/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/PUMA-MB.03-LA-FRANCE.-web-01-300x300.jpg"
+      "link": "https://thekitsclub7.com/product/mia-t-wade-white-01/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/12/WADE-White-web-01-300x300.jpg"
     }
   ]
 }
