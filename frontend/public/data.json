@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-02-14T12:23:57.604Z",
+  "updatedAt": "2026-02-14T12:31:19.095Z",
   "searchTerm": "Wade",
   "filters": {
     "sizes": [
-      45,
-      11.5
+      44,
+      10.5
     ]
   },
   "results": [
@@ -14,6 +14,7 @@
       "price": 489,
       "link": "https://ballers.co.il/product/li-ning-wade-all-city-12-v2-skyline/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-All-City-12-v21-430x430.jpeg",
+      "store": "Ballers",
       "sizes": [
         "36",
         "36.5",
@@ -47,6 +48,7 @@
       "price": 549,
       "link": "https://ballers.co.il/product/li-ning-way-of-wade-11-white-hot/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%E2%80%98Li-Ning-Way-Of-Wade-11-%E2%80%98White-Hot1-430x430.jpeg",
+      "store": "Ballers",
       "sizes": [
         "36",
         "36.5",
@@ -80,6 +82,7 @@
       "price": 559,
       "link": "https://ballers.co.il/product/ling-ning-way-of-wade-11-overtown/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/Ling-Ning-Way-Of-Wade-111-430x430.jpeg",
+      "store": "Ballers",
       "sizes": [
         "36",
         "36.5",
@@ -113,6 +116,7 @@
       "price": 599,
       "link": "https://ballers.co.il/product/li-ning-wade-ice-blood2-flammable-ice/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-Ice-Blood2-Flammable-Ice1-430x430.jpeg",
+      "store": "Ballers",
       "sizes": [
         "36",
         "36.5",
