@@ -1,13 +1,275 @@
 {
-  "updatedAt": "2026-02-14T18:24:16.806Z",
+  "updatedAt": "2026-02-14T18:50:43.255Z",
   "searchTerm": "Fossil",
   "lastSearchTerm": "Fossil",
-  "lastSizeInput": "44",
+  "lastSizeInput": "--json",
   "filters": {
-    "sizes": [
-      44,
-      10.5
-    ]
+    "sizes": null
   },
-  "results": []
+  "results": [
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Freak 5 Fossil Stone (Est. ILS)",
+      "price": 160,
+      "link": "https://stockx.com/nike-zoom-freak-5-fossil-stone",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Converse Chuck Taylor All Star EasyOn Hi Naruto Fossilized Vintage White (PS) (Est. ILS)",
+      "price": 164,
+      "link": "https://stockx.com/converse-chuck-taylor-all-star-easyon-hi-naruto-fossilized-vintage-white-ps",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Dunk High Fossil Stone (Women's) (Est. ILS)",
+      "price": 180,
+      "link": "https://stockx.com/nike-dunk-high-fossil-stone-w",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Converse Chuck Taylor All Star Hi Naruto Fossilized Vintage White (Est. ILS)",
+      "price": 224,
+      "link": "https://stockx.com/converse-chuck-taylor-all-star-hi-naruto-fossilized-vintage-white",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Dunk High Moon Fossil (Women's) (Est. ILS)",
+      "price": 240,
+      "link": "https://stockx.com/nike-dunk-high-moon-fossil-w",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Jordan 1 High Zoom Air CMFT Fossil Stone (Est. ILS)",
+      "price": 260,
+      "link": "https://stockx.com/air-jordan-1-high-zoom-air-cmft-fossil-stone",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Dunk Low Fossil Rose (Est. ILS)",
+      "price": 280,
+      "link": "https://stockx.com/nike-dunk-low-fossil-rose",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Jordan Flight Court Mushroom Desert Camo Fossil Fire Red (Est. ILS)",
+      "price": 300,
+      "link": "https://stockx.com/air-jordan-flight-court-mushroom-desert-camo-fossil-fire-red",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Ava Rover Fossil Canyon Rust (Est. ILS)",
+      "price": 320,
+      "link": "https://stockx.com/nike-ava-rover-fossil-canyon-rust",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "ASICS Gel-NYC Cream Fossil (Est. ILS)",
+      "price": 336,
+      "link": "https://stockx.com/asics-gel-nyc-cream-fossil",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Jordan 6 Rings White Fossil Stone Black (Est. ILS)",
+      "price": 340,
+      "link": "https://stockx.com/air-jordan-6-rings-white-fossil-stone-black",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Max Dn8 Fossil Black (Women's) (Est. ILS)",
+      "price": 348,
+      "link": "https://stockx.com/nike-air-max-dn8-fossil-black-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike M2K Tekno Fossil Stone (Women's) (Est. ILS)",
+      "price": 348,
+      "link": "https://stockx.com/nike-m2k-tekno-fossil-stone-w",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Earth Fossil (Women's) (Est. ILS)",
+      "price": 416,
+      "link": "https://stockx.com/nike-air-zoom-vomero-5-earth-fossil-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Force 1 Mid Stussy Fossil (Est. ILS)",
+      "price": 440,
+      "link": "https://stockx.com/nike-air-force-1-mid-stussy-fossil",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike P-6000 SE Fossil Stone Hemp Pink Oxford Ironstone (Women's) (Est. ILS)",
+      "price": 444,
+      "link": "https://stockx.com/nike-p-6000-se-fossil-stone-hemp-pink-oxford-ironstone-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Penny 2 Stussy Fossil (Est. ILS)",
+      "price": 500,
+      "link": "https://stockx.com/nike-air-penny-2-stussy-white",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Converse Chuck Taylor All Star 70 Hi Stussy Fossil Pearl (Est. ILS)",
+      "price": 500,
+      "link": "https://stockx.com/converse-chuck-taylor-all-star-70-hi-stussy-fossil-pearl",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Womens Oversized Swoosh Logo Jacket Black/Fossil (Est. ILS)",
+      "price": 500,
+      "link": "https://stockx.com/nike-womens-oversized-swoosh-logo-jacket-black-fossil",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Vandal High Stussy Fossil (Est. ILS)",
+      "price": 508,
+      "link": "https://stockx.com/nike-vandal-high-stussy-fossil",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Force 1 Low Shadow Sail Fossil Light Bone (Est. ILS)",
+      "price": 520,
+      "link": "https://stockx.com/nike-air-force-1-low-shadow-sail-fossil-light-bone",
+      "sizes": []
+    },
+    {
+      "index": 0,
+      "title": "נעלי כדורסל זאיון 2 אייר ג’ורדן AJ ZION 2 FOSSIL. מידות 40-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/aj-zion2-fossil/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/12/AJ-ZION-2-FOSSIL-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 1,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FOSSIL STONE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-fossil/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FOSSIL-STONE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 4,
+      "title": "אייר ג’ורדן 1 MID PREMIUM FOSSIL. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/aj1-pf/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/06/AJ1-PREMIUM-FOSSIL-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 2,
+      "title": "אייר ג’ורדן 1 MID FOSSIL WHITE. מידות 36-46. משלוח חינם",
+      "price": 579,
+      "link": "https://thekitsclub7.com/product/aj1-mid-fwhite/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/07/AJ1-MID-FOSSIL-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Dunk Low Retro SE Pure Platinum Phantom Pale Ivory Fossil Rose (Est. ILS)",
+      "price": 612,
+      "link": "https://stockx.com/nike-dunk-low-retro-se-pure-platinum-phantom-pale-ivory-fossil-rose",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Mizuno Wave Rider 10 Fossil White Thrush (Est. ILS)",
+      "price": 620,
+      "link": "https://stockx.com/mizuno-wave-rider-10-fossil-white-thrush",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Max 2013 Stussy Fossil (Est. ILS)",
+      "price": 684,
+      "link": "https://stockx.com/nike-air-max-2013-stussy-fossil",
+      "sizes": []
+    },
+    {
+      "index": 3,
+      "title": "אייר ג’ורדן 1 CMFT FOSSIL. מידות: 36-46 משלוח חינם",
+      "price": 689,
+      "link": "https://thekitsclub7.com/product/aj1-cmft-fossil/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/06/AJ1-ZOOM-CMFT-FOSSIL-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "store": "StockX",
+      "title": "Mizuno Wave Rider 10 Cordura Chicory Coffee Vintage Khaki Fossil (Est. ILS)",
+      "price": 696,
+      "link": "https://stockx.com/mizuno-wave-rider-10-cordura-chicory-coffee-vintage-khaki-fossil",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "ASICS Gel-Kayano 20 Fossil Cream (Est. ILS)",
+      "price": 720,
+      "link": "https://stockx.com/asics-gel-kayano-20-fossil-cream",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Jordan 4 Retro Fossil (Women's) (Est. ILS)",
+      "price": 800,
+      "link": "https://stockx.com/air-jordan-4-retro-mushroom-w",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "ASICS Gel-Quantum Kinetic Fossil Pure Silver (Est. ILS)",
+      "price": 924,
+      "link": "https://stockx.com/asics-gel-quantum-kinetic-fossil-pure-silver",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "LEGO Animals Dinosaur Fossils: Tyrannosaurus rex Set 76968 (Est. ILS)",
+      "price": 996,
+      "link": "https://stockx.com/lego-animals-dinosaur-fossils-tyrannosaurus-rex-set-76968",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Dunk Low Retro PRM Year of the Rabbit Fossil Stone (2023) (Est. ILS)",
+      "price": 1008,
+      "link": "https://stockx.com/nike-dunk-low-retro-prm-year-of-the-rabbit-mocha-brown",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Force 1 Low Stussy Fossil (Est. ILS)",
+      "price": 1064,
+      "link": "https://stockx.com/nike-air-force-1-low-stussy-fossil",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom Spiridon Cage 2 Stussy Fossil (Est. ILS)",
+      "price": 2196,
+      "link": "https://stockx.com/nike-air-zoom-spiridon-cage-2-stussy-fossil",
+      "sizes": []
+    }
+  ]
 }
