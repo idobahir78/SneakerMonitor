@@ -61,7 +61,7 @@ const Dashboard = () => {
     // Calculate Stats
     const totalFound = filteredResults.length;
     const lowestPrice = filteredResults.reduce((min, item) => (item.price < min ? item.price : min), Infinity);
-    const bestPriceDisplay = totalFound > 0 ? `₪${lowestPrice}` : '-';
+    const bestPriceDisplay = totalFound > 0 ? `₪${lowestPrice.toFixed(2)}` : '-';
 
     // Format Date
     const lastUpdated = new Date(updatedAt).toLocaleString();

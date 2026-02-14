@@ -6,7 +6,7 @@ const ShoeCard = ({ item }) => {
     const storeName = item.store || 'Unknown';
 
     // Basic price formatting
-    const formattedPrice = item.price ? `₪${item.price}` : 'Price N/A';
+    const formattedPrice = item.price ? `₪${parseFloat(item.price).toFixed(2)}` : 'Price N/A';
 
     return (
         <div className="shoe-card">
