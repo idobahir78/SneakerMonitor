@@ -1,365 +1,144 @@
 {
-  "updatedAt": "2026-02-14T11:46:39.637Z",
+  "updatedAt": "2026-02-14T11:58:43.951Z",
   "searchTerm": "Wade",
   "filters": {
-    "sizes": null
+    "sizes": [
+      44,
+      10.5
+    ]
   },
   "results": [
-    {
-      "index": 5,
-      "title": "טי שירט MIAMI WADE לבן 01. משלוח חינם",
-      "price": 199.00139,
-      "link": "https://thekitsclub7.com/product/mia-t-wade-white-01/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2020/12/WADE-White-web-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade All City 12 Encore Cherry Blossom",
-      "price": 228,
-      "link": "https://stockx.com/li-ning-way-of-wade-all-city-12-encore-cherry-blossom",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade All City 12 Encore 305",
-      "price": 266,
-      "link": "https://stockx.com/li-ning-way-of-wade-all-city-12-encore-305",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade All City 12 Encore Avocado",
-      "price": 285,
-      "link": "https://stockx.com/li-ning-way-of-wade-all-city-12-encore-avocado",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Wade All City 13 Encore Family Love",
-      "price": 285,
-      "link": "https://stockx.com/li-ning-wade-all-city-13-encore-family-love",
-      "sizes": []
-    },
-    {
-      "index": 2,
-      "title": "גופיית כדורסל MIAMI VICE WADE 21/22. משלוח חינם",
-      "price": 315.00199,
-      "link": "https://thekitsclub7.com/product/miami-vice-wade-21-22/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2022/06/MIAMI-CITY-WADE-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "index": 3,
-      "title": "גופיית משחק מיאמי וייס 2021 WADE. משלוח חינם",
-      "price": 315.00199,
-      "link": "https://thekitsclub7.com/product/miami-vice-2021-wade/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2020/12/MIAMI-VICE-WADE-web-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "index": 4,
-      "title": "גופיית משחק מיאמי 2021 WADE. משלוח חינם",
-      "price": 315.00199,
-      "link": "https://thekitsclub7.com/product/miami-2021-black-wade/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2020/12/MIAMI-Black-WADE-web-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "index": 1,
-      "title": "גופיית כדורסל אן.בי.איי 2023 מיאמי שחור WADE . משלוח חינם",
-      "price": 399.00199,
-      "link": "https://thekitsclub7.com/product/basket-jersey-2023-miami-black-wade/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/03/MIAMI-BLACK-2023-WADE-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 11 Blossom",
-      "price": 425.59999999999997,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-blossom",
-      "sizes": []
-    },
-    {
-      "index": 0,
-      "title": "גופיית כדורסל נוסטלגיה MIAMI HALL OF FAME WADE. מהדורה מיוחדת. משלוח חינם",
-      "price": 429.00259,
-      "link": "https://thekitsclub7.com/product/nostalgic-miami-hall-wade/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2023/10/MIAMI-WHITE-HALL-OF-FAME-2023-WADE-web-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 11 Hall of Fame",
-      "price": 437,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-hall-of-fame",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 808 5 Ultra V2 Firework",
-      "price": 475,
-      "link": "https://stockx.com/li-ning-way-of-wade-808-5-ultra-v2-firework",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade All City 12 Encore Veterans Day",
-      "price": 478.79999999999995,
-      "link": "https://stockx.com/li-ning-way-of-wade-all-city-12-encore-veterans-day",
-      "sizes": []
-    },
     {
       "index": 1,
       "title": "נעלי כדורסל לי-נינג – Li-Ning Wade All City 12 v2 Skyline",
       "price": 489,
       "link": "https://ballers.co.il/product/li-ning-wade-all-city-12-v2-skyline/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-All-City-12-v21-430x430.jpeg"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 11 Liberty",
-      "price": 543.4,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-liberty",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 11 White Hot",
-      "price": 547.1999999999999,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-white-hot",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade D'Angelo Russell Dlo 1 Lunar Rock",
-      "price": 547.1999999999999,
-      "link": "https://stockx.com/li-ning-way-of-wade-dangelo-russell-dlo-1-lunar-rock",
-      "sizes": []
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-All-City-12-v21-430x430.jpeg",
+      "sizes": [
+        "36",
+        "36.5",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39",
+        "39.5",
+        "40",
+        "40.5",
+        "41",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ]
     },
     {
       "index": 0,
       "title": "נעלי כדורסל לי-נינג – Li-Ning Way Of Wade 11 White Hot",
       "price": 549,
       "link": "https://ballers.co.il/product/li-ning-way-of-wade-11-white-hot/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%E2%80%98Li-Ning-Way-Of-Wade-11-%E2%80%98White-Hot1-430x430.jpeg"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 South Beach",
-      "price": 558.6,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-south-beach",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 Announcement",
-      "price": 558.6,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-announcement",
-      "sizes": []
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%E2%80%98Li-Ning-Way-Of-Wade-11-%E2%80%98White-Hot1-430x430.jpeg",
+      "sizes": [
+        "36",
+        "36.5",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39",
+        "39.5",
+        "40",
+        "40.5",
+        "41",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ]
     },
     {
       "index": 2,
       "title": "נעלי כדורסל לי-נינג – Ling Ning Way Of Wade 11 Overtown",
       "price": 559,
       "link": "https://ballers.co.il/product/ling-ning-way-of-wade-11-overtown/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Ling-Ning-Way-Of-Wade-111-430x430.jpeg"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 808 5 Ultra V2 Mint",
-      "price": 581.4,
-      "link": "https://stockx.com/li-ning-way-of-wade-808-5-ultra-v2-mint",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 Purple Gold Dynasty",
-      "price": 585.1999999999999,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-purple-gold-dynasty",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 Hall of Fame White",
-      "price": 589,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-hall-of-fame-white",
-      "sizes": []
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Ling-Ning-Way-Of-Wade-111-430x430.jpeg",
+      "sizes": [
+        "36",
+        "36.5",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39",
+        "39.5",
+        "40",
+        "40.5",
+        "41",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ]
     },
     {
       "index": 3,
       "title": "נעלי כדורסל לי-נינג – Li-Ning Wade Ice Blood2 Flammable Ice",
       "price": 599,
       "link": "https://ballers.co.il/product/li-ning-wade-ice-blood2-flammable-ice/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-Ice-Blood2-Flammable-Ice1-430x430.jpeg"
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 Miami Vice Black",
-      "price": 608,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-miami-vice-black",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 Mint",
-      "price": 611.8,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-mint",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Wade All City 14 Year of the Horse",
-      "price": 630.8,
-      "link": "https://stockx.com/li-ning-wade-all-city-14-year-of-the-horse",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 Low Family Love",
-      "price": 653.6,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-low-family-love",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 Low Storm Surge",
-      "price": 665,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-low-storm-surge",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 11 Sunshine State",
-      "price": 672.6,
-      "link": "https://stockx.com/li-ning-way-of-wade-11-sunshine-state",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 Low White Hot",
-      "price": 684,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-low-white-hot",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 808 5 Ultra V2 JayFlow",
-      "price": 722,
-      "link": "https://stockx.com/li-ning-way-of-wade-808-5-ultra-v2-jayflow",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Wade 808 5 Ultra V2 Christmas",
-      "price": 752.4,
-      "link": "https://stockx.com/li-ning-wade-808-5-ultra-v2-christmas",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 Low Liberty",
-      "price": 752.4,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-low-liberty",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 Low Valentine's Day",
-      "price": 756.1999999999999,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-low-valentines-day",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 808 5 Ultra V2 Lavender",
-      "price": 779,
-      "link": "https://stockx.com/li-ning-way-of-wade-808-5-ultra-v2-lavender",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade D'Angelo Russell Dlo 1 Bruce Lee",
-      "price": 779,
-      "link": "https://stockx.com/li-ning-way-of-wade-dangelo-russell-dlo-1-bruce-lee",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 808 5 Ultra V2 Hot Wind",
-      "price": 809.4,
-      "link": "https://stockx.com/li-ning-way-of-wade-808-5-ultra-v2-hot-wind",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 South Beach",
-      "price": 828.4,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-south-beach",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 808 5 Ultra V2 Energy",
-      "price": 889.1999999999999,
-      "link": "https://stockx.com/li-ning-way-of-wade-808-5-ultra-v2-energy",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 12 Liberty Classic Light Green",
-      "price": 931,
-      "link": "https://stockx.com/li-ning-way-of-wade-12-liberty-classic-light-green",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way Of Wade 9 Blossom",
-      "price": 1045,
-      "link": "https://stockx.com/li-ning-way-of-wade-9-blossom",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 10 Low Lavender",
-      "price": 1143.8,
-      "link": "https://stockx.com/li-ning-way-of-wade-10-low-lavender",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 12 Lux Year of the Horse",
-      "price": 1174.2,
-      "link": "https://stockx.com/li-ning-way-of-wade-12-lux-year-of-the-horse",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 12 Lux Stingray",
-      "price": 1254,
-      "link": "https://stockx.com/li-ning-way-of-wade-12-lux-stingray",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 12 Liberty Black",
-      "price": 1406,
-      "link": "https://stockx.com/li-ning-way-of-wade-12-liberty-black",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 12 Chinese New Year Coming Home",
-      "price": 1474.3999999999999,
-      "link": "https://stockx.com/li-ning-way-of-wade-12-chinese-new-year-coming-home",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Li-Ning Way of Wade 12 Lux ASG",
-      "price": 1710,
-      "link": "https://stockx.com/li-ning-way-of-wade-12-lux-asg",
-      "sizes": []
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/Li-Ning-Wade-Ice-Blood2-Flammable-Ice1-430x430.jpeg",
+      "sizes": [
+        "36",
+        "36.5",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39",
+        "39.5",
+        "40",
+        "40.5",
+        "41",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "43.5",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ]
     }
   ]
 }
