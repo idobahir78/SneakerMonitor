@@ -1,13 +1,103 @@
 {
-  "updatedAt": "2026-02-14T17:20:52.593Z",
-  "searchTerm": "Nike ja 3",
-  "lastSearchTerm": "Nike ja 3",
-  "lastSizeInput": "44",
+  "updatedAt": "2026-02-14T17:27:58.713Z",
+  "searchTerm": "Nike ja",
+  "lastSearchTerm": "Nike ja",
+  "lastSizeInput": "*",
   "filters": {
-    "sizes": [
-      44,
-      10.5
-    ]
+    "sizes": null
   },
-  "results": []
+  "results": [
+    {
+      "store": "Player Six",
+      "title": "Nike Ja HF6193-657",
+      "price": 85,
+      "link": "https://playersix.co.il/product/nike-ja-hf6193-657/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja HF6193-657",
+      "price": 85,
+      "link": "https://playersix.co.il/product/nike-ja-hf6193-657/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja HF6193-010",
+      "price": 85,
+      "link": "https://playersix.co.il/product/nike-ja-hf6193-010/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja HF6193-010",
+      "price": 85,
+      "link": "https://playersix.co.il/product/nike-ja-hf6193-010/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja FZ1038-657",
+      "price": 169,
+      "link": "https://playersix.co.il/product/nike-ja-fz1038-657/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja FZ1038-657",
+      "price": 169,
+      "link": "https://playersix.co.il/product/nike-ja-fz1038-657/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja 2 \"Nightmare\" HQ2638-600",
+      "price": 349,
+      "link": "https://playersix.co.il/product/nike-ja-2-nightmare-hq2638-600/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja 2 \"Nightmare\" HQ2638-600",
+      "price": 349,
+      "link": "https://playersix.co.il/product/nike-ja-2-nightmare-hq2638-600/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja 2 FD7328-700",
+      "price": 399,
+      "link": "https://playersix.co.il/product/nike-ja-2-fd7328-700/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Ja 2 FD7328-700",
+      "price": 399,
+      "link": "https://playersix.co.il/product/nike-ja-2-fd7328-700/",
+      "sizes": []
+    },
+    {
+      "index": 0,
+      "title": "נעלי כדורסל נייק Nike Ja 2 Purple Sky",
+      "price": 489,
+      "link": "https://ballers.co.il/product/nike-nike-ja-2-purple-sky/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A0%D7%99%D7%99%D7%A7-%E2%80%93-%E2%80%98Nike-Ja-2-%E2%80%98Purple-Sky1-430x430.jpeg",
+      "store": "Ballers"
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike JA 2 SCRATCH HQ1759-400",
+      "price": 494,
+      "link": "https://playersix.co.il/product/nike-ja-2-scratch-hq1759-400/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike JA 2 SCRATCH HQ1759-400",
+      "price": 494,
+      "link": "https://playersix.co.il/product/nike-ja-2-scratch-hq1759-400/",
+      "sizes": []
+    }
+  ]
 }
