@@ -1,23 +1,44 @@
 {
-  "updatedAt": "2026-02-14T19:10:47.028Z",
+  "updatedAt": "2026-02-14T19:35:45.070Z",
   "searchTerm": "zoom",
   "lastSearchTerm": "zoom",
-  "lastSizeInput": "*",
+  "lastSizeInput": "--json",
   "filters": {
     "sizes": null
   },
   "results": [
     {
+      "store": "StockX",
+      "title": "Nike Air Zoom Spiridon OG Sport Red (2024) (Est. ILS)",
+      "price": 220,
+      "link": "https://stockx.com/nike-air-zoom-spiridon-og-sport-red-2024",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Metallic Silver University Red (Est. ILS)",
+      "price": 272,
+      "link": "https://stockx.com/nike-zoom-vomero-5-metallic-silver-university-red",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom Spiridon Cage 2 Metallic Silver (Est. ILS)",
+      "price": 276,
+      "link": "https://stockx.com/nike-air-zoom-spiridon-cage-2-metallic-silver",
+      "sizes": []
+    },
+    {
       "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY - גברים זהב",
       "price": 300.93,
-      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=3a2c22b76&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=38f5bf28f&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFZ1386300_1.png?v=1749534417&width=533",
       "store": "Mega Sport"
     },
     {
       "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY TF - גברים",
       "price": 300.93,
-      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=3a2c22b76&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=38f5bf28f&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFQ8449400_1.png?v=1750313646&width=533",
       "store": "Mega Sport"
     },
@@ -29,6 +50,13 @@
       "sizes": []
     },
     {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Hyper Pink (Women's) (Est. ILS)",
+      "price": 316,
+      "link": "https://stockx.com/nike-zoom-vomero-5-hyper-pink-womens",
+      "sizes": []
+    },
+    {
       "store": "Nike IL",
       "title": "Nike Zoom GP Challenge Pro",
       "price": 319.9,
@@ -36,18 +64,81 @@
       "sizes": []
     },
     {
+      "store": "StockX",
+      "title": "Nike SB Zoom Air Paul Rodriguez 1 OG Bred (Est. ILS)",
+      "price": 320,
+      "link": "https://stockx.com/nike-sb-zoom-air-paul-rodriguez-1-og-bred",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Cool Grey (Est. ILS)",
+      "price": 340,
+      "link": "https://stockx.com/nike-zoom-vomero-5-cool-grey",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Metallic Silver Platinum Violet (Women's) (Est. ILS)",
+      "price": 348,
+      "link": "https://stockx.com/nike-zoom-vomero-5-metallic-silver-platinum-violet-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 SP Vast Grey (Est. ILS)",
+      "price": 352,
+      "link": "https://stockx.com/nike-zoom-vomero-5-sp-vast-grey",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Metallic Silver (Est. ILS)",
+      "price": 356,
+      "link": "https://stockx.com/nike-zoom-vomero-5-metallic-silver",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Cobblestone Flat Pewter (Women's) (Est. ILS)",
+      "price": 364,
+      "link": "https://stockx.com/nike-zoom-vomero-5-cobblestone-w",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Platinum Tint (Est. ILS)",
+      "price": 368,
+      "link": "https://stockx.com/nike-zoom-vomero-5-platinum-tint",
+      "sizes": []
+    },
+    {
       "title": "נעלי ריצה AIR ZOOM CROSSOVER 2 נוער - ילדים",
       "price": 369.9,
-      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=3a2c22b76&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=38f5bf28f&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689003_1.png?v=1749553812&width=533",
       "store": "Mega Sport"
     },
     {
       "title": "נעלי כדורסל AIR ZOOM CROSSOVER 2 - ילדים",
       "price": 369.9,
-      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=3a2c22b76&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=38f5bf28f&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689001_5.png?v=1749559197&width=533",
       "store": "Mega Sport"
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 SE SP Dark Grey Black White (Est. ILS)",
+      "price": 372,
+      "link": "https://stockx.com/nike-zoom-vomero-5-dark-grey-black-white",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Field Jaxx Travis Scott Light Chocolate (Est. ILS)",
+      "price": 372,
+      "link": "https://stockx.com/nike-zoom-field-jaxx-travis-scott-light-chocolate",
+      "sizes": []
     },
     {
       "store": "Nike IL",
@@ -57,10 +148,52 @@
       "sizes": []
     },
     {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Triple Black (Est. ILS)",
+      "price": 396,
+      "link": "https://stockx.com/nike-vomero-5-triple-black",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Field Jaxx Travis Scott Leche Blue (Est. ILS)",
+      "price": 396,
+      "link": "https://stockx.com/nike-zoom-field-jaxx-travis-scott-leche-blue",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Metallic Gold (Women's) (Est. ILS)",
+      "price": 412,
+      "link": "https://stockx.com/nike-zoom-vomero-5-metallic-gold-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Chrome Toe (Women's) (Est. ILS)",
+      "price": 412,
+      "link": "https://stockx.com/nike-zoom-vomero-5-chrome-toe-womens",
+      "sizes": []
+    },
+    {
       "store": "Nike IL",
       "title": "Nike SB Zoom Blazer Mid",
       "price": 419.9,
       "link": "https://www.nike.com/il/t/sb-zoom-blazer-mid-skate-shoes-WyTAj8OA/864349-007",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike SB Zoom Air Paul Rodriguez 1 Habanero Red All-Star (Est. ILS)",
+      "price": 428,
+      "link": "https://stockx.com/nike-sb-zoom-air-paul-rodriguez-1-habanero-red-all-star",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 College Grey Cave Stone (Est. ILS)",
+      "price": 428,
+      "link": "https://stockx.com/nike-zoom-vomero-5-college-grey-cave-stone",
       "sizes": []
     },
     {
@@ -78,6 +211,34 @@
       "sizes": []
     },
     {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Triple White (Women's) (Est. ILS)",
+      "price": 460,
+      "link": "https://stockx.com/nike-zoom-vomero-5-triple-white-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Iron Grey Chrome (Est. ILS)",
+      "price": 460,
+      "link": "https://stockx.com/nike-zoom-vomero-5-iron-grey-chrome",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom Pegasus Premium Anthracite (Est. ILS)",
+      "price": 460,
+      "link": "https://stockx.com/nike-air-zoom-pegasus-premium-anthracite",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Sanddrift (Women's) (Est. ILS)",
+      "price": 468,
+      "link": "https://stockx.com/nike-zoom-vomero-5-sanddrift-womens",
+      "sizes": []
+    },
+    {
       "store": "Nike IL",
       "title": "Nike Zoom Vomero 5",
       "price": 479.9,
@@ -89,6 +250,13 @@
       "title": "Nike Zoom Vomero 5",
       "price": 479.9,
       "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-with-reflective-design-accents-4y7DywTU/IB8929-001",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Photon Dust Metallic Silver (Women's) (Est. ILS)",
+      "price": 484,
+      "link": "https://stockx.com/nike-zoom-vomero-5-photon-dust-metallic-silver-w",
       "sizes": []
     },
     {
@@ -113,6 +281,13 @@
       "sizes": []
     },
     {
+      "store": "StockX",
+      "title": "Nike Air Zoom Alphafly Next% 3 Bright Crimson Lime Blast Mint Foam Cave Purple (Est. ILS)",
+      "price": 528,
+      "link": "https://stockx.com/nike-air-zoom-alphafly-next-3-bright-crimson-lime-blast-mint-foam-cave-purple",
+      "sizes": []
+    },
+    {
       "store": "Nike IL",
       "title": "Nike Zoom Vomero Roam",
       "price": 529.9,
@@ -124,6 +299,27 @@
       "title": "Nike Zoom Vomero Roam",
       "price": 529.9,
       "link": "https://www.nike.com/il/t/zoom-vomero-roam-winterized-shoes-jXJ4q8/HQ2181-004",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Photon Dust Pink Foam (Women's) (Est. ILS)",
+      "price": 540,
+      "link": "https://stockx.com/nike-zoom-vomero-5-photon-dust-pink-foam-womens",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom Pegasus Premium Persian Violet (Est. ILS)",
+      "price": 540,
+      "link": "https://stockx.com/nike-air-zoom-pegasus-premium-persian-violet",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom GT Cut White Photo Blue (Est. ILS)",
+      "price": 544,
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-white-photo-blue",
       "sizes": []
     },
     {
@@ -189,6 +385,20 @@
       "sizes": []
     },
     {
+      "store": "StockX",
+      "title": "Nike Air Zoom Pegasus Premium Black Metallic Silver (Est. ILS)",
+      "price": 556,
+      "link": "https://stockx.com/nike-air-zoom-pegasus-premium-black-metallic-silver",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom GT Cut 4 Preheat (Est. ILS)",
+      "price": 560,
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-4-preheat",
+      "sizes": []
+    },
+    {
       "index": 11,
       "title": "אייר ג’ורדן 1 ZOOM WHITE RACER BLUE. מידות: 36-47. משלוח חינם",
       "price": 579,
@@ -197,11 +407,46 @@
       "store": "Kits Club"
     },
     {
+      "store": "StockX",
+      "title": "Nike Air Zoom Huarache 2K4 All-Star (2026) (Est. ILS)",
+      "price": 604,
+      "link": "https://stockx.com/nike-air-zoom-huarache-2k4-all-star-2026",
+      "sizes": []
+    },
+    {
       "title": "נעלי ריצה מקצועיות AIR ZOOM VOMERO 16 - נשים",
       "price": 629.9,
-      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=3a2c22b76&_ss=r",
+      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=38f5bf28f&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIDA7698104_1.jpg?v=1748282514&width=533",
       "store": "Mega Sport"
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom GT Cut EYBL Volt (Est. ILS)",
+      "price": 632,
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-eybl-volt",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom Pegasus Premium White Metallic Silver (Est. ILS)",
+      "price": 644,
+      "link": "https://stockx.com/nike-air-zoom-pegasus-premium-white-metallic-silver",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom GT Cut 3 Jordan Poole Milk and Cookies (Est. ILS)",
+      "price": 648,
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-3-air-jordan-poole-milk-and-cookies",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom GT Cut Black Bright Crimson (Est. ILS)",
+      "price": 672,
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-black-bright-crimson",
+      "sizes": []
     },
     {
       "store": "Nike IL",
@@ -318,6 +563,13 @@
       "title": "Nike Zoom Fly 6 Glam",
       "price": 749.9,
       "link": "https://www.nike.com/il/t/zoom-fly-6-glam-road-running-shoes-u3LOb5PM/IO9572-400",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom GT Cut White Chrome (Est. ILS)",
+      "price": 756,
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-white-chrome",
       "sizes": []
     }
   ]
