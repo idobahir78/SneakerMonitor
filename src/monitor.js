@@ -58,7 +58,7 @@ async function run() {
     try {
         // Launch browser
         browser = await puppeteer.launch({
-            headless: false, // Run in headful mode for debugging
+            headless: "new", // Must be headless for GitHub Actions!
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-features=IsolateOrigins,site-per-process']
         });
 
