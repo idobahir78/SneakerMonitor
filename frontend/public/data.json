@@ -1,13 +1,324 @@
 {
-  "updatedAt": "2026-02-14T19:03:12.647Z",
-  "searchTerm": "Nike air zoom",
-  "lastSearchTerm": "Nike air zoom",
-  "lastSizeInput": "39",
+  "updatedAt": "2026-02-14T19:10:47.028Z",
+  "searchTerm": "zoom",
+  "lastSearchTerm": "zoom",
+  "lastSizeInput": "*",
   "filters": {
-    "sizes": [
-      39,
-      7
-    ]
+    "sizes": null
   },
-  "results": []
+  "results": [
+    {
+      "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY - גברים זהב",
+      "price": 300.93,
+      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=3a2c22b76&_ss=r",
+      "image": "https://www.megasport.co.il/cdn/shop/files/NIFZ1386300_1.png?v=1749534417&width=533",
+      "store": "Mega Sport"
+    },
+    {
+      "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY TF - גברים",
+      "price": 300.93,
+      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=3a2c22b76&_ss=r",
+      "image": "https://www.megasport.co.il/cdn/shop/files/NIFQ8449400_1.png?v=1750313646&width=533",
+      "store": "Mega Sport"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom SD 4",
+      "price": 309.9,
+      "link": "https://www.nike.com/il/t/zoom-sd-4-athletics-throwing-shoes-Vkt1SV/HQ3487-800",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom GP Challenge Pro",
+      "price": 319.9,
+      "link": "https://www.nike.com/il/t/zoom-gp-challenge-pro-clay-court-tennis-shoes-66jsNG/FJ7767-001",
+      "sizes": []
+    },
+    {
+      "title": "נעלי ריצה AIR ZOOM CROSSOVER 2 נוער - ילדים",
+      "price": 369.9,
+      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=3a2c22b76&_ss=r",
+      "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689003_1.png?v=1749553812&width=533",
+      "store": "Mega Sport"
+    },
+    {
+      "title": "נעלי כדורסל AIR ZOOM CROSSOVER 2 - ילדים",
+      "price": 369.9,
+      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=3a2c22b76&_ss=r",
+      "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689001_5.png?v=1749559197&width=533",
+      "store": "Mega Sport"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Rotational 6",
+      "price": 389.9,
+      "link": "https://www.nike.com/il/t/zoom-rotational-6-athletics-throwing-shoes-94xrrZ/FZ9606-800",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike SB Zoom Blazer Mid",
+      "price": 419.9,
+      "link": "https://www.nike.com/il/t/sb-zoom-blazer-mid-skate-shoes-WyTAj8OA/864349-007",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike SB Zoom Nyjah 4",
+      "price": 449.9,
+      "link": "https://www.nike.com/il/t/sb-zoom-nyjah-4-skate-shoes-LqMLpB/FQ1273-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike SB Zoom Janoski Slip By You",
+      "price": 449.9,
+      "link": "https://www.nike.com/il/u/custom-zoom-janoski-slip-by-you-10002117/4625062945",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 479.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-mHqLWB/HF1553-003",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 479.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-with-reflective-design-accents-4y7DywTU/IB8929-001",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Fly 6",
+      "price": 519.9,
+      "link": "https://www.nike.com/il/t/zoom-fly-6-road-racing-shoes-ZJRGd7/FN8454-403",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike NIKE ZOOM KD IV IB3550-300",
+      "price": 521,
+      "link": "https://playersix.co.il/product/nike-nike-zoom-kd-iv-ib3550-300/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike NIKE ZOOM KD IV IB3550-300",
+      "price": 521,
+      "link": "https://playersix.co.il/product/nike-nike-zoom-kd-iv-ib3550-300/",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero Roam",
+      "price": 529.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-roam-winterized-shoes-iKYIf0bi/HQ2181-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero Roam",
+      "price": 529.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-roam-winterized-shoes-jXJ4q8/HQ2181-004",
+      "sizes": []
+    },
+    {
+      "index": 0,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 KEEP IT A BUCK. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-buck/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-KEEO-IT-A-BUCK-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 1,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FIVE THE HARD WAY. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-five/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FIVE-THE-HARD-WAY-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 2,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 OREO. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-oreo/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-OREO-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 3,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 MADE IN SEPOLIA. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-mis/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-MADE-IN-SEPOLIA-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 4,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FOSSIL STONE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-fossil/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FOSSIL-STONE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 5,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 WHITE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-white/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 549.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-Ht17h1/FJ4151-008",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "NikeCourt Air Zoom Vapor Pro 2",
+      "price": 549.9,
+      "link": "https://www.nike.com/il/t/nikecourt-air-zoom-vapor-pro-2-carpet-tennis-shoes-rDC2H3/FB7092-001",
+      "sizes": []
+    },
+    {
+      "index": 11,
+      "title": "אייר ג’ורדן 1 ZOOM WHITE RACER BLUE. מידות: 36-47. משלוח חינם",
+      "price": 579,
+      "link": "https://thekitsclub7.com/product/aj1-zoom-white-racer-blue/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/03/AJ1-HIGH-RACER-BLUE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "title": "נעלי ריצה מקצועיות AIR ZOOM VOMERO 16 - נשים",
+      "price": 629.9,
+      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=3a2c22b76&_ss=r",
+      "image": "https://www.megasport.co.il/cdn/shop/files/NIDA7698104_1.jpg?v=1748282514&width=533",
+      "store": "Mega Sport"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-XBFhIVqf/II6236-001",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-HgIXz9bN/HF1553-202",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-x5c2bV/FD0884-025",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom GP Challenge 1.5 PRM",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/zoom-gp-challenge-1-5-prm-hard-court-tennis-shoes-hmev4EHl/IQ5181-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-shoes-9tQkbL/HF1877-001",
+      "sizes": []
+    },
+    {
+      "index": 6,
+      "title": "אייר ג’ורדן 1 ZOOM CMFT GREY FOG. מידות 36-46. משלוח חינם",
+      "price": 689,
+      "link": "https://thekitsclub7.com/product/aj1-cmft-gf/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/03/AJ1-ZOOM-CMFT-GREY-FOG-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 7,
+      "title": "אייר ג’ורדן 1 ZOOM CMFT PINK OXFORD. מידות 36-46. משלוח חינם",
+      "price": 689,
+      "link": "https://thekitsclub7.com/product/aj1-cmft-pox/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/02/AJ1-ZOOM-CMFT-PINK-OXFORD-web-001-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 8,
+      "title": "אייר ג’ורדן 1 ZOOM CMFT TEAM RED. מידות 36-46. משלוח חינם",
+      "price": 689,
+      "link": "https://thekitsclub7.com/product/aj1-cmft-tr/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/01/AJ1-ZOOM-CMFT-TEAM-RED-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 9,
+      "title": "אייר ג’ורדן 1 ZOOM CMFT GOLD LASER. מידות 36-46. משלוח חינם",
+      "price": 689,
+      "link": "https://thekitsclub7.com/product/aj1-cmft-gl/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/12/AJ1-ZOOM-CMFT-GOLD-LASER-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 10,
+      "title": "נעלי אייר ג’ורדן 1 ZOOM FEARLESS REFLECTIVE. מידות: 36-46 משלוח חינם",
+      "price": 689,
+      "link": "https://thekitsclub7.com/product/aj1-zf-ref/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/06/AJ1-FEARLESS-BLACK-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero 5 SE",
+      "price": 729.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-5-se-shoes-HrE9Q0B2/IQ6589-001",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Vomero Roam",
+      "price": 749.9,
+      "link": "https://www.nike.com/il/t/zoom-vomero-roam-shoes-PtEIT7pf/HV6901-001",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Fly 6",
+      "price": 749.9,
+      "link": "https://www.nike.com/il/t/zoom-fly-6-road-racing-shoes-9VNC9Mmk/IQ3430-476",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Fly 6 Glam",
+      "price": 749.9,
+      "link": "https://www.nike.com/il/t/zoom-fly-6-glam-road-racing-shoes-wSvrKBWU/IO9566-400",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Zoom Fly 6",
+      "price": 749.9,
+      "link": "https://www.nike.com/il/t/zoom-fly-6-road-racing-shoe-gr0mWJQ2/IQ3442-751",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Zoom Fly 6 Glam",
+      "price": 749.9,
+      "link": "https://www.nike.com/il/t/zoom-fly-6-glam-road-running-shoes-u3LOb5PM/IO9572-400",
+      "sizes": []
+    }
+  ]
 }
