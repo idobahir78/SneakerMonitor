@@ -29,7 +29,10 @@ class NikeILScraper extends BaseScraper {
 
                     if (priceEl) {
                         const priceText = priceEl.innerText;
-                        price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                        const numbers = priceText.match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) {
+                            price = Math.min(...numbers.map(n => parseFloat(n)));
+                        }
                     }
 
                     const sizes = []; // Sizes verified via deep scrape

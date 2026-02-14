@@ -32,7 +32,11 @@ class TheShovalScraper extends BaseScraper {
                         }
                     }
 
-                    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                    const numbers = priceText.match(/[0-9.]+/g);
+                    let price = 0;
+                    if (numbers && numbers.length > 0) {
+                        price = Math.min(...numbers.map(n => parseFloat(n)));
+                    }
                     const sizes = []; // Sizes verified via deep scrape
 
                     results.push({

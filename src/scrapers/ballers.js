@@ -45,15 +45,22 @@ class BallersScraper extends BaseScraper {
                 if (titleEl && linkEl) {
                     const title = titleEl.innerText.trim();
                     const link = linkEl.href;
-                    const priceText = priceEl ? priceEl.innerText : '0';
-                    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                    let price = 0;
+                    if (priceEl) {
+                        const priceText = priceEl.innerText;
+                        const numbers = priceText.match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) {
+                            price = Math.min(...numbers.map(n => parseFloat(n)));
+                        }
+                    }
 
                     results.push({
                         index,
                         title,
                         price,
                         link,
-                        image: imgEl ? imgEl.src : ''
+                        image: imgEl ? imgEl.src : '',
+                        store: 'Ballers'
                     });
                 }
             });
