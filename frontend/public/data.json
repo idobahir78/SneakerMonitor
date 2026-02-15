@@ -1,13 +1,10 @@
 {
-  "updatedAt": "2026-02-15T08:23:06.007Z",
+  "updatedAt": "2026-02-15T08:37:00.132Z",
   "searchTerm": "Hoka Clifton 9",
   "lastSearchTerm": "Hoka Clifton 9",
-  "lastSizeInput": "43",
+  "lastSizeInput": "*",
   "filters": {
-    "sizes": [
-      43,
-      10
-    ]
+    "sizes": null
   },
   "results": []
 }
