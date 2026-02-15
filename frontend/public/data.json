@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-15T05:05:19.610Z",
+  "updatedAt": "2026-02-15T06:10:11.165Z",
   "searchTerm": "zoom",
   "lastSearchTerm": "zoom",
   "lastSizeInput": "--json",
@@ -31,14 +31,14 @@
     {
       "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY - גברים זהב",
       "price": 300.93,
-      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=40a8b66c9&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifz1386300?_pos=1&_sid=8ac091ae1&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFZ1386300_1.png?v=1749534417&width=533",
       "store": "Mega Sport"
     },
     {
       "title": "נעלי קטרגל ZOOM VAPOR 16 ACADEMY TF - גברים",
       "price": 300.93,
-      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=40a8b66c9&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifq8449400?_pos=2&_sid=8ac091ae1&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFQ8449400_1.png?v=1750313646&width=533",
       "store": "Mega Sport"
     },
@@ -122,14 +122,14 @@
     {
       "title": "נעלי ריצה AIR ZOOM CROSSOVER 2 נוער - ילדים",
       "price": 369.9,
-      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=40a8b66c9&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifb2689003?_pos=3&_sid=8ac091ae1&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689003_1.png?v=1749553812&width=533",
       "store": "Mega Sport"
     },
     {
       "title": "נעלי כדורסל AIR ZOOM CROSSOVER 2 - ילדים",
       "price": 369.9,
-      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=40a8b66c9&_ss=r",
+      "link": "https://www.megasport.co.il/products/nifb2689001?_pos=4&_sid=8ac091ae1&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIFB2689001_5.png?v=1749559197&width=533",
       "store": "Mega Sport"
     },
@@ -166,6 +166,13 @@
       "title": "Nike Zoom Field Jaxx Travis Scott Leche Blue (Est. ILS)",
       "price": 396,
       "link": "https://stockx.com/nike-zoom-field-jaxx-travis-scott-leche-blue",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Zoom Vomero 5 Cool Grey Wolf Grey (Est. ILS)",
+      "price": 396,
+      "link": "https://stockx.com/nike-zoom-vomero-5-cool-grey-wolf-grey",
       "sizes": []
     },
     {
@@ -229,6 +236,13 @@
       "title": "Nike Zoom Vomero 5 Iron Grey Chrome (Est. ILS)",
       "price": 460,
       "link": "https://stockx.com/nike-zoom-vomero-5-iron-grey-chrome",
+      "sizes": []
+    },
+    {
+      "store": "StockX",
+      "title": "Nike Air Zoom Pegasus Premium Anthracite (Est. ILS)",
+      "price": 460,
+      "link": "https://stockx.com/nike-air-zoom-pegasus-premium-anthracite",
       "sizes": []
     },
     {
@@ -399,13 +413,6 @@
       "sizes": []
     },
     {
-      "store": "StockX",
-      "title": "Nike Zoom Vomero 5 Anthracite Flat Silver (Est. ILS)",
-      "price": 560,
-      "link": "https://stockx.com/nike-zoom-vomero-5-anthracite-flat-silver",
-      "sizes": []
-    },
-    {
       "index": 11,
       "title": "אייר ג’ורדן 1 ZOOM WHITE RACER BLUE. מידות: 36-47. משלוח חינם",
       "price": 579,
@@ -416,7 +423,7 @@
     {
       "title": "נעלי ריצה מקצועיות AIR ZOOM VOMERO 16 - נשים",
       "price": 629.9,
-      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=40a8b66c9&_ss=r",
+      "link": "https://www.megasport.co.il/products/nida7698104?_pos=5&_sid=8ac091ae1&_ss=r",
       "image": "https://www.megasport.co.il/cdn/shop/files/NIDA7698104_1.jpg?v=1748282514&width=533",
       "store": "Mega Sport"
     },
@@ -443,16 +450,16 @@
     },
     {
       "store": "StockX",
-      "title": "Nike Air Zoom GT Cut Black Bright Crimson (Est. ILS)",
-      "price": 672,
-      "link": "https://stockx.com/nike-air-zoom-gt-cut-black-bright-crimson",
+      "title": "Nike Air Zoom Huarache 2K4 All-Star (2026) (Est. ILS)",
+      "price": 668,
+      "link": "https://stockx.com/nike-air-zoom-huarache-2k4-all-star-2026",
       "sizes": []
     },
     {
       "store": "StockX",
-      "title": "Nike Air Zoom Huarache 2K4 All-Star (2026) (Est. ILS)",
+      "title": "Nike Air Zoom GT Cut Black Bright Crimson (Est. ILS)",
       "price": 672,
-      "link": "https://stockx.com/nike-air-zoom-huarache-2k4-all-star-2026",
+      "link": "https://stockx.com/nike-air-zoom-gt-cut-black-bright-crimson",
       "sizes": []
     },
     {
@@ -570,13 +577,6 @@
       "title": "Nike Zoom Fly 6 Glam",
       "price": 749.9,
       "link": "https://www.nike.com/il/t/zoom-fly-6-glam-road-running-shoes-u3LOb5PM/IO9572-400",
-      "sizes": []
-    },
-    {
-      "store": "StockX",
-      "title": "Nike Air Zoom GT Cut White Chrome (Est. ILS)",
-      "price": 756,
-      "link": "https://stockx.com/nike-air-zoom-gt-cut-white-chrome",
       "sizes": []
     }
   ]
