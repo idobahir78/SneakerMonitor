@@ -24,6 +24,11 @@ const ShoesOnlineScraper = require('./scrapers/shoesonline');
 const MasterSportScraper = require('./scrapers/mastersport');
 const ZolSportScraper = require('./scrapers/zolsport');
 const AlufSportScraper = require('./scrapers/alufsport');
+const LimeShoesScraper = require('./scrapers/limeshoes');
+const MayersScraper = require('./scrapers/mayers');
+const Shoes2uScraper = require('./scrapers/shoes2u');
+const Arba4Scraper = require('./scrapers/arba4');
+const KSPScraper = require('./scrapers/ksp');
 
 // --- USER CONFIGURATION (CLI SUPPORT) ---
 const args = process.argv.slice(2);
@@ -116,7 +121,12 @@ async function run() {
             new ShoesOnlineScraper(SEARCH_INPUT),
             new MasterSportScraper(SEARCH_INPUT),
             new ZolSportScraper(SEARCH_INPUT),
-            new AlufSportScraper(SEARCH_INPUT)
+            new AlufSportScraper(SEARCH_INPUT),
+            new LimeShoesScraper(SEARCH_INPUT),
+            new MayersScraper(SEARCH_INPUT),
+            new Shoes2uScraper(SEARCH_INPUT),
+            new Arba4Scraper(SEARCH_INPUT),
+            new KSPScraper(SEARCH_INPUT)
         ];
 
         let allResults = [];

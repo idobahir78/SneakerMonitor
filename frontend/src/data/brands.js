@@ -16,7 +16,7 @@ const BRANDS_DATA = {
         "530", "550", "9060", "2002R", "1906R", "990v6", "1080v13", "FuelCell Rebel"
     ],
     "Puma": [
-        "MB.01", "MB.02", "MB.03", "MB.04", "Suede", "Palermo", "All-Pro Nitro"
+        "MB.01", "MB.02", "MB.03", "MB.04", "MB.05", "Suede", "Palermo", "All-Pro Nitro", "Velophasis"
     ],
     "Under Armour": [
         "Curry 1", "Curry 2", "Curry 4", "Curry 11", "Flow FUTR X"
