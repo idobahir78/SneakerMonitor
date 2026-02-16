@@ -145,9 +145,9 @@ function writeProgressiveUpdate(isRunning = true) {
     }
 
     const outputData = {
-        lastUpdated: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
         isRunning: isRunning,
-        lastSearchTerm: RAW_SEARCH_INPUT,
+        searchTerm: RAW_SEARCH_INPUT,
         lastSizeInput: SIZE_INPUT || null,
         filters: {
             models: TARGET_MODELS.map(r => r.source),
@@ -165,10 +165,13 @@ function writeProgressiveUpdate(isRunning = true) {
         console.error(`   ⚠️ Failed to write progressive update: ${err.message}`.yellow);
     }
 }
-
 async function run() {
     console.log(`\nStarting scrape at ${new Date().toLocaleTimeString()}...`.cyan);
     console.log(`🔎 Searching for: "${SEARCH_INPUT}"`.yellow.bold);
+
+    // Immediate feedback: mark as running in data.json
+    writeProgressiveUpdate(true);
+
     console.log(`   (Patterns: ${TARGET_MODELS.join(', ')})`.gray);
 
     if (TARGET_SIZES === null) {
@@ -234,7 +237,6 @@ async function run() {
         const executeTask = async (task) => {
             const { query, scraper } = task;
             try {
-                // console.log(`   [${scraper.storeName}] Starting for "${query}"...`);
                 const results = await scraper.scrape(browser, TARGET_MODELS, TARGET_SIZES);
 
                 if (results.length > 0) {

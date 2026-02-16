@@ -16,8 +16,8 @@ console.log(`Found ${files.length} partial files: ${files.join(', ')}`);
 
 let finalData = {
     updatedAt: new Date().toISOString(),
+    isRunning: false,
     searchTerm: "",
-    lastSearchTerm: "",
     lastSizeInput: "",
     filters: { sizes: [] },
     results: []

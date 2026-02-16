@@ -24,7 +24,9 @@ const Dashboard = () => {
             })
             .then(jsonData => {
                 // Check if scanning is in progress
-                setIsScanning(jsonData.isRunning === true);
+                // Robust check: explicitly true OR a recently updated date during scan
+                const isCurrentlyScanning = jsonData.isRunning === true;
+                setIsScanning(isCurrentlyScanning);
 
                 // Check if data actually changed (optional optimization, but nice for UX)
                 if (JSON.stringify(jsonData) !== JSON.stringify(data)) {
@@ -54,12 +56,15 @@ const Dashboard = () => {
 
     if (loading) return <div className="loading-screen">Loading Monitor...</div>;
     if (error) return <div className="error-screen">Error: {error}</div>;
-    if (!data) return <div className="error-screen">No Data Available</div>;
+    const { results, updatedAt, searchTerm, lastUpdated, lastSearchTerm } = data;
 
-    const { results, updatedAt, searchTerm } = data;
+    // Unify schema locally (fallback for old data files)
+    const effectiveResults = results || [];
+    const effectiveUpdateAt = updatedAt || lastUpdated;
+    const effectiveSearchTerm = searchTerm || lastSearchTerm || 'Unknown';
 
     // Filter results based on client-side search
-    const filteredResults = results.filter(item =>
+    const filteredResults = effectiveResults.filter(item =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.store.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -67,10 +72,10 @@ const Dashboard = () => {
     // Calculate Stats
     const totalFound = filteredResults.length;
     const lowestPrice = filteredResults.reduce((min, item) => (item.price < min ? item.price : min), Infinity);
-    const bestPriceDisplay = totalFound > 0 ? `₪${lowestPrice.toFixed(2)}` : '-';
+    const bestPriceDisplay = totalFound > 0 && lowestPrice !== Infinity ? `₪${lowestPrice.toFixed(2)}` : '-';
 
     // Format Date
-    const lastUpdated = new Date(updatedAt).toLocaleString();
+    const lastUpdatedDisplay = effectiveUpdateAt ? new Date(effectiveUpdateAt).toLocaleString() : 'N/A';
 
     // Handle scrape trigger from ScraperControl
     const handleScrapeTrigger = (options = {}) => {
@@ -104,7 +109,7 @@ const Dashboard = () => {
                 )}
 
                 <p className={`last-updated ${refreshFlash ? 'flash-update' : ''}`}>
-                    Last Updated: {lastUpdated}
+                    Last Updated: {lastUpdatedDisplay}
                     <span style={{ marginLeft: '10px', fontSize: '0.8em', opacity: 0.7 }}>
                         (↻ Auto-refresh {isScanning ? 'every 3s' : 'on'})
                     </span>
@@ -139,9 +144,9 @@ const Dashboard = () => {
             <main className="results-grid">
                 {filteredResults.length === 0 ? (
                     <div className="empty-state">
-                        No matches found for "{searchQuery}"
+                        {isScanning ? "Scanning for results..." : `No matches found for "${searchQuery}"`}
                         <br />
-                        (Scraped for: {searchTerm})
+                        <small>(Scraped for: {effectiveSearchTerm})</small>
                     </div>
                 ) : (
                     filteredResults.map((item, index) => (
