@@ -11,7 +11,6 @@ const SizeUtils = require('./utils/size-utils');
 puppeteer.use(StealthPlugin());
 
 const Factory54Scraper = require('./scrapers/factory54');
-// StockX removed as per Phase 7
 const TerminalXScraper = require('./scrapers/terminalx');
 const FootLockerScraper = require('./scrapers/footlocker');
 const TheShovalScraper = require('./scrapers/theshoval');
@@ -50,18 +49,9 @@ if (shouldLoadLast) {
                 console.log(`🔄 Loaded last search term: "${data.lastSearchTerm}"`.cyan);
                 RAW_SEARCH_INPUT = data.lastSearchTerm;
             }
-            if (data.lastFilters && data.lastFilters.sizes) {
-                // Convert array back to string if needed, or handle as array
-                // SizeUtils expects string input usually, but we need to check usage
-                // simpler approach: just rely on the fact that if we scheduled it, we might want to default to ALL or persist size too.
-                // For now, let's persist size input string if possible.
-                // Actually, data.json stores "filters: { sizes: [...] }" which are already processed.
-                // We need the RAW input string to re-process if we want to be safe, OR just use the processed sizes directly.
-                // Let's look for a "lastSizeInput" field we will add.
-                if (data.lastSizeInput) {
-                    console.log(`🔄 Loaded last size input: "${data.lastSizeInput}"`.cyan);
-                    SIZE_INPUT = data.lastSizeInput;
-                }
+            if (data.lastSizeInput) {
+                console.log(`🔄 Loaded last size input: "${data.lastSizeInput}"`.cyan);
+                SIZE_INPUT = data.lastSizeInput;
             }
         }
     } catch (e) {
@@ -90,7 +80,37 @@ let TARGET_SIZES;
 if (SIZE_INPUT) {
     TARGET_SIZES = SizeUtils.getRelatedSizes(SIZE_INPUT);
 } else {
-    TARGET_SIZES = DEFAULT_SIZES;
+    TARGET_SIZES = null; // null means "all sizes"
+}
+
+// Progressive updates flag (enable for real-time updates during manual runs)
+const PROGRESSIVE_UPDATES = process.env.PROGRESSIVE_UPDATES === 'true';
+
+// Helper function to write progressive updates
+function writeProgressiveUpdate(results, isRunning = true) {
+    if (!PROGRESSIVE_UPDATES) return; // Skip if not in progressive mode
+
+    const outputPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+    const outputData = {
+        lastUpdated: new Date().toISOString(),
+        isRunning: isRunning,
+        lastSearchTerm: RAW_SEARCH_INPUT,
+        lastSizeInput: SIZE_INPUT || null,
+        filters: {
+            models: TARGET_MODELS.map(r => r.source),
+            sizes: TARGET_SIZES || []
+        },
+        results: results
+    };
+
+    try {
+        fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
+        if (isRunning) {
+            console.log(`   💾 Progressive update: ${results.length} results saved...`.dim);
+        }
+    } catch (err) {
+        console.error(`   ⚠️ Failed to write progressive update: ${err.message}`.yellow);
+    }
 }
 
 async function run() {
@@ -112,69 +132,121 @@ async function run() {
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-features=IsolateOrigins,site-per-process']
         });
 
-        // Initialize scrapers
-        const allScrapers = [
-            new Factory54Scraper(SEARCH_INPUT),
-            // new StockXScraper(SEARCH_INPUT), // Removed
-            new TerminalXScraper(SEARCH_INPUT),
-            new FootLockerScraper(SEARCH_INPUT),
-            new TheShovalScraper(SEARCH_INPUT),
-            new BallersScraper(SEARCH_INPUT),
-            new PlayerSixScraper(SEARCH_INPUT),
-            new NikeILScraper(SEARCH_INPUT),
-            new KitsClubScraper(SEARCH_INPUT),
-            new MegaSportScraper(SEARCH_INPUT),
-            new ShoesOnlineScraper(SEARCH_INPUT),
-            new MasterSportScraper(SEARCH_INPUT),
-            new ZolSportScraper(SEARCH_INPUT),
-            new AlufSportScraper(SEARCH_INPUT),
-            new LimeShoesScraper(SEARCH_INPUT),
-            new MayersScraper(SEARCH_INPUT),
-            new Shoes2uScraper(SEARCH_INPUT),
-            new Arba4Scraper(SEARCH_INPUT),
-            new KSPScraper(SEARCH_INPUT)
+        // Factory function to create fresh scrapers for each query variation
+        const createScrapers = (searchQuery) => [
+            new Factory54Scraper(searchQuery),
+            new TerminalXScraper(searchQuery),
+            new FootLockerScraper(searchQuery),
+            new TheShovalScraper(searchQuery),
+            new BallersScraper(searchQuery),
+            new PlayerSixScraper(searchQuery),
+            new NikeILScraper(searchQuery),
+            new KitsClubScraper(searchQuery),
+            new MegaSportScraper(searchQuery),
+            new ShoesOnlineScraper(searchQuery),
+            new MasterSportScraper(searchQuery),
+            new ZolSportScraper(searchQuery),
+            new AlufSportScraper(searchQuery),
+            new LimeShoesScraper(searchQuery),
+            new MayersScraper(searchQuery),
+            new Shoes2uScraper(searchQuery),
+            new Arba4Scraper(searchQuery),
+            new KSPScraper(searchQuery)
         ];
 
-        // Filter scrapers if needed
-        let scrapers = allScrapers;
-        if (STORE_FILTER.length > 0) {
-            scrapers = allScrapers.filter(s =>
-                STORE_FILTER.some(filter => s.storeName.toLowerCase().includes(filter))
-            );
-        }
-
-        if (scrapers.length === 0) {
-            console.log("⚠️ No scrapers matched the filter!".red);
-            return;
-        }
-
-        console.log(`🚀 Running ${scrapers.length} scrapers: ${scrapers.map(s => s.storeName).join(', ')}`.gray);
+        // Generate query variations
+        const queryVariations = SmartSearch.generateQueryVariations(SEARCH_INPUT);
+        console.log(`🔄 Query Variations: [${queryVariations.join(', ')}]`.cyan);
 
         let allResults = [];
 
-        // Run scrapers in parallel-ish (but deep scrape is sequential internal)
-        const scrapePromises = scrapers.map(scraper => {
-            // Pass patterns and sizes to scrape method
-            return scraper.scrape(browser, TARGET_MODELS, TARGET_SIZES)
-                .then(results => {
-                    console.log(`✅ ${scraper.storeName}: Found ${results.length} verified matches.`);
+        // Run all variations in parallel (restore original speed!)
+        const variationPromises = queryVariations.map(async (queryVariation) => {
+            console.log(`\n🔍 Trying variation: "${queryVariation}"...`.yellow);
+
+            const allScrapers = createScrapers(queryVariation);
+
+            // Filter scrapers if needed
+            let scrapers = allScrapers;
+            if (STORE_FILTER.length > 0) {
+                scrapers = allScrapers.filter(s =>
+                    STORE_FILTER.some(filter => s.storeName.toLowerCase().includes(filter))
+                );
+            }
+
+            if (scrapers.length === 0) {
+                console.log("⚠️ No scrapers matched the filter!".red);
+                return []; // Return empty array for this variation
+            }
+
+            // Run scrapers in parallel for this variation
+            const scrapePromises = scrapers.map(async (scraper) => {
+                try {
+                    const results = await scraper.scrape(browser, TARGET_MODELS, TARGET_SIZES);
+
+                    if (results.length > 0) {
+                        console.log(`   ✅ ${scraper.storeName}: ${results.length} matches`);
+
+                        // Progressive update: write after each successful scraper
+                        if (PROGRESSIVE_UPDATES) {
+                            // Collect all results so far (need to merge with existing)
+                            allResults = allResults.concat(results);
+
+                            // Deduplicate before writing
+                            const uniqueSoFar = [];
+                            const seenLinks = new Set();
+                            for (const r of allResults) {
+                                if (!seenLinks.has(r.link)) {
+                                    seenLinks.add(r.link);
+                                    uniqueSoFar.push(r);
+                                }
+                            }
+
+                            writeProgressiveUpdate(uniqueSoFar, true);
+                        }
+                    }
+
                     return results;
-                })
-                .catch(err => {
-                    console.error(`❌ ${scraper.storeName} failed:`, err);
+                } catch (err) {
+                    // Silent error handling for variations
                     return [];
-                });
+                }
+            });
+
+            const results = await Promise.all(scrapePromises);
+
+            // Flatten this variation's results
+            const flatResults = [];
+            results.forEach(siteResults => {
+                flatResults.push(...siteResults);
+            });
+
+            return flatResults;
         });
 
-        const results = await Promise.all(scrapePromises);
+        // Wait for all variations to complete
+        const variationResults = await Promise.all(variationPromises);
 
-        // Flatten results
-        results.forEach(siteResults => {
-            allResults = allResults.concat(siteResults);
+        // Flatten all variation results
+        variationResults.forEach(results => {
+            allResults = allResults.concat(results);
         });
+
+        // Deduplicate by link (same product from different query variations)
+        const uniqueResults = [];
+        const seenLinks = new Set();
+
+        for (const result of allResults) {
+            if (!seenLinks.has(result.link)) {
+                seenLinks.add(result.link);
+                uniqueResults.push(result);
+            }
+        }
+
+        console.log(`\n📊 Total: ${uniqueResults.length} unique products (from ${allResults.length} total across all variations)`.green.bold);
 
         // Results are already filtered and verified by BaseScraper!
-        const filteredResults = allResults;
+        const filteredResults = uniqueResults;
 
         // Sort by price
         filteredResults.sort((a, b) => a.price - b.price);
@@ -185,51 +257,42 @@ async function run() {
 
             filteredResults.forEach((item, index) => {
                 const store = item.store || 'Unknown';
-                const sizes = Array.isArray(item.sizes) ? item.sizes.join(', ') : (item.sizes || 'N/A');
+                const title = item.title || 'N/A';
+                const price = item.price ? `₪${item.price}` : 'N/A';
+                const sizes = item.sizes && item.sizes.length > 0 ? item.sizes.join(', ') : 'All/Unknown';
+                const link = item.link || '';
 
-                console.log(`#${index + 1}: [${store}] ${item.title}`.yellow);
-                console.log(`    Price: ₪${item.price} (approx if USD)`.white);
-                console.log(`    Available Sizes: ${sizes}`.cyan);
-                console.log(`    Link: ${item.link}`.blue.underline);
-                console.log('---');
+                console.log(`${index + 1}. ${store.padEnd(20)} | ${title.substring(0, 40).padEnd(42)} | ${price.padEnd(10)} | Sizes: ${sizes}`);
             });
         } else {
-            console.log(`\nNo matches found for [${SEARCH_INPUT}] with size filter at this time.`.gray);
+            console.log(`❌ No matches found.`.red);
         }
 
-        // Export to JSON if requested (or default behavior for easier data passing)
-        // Check for --json argument or file path in args
-        const jsonArgIndex = args.indexOf('--json');
-        let jsonPath = null;
+        await browser.close();
 
-        if (jsonArgIndex !== -1) {
-            jsonPath = args[jsonArgIndex + 1] || 'data.json';
-        } else if (process.env.EXPORT_JSON) {
-            jsonPath = process.env.EXPORT_JSON;
-        }
+        // --- EXPORT TO JSON ---
+        const outputPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+        const outputData = {
+            lastUpdated: new Date().toISOString(),
+            isRunning: false, // Scan complete!
+            lastSearchTerm: RAW_SEARCH_INPUT,
+            lastSizeInput: SIZE_INPUT || null,
+            filters: {
+                models: TARGET_MODELS.map(r => r.source), // Store source strings
+                sizes: TARGET_SIZES || []
+            },
+            results: filteredResults
+        };
 
-        if (jsonPath) {
-            const dataToSave = {
-                updatedAt: new Date().toISOString(),
-                searchTerm: SEARCH_INPUT,
-                // Persist the RAW inputs so --load-last can use them next time
-                lastSearchTerm: RAW_SEARCH_INPUT,
-                lastSizeInput: SIZE_INPUT || '',
-                filters: { sizes: TARGET_SIZES },
-                results: filteredResults
-            };
+        fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
+        console.log(`\n💾 Saved to ${outputPath}`.cyan);
 
-            const outputPath = path.resolve(jsonPath);
-            fs.writeFileSync(outputPath, JSON.stringify(dataToSave, null, 2));
-            console.log(`\n📄 Data exported to: ${outputPath}`.cyan.bold);
-        }
-
-    } catch (err) {
-        console.error("Critical Monitor Error:", err);
-    } finally {
+    } catch (error) {
+        console.error(`\n❌ Fatal Error: ${error.message}`.red);
         if (browser) await browser.close();
-        console.log(`Done.`.magenta);
+        process.exit(1);
     }
 }
 
+// Execute immediately
 run();

@@ -57,6 +57,40 @@ class SmartSearch {
             return new RegExp(patternStr, 'i');
         });
     }
+
+    /**
+     * Generates query variations for a search term to handle different store formats.
+     * Example: "MB.04" -> ["MB.04", "MB 04", "MB04"]
+     * Example: "LaMelo" -> ["LaMelo", "Melo", "MB"]
+     * @param {string} query - The original search query
+     * @returns {string[]} - Array of query variations to try
+     */
+    static generateQueryVariations(query) {
+        if (!query) return [query];
+
+        const variations = new Set();
+        variations.add(query); // Always include original
+
+        // Handle dot notation (MB.04 -> MB 04, MB04)
+        if (query.includes('.')) {
+            variations.add(query.replace(/\./g, ' '));  // MB.04 -> MB 04
+            variations.add(query.replace(/\./g, ''));   // MB.04 -> MB04
+        }
+
+        // Handle space notation (MB 04 -> MB.04, MB04)
+        if (query.includes(' ')) {
+            variations.add(query.replace(/\s+/g, '.'));  // MB 04 -> MB.04
+            variations.add(query.replace(/\s+/g, ''));   // MB 04 -> MB04
+        }
+
+        // Specific LaMelo handling
+        if (query.toLowerCase().includes('lamelo')) {
+            variations.add('Melo');
+            variations.add('MB');
+        }
+
+        return Array.from(variations);
+    }
 }
 
 module.exports = SmartSearch;
