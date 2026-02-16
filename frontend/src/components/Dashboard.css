@@ -323,41 +323,78 @@ body {
     margin-bottom: 5px;
 }
 
-.control-group input {
+.control-group input,
+.control-group select {
     width: 100%;
-    /* padding: 8px; -> Fixed by box-sizing globally or explicit width calc */
     padding: 8px;
     box-sizing: border-box;
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.3);
     color: white;
+    font-family: inherit;
+}
+
+.control-group select option {
+    background-color: #333;
+    color: white;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 0;
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.text-btn:hover {
+    opacity: 1;
+    color: white;
+}
+
+.select-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.action-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.action-row .save-btn {
+    flex: 1;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.action-row .trigger-btn {
+    flex: 2;
+    margin-top: 0;
+    /* Override previous margin */
 }
 
 .token-input-wrapper {
     display: flex;
     gap: 5px;
-}
-
-.save-btn {
-    padding: 5px 10px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.trigger-btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--success-color);
-    color: #000;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
 }
 
 .trigger-btn:disabled {

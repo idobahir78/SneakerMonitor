@@ -11,7 +11,7 @@ const SizeUtils = require('./utils/size-utils');
 puppeteer.use(StealthPlugin());
 
 const Factory54Scraper = require('./scrapers/factory54');
-const StockXScraper = require('./scrapers/stockx');
+// StockX removed as per Phase 7
 const TerminalXScraper = require('./scrapers/terminalx');
 const FootLockerScraper = require('./scrapers/footlocker');
 const TheShovalScraper = require('./scrapers/theshoval');
@@ -20,6 +20,10 @@ const PlayerSixScraper = require('./scrapers/player-six');
 const NikeILScraper = require('./scrapers/nike-il');
 const KitsClubScraper = require('./scrapers/kits-club');
 const MegaSportScraper = require('./scrapers/mega-sport');
+const ShoesOnlineScraper = require('./scrapers/shoesonline');
+const MasterSportScraper = require('./scrapers/mastersport');
+const ZolSportScraper = require('./scrapers/zolsport');
+const AlufSportScraper = require('./scrapers/alufsport');
 
 // --- USER CONFIGURATION (CLI SUPPORT) ---
 const args = process.argv.slice(2);
@@ -100,7 +104,7 @@ async function run() {
         // Initialize scrapers
         const scrapers = [
             new Factory54Scraper(SEARCH_INPUT),
-            new StockXScraper(SEARCH_INPUT),
+            // new StockXScraper(SEARCH_INPUT), // Removed
             new TerminalXScraper(SEARCH_INPUT),
             new FootLockerScraper(SEARCH_INPUT),
             new TheShovalScraper(SEARCH_INPUT),
@@ -108,7 +112,11 @@ async function run() {
             new PlayerSixScraper(SEARCH_INPUT),
             new NikeILScraper(SEARCH_INPUT),
             new KitsClubScraper(SEARCH_INPUT),
-            new MegaSportScraper(SEARCH_INPUT)
+            new MegaSportScraper(SEARCH_INPUT),
+            new ShoesOnlineScraper(SEARCH_INPUT),
+            new MasterSportScraper(SEARCH_INPUT),
+            new ZolSportScraper(SEARCH_INPUT),
+            new AlufSportScraper(SEARCH_INPUT)
         ];
 
         let allResults = [];

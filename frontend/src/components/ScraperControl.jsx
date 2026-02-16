@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import BRANDS_DATA from '../data/brands';
 
 const ScraperControl = ({ onTrigger }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [token, setToken] = useState('');
-    const [searchTerm, setSearchTerm] = useState('MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak');
+
+    // UI State for Brand/Model Selector
+    const [selectedBrand, setSelectedBrand] = useState('');
+    const [selectedModel, setSelectedModel] = useState('');
+    const [isManualMode, setIsManualMode] = useState(false);
+    const [manualSearchTerm, setManualSearchTerm] = useState('');
+
     const [sizes, setSizes] = useState('*');
     const [status, setStatus] = useState(null); // 'loading', 'success', 'error'
     const [message, setMessage] = useState('');
@@ -12,34 +19,72 @@ const ScraperControl = ({ onTrigger }) => {
         const savedToken = localStorage.getItem('github_pat');
         if (savedToken) setToken(savedToken);
 
-        const savedSearch = localStorage.getItem('scraper_search');
-        if (savedSearch) setSearchTerm(savedSearch);
-
         const savedSizes = localStorage.getItem('scraper_sizes');
         if (savedSizes) setSizes(savedSizes);
+
+        // Load saved selections
+        const savedBrand = localStorage.getItem('scraper_brand');
+        const savedModel = localStorage.getItem('scraper_model');
+        const savedManual = localStorage.getItem('scraper_manual_term');
+        const savedMode = localStorage.getItem('scraper_is_manual') === 'true';
+
+        if (savedBrand && BRANDS_DATA[savedBrand]) {
+            setSelectedBrand(savedBrand);
+            if (savedModel) setSelectedModel(savedModel);
+        }
+        if (savedManual) setManualSearchTerm(savedManual);
+        setIsManualMode(savedMode);
+
+        // Fallback: If no structured data saved but old 'scraper_search' exists, use it as manual
+        if (!savedBrand && !savedManual) {
+            const oldSearch = localStorage.getItem('scraper_search');
+            if (oldSearch) {
+                setManualSearchTerm(oldSearch);
+                setIsManualMode(true);
+            }
+        }
     }, []);
 
     const saveSettings = () => {
         localStorage.setItem('github_pat', token);
-        localStorage.setItem('scraper_search', searchTerm);
         localStorage.setItem('scraper_sizes', sizes);
+
+        localStorage.setItem('scraper_brand', selectedBrand);
+        localStorage.setItem('scraper_model', selectedModel);
+        localStorage.setItem('scraper_manual_term', manualSearchTerm);
+        localStorage.setItem('scraper_is_manual', isManualMode);
+
         setMessage('Settings saved!');
         setTimeout(() => setMessage(''), 2000);
     };
 
+    const getFinalSearchTerm = () => {
+        if (isManualMode) return manualSearchTerm;
+        if (selectedBrand && selectedModel) return `${selectedBrand} ${selectedModel}`;
+        if (selectedBrand) return selectedBrand;
+        return '';
+    };
+
     const triggerScrape = async () => {
+        const termToScrape = getFinalSearchTerm();
+
         if (!token) {
             setStatus('error');
             setMessage('Please enter a GitHub Token first.');
             return;
         }
 
+        if (!termToScrape) {
+            setStatus('error');
+            setMessage('Please select a model or enter a search term.');
+            return;
+        }
+
         // Auto-save settings
-        localStorage.setItem('scraper_search', searchTerm);
-        localStorage.setItem('scraper_sizes', sizes);
+        saveSettings();
 
         setStatus('loading');
-        setMessage('Triggering robot...');
+        setMessage(`Triggering robot for "${termToScrape}"...`);
 
         try {
             const response = await fetch(`https://api.github.com/repos/idobahir78/SneakerMonitor/actions/workflows/scrape.yml/dispatches`, {
@@ -52,7 +97,7 @@ const ScraperControl = ({ onTrigger }) => {
                 body: JSON.stringify({
                     ref: 'main',
                     inputs: {
-                        search_term: searchTerm,
+                        search_term: termToScrape,
                         sizes: sizes
                     }
                 })
@@ -85,6 +130,8 @@ const ScraperControl = ({ onTrigger }) => {
         );
     }
 
+    const availableModels = selectedBrand ? BRANDS_DATA[selectedBrand] : [];
+
     return (
         <div className="scraper-control-panel">
             <div className="control-header">
@@ -101,18 +148,55 @@ const ScraperControl = ({ onTrigger }) => {
                         onChange={(e) => setToken(e.target.value)}
                         placeholder="ghp_..."
                     />
-                    <button onClick={saveSettings} className="save-btn">Save Settings</button>
                 </div>
                 <small className="hint">Required for acting as you.</small>
             </div>
 
             <div className="control-group">
-                <label>Search Models</label>
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
+                <div className="label-row">
+                    <label>Search For</label>
+                    <button
+                        className="text-btn small"
+                        onClick={() => setIsManualMode(!isManualMode)}
+                    >
+                        {isManualMode ? "Switch to List" : "Switch to Manual"}
+                    </button>
+                </div>
+
+                {isManualMode ? (
+                    <input
+                        type="text"
+                        value={manualSearchTerm}
+                        onChange={(e) => setManualSearchTerm(e.target.value)}
+                        placeholder="e.g. Nike Air Max"
+                    />
+                ) : (
+                    <div className="select-group">
+                        <select
+                            value={selectedBrand}
+                            onChange={(e) => {
+                                setSelectedBrand(e.target.value);
+                                setSelectedModel(''); // Reset model on brand change
+                            }}
+                        >
+                            <option value="">Select Brand...</option>
+                            {Object.keys(BRANDS_DATA).map(brand => (
+                                <option key={brand} value={brand}>{brand}</option>
+                            ))}
+                        </select>
+
+                        <select
+                            value={selectedModel}
+                            onChange={(e) => setSelectedModel(e.target.value)}
+                            disabled={!selectedBrand || availableModels.length === 0}
+                        >
+                            <option value="">Select Model...</option>
+                            {availableModels.map(model => (
+                                <option key={model} value={model}>{model}</option>
+                            ))}
+                        </select>
+                    </div>
+                )}
             </div>
 
             <div className="control-group">
@@ -121,16 +205,20 @@ const ScraperControl = ({ onTrigger }) => {
                     type="text"
                     value={sizes}
                     onChange={(e) => setSizes(e.target.value)}
+                    placeholder="e.g. 42, 43 or *"
                 />
             </div>
 
-            <button
-                className={`trigger-btn ${status}`}
-                onClick={triggerScrape}
-                disabled={status === 'loading'}
-            >
-                {status === 'loading' ? 'Sending...' : 'Start Scrape 🚀'}
-            </button>
+            <div className="action-row">
+                <button onClick={saveSettings} className="save-btn">Save</button>
+                <button
+                    className={`trigger-btn ${status}`}
+                    onClick={triggerScrape}
+                    disabled={status === 'loading'}
+                >
+                    {status === 'loading' ? 'Sending...' : 'Start Scrape 🚀'}
+                </button>
+            </div>
 
             {message && <div className={`status-message ${status}`}>{message}</div>}
         </div>
