@@ -3,22 +3,20 @@ name: Scrape and Deploy
 
 on:
   schedule:
-    - cron: '0 * * * *' # Run hourly
-  workflow_dispatch: # Manual trigger
+    - cron: '0 * * * *'
+  workflow_dispatch:
     inputs:
       search_term:
-        description: 'Sneaker Model (e.g. "Jordan 1, Dunk")'
+        description: 'Sneaker Model'
         required: false
       sizes:
-        description: 'Sizes (e.g. "42, 43" or "*")'
+        description: 'Sizes'
         required: false
         default: '*'
       progressive_updates:
-        description: 'Enable Progressive Updates (Real-time)'
+        description: 'Enable Progressive Updates'
         required: false
         default: 'true'
-  push:
-    branches: [ main ]
 
 permissions:
   contents: write
@@ -27,7 +25,6 @@ jobs:
   scrape:
     name: Scrape Group ${{ matrix.group }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -57,57 +54,63 @@ jobs:
 
       - name: Run Scraper
         env:
-          DEBUG_LOGS: "false"
           SEARCH_INPUT: ${{ github.event.inputs.search_term }}
           SIZE_INPUT: ${{ github.event.inputs.sizes }}
           PROGRESSIVE_UPDATES: ${{ github.event.inputs.progressive_updates }}
         run: |
-          INPUT_TERM="${SEARCH_INPUT}"
-          INPUT_SIZES="${SIZE_INPUT}"
-          STORES="${{ steps.set-group.outputs.stores }}"
           OUTPUT_FILE="data-part-${{ matrix.group }}.json"
-          
-          if [ -z "$INPUT_TERM" ]; then
-             node src/monitor.js --load-last "--stores=$STORES" --json "$OUTPUT_FILE"
+          if [ -z "$SEARCH_INPUT" ]; then
+             node src/monitor.js --load-last "--stores=${{ steps.set-group.outputs.stores }}" --json "$OUTPUT_FILE"
           else
-             node src/monitor.js "$INPUT_TERM" "$INPUT_SIZES" "--stores=$STORES" --json "$OUTPUT_FILE"
+             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" "--stores=${{ steps.set-group.outputs.stores }}" --json "$OUTPUT_FILE"
           fi
 
-      - name: Progressive Merge & Deploy
+      - name: Upload Partial
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-part-${{ matrix.group }}
+          path: data-part-${{ matrix.group }}.json
+          retention-days: 1
+
+  merge-and-deploy:
+    needs: scrape
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: data-part-*
+          merge-multiple: true
+          path: . 
+
+      - name: Merge Results
+        run: node src/scripts/merge_results.js
+
+      - name: Commit & Push Data
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          
-          # 1. Discard any environment-specific changes to tracked files (like package-lock.json)
-          git checkout -- .
-          
-          # 2. Sync with origin (node_modules is ignored now, so no conflict)
-          git pull origin main --rebase -X theirs
-          
-          # 3. Run merge script (it looks for untracked data-part-*.json)
-          node src/scripts/merge_results.js
-          
-          # 4. Build and Commit data
           git add frontend/public/data.json
-          
-          if ! git diff --staged --quiet; then
-            git commit -m "Progressive Update: Group ${{ matrix.group }} finished"
-            git pull --rebase -X theirs origin main
-            git push origin main
-          fi
+          git commit -m "Update sneaker data: $(date -u)" || echo "No changes"
+          git pull --rebase -X theirs origin main
+          git push origin main
 
       - name: Build & Deploy Frontend
-        # We only deploy the PWA/Frontend if we are the LAST group to finish
-        # Or alternatively, we can deploy every time for true progressive UI updates
         run: |
           cd frontend
           npm install
           npm run build
-          # Use npx to run the deploy avoid complex actions
-          git checkout gh-pages || git checkout -b gh-pages
-          cp -r dist/* .
-          git add .
-          if ! git diff --staged --quiet; then
-             git commit -m "Deploy PWA: Progressive Group ${{ matrix.group }}"
-             git push origin gh-pages --force
-          fi
+      
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: frontend/dist
+          branch: gh-pages

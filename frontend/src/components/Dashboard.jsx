@@ -61,8 +61,9 @@ const Dashboard = () => {
         return () => clearInterval(interval);
     }, [isScanning]); // Re-create interval when scanning status changes
 
-    if (loading) return <div className="loading-screen">Loading Monitor...</div>;
+    if (loading || !data) return <div className="loading-screen">Loading Sneaker Monitor...</div>;
     if (error) return <div className="error-screen">Error: {error}</div>;
+
     const { results, updatedAt, searchTerm, lastUpdated, lastSearchTerm } = data;
 
     // Unify schema locally (fallback for old data files)
@@ -149,9 +150,18 @@ const Dashboard = () => {
             <main className="results-grid">
                 {filteredResults.length === 0 ? (
                     <div className="empty-state">
-                        {isScanning ? "Scanning for results..." : `No matches found for "${searchQuery}"`}
-                        <br />
-                        <small>(Scraped for: {effectiveSearchTerm})</small>
+                        {isScanning ? (
+                            <>
+                                <div className="spinner-small"></div>
+                                <span>Scanning stores for "{effectiveSearchTerm}"...</span>
+                            </>
+                        ) : (
+                            <>
+                                <span>No matches found for "{searchQuery}"</span>
+                                <br />
+                                <small>(Last search: {effectiveSearchTerm})</small>
+                            </>
+                        )}
                     </div>
                 ) : (
                     filteredResults.map((item) => (
