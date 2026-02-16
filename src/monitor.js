@@ -72,9 +72,15 @@ if (shouldLoadLast) {
 // Simplify query to improve match rate (e.g. "Lamelo MB.05" -> "MB.05")
 const SEARCH_INPUT = SmartSearch.simplifyQuery(RAW_SEARCH_INPUT);
 
-// Arg 1: Size Input
-const DEFAULT_SIZES = [44, 45, 9.5, 10.5, 11, 11.5, 12];
-SIZE_INPUT = args[1]; // Can be undefined
+// Arg 2: Size Input
+// Arg 3: Stores Filter (--stores=Nike,Adidas or --stores=group1)
+let STORE_FILTER = [];
+const storesArg = args.find(arg => arg.startsWith('--stores='));
+if (storesArg) {
+    const rawStores = storesArg.split('=')[1];
+    STORE_FILTER = rawStores.split(',').map(s => s.trim().toLowerCase());
+    console.log(`🏬 Store Filter Active: [${STORE_FILTER.join(', ')}]`.magenta);
+}
 
 // Generate Regex patterns dynamically
 const TARGET_MODELS = SmartSearch.generatePatterns(SEARCH_INPUT);
@@ -107,7 +113,7 @@ async function run() {
         });
 
         // Initialize scrapers
-        const scrapers = [
+        const allScrapers = [
             new Factory54Scraper(SEARCH_INPUT),
             // new StockXScraper(SEARCH_INPUT), // Removed
             new TerminalXScraper(SEARCH_INPUT),
@@ -128,6 +134,21 @@ async function run() {
             new Arba4Scraper(SEARCH_INPUT),
             new KSPScraper(SEARCH_INPUT)
         ];
+
+        // Filter scrapers if needed
+        let scrapers = allScrapers;
+        if (STORE_FILTER.length > 0) {
+            scrapers = allScrapers.filter(s =>
+                STORE_FILTER.some(filter => s.storeName.toLowerCase().includes(filter))
+            );
+        }
+
+        if (scrapers.length === 0) {
+            console.log("⚠️ No scrapers matched the filter!".red);
+            return;
+        }
+
+        console.log(`🚀 Running ${scrapers.length} scrapers: ${scrapers.map(s => s.storeName).join(', ')}`.gray);
 
         let allResults = [];
 

@@ -21,8 +21,13 @@ permissions:
   contents: write
 
 jobs:
-  scrape-and-deploy:
+  scrape:
+    name: Scrape Group ${{ matrix.group }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [1, 2, 3]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -35,9 +40,21 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Set Store Group
+        id: set-group
+        run: |
+          if [ "${{ matrix.group }}" == "1" ]; then
+            echo "stores=factory 54,terminal x,foot locker,the shoval,ballers,player six" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.group }}" == "2" ]; then
+            echo "stores=nike,kits club,mega sport,shoesonline,master sport,zol sport" >> $GITHUB_OUTPUT
+          else
+            echo "stores=aluf sport,lime shoes,mayers,shoes2u,arba4,ksp" >> $GITHUB_OUTPUT
+          fi
+
       - name: Run Scraper
-        # Only run scraper on schedule or dispatch, not on push (to save time on initial deploy)
-        if: github.event_name != 'push'
+        # Only run on schedule/dispatch/push-if-wanted. 
+        # Note: On push, we might skip scraping to save time, OR run full suite.
+        # Let's run full suite to ensure validity.
         env:
           DEBUG_LOGS: "false"
           SEARCH_INPUT: ${{ github.event.inputs.search_term }}
@@ -46,17 +63,53 @@ jobs:
           # Use inputs if provided, otherwise default to "load last" logic
           INPUT_TERM="${SEARCH_INPUT}"
           INPUT_SIZES="${SIZE_INPUT}"
+          STORES="${{ steps.set-group.outputs.stores }}"
+          
+          OUTPUT_FILE="data-part-${{ matrix.group }}.json"
+
+          # Logic: If manual input, pass it. If not, use --load-last.
+          # ALWAYS append --stores filter.
           
           if [ -z "$INPUT_TERM" ]; then
-             echo "No manual input provided. Running in 'Sticky Mode' (loading last search)..."
-             node src/monitor.js --load-last --json frontend/public/data.json
+             echo "Running 'Sticky Mode' for stores: $STORES"
+             node src/monitor.js --load-last "--stores=$STORES" --json "$OUTPUT_FILE"
           else
-             echo "Manual input provided: $INPUT_TERM (Sizes: $INPUT_SIZES)"
-             node src/monitor.js "$INPUT_TERM" "$INPUT_SIZES" --json frontend/public/data.json
+             echo "Running Manual Mode: $INPUT_TERM for stores: $STORES"
+             node src/monitor.js "$INPUT_TERM" "$INPUT_SIZES" "--stores=$STORES" --json "$OUTPUT_FILE"
           fi
 
-      - name: Commit Data Method (if changed)
-        if: github.event_name != 'push'
+      - name: Upload Partial Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-part-${{ matrix.group }}
+          path: data-part-${{ matrix.group }}.json
+          retention-days: 1
+
+  merge-and-deploy:
+    needs: scrape
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: data-part-*
+          merge-multiple: true
+          path: . 
+
+      - name: Merge Results
+        run: |
+          ls -R
+          node src/scripts/merge_results.js
+
+      - name: Commit Data (if changed)
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
@@ -66,7 +119,7 @@ jobs:
           
           # Only commit if there are changes
           if ! git diff --staged --quiet; then
-            git commit -m "Update sneaker data: $(date -u)"
+            git commit -m "Update sneaker data (Parallel): $(date -u)"
             git push
           fi
 
