@@ -1,10 +1,18 @@
 {
-  "updatedAt": "2026-02-16T19:50:40.040Z",
+  "updatedAt": "2026-02-16T20:25:51.689Z",
+  "isRunning": false,
   "searchTerm": "",
-  "lastSearchTerm": "Puma MB.05",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
   },
-  "results": []
+  "results": [
+    {
+      "store": "Foot Locker IL",
+      "title": "PUMA X FAST & FURIOUS MB.05 MIAMI נעלי כדורסל",
+      "price": 679.9,
+      "sizes": []
+    }
+  ],
+  "lastSearchTerm": "Puma MB.05"
 }
