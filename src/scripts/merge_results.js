@@ -23,6 +23,24 @@ let finalData = {
     results: []
 };
 
+// --- Additive Logic: Load existing results first ---
+if (fs.existsSync(OUTPUT_PATH)) {
+    try {
+        const existingRaw = fs.readFileSync(OUTPUT_PATH, 'utf8');
+        const existingData = JSON.parse(existingRaw);
+        if (existingData.results) {
+            finalData.results = existingData.results;
+            console.log(`📜 Loaded ${existingData.results.length} existing items from data.json`);
+        }
+        // Preserve other metadata if not present in partials
+        finalData.searchTerm = existingData.searchTerm || "";
+        finalData.lastSearchTerm = existingData.lastSearchTerm || "";
+        finalData.lastSizeInput = existingData.lastSizeInput || "";
+    } catch (e) {
+        console.warn("⚠️ Could not load existing data.json, starting fresh.");
+    }
+}
+
 files.forEach(file => {
     try {
         const content = fs.readFileSync(path.join(INPUT_DIR, file), 'utf8');

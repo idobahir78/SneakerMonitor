@@ -9,7 +9,6 @@ on:
       search_term:
         description: 'Sneaker Model (e.g. "Jordan 1, Dunk")'
         required: false
-        default: 'MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak'
       sizes:
         description: 'Sizes (e.g. "42, 43" or "*")'
         required: false
@@ -17,9 +16,9 @@ on:
       progressive_updates:
         description: 'Enable Progressive Updates (Real-time)'
         required: false
-        default: 'false'
+        default: 'true'
   push:
-    branches: [ main ] # Trigger on push to build/deploy initially
+    branches: [ main ]
 
 permissions:
   contents: write
@@ -28,7 +27,7 @@ jobs:
   scrape:
     name: Scrape Group ${{ matrix.group }}
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Prevent jobs from hanging indefinitely
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -57,88 +56,56 @@ jobs:
           fi
 
       - name: Run Scraper
-        # Only run on schedule/dispatch/push-if-wanted. 
-        # Note: On push, we might skip scraping to save time, OR run full suite.
-        # Let's run full suite to ensure validity.
         env:
           DEBUG_LOGS: "false"
           SEARCH_INPUT: ${{ github.event.inputs.search_term }}
           SIZE_INPUT: ${{ github.event.inputs.sizes }}
           PROGRESSIVE_UPDATES: ${{ github.event.inputs.progressive_updates }}
         run: |
-          # Use inputs if provided, otherwise default to "load last" logic
           INPUT_TERM="${SEARCH_INPUT}"
           INPUT_SIZES="${SIZE_INPUT}"
           STORES="${{ steps.set-group.outputs.stores }}"
-          
           OUTPUT_FILE="data-part-${{ matrix.group }}.json"
-
-          # Logic: If manual input, pass it. If not, use --load-last.
-          # ALWAYS append --stores filter.
           
           if [ -z "$INPUT_TERM" ]; then
-             echo "Running 'Sticky Mode' for stores: $STORES"
              node src/monitor.js --load-last "--stores=$STORES" --json "$OUTPUT_FILE"
           else
-             echo "Running Manual Mode: $INPUT_TERM for stores: $STORES"
              node src/monitor.js "$INPUT_TERM" "$INPUT_SIZES" "--stores=$STORES" --json "$OUTPUT_FILE"
           fi
 
-      - name: Upload Partial Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: data-part-${{ matrix.group }}
-          path: data-part-${{ matrix.group }}.json
-          retention-days: 1
-
-  merge-and-deploy:
-    needs: scrape
-    runs-on: ubuntu-latest
-    timeout-minutes: 20  # Prevent deployment from hanging
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Download All Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          pattern: data-part-*
-          merge-multiple: true
-          path: . 
-
-      - name: Merge Results
-        run: |
-          ls -R
-          node src/scripts/merge_results.js
-
-      - name: Commit Data (if changed)
+      - name: Progressive Merge & Deploy
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           
-          # Check if data.json has changed
+          # 1. Download existing data to merge with
+          # We don't use artifacts here because we want to merge into the LATEST main
+          git pull origin main --rebase -X theirs
+          
+          # 2. Run merge script (it looks for data-part-*.json)
+          node src/scripts/merge_results.js
+          
+          # 3. Build and Commit data
           git add frontend/public/data.json
           
-          # Only commit if there are changes
           if ! git diff --staged --quiet; then
-            git commit -m "Update sneaker data (Parallel): $(date -u)"
+            git commit -m "Progressive Update: Group ${{ matrix.group }} finished"
             git pull --rebase -X theirs origin main
             git push origin main
           fi
 
-      - name: Build Frontend
+      - name: Build & Deploy Frontend
+        # We only deploy the PWA/Frontend if we are the LAST group to finish
+        # Or alternatively, we can deploy every time for true progressive UI updates
         run: |
           cd frontend
           npm install
           npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: frontend/dist
-          branch: gh-pages
+          # Use npx to run the deploy avoid complex actions
+          git checkout gh-pages || git checkout -b gh-pages
+          cp -r dist/* .
+          git add .
+          if ! git diff --staged --quiet; then
+             git commit -m "Deploy PWA: Progressive Group ${{ matrix.group }}"
+             git push origin gh-pages --force
+          fi

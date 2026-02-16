@@ -11,6 +11,7 @@ const Dashboard = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [refreshFlash, setRefreshFlash] = useState(false);
     const [isScanning, setIsScanning] = useState(false);
+    const [lastTriggerTime, setLastTriggerTime] = useState(null);
 
     const fetchData = () => {
         // Add timestamp to prevent caching
@@ -23,16 +24,22 @@ const Dashboard = () => {
                 return response.json();
             })
             .then(jsonData => {
-                // Check if scanning is in progress
-                // Robust check: explicitly true OR a recently updated date during scan
-                const isCurrentlyScanning = jsonData.isRunning === true;
-                setIsScanning(isCurrentlyScanning);
+                // Determine if we are still scanning
+                const serverIsRunning = jsonData.isRunning === true;
+                const serverUpdateTime = new Date(jsonData.updatedAt || jsonData.lastUpdated).getTime();
 
-                // Check if data actually changed (optional optimization, but nice for UX)
+                // We are scanning if:
+                // 1. Server explicitly says it's running
+                // 2. OR we triggered a search recently and the server hasn't updated since then
+                const isStillScanning = serverIsRunning || (lastTriggerTime && serverUpdateTime < lastTriggerTime);
+
+                setIsScanning(isStillScanning);
+
+                // Check if data actually changed
                 if (JSON.stringify(jsonData) !== JSON.stringify(data)) {
                     setData(jsonData);
                     setRefreshFlash(true);
-                    setTimeout(() => setRefreshFlash(false), 2000); // 2-second flash
+                    setTimeout(() => setRefreshFlash(false), 2000);
                 }
                 setLoading(false);
             })
@@ -79,16 +86,15 @@ const Dashboard = () => {
 
     // Handle scrape trigger from ScraperControl
     const handleScrapeTrigger = (options = {}) => {
-        console.log('Scrape triggered via UI', options);
+        const now = new Date().getTime();
+        console.log('Scrape triggered via UI at:', now, options);
 
-        // Immediately start fast polling and show scanning status
+        // Record the exact time we started the search
+        setLastTriggerTime(now);
         setIsScanning(true);
 
-        // Revert to normal polling after 10 minutes or check again on next fetch
-        // (The jsonData.isRunning will keep it true if still scraping)
-        setTimeout(() => {
-            fetchData(); // One final check
-        }, 10 * 60 * 1000);
+        // Force an immediate refresh check in 10 seconds (allow Action to start)
+        setTimeout(() => fetchData(), 10000);
     };
 
     return (
