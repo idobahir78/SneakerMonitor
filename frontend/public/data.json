@@ -1,10 +1,27 @@
 {
-  "updatedAt": "2026-02-16T14:53:53.411Z",
-  "searchTerm": "MB.05",
-  "lastSearchTerm": "Puma MB.05",
+  "updatedAt": "2026-02-16T15:02:04.450Z",
+  "searchTerm": "MB.04",
+  "lastSearchTerm": "Puma MB.04",
   "lastSizeInput": "*",
   "filters": {
     "sizes": null
   },
-  "results": []
+  "results": [
+    {
+      "index": 1,
+      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 Scooby Doo",
+      "price": 479,
+      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-scooby-doo/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-%E2%80%98PUMA-x-LAMELO-BALL-MB.04-%E2%80%98Scooby-Doo1-430x430.jpeg",
+      "store": "Ballers"
+    },
+    {
+      "index": 0,
+      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 LaFrancé",
+      "price": 499,
+      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-lafrance/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.04-LaFrance1-430x430.jpeg",
+      "store": "Ballers"
+    }
+  ]
 }
