@@ -38,7 +38,7 @@ const DEFAULT_SEARCH = "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak";
 // Check if we should load the last search from data.json (for scheduled runs)
 const shouldLoadLast = args.includes('--load-last');
 let RAW_SEARCH_INPUT = args[0] && !args[0].startsWith('--') ? args[0] : DEFAULT_SEARCH;
-let SIZE_INPUT = args[1]; // Can be undefined
+let SIZE_INPUT = args[1] && !args[1].startsWith('--') ? args[1] : null;
 
 if (shouldLoadLast) {
     try {
@@ -72,6 +72,23 @@ if (storesArg) {
     console.log(`🏬 Store Filter Active: [${STORE_FILTER.join(', ')}]`.magenta);
 }
 
+// Arg 4: Custom JSON output file (--json=filename.json)
+const jsonArg = args.find(arg => arg.startsWith('--json'));
+if (jsonArg) {
+    // Support both --json filename.json and --json=filename.json
+    let jsonFile;
+    if (jsonArg.includes('=')) {
+        jsonFile = jsonArg.split('=')[1];
+    } else {
+        const jsonIndex = args.indexOf(jsonArg);
+        jsonFile = args[jsonIndex + 1];
+    }
+    if (jsonFile && !jsonFile.startsWith('--')) {
+        process.env.EXPORT_JSON = jsonFile;
+        console.log(`📄 Custom Output File: ${jsonFile}`.cyan);
+    }
+}
+
 // Generate Regex patterns dynamically
 const TARGET_MODELS = SmartSearch.generatePatterns(SEARCH_INPUT);
 
@@ -86,11 +103,47 @@ if (SIZE_INPUT) {
 // Progressive updates flag (enable for real-time updates during manual runs)
 const PROGRESSIVE_UPDATES = process.env.PROGRESSIVE_UPDATES === 'true';
 
+/**
+ * Simple concurrency limiter to prevent resource exhaustion
+ * @param {number} limit 
+ * @param {Array} items 
+ * @param {Function} fn 
+ */
+async function limitConcurrency(limit, items, fn) {
+    const results = [];
+    const executing = new Set();
+    for (const item of items) {
+        const p = Promise.resolve().then(() => fn(item));
+        results.push(p);
+        executing.add(p);
+        const clean = () => executing.delete(p);
+        p.then(clean).catch(clean);
+        if (executing.size >= limit) {
+            await Promise.race(executing);
+        }
+    }
+    return Promise.all(results);
+}
+
+// Global results accumulator for progressive updates
+let allAccumulatedResults = [];
+
 // Helper function to write progressive updates
-function writeProgressiveUpdate(results, isRunning = true) {
+function writeProgressiveUpdate(isRunning = true) {
     if (!PROGRESSIVE_UPDATES) return; // Skip if not in progressive mode
 
     const outputPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+
+    // Deduplicate accumulated results before writing
+    const uniqueSoFar = [];
+    const seenLinks = new Set();
+    for (const r of allAccumulatedResults) {
+        if (!seenLinks.has(r.link)) {
+            seenLinks.add(r.link);
+            uniqueSoFar.push(r);
+        }
+    }
+
     const outputData = {
         lastUpdated: new Date().toISOString(),
         isRunning: isRunning,
@@ -100,13 +153,13 @@ function writeProgressiveUpdate(results, isRunning = true) {
             models: TARGET_MODELS.map(r => r.source),
             sizes: TARGET_SIZES || []
         },
-        results: results
+        results: uniqueSoFar
     };
 
     try {
         fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
-        if (isRunning) {
-            console.log(`   💾 Progressive update: ${results.length} results saved...`.dim);
+        if (isRunning && uniqueSoFar.length > 0) {
+            console.log(`   💾 Progressive update: ${uniqueSoFar.length} results saved...`.dim);
         }
     } catch (err) {
         console.error(`   ⚠️ Failed to write progressive update: ${err.message}`.yellow);
@@ -132,7 +185,7 @@ async function run() {
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-features=IsolateOrigins,site-per-process']
         });
 
-        // Factory function to create fresh scrapers for each query variation
+        // Factory function to create scrapers
         const createScrapers = (searchQuery) => [
             new Factory54Scraper(searchQuery),
             new TerminalXScraper(searchQuery),
@@ -158,12 +211,9 @@ async function run() {
         const queryVariations = SmartSearch.generateQueryVariations(SEARCH_INPUT);
         console.log(`🔄 Query Variations: [${queryVariations.join(', ')}]`.cyan);
 
-        let allResults = [];
-
-        // Run all variations in parallel (restore original speed!)
-        const variationPromises = queryVariations.map(async (queryVariation) => {
-            console.log(`\n🔍 Trying variation: "${queryVariation}"...`.yellow);
-
+        // Flatten all scraper tasks to allow global concurrency control
+        const workTasks = [];
+        queryVariations.forEach(queryVariation => {
             const allScrapers = createScrapers(queryVariation);
 
             // Filter scrapers if needed
@@ -174,93 +224,62 @@ async function run() {
                 );
             }
 
-            if (scrapers.length === 0) {
-                console.log("⚠️ No scrapers matched the filter!".red);
-                return []; // Return empty array for this variation
-            }
+            scrapers.forEach(scraper => {
+                workTasks.push({ query: queryVariation, scraper });
+            });
+        });
 
-            // Run scrapers in parallel for this variation
-            const scrapePromises = scrapers.map(async (scraper) => {
-                try {
-                    const results = await scraper.scrape(browser, TARGET_MODELS, TARGET_SIZES);
+        console.log(`🚀 Queueing ${workTasks.length} scraper tasks (Global Concurrency Limit: 5)`.yellow);
 
-                    if (results.length > 0) {
-                        console.log(`   ✅ ${scraper.storeName}: ${results.length} matches`);
+        const executeTask = async (task) => {
+            const { query, scraper } = task;
+            try {
+                // console.log(`   [${scraper.storeName}] Starting for "${query}"...`);
+                const results = await scraper.scrape(browser, TARGET_MODELS, TARGET_SIZES);
 
-                        // Progressive update: write after each successful scraper
-                        if (PROGRESSIVE_UPDATES) {
-                            // Collect all results so far (need to merge with existing)
-                            allResults = allResults.concat(results);
+                if (results.length > 0) {
+                    console.log(`   ✅ ${scraper.storeName}: ${results.length} matches [Query: ${query}]`);
 
-                            // Deduplicate before writing
-                            const uniqueSoFar = [];
-                            const seenLinks = new Set();
-                            for (const r of allResults) {
-                                if (!seenLinks.has(r.link)) {
-                                    seenLinks.add(r.link);
-                                    uniqueSoFar.push(r);
-                                }
-                            }
+                    // Add to global accumulator
+                    allAccumulatedResults.push(...results);
 
-                            writeProgressiveUpdate(uniqueSoFar, true);
-                        }
-                    }
-
-                    return results;
-                } catch (err) {
-                    // Silent error handling for variations
-                    return [];
+                    // Write update
+                    writeProgressiveUpdate(true);
                 }
-            });
+                return results;
+            } catch (err) {
+                // Silent error in main loop to keep others running
+                return [];
+            }
+        };
 
-            const results = await Promise.all(scrapePromises);
+        // Run with global limit of 5 concurrent scrapers
+        await limitConcurrency(5, workTasks, executeTask);
 
-            // Flatten this variation's results
-            const flatResults = [];
-            results.forEach(siteResults => {
-                flatResults.push(...siteResults);
-            });
-
-            return flatResults;
-        });
-
-        // Wait for all variations to complete
-        const variationResults = await Promise.all(variationPromises);
-
-        // Flatten all variation results
-        variationResults.forEach(results => {
-            allResults = allResults.concat(results);
-        });
-
-        // Deduplicate by link (same product from different query variations)
-        const uniqueResults = [];
+        // Final Deduplication
         const seenLinks = new Set();
-
-        for (const result of allResults) {
+        const uniqueResults = [];
+        for (const result of allAccumulatedResults) {
             if (!seenLinks.has(result.link)) {
                 seenLinks.add(result.link);
                 uniqueResults.push(result);
             }
         }
 
-        console.log(`\n📊 Total: ${uniqueResults.length} unique products (from ${allResults.length} total across all variations)`.green.bold);
-
-        // Results are already filtered and verified by BaseScraper!
-        const filteredResults = uniqueResults;
+        console.log(`\n📊 Total: ${uniqueResults.length} unique products found.`.green.bold);
 
         // Sort by price
-        filteredResults.sort((a, b) => a.price - b.price);
+        uniqueResults.sort((a, b) => a.price - b.price);
 
         // Display results
-        if (filteredResults.length > 0) {
-            console.log(`\n🎉 Found ${filteredResults.length} matches!`.green.bold);
+        if (uniqueResults.length > 0) {
+            console.log(`\n🎉 Found ${uniqueResults.length} matches!`.green.bold);
 
-            filteredResults.forEach((item, index) => {
+            uniqueResults.forEach((item, index) => {
                 const store = item.store || 'Unknown';
                 const title = item.title || 'N/A';
                 const price = item.price ? `₪${item.price}` : 'N/A';
                 const sizes = item.sizes && item.sizes.length > 0 ? item.sizes.join(', ') : 'All/Unknown';
-                const link = item.link || '';
 
                 console.log(`${index + 1}. ${store.padEnd(20)} | ${title.substring(0, 40).padEnd(42)} | ${price.padEnd(10)} | Sizes: ${sizes}`);
             });
@@ -270,18 +289,18 @@ async function run() {
 
         await browser.close();
 
-        // --- EXPORT TO JSON ---
+        // --- FINAL EXPORT ---
         const outputPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
         const outputData = {
             lastUpdated: new Date().toISOString(),
-            isRunning: false, // Scan complete!
+            isRunning: false,
             lastSearchTerm: RAW_SEARCH_INPUT,
             lastSizeInput: SIZE_INPUT || null,
             filters: {
-                models: TARGET_MODELS.map(r => r.source), // Store source strings
+                models: TARGET_MODELS.map(r => r.source),
                 sizes: TARGET_SIZES || []
             },
-            results: filteredResults
+            results: uniqueResults
         };
 
         fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));

@@ -41,9 +41,7 @@ class BaseScraper {
 
             // Wait a bit more for dynamic content (hydration)
             // Some sites need a few seconds after load to render products
-            try {
-                await page.waitForTimeout(3000);
-            } catch (e) { }
+            await new Promise(r => setTimeout(r, 3000));
 
             // 1. Initial Scrape (Get List)
             let items = await this.parse(page);
@@ -53,7 +51,7 @@ class BaseScraper {
                 // console.log(`[${this.storeName}] 0 items found. Saving debug data...`);
                 const fs = require('fs');
                 if (!fs.existsSync('debug_screenshots')) fs.mkdirSync('debug_screenshots');
-                const cleanName = this.storeName.replace(/\\s/g, '_');
+                const cleanName = this.storeName.replace(/\s/g, '_');
 
                 await page.screenshot({ path: `debug_screenshots/${cleanName}_debug.png` });
                 const html = await page.content();
@@ -72,37 +70,41 @@ class BaseScraper {
 
             // 3. Deep Verification (If sizes requested)
             if (targetSizes && targetSizes.length > 0 && items.length > 0) {
-                // console.log(`[${this.storeName}] Deep verifying sizes for ${items.length} items...`);
                 const verifiedItems = [];
 
-                // Process sequentially to be safe with resources, or semi-parallel?
-                // Sequential is safer for now to avoid detection/resource limits.
-                for (const item of items) {
-                    // If scraper already found sizes (e.g. from grid), check them.
-                    if (item.sizes && item.sizes.length > 0) {
-                        const hasSize = item.sizes.some(s => targetSizes.includes(s) || targetSizes.includes(parseFloat(s)));
-                        if (hasSize) verifiedItems.push(item);
-                        continue;
-                    }
+                // Process in small batches to balance speed vs reliability
+                const BATCH_SIZE = 3;
+                for (let i = 0; i < items.length; i += BATCH_SIZE) {
+                    const batch = items.slice(i, i + BATCH_SIZE);
 
-                    // If sizes unknown, we must deep scrape
-                    try {
-                        // console.log(`   Checking sizes for: ${item.title}`);
-                        // Navigate to product page
-                        await page.goto(item.link, { waitUntil: 'domcontentloaded', timeout: 30000 });
-
-                        // Helper hook for subclasses to extract sizes from PDP
-                        const sizes = await this.parseSizes(page);
-                        // console.log(`     Found sizes: ${sizes.join(', ')}`);
-
-                        const hasSize = sizes.some(s => targetSizes.includes(s) || targetSizes.includes(parseFloat(s)));
-                        if (hasSize) {
-                            item.sizes = sizes; // Update item with real sizes
-                            verifiedItems.push(item);
+                    const batchPromises = batch.map(async (item) => {
+                        // If scraper already found sizes (e.g. from grid), check them.
+                        if (item.sizes && item.sizes.length > 0) {
+                            const hasSize = item.sizes.some(s => targetSizes.includes(s) || targetSizes.includes(parseFloat(s)));
+                            if (hasSize) verifiedItems.push(item);
+                            return;
                         }
-                    } catch (e) {
-                        console.error(`     Error verifying ${item.title}: ${e.message}`);
-                    }
+
+                        // If sizes unknown, we must deep scrape
+                        try {
+                            const detailPage = await browser.newPage();
+                            await detailPage.setViewport({ width: 1366, height: 768 });
+
+                            await detailPage.goto(item.link, { waitUntil: 'domcontentloaded', timeout: 30000 });
+                            const sizes = await this.parseSizes(detailPage);
+                            await detailPage.close();
+
+                            const hasSize = sizes.some(s => targetSizes.includes(s) || targetSizes.includes(parseFloat(s)));
+                            if (hasSize) {
+                                item.sizes = sizes; // Update item with real sizes
+                                verifiedItems.push(item);
+                            }
+                        } catch (e) {
+                            console.error(`     Error verifying ${item.title}: ${e.message}`);
+                        }
+                    });
+
+                    await Promise.all(batchPromises);
                 }
                 return verifiedItems;
 
@@ -124,7 +126,28 @@ class BaseScraper {
      * @param {import('puppeteer').Page} page
      */
     async navigate(page) {
+        // Randomize User-Agent for each navigation to avoid fingerprints
+        const userAgents = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0'
+        ];
+        const randomUA = userAgents[Math.floor(Math.random() * userAgents.length)];
+        await page.setUserAgent(randomUA);
+
+        // Add a tiny random delay before navigation
+        await new Promise(r => setTimeout(r, Math.random() * 2000));
+
         await page.goto(this.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    }
+
+    /**
+     * Helper to wait for a random amount of time (simulate human jitter)
+     */
+    async jitter(min = 500, max = 1500) {
+        const ms = Math.floor(Math.random() * (max - min) + min);
+        await new Promise(r => setTimeout(r, ms));
     }
 
     /**

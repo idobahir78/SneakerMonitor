@@ -1,0 +1,21 @@
+# Dependecies
+node_modules/
+
+# Debugging
+debug_screenshots/
+*.log
+test_results.json
+data-part-*.json
+
+# Typos/Junk
+cls
+git
+main
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

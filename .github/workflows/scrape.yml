@@ -28,6 +28,7 @@ jobs:
   scrape:
     name: Scrape Group ${{ matrix.group }}
     runs-on: ubuntu-latest
+    timeout-minutes: 30  # Prevent jobs from hanging indefinitely
     strategy:
       fail-fast: false
       matrix:
@@ -93,6 +94,7 @@ jobs:
   merge-and-deploy:
     needs: scrape
     runs-on: ubuntu-latest
+    timeout-minutes: 20  # Prevent deployment from hanging
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4

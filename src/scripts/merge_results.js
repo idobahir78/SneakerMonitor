@@ -28,11 +28,13 @@ files.forEach(file => {
         const content = fs.readFileSync(path.join(INPUT_DIR, file), 'utf8');
         const data = JSON.parse(content);
 
-        // Merge Metadata (Take from first file usually, or priority)
-        if (!finalData.searchTerm) finalData.searchTerm = data.searchTerm;
-        if (!finalData.lastSearchTerm) finalData.lastSearchTerm = data.lastSearchTerm;
-        if (!finalData.lastSizeInput) finalData.lastSizeInput = data.lastSizeInput;
-        if (finalData.filters.sizes.length === 0) finalData.filters.sizes = data.filters.sizes;
+        // Merge Metadata (Aggregate from any file that has it)
+        if (!finalData.searchTerm && data.searchTerm) finalData.searchTerm = data.searchTerm;
+        if (!finalData.lastSearchTerm && data.lastSearchTerm) finalData.lastSearchTerm = data.lastSearchTerm;
+        if (!finalData.lastSizeInput && data.lastSizeInput) finalData.lastSizeInput = data.lastSizeInput;
+        if (finalData.filters.sizes.length === 0 && data.filters && data.filters.sizes) {
+            finalData.filters.sizes = data.filters.sizes;
+        }
 
         // Merge Results
         if (Array.isArray(data.results)) {

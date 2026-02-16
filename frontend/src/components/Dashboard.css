@@ -1,23 +1,25 @@
 :root {
-    --bg-color: #121212;
-    --card-bg: #1e1e1e;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
+    --bg-color: #0d0d0d;
+    --card-bg: rgba(30, 30, 30, 0.6);
+    --text-primary: #f0f0f0;
+    --text-secondary: #aaaaaa;
     --accent-color: #bb86fc;
     --accent-gradient: linear-gradient(135deg, #bb86fc 0%, #3700b3 100%);
     --success-color: #03dac6;
     --error-color: #cf6679;
-    --card-radius: 12px;
-    --font-family: 'Inter', system-ui, sans-serif;
+    --card-radius: 16px;
+    --font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body {
-    background-color: var(--bg-color);
+    background: radial-gradient(circle at top right, #1a0b2e, #0d0d0d);
     color: var(--text-primary);
     font-family: var(--font-family);
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
 }
 
 .dashboard-container {
@@ -132,11 +134,20 @@ body {
 }
 
 .stat-card {
-    background-color: var(--card-bg);
-    padding: 15px;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px;
     border-radius: var(--card-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: var(--glass-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(187, 134, 252, 0.3);
 }
 
 .stat-card h3 {
@@ -170,20 +181,23 @@ body {
 
 /* Shoe Card */
 .shoe-card {
-    background-color: var(--card-bg);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: var(--card-radius);
     overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: var(--glass-border);
 }
 
 .shoe-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
     border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .card-header {

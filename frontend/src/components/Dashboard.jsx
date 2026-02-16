@@ -97,7 +97,9 @@ const Dashboard = () => {
                 {/* Scanning Status Banner */}
                 {isScanning && (
                     <div className="scanning-banner">
-                        🔄 Scanning in progress... {filteredResults.length} results found so far
+                        <span className="scanning-icon">🔄</span>
+                        <span className="scanning-text">Scanning in progress...</span>
+                        <span className="results-count">{filteredResults.length} items found</span>
                     </div>
                 )}
 
