@@ -1,13 +1,10 @@
 {
-  "updatedAt": "2026-02-16T11:58:53.421Z",
+  "updatedAt": "2026-02-16T12:06:38.082Z",
   "searchTerm": "MB.04",
   "lastSearchTerm": "Puma MB.04",
-  "lastSizeInput": "45",
+  "lastSizeInput": "--stores=factory 54,terminal x,foot locker,the shoval,ballers,player six",
   "filters": {
-    "sizes": [
-      45,
-      11.5
-    ]
+    "sizes": null
   },
   "results": [
     {
@@ -16,33 +13,7 @@
       "price": 479,
       "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-scooby-doo/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-%E2%80%98PUMA-x-LAMELO-BALL-MB.04-%E2%80%98Scooby-Doo1-430x430.jpeg",
-      "store": "Ballers",
-      "sizes": [
-        "36",
-        "36.5",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39",
-        "39.5",
-        "40",
-        "40.5",
-        "41",
-        "41.5",
-        "42",
-        "42.5",
-        "43",
-        "43.5",
-        "44",
-        "44.5",
-        "45",
-        "45.5",
-        "46",
-        "46.5",
-        "47",
-        "48"
-      ]
+      "store": "Ballers"
     },
     {
       "index": 0,
@@ -50,33 +21,7 @@
       "price": 499,
       "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-lafrance/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.04-LaFrance1-430x430.jpeg",
-      "store": "Ballers",
-      "sizes": [
-        "36",
-        "36.5",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39",
-        "39.5",
-        "40",
-        "40.5",
-        "41",
-        "41.5",
-        "42",
-        "42.5",
-        "43",
-        "43.5",
-        "44",
-        "44.5",
-        "45",
-        "45.5",
-        "46",
-        "46.5",
-        "47",
-        "48"
-      ]
+      "store": "Ballers"
     }
   ]
 }
