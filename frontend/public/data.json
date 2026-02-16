@@ -1,12 +1,26 @@
 {
-  "updatedAt": "2026-02-16T10:50:35.391Z",
-  "searchTerm": "Nike Air Jordan 1",
-  "lastSearchTerm": "Nike Air Jordan 1",
+  "updatedAt": "2026-02-16T11:03:10.207Z",
+  "searchTerm": "Nike Air Jordan",
+  "lastSearchTerm": "Nike Air Jordan",
   "lastSizeInput": "*",
   "filters": {
     "sizes": null
   },
   "results": [
+    {
+      "store": "Player Six",
+      "title": "Nike Air Jordan HJ2362-133",
+      "price": 159,
+      "link": "https://playersix.co.il/product/nike-air-jordan-hj2362-133/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Nike Air Jordan HF9345-133",
+      "price": 279,
+      "link": "https://playersix.co.il/product/nike-air-jordan-hf9345-133/",
+      "sizes": []
+    },
     {
       "store": "Player Six",
       "title": "Nike Air Jordan 1 Retro High OG DZ5485-402",
