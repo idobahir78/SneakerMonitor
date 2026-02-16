@@ -9,8 +9,6 @@ data-part-*.json
 
 # Typos/Junk
 cls
-git
-main
 
 # IDEs
 .vscode/
