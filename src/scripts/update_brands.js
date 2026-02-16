@@ -8,30 +8,45 @@ puppeteer.use(StealthPlugin());
 const OUTPUT_FILE = path.join(__dirname, '../../frontend/src/data/brands.js');
 const TARGET_BRANDS = ['Nike', 'Adidas', 'Jordan', 'New Balance', 'Puma', 'Under Armour', 'Asics', 'Hoka', 'On Cloud', 'Saucony'];
 
-// Strict Blocklist for "Garbage" detected in initial scan
+// 1. Generic Garbage Filter
 const BLOCKLIST = [
     'SALE', 'BEST OF', 'COLLECTION', 'JUST LANDED', 'LAST CALL', 'NEW', 'VIP',
-    'DREAMCARD', 'FW23', 'FW24', 'SS23', 'SS24', 'GIFT', 'OUTLET', 'WIN',
-    'BRANDS', 'DAY TO DAY', 'EXTRA', 'FINAL', 'FOX', 'GROUP', 'IL', 'LANDING'
+    'DREAMCARD', 'FW23', 'FW24', 'SS23', 'SS24', 'SS25', 'GIFT', 'OUTLET', 'WIN',
+    'BRANDS', 'DAY TO DAY', 'EXTRA', 'FINAL', 'FOX', 'GROUP', 'IL', 'LANDING',
+    'VIEW ALL', 'TEEN', 'BOYS', 'GIRLS', 'BABY', 'KIDS', 'WOMEN', 'MEN', 'IMPORT',
+    'PREMIUM', 'RETURN', 'EXCHANGE', 'TEST', 'TERMINAL', 'ANDROID', 'IOS', 'APP',
+    'WORKOUT', 'ACTIVITIES', 'OS', 'ONE SIZE', 'MENS', 'WOMENS'
 ];
 
-// Manual overrides
+// 2. Clothing Filter (Hebrew + English) - We want SHOES ONLY
+const CLOTHING_TERMS = [
+    'חולצת', 'חולצה', 'מכנס', 'מכנסיים', 'טייץ', 'גופייה', 'גופיה', 'סווטשירט', 'קפוצ\'ון',
+    'מעיל', 'ג\'קט', 'גרביים', 'כובע', 'תיק', 'בגד ים', 'בגדי ים', 'הלבשה תחתונה',
+    'SHIRT', 'PANT', 'TIGHTS', 'TANK', 'HOODIE', 'SWEATSHIRT', 'JACKET', 'COAT', 'SOCKS',
+    'HAT', 'BAG', 'SWIM', 'UNDERWEAR', 'BRA', 'LEGGINGS', 'TOP', 'VEST', 'SHORT', 'DRESS', 'SKIRT'
+];
+
+// 3. Manual Core Models (Expanded)
 const CORE_MODELS = {
-    "Nike": ["Air Force 1", "Air Jordan 1", "Dunk Low", "Dunk High", "Air Max 90", "Pegasus 40", "Vomero 5"],
-    "Adidas": ["Samba", "Gazelle", "Spezial", "Campus 00s", "Ultraboost", "Yeezy 350", "Stan Smith"],
-    "New Balance": ["530", "550", "9060", "2002R", "1906R", "327", "990v6"],
-    "Puma": ["MB.01", "MB.02", "MB.03", "MB.04", "MB.05", "Suede", "Mayze", "Palermo"],
-    "On Cloud": ["Cloud 5", "Cloudmonster", "Cloudflow"],
-    "Hoka": ["Clifton 9", "Bondi 8", "Arahi 7"],
-    "Asics": ["Gel-Kayano 30", "Gel-Nimbus 26", "Novablast 4"],
-    "Jordan": ["Retro 1", "Retro 3", "Retro 4", "Retro 11"]
+    "Nike": ["Air Force 1", "Air Jordan 1", "Dunk Low", "Dunk High", "Air Max 90", "Pegasus 40", "Vomero 5", "P-6000", "Cortez", "Blazer", "Air Max 1", "Air Max 97", "Air Max 95"],
+    "Adidas": ["Samba", "Gazelle", "Spezial", "Campus 00s", "Ultraboost", "Yeezy 350", "Stan Smith", "Forum", "Adizero", "SL 72"],
+    "New Balance": ["530", "550", "9060", "2002R", "1906R", "327", "990v6", "1080", "Fresh Foam", "480", "574"],
+    "Puma": ["MB.01", "MB.02", "MB.03", "MB.04", "MB.05", "Suede", "Mayze", "Palermo", "Velophasis", "Clyde"],
+    "On Cloud": ["Cloud 5", "Cloudmonster", "Cloudflow", "Cloudnova", "Cloud X"],
+    "Hoka": ["Clifton 9", "Bondi 8", "Arahi 7", "Speedgoat 5", "Mach 6", "Transport"],
+    "Asics": ["Gel-Kayano 30", "Gel-Nimbus 26", "Novablast 4", "Gel-NYC", "GT-2000", "Gel-1130"],
+    "Jordan": [
+        "Air Jordan 1 Low", "Air Jordan 1 Mid", "Air Jordan 1 High",
+        "Retro 3", "Retro 4", "Retro 5", "Retro 6", "Retro 11", "Retro 12", "Retro 13",
+        "Luka 1", "Luka 2", "Luka 3", "Tatum 1", "Tatum 2", "Jumpman", "MVP", "Spizike"
+    ]
 };
 
 let allModels = {};
 TARGET_BRANDS.forEach(b => allModels[b] = new Set(CORE_MODELS[b] || []));
 
 (async () => {
-    console.log('🚀 Starting Model Discovery (Network Sniffer Edition)...');
+    console.log('🚀 Starting Model Discovery (Network Sniffer Edition - Strict Mode)...');
 
     // Launch Headful to bypass simple anti-bots
     const browser = await puppeteer.launch({
@@ -173,13 +188,15 @@ function cleanName(name, brand) {
     const upper = name.toUpperCase();
     if (BLOCKLIST.some(bad => upper.includes(bad))) return null;
 
+    // CLOTHING CHECK (Strict)
+    if (CLOTHING_TERMS.some(term => upper.includes(term))) return null;
+
     // Remove Brand Name
     const brandRegex = new RegExp(`^${brand}\\s+`, 'i');
     name = name.replace(brandRegex, '').trim();
 
     // Cleanup Hebrew & common junk
-    name = name.replace(/נעלי|ספורט|סניקרס|נשים|גברים|ילדים|מכנס|חולצת|טי-שירט|טייץ|גרביים|כפכפי|פלטפורמה/g, '').trim();
-    name = name.replace(/WOMEN|MEN|YOUTH|KIDS/gi, '').trim();
+    name = name.replace(/נעלי|ספורט|סניקרס|נשים|גברים|ילדים|יוניסקס|פלטפורמה/g, '').trim();
     name = name.replace(/^-\s*/, '').trim();
     name = name.replace(/\//g, '').trim();
 
