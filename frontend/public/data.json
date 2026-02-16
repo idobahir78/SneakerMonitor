@@ -1,10 +1,18 @@
 {
-  "updatedAt": "2026-02-16T10:43:58.681Z",
-  "searchTerm": "MB.05",
-  "lastSearchTerm": "Puma MB.05",
-  "lastSizeInput": "--stores=factory 54,terminal x,foot locker,the shoval,ballers,player six",
+  "updatedAt": "2026-02-16T10:50:35.391Z",
+  "searchTerm": "Nike Air Jordan 1",
+  "lastSearchTerm": "Nike Air Jordan 1",
+  "lastSizeInput": "*",
   "filters": {
     "sizes": null
   },
-  "results": []
+  "results": [
+    {
+      "store": "Player Six",
+      "title": "Nike Air Jordan 1 Retro High OG DZ5485-402",
+      "price": 649,
+      "link": "https://playersix.co.il/product/nike-air-jordan-1-retro-high-og-dz5485-402/",
+      "sizes": []
+    }
+  ]
 }
