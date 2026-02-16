@@ -14,6 +14,10 @@ on:
         description: 'Sizes (e.g. "42, 43" or "*")'
         required: false
         default: '*'
+      progressive_updates:
+        description: 'Enable Progressive Updates (Real-time)'
+        required: false
+        default: 'false'
   push:
     branches: [ main ] # Trigger on push to build/deploy initially
 
@@ -59,6 +63,7 @@ jobs:
           DEBUG_LOGS: "false"
           SEARCH_INPUT: ${{ github.event.inputs.search_term }}
           SIZE_INPUT: ${{ github.event.inputs.sizes }}
+          PROGRESSIVE_UPDATES: ${{ github.event.inputs.progressive_updates }}
         run: |
           # Use inputs if provided, otherwise default to "load last" logic
           INPUT_TERM="${SEARCH_INPUT}"

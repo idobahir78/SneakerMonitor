@@ -12,6 +12,7 @@ const ScraperControl = ({ onTrigger }) => {
     const [manualSearchTerm, setManualSearchTerm] = useState('');
 
     const [sizes, setSizes] = useState('*');
+    const [progressiveUpdates, setProgressiveUpdates] = useState(false); // NEW: Progressive mode toggle
     const [status, setStatus] = useState(null); // 'loading', 'success', 'error'
     const [message, setMessage] = useState('');
 
@@ -21,6 +22,10 @@ const ScraperControl = ({ onTrigger }) => {
 
         const savedSizes = localStorage.getItem('scraper_sizes');
         if (savedSizes) setSizes(savedSizes);
+
+        // Load progressive mode preference
+        const savedProgressive = localStorage.getItem('scraper_progressive_updates') === 'true';
+        setProgressiveUpdates(savedProgressive);
 
         // Load saved selections
         const savedBrand = localStorage.getItem('scraper_brand');
@@ -48,6 +53,7 @@ const ScraperControl = ({ onTrigger }) => {
     const saveSettings = () => {
         localStorage.setItem('github_pat', token);
         localStorage.setItem('scraper_sizes', sizes);
+        localStorage.setItem('scraper_progressive_updates', progressiveUpdates);
 
         localStorage.setItem('scraper_brand', selectedBrand);
         localStorage.setItem('scraper_model', selectedModel);
@@ -98,7 +104,8 @@ const ScraperControl = ({ onTrigger }) => {
                     ref: 'main',
                     inputs: {
                         search_term: termToScrape,
-                        sizes: sizes
+                        sizes: sizes,
+                        progressive_updates: progressiveUpdates ? 'true' : 'false'
                     }
                 })
             });
@@ -207,6 +214,18 @@ const ScraperControl = ({ onTrigger }) => {
                     onChange={(e) => setSizes(e.target.value)}
                     placeholder="e.g. 42, 43 or *"
                 />
+            </div>
+
+            <div className="control-group checkbox-group">
+                <label className="checkbox-label">
+                    <input
+                        type="checkbox"
+                        checked={progressiveUpdates}
+                        onChange={(e) => setProgressiveUpdates(e.target.checked)}
+                    />
+                    <span>Progressive Updates (Real-time) 🔄</span>
+                </label>
+                <small className="hint">See results appear live as they're found (slower, but exciting!)</small>
             </div>
 
             <div className="action-row">
