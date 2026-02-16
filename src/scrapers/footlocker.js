@@ -2,8 +2,8 @@ const BaseScraper = require('./base-scraper');
 
 class FootLockerScraper extends BaseScraper {
     constructor(searchTerm) {
-        // console.log(`[Foot Locker] Constructor received searchTerm: "${searchTerm}"`);
-        const query = searchTerm || 'puma lamelo';
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for FootLockerScraper");
         super('Foot Locker IL', `https://www.footlocker.co.il/search?q=${encodeURIComponent(query)}`);
     }
 

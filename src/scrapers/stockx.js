@@ -2,10 +2,9 @@ const BaseScraper = require('./base-scraper');
 
 class StockXScraper extends BaseScraper {
     constructor(searchTerm) {
-        // Use provided search term or default
-        const query = searchTerm || 'puma lamelo';
-        const url = `https://stockx.com/search?s=${encodeURIComponent(query)}`;
-        super('StockX', url);
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for StockXScraper");
+        super('StockX', `https://stockx.com/search?s=${encodeURIComponent(query)}`);
         this.searchTerm = query;
     }
 

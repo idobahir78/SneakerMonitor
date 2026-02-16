@@ -2,8 +2,9 @@ const BaseScraper = require('./base-scraper');
 
 class TheShovalScraper extends BaseScraper {
     constructor(searchTerm) {
-        const query = searchTerm || 'puma lamelo';
-        super('The Shoval', `https://theshoval.com/?s=${encodeURIComponent(query)}&post_type=product`);
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for TheShovalScraper");
+        super('The Shoval', `https://theshoval.co.il/search?q=${encodeURIComponent(query)}`);
     }
 
     async parse(page) {

@@ -2,8 +2,9 @@ const BaseScraper = require('./base-scraper');
 
 class PlayerSixScraper extends BaseScraper {
     constructor(searchTerm) {
-        const query = searchTerm || 'puma lamelo';
-        super('Player Six', `https://www.playersix.co.il/?s=${encodeURIComponent(query)}&post_type=product`);
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for PlayerSixScraper");
+        super('Player Six', `https://player-six.com/?s=${encodeURIComponent(query)}&post_type=product`);
     }
 
     async parse(page) {

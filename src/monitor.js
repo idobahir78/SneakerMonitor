@@ -33,12 +33,16 @@ const KSPScraper = require('./scrapers/ksp');
 const args = process.argv.slice(2);
 
 // Arg 0: Search Input
-const DEFAULT_SEARCH = "MB.05, MB.04, MB.03, LaMelo, Wade, LeBron, Freak";
-
-// Check if we should load the last search from data.json (for scheduled runs)
 const shouldLoadLast = args.includes('--load-last');
-let RAW_SEARCH_INPUT = args[0] && !args[0].startsWith('--') ? args[0] : DEFAULT_SEARCH;
+let RAW_SEARCH_INPUT = args[0] && !args[0].startsWith('--') ? args[0] : null;
 let SIZE_INPUT = args[1] && !args[1].startsWith('--') ? args[1] : null;
+
+// Error out if no search term provided and not loading last
+if (!RAW_SEARCH_INPUT && !shouldLoadLast) {
+    console.error("\n❌ Error: No search term provided!".red.bold);
+    console.log("Usage: node src/monitor.js \"search term\" [sizes] [--load-last] [--stores=...]".yellow);
+    process.exit(1);
+}
 
 if (shouldLoadLast) {
     try {

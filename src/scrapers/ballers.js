@@ -2,7 +2,8 @@ const BaseScraper = require('./base-scraper');
 
 class BallersScraper extends BaseScraper {
     constructor(searchTerm) {
-        const query = searchTerm || 'puma lamelo';
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for BallersScraper");
         super('Ballers', `https://ballers.co.il/?s=${encodeURIComponent(query)}&post_type=product`);
     }
 

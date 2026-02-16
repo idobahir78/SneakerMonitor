@@ -2,16 +2,9 @@ const BaseScraper = require('./base-scraper');
 
 class TerminalXScraper extends BaseScraper {
     constructor(searchTerm) {
-        const query = searchTerm || 'puma lamelo';
-        let url;
-
-        if (query.toLowerCase().includes('puma') || query.toLowerCase().includes('lamelo')) {
-            url = 'https://www.terminalx.com/brands/puma';
-        } else {
-            url = `https://www.terminalx.com/catalogsearch/result/?q=${encodeURIComponent(query)}`;
-        }
-
-        super('Terminal X', url);
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for TerminalXScraper");
+        super('Terminal X', `https://www.terminalx.com/catalogsearch/result/?q=${encodeURIComponent(query)}`);
     }
 
     async parse(page) {

@@ -3,14 +3,14 @@ const InteractionScraper = require('./interaction-scraper');
 class MegaSportScraper extends InteractionScraper {
     constructor(searchTerm) {
         // console.log(`[MegaSportScraper] Constructor received searchTerm: "${searchTerm}"`);
-        const query = searchTerm || 'puma lamelo';
-        // Start at Homepage
-        super('Mega Sport', `https://www.megasport.co.il/`);
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for MegaSportScraper");
+        super('Mega Sport', `https://www.megasport.co.il/catalogsearch/result/?q=${encodeURIComponent(query)}`);
         this.searchTerm = query;
     }
 
     async navigate(page) {
-        // 1. Go to Homepage
+        // 1. Go directly to the search results page (set in constructor)
         await page.goto(this.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
         // 2. Handle Popups (Aggressive)

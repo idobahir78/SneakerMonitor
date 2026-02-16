@@ -2,7 +2,8 @@ const BaseScraper = require('./base-scraper');
 
 class NikeILScraper extends BaseScraper {
     constructor(searchTerm) {
-        const query = searchTerm || 'puma lamelo';
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for NikeILScraper");
         // Nike search URL structure
         super('Nike IL', `https://www.nike.com/il/w?q=${encodeURIComponent(query)}`);
     }
