@@ -81,15 +81,14 @@ const Dashboard = () => {
     const handleScrapeTrigger = (options = {}) => {
         console.log('Scrape triggered via UI', options);
 
-        // If progressive mode is enabled, immediately start fast polling
-        if (options.progressiveMode) {
-            setIsScanning(true); // Force fast polling mode
+        // Immediately start fast polling and show scanning status
+        setIsScanning(true);
 
-            // After 5 minutes, revert to normal polling (GitHub Actions should be done by then)
-            setTimeout(() => {
-                setIsScanning(false);
-            }, 5 * 60 * 1000); // 5 minutes
-        }
+        // Revert to normal polling after 10 minutes or check again on next fetch
+        // (The jsonData.isRunning will keep it true if still scraping)
+        setTimeout(() => {
+            fetchData(); // One final check
+        }, 10 * 60 * 1000);
     };
 
     return (
@@ -136,7 +135,7 @@ const Dashboard = () => {
                     </div>
                     <div className="stat-card">
                         <h3>Scraper Query</h3>
-                        <p className="stat-value small">{searchTerm}</p>
+                        <p className="stat-value small" title={effectiveSearchTerm}>{effectiveSearchTerm}</p>
                     </div>
                 </div>
             </header>
@@ -149,8 +148,8 @@ const Dashboard = () => {
                         <small>(Scraped for: {effectiveSearchTerm})</small>
                     </div>
                 ) : (
-                    filteredResults.map((item, index) => (
-                        <ShoeCard key={index} item={item} />
+                    filteredResults.map((item) => (
+                        <ShoeCard key={item.link} item={item} />
                     ))
                 )}
             </main>

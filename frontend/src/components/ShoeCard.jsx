@@ -36,8 +36,17 @@ const ShoeCard = ({ item }) => {
                 </div>
             </div>
 
-            <div className="card-footer">
-                <a href={item.link} target="_blank" rel="noopener noreferrer" className="buy-button">
+            <div className="card-footer" onClick={(e) => e.stopPropagation()}>
+                <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="buy-button"
+                    onClick={(e) => {
+                        // Ensure the link click is not intercepted
+                        console.log(`Navigating to: ${item.link}`);
+                    }}
+                >
                     Buy Now ↗
                 </a>
             </div>

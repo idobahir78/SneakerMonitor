@@ -275,11 +275,14 @@ body {
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
+    position: relative;
+    z-index: 5;
 }
 
 .buy-button:hover {
     opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 /* Loading & Error */
