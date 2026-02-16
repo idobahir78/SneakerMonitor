@@ -1,10 +1,13 @@
 {
-  "updatedAt": "2026-02-16T23:05:49.590Z",
+  "updatedAt": "2026-02-16T23:19:22.372Z",
   "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
-    "sizes": []
+    "sizes": [
+      45,
+      11.5
+    ]
   },
   "results": [
     {
