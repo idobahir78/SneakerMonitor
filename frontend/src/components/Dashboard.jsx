@@ -10,6 +10,7 @@ const Dashboard = () => {
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
     const [refreshFlash, setRefreshFlash] = useState(false);
+    const [isScanning, setIsScanning] = useState(false);
 
     const fetchData = () => {
         // Add timestamp to prevent caching
@@ -22,6 +23,9 @@ const Dashboard = () => {
                 return response.json();
             })
             .then(jsonData => {
+                // Check if scanning is in progress
+                setIsScanning(jsonData.isRunning === true);
+
                 // Check if data actually changed (optional optimization, but nice for UX)
                 if (JSON.stringify(jsonData) !== JSON.stringify(data)) {
                     setData(jsonData);
@@ -40,13 +44,13 @@ const Dashboard = () => {
     useEffect(() => {
         fetchData(); // Initial load
 
-        // Auto-refresh every 60 seconds
+        // Dynamic refresh interval: 3s when scanning, 60s when idle
         const interval = setInterval(() => {
             fetchData();
-        }, 60000);
+        }, isScanning ? 3000 : 60000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [isScanning]); // Re-create interval when scanning status changes
 
     if (loading) return <div className="loading-screen">Loading Monitor...</div>;
     if (error) return <div className="error-screen">Error: {error}</div>;
@@ -68,16 +72,39 @@ const Dashboard = () => {
     // Format Date
     const lastUpdated = new Date(updatedAt).toLocaleString();
 
+    // Handle scrape trigger from ScraperControl
+    const handleScrapeTrigger = (options = {}) => {
+        console.log('Scrape triggered via UI', options);
+
+        // If progressive mode is enabled, immediately start fast polling
+        if (options.progressiveMode) {
+            setIsScanning(true); // Force fast polling mode
+
+            // After 5 minutes, revert to normal polling (GitHub Actions should be done by then)
+            setTimeout(() => {
+                setIsScanning(false);
+            }, 5 * 60 * 1000); // 5 minutes
+        }
+    };
+
     return (
         <div className="dashboard-container">
-            <ScraperControl onTrigger={() => console.log('Scrape triggered via UI')} />
+            <ScraperControl onTrigger={handleScrapeTrigger} />
 
             <header className="dashboard-header">
                 <h1>Sneaker Monitor 👟</h1>
+
+                {/* Scanning Status Banner */}
+                {isScanning && (
+                    <div className="scanning-banner">
+                        🔄 Scanning in progress... {filteredResults.length} results found so far
+                    </div>
+                )}
+
                 <p className={`last-updated ${refreshFlash ? 'flash-update' : ''}`}>
                     Last Updated: {lastUpdated}
                     <span style={{ marginLeft: '10px', fontSize: '0.8em', opacity: 0.7 }}>
-                        (↻ Auto-refresh on)
+                        (↻ Auto-refresh {isScanning ? 'every 3s' : 'on'})
                     </span>
                 </p>
 
@@ -120,7 +147,7 @@ const Dashboard = () => {
                     ))
                 )}
             </main>
-        </div>
+        </div >
     );
 };
 

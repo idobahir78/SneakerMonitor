@@ -113,7 +113,9 @@ const ScraperControl = ({ onTrigger }) => {
             if (response.ok) {
                 setStatus('success');
                 setMessage('Scrape started! Update in ~5 mins.');
-                if (onTrigger) onTrigger();
+
+                // Notify parent that scrape started with progressive mode
+                if (onTrigger) onTrigger({ progressiveMode: progressiveUpdates });
             } else {
                 const errText = await response.text();
                 throw new Error(`Failed: ${response.status} ${errText}`);
