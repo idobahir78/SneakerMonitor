@@ -127,7 +127,8 @@ jobs:
           # Only commit if there are changes
           if ! git diff --staged --quiet; then
             git commit -m "Update sneaker data (Parallel): $(date -u)"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi
 
       - name: Build Frontend
