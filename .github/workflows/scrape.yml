@@ -78,11 +78,16 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           
-          # 1. Download existing data to merge with
-          # We don't use artifacts here because we want to merge into the LATEST main
+          # 1. Stash any temporary changes (like partial data if they became tracked or other files)
+          git stash push --include-untracked -m "temporary-scrape-assets" || echo "Nothing to stash"
+          
+          # 2. Sync with origin
           git pull origin main --rebase -X theirs
           
-          # 2. Run merge script (it looks for data-part-*.json)
+          # 3. Bring back our scraped data
+          git stash pop || echo "Nothing to pop"
+          
+          # 4. Run merge script (it looks for data-part-*.json)
           node src/scripts/merge_results.js
           
           # 3. Build and Commit data
