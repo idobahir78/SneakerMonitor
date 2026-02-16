@@ -1,26 +1,34 @@
 {
-  "updatedAt": "2026-02-16T15:11:54.968Z",
-  "searchTerm": "MB.04",
-  "lastSearchTerm": "Puma MB.04",
-  "lastSizeInput": "--stores=factory 54,terminal x,foot locker,the shoval,ballers,player six",
+  "updatedAt": "2026-02-16T15:18:58.384Z",
+  "searchTerm": "MB.03",
+  "lastSearchTerm": "Puma MB.03",
+  "lastSizeInput": "*",
   "filters": {
     "sizes": null
   },
   "results": [
     {
+      "index": 2,
+      "title": "נעלי כדורסל פומה – PUMA MB.03 Knockout Pink",
+      "price": 469,
+      "link": "https://ballers.co.il/product/puma-puma-mb-03-knockout-pink/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-MB.03-%E2%80%98Knockout-Pink1-430x430.jpeg",
+      "store": "Ballers"
+    },
+    {
       "index": 1,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 Scooby Doo",
-      "price": 479,
-      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-scooby-doo/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-%E2%80%98PUMA-x-LAMELO-BALL-MB.04-%E2%80%98Scooby-Doo1-430x430.jpeg",
+      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.03 LaFrancé Men’s Basketball Shoes",
+      "price": 489,
+      "link": "https://ballers.co.il/product/puma-puma-x-lamelo-ball-mb-03-lafrance-mens-basketball-shoes/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.03-LaFrance-Mens-Basketball-Shoes1-430x430.png",
       "store": "Ballers"
     },
     {
       "index": 0,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 LaFrancé",
-      "price": 499,
-      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-lafrance/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.04-LaFrance1-430x430.jpeg",
+      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.03 Toxic Men’s Basketball Shoes",
+      "price": 519,
+      "link": "https://ballers.co.il/product/puma-puma-x-lamelo-ball-mb-03-toxic-mens-basketball-shoes/",
+      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.03-Toxic-Mens-Basketball-Shoes1-430x430.jpg",
       "store": "Ballers"
     }
   ]
