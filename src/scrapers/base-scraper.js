@@ -46,16 +46,24 @@ class BaseScraper {
             // 1. Initial Scrape (Get List)
             let items = await this.parse(page);
 
-            // DEBUG: Screenshot & HTML if 0 items found
-            if (items.length === 0) {
+            // DEBUG: Screenshot & HTML if 0 items found (Only in debug mode or if explicitly enabled)
+            if (items.length === 0 && process.env.SAVE_DEBUG_SCREENSHOTS === 'true') {
                 // console.log(`[${this.storeName}] 0 items found. Saving debug data...`);
                 const fs = require('fs');
                 if (!fs.existsSync('debug_screenshots')) fs.mkdirSync('debug_screenshots');
                 const cleanName = this.storeName.replace(/\s/g, '_');
 
-                await page.screenshot({ path: `debug_screenshots/${cleanName}_debug.png` });
-                const html = await page.content();
-                fs.writeFileSync(`debug_screenshots/${cleanName}_debug.html`, html);
+                try {
+                    // Timeout screenshot after 5 seconds to prevent hanging
+                    await Promise.race([
+                        page.screenshot({ path: `debug_screenshots/${cleanName}_debug.png` }),
+                        new Promise((_, reject) => setTimeout(() => reject(new Error('Screenshot timeout')), 5000))
+                    ]);
+                    const html = await page.content();
+                    fs.writeFileSync(`debug_screenshots/${cleanName}_debug.html`, html);
+                } catch (err) {
+                    console.error(`   ⚠️ Failed to save debug screenshot for ${this.storeName}: ${err.message}`);
+                }
             }
 
             // 2. Filter by Title (Smart Search) ASAP to reduce work
