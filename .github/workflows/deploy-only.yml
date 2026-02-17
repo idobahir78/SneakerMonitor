@@ -1,0 +1,37 @@
+name: Quick Deploy Data
+
+on:
+  push:
+    paths:
+      - 'frontend/public/data.json'
+    branches:
+      - main
+
+concurrency:
+  group: deploy-data
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build and Deploy
+        run: |
+          cd frontend
+          npm install
+          npm run build
+          
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: frontend/dist
+          branch: gh-pages
+          clean: false # Merge with existing, don't wipe (faster/safer for partials?) actually clean=true is standard. keeping default.
