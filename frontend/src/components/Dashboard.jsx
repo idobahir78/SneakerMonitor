@@ -12,6 +12,7 @@ const Dashboard = () => {
     const [refreshFlash, setRefreshFlash] = useState(false);
     const [isScanning, setIsScanning] = useState(false);
     const [lastTriggerTime, setLastTriggerTime] = useState(null);
+    const [triggeredSearchTerm, setTriggeredSearchTerm] = useState('');
 
     const fetchData = () => {
         // Add timestamp to prevent caching
@@ -69,7 +70,10 @@ const Dashboard = () => {
     // Unify schema locally (fallback for old data files)
     const effectiveResults = results || [];
     const effectiveUpdateAt = updatedAt || lastUpdated;
-    const effectiveSearchTerm = searchTerm || lastSearchTerm || 'Unknown';
+
+    // Display triggered term immediately if we're scanning and data hasn't caught up
+    const isWaitingForNewData = isScanning && triggeredSearchTerm && (searchTerm !== triggeredSearchTerm && lastSearchTerm !== triggeredSearchTerm);
+    const effectiveSearchTerm = isWaitingForNewData ? triggeredSearchTerm : (searchTerm || lastSearchTerm || 'Unknown');
 
     // Filter results based on client-side search
     const filteredResults = effectiveResults.filter(item =>
@@ -88,11 +92,21 @@ const Dashboard = () => {
     // Handle scrape trigger from ScraperControl
     const handleScrapeTrigger = (options = {}) => {
         const now = new Date().getTime();
+        const newSearchTerm = options.searchTerm || '';
         console.log('Scrape triggered via UI at:', now, options);
 
-        // Record the exact time we started the search
+        // Record the exact time and term we started the search
         setLastTriggerTime(now);
+        setTriggeredSearchTerm(newSearchTerm);
         setIsScanning(true);
+
+        // Clear current results immediately for visual feedback
+        setData(prev => ({
+            ...prev,
+            results: [],
+            searchTerm: '', // Clear this so we use triggeredSearchTerm
+            lastSearchTerm: ''
+        }));
 
         // Force an immediate refresh check in 10 seconds (allow Action to start)
         setTimeout(() => fetchData(), 10000);
@@ -110,7 +124,9 @@ const Dashboard = () => {
                     <div className="scanning-banner">
                         <span className="scanning-icon">🔄</span>
                         <span className="scanning-text">Scanning in progress...</span>
-                        <span className="results-count">{filteredResults.length} items found</span>
+                        <span className="results-count">
+                            {isWaitingForNewData ? 0 : filteredResults.length} items found
+                        </span>
                     </div>
                 )}
 

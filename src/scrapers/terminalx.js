@@ -40,8 +40,8 @@ class TerminalXScraper extends BaseScraper {
                             price = item.price;
                         }
 
-                        let link = item.url_key ? `https://www.terminalx.com/${item.url_key}` : '';
-                        if (!link && item.url) link = item.url;
+                        let link = item.url_key ? (item.url_key.startsWith('http') ? item.url_key : `https://www.terminalx.com/${item.url_key}`) : '';
+                        if (!link && item.url) link = item.url.startsWith('http') ? item.url : `https://www.terminalx.com/${item.url}`;
 
                         if (title && link) {
                             results.push({
