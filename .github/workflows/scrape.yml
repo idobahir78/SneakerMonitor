@@ -76,16 +76,49 @@ jobs:
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
-          # Discard local changes to data.json from monitor run to allow pull
-          git checkout frontend/public/data.json || echo "No existing data.json to checkout"
-          # Pull latest to avoid conflicts
-          git pull --rebase -X theirs origin main
-          # Merge our partial results into the fresh data.json
-          node src/scripts/patch_results.js data-part-${{ matrix.group }}.json
-          # Commit and push
-          git add frontend/public/data.json
-          git commit -m "Partial update: Group ${{ matrix.group }} [$(date -u)]" || echo "No changes"
-          git push origin main
+          
+          MAX_RETRIES=10
+          RETRY_COUNT=0
+          SUCCESS=false
+          
+          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+            echo "Attempt $((RETRY_COUNT+1)) to sync and push results..."
+            
+            # 1. Force discard any local changes to tracked files (like data.json or package-lock)
+            git reset --hard HEAD
+            
+            # 2. Pull latest data from main
+            if git pull --rebase -X theirs origin main; then
+                # 3. Merge our partial results into the fresh data.json
+                if node src/scripts/patch_results.js data-part-${{ matrix.group }}.json; then
+                    # 4. Commit changes
+                    git add frontend/public/data.json
+                    if git commit -m "Partial update: Group ${{ matrix.group }} [$(date -u)]"; then
+                        # 5. Push to origin
+                        if git push origin main; then
+                            SUCCESS=true
+                            echo "✅ Successfully synced and pushed Group ${{ matrix.group }} results."
+                            break
+                        fi
+                    else
+                        # No changes to commit (nothing new found)
+                        SUCCESS=true
+                        echo "ℹ️ No new items found in Group ${{ matrix.group }}. Skipping push."
+                        break
+                    fi
+                fi
+            fi
+            
+            RETRY_COUNT=$((RETRY_COUNT+1))
+            SLEEP_TIME=$(( (RANDOM % 15) + 5 ))
+            echo "⚠️ Sync failed or push rejected (concurrency). Retrying in $SLEEP_TIME seconds..."
+            sleep $SLEEP_TIME
+          done
+          
+          if [ "$SUCCESS" = false ]; then
+            echo "❌ Failed to push Group ${{ matrix.group }} results after $MAX_RETRIES attempts."
+            exit 1
+          fi
 
       - name: Upload Partial (Backup)
         uses: actions/upload-artifact@v4
