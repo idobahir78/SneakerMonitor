@@ -8,14 +8,30 @@ class Arba4Scraper extends BaseScraper {
     }
 
     async parse(page) {
-        try {
-            await page.waitForSelector('ul.products, .products, .product-grid-item', { timeout: 15000 });
-        } catch (e) {
-            return [];
-        }
-
         return await page.evaluate(() => {
             const items = [];
+            // 1. PDP Handling
+            if (document.body.classList.contains('single-product')) {
+                const titleEl = document.querySelector('h1.product_title');
+                const priceEl = document.querySelector('p.price');
+
+                if (titleEl) {
+                    const title = titleEl.innerText.trim();
+                    const link = window.location.href;
+                    let price = 0;
+                    if (priceEl) {
+                        const insPrice = priceEl.querySelector('ins .amount');
+                        const priceText = insPrice ? insPrice.innerText : priceEl.innerText;
+                        const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
+                    }
+
+                    items.push({ store: 'Arba4', title, price, link, sizes: [] });
+                    return items;
+                }
+            }
+
+            // 2. Search Results
             const elements = document.querySelectorAll('li.product, .product-grid-item');
 
             elements.forEach(el => {

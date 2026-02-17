@@ -11,6 +11,36 @@ class TerminalXScraper extends BaseScraper {
         return await page.evaluate(() => {
             const results = [];
 
+            // 1. Check if we are on a Product Detail Page (PDP)
+            const isPDP = !!document.querySelector('.product-info-main') || !!document.querySelector('.page-title');
+            if (isPDP) {
+                const titleEl = document.querySelector('.page-title .base, h1.page-title');
+                const priceEl = document.querySelector('.price-final_price .price, .price-box .price, [data-price-type="finalPrice"] .price');
+
+                if (titleEl) {
+                    const title = titleEl.innerText.trim();
+                    const link = window.location.href;
+                    let price = 0;
+                    if (priceEl) {
+                        const priceText = priceEl.innerText.trim();
+                        const numbers = priceText.match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) {
+                            price = Math.min(...numbers.map(n => parseFloat(n)));
+                        }
+                    }
+
+                    results.push({
+                        store: 'Terminal X',
+                        title,
+                        price,
+                        link,
+                        sizes: [] // Will be filled by parseSizes if this is the active page
+                    });
+                    return results;
+                }
+            }
+
+            // 2. Existing Search Result Parsing (PLP)
             try {
                 const state = window.__INITIAL_STATE__;
                 let items = [];
@@ -59,7 +89,7 @@ class TerminalXScraper extends BaseScraper {
                 console.error('Terminal X JSON extraction failed:', e);
             }
 
-            // Fallback: DOM Selectors
+            // Fallback: DOM Selectors (Search Page)
             const domItems = document.querySelectorAll('.product-item-info, li.product-item');
             domItems.forEach(item => {
                 const titleEl = item.querySelector('.product-item-link, a.title');

@@ -10,20 +10,53 @@ class FootLockerScraper extends BaseScraper {
     async parse(page) {
         return await page.evaluate(() => {
             const results = [];
-            // Robust selectors for Foot Locker IL (Shopify/Liquid based)
-            const items = document.querySelectorAll('product-item, .product-item, .product-card, .grid-view-item');
+
+            // 1. Check for PDP (Product Detail Page) indicators
+            const isPDP = !!document.querySelector('.product-form') || !!document.querySelector('.product-single__title') || !!document.querySelector('[data-product-id]');
+
+            if (isPDP) {
+                const titleEl = document.querySelector('.product-single__title, h1.product_title, .product-details h1');
+                const priceEl = document.querySelector('.product__price, .price-item--regular, .product-details .price');
+
+                if (titleEl) {
+                    const title = titleEl.innerText.trim();
+                    const link = window.location.href;
+                    let price = 0;
+                    if (priceEl) {
+                        const priceText = priceEl.innerText.trim();
+                        const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
+                    }
+
+                    results.push({
+                        store: 'Foot Locker IL',
+                        title,
+                        price,
+                        link,
+                        sizes: []
+                    });
+                    return results;
+                }
+            }
+
+            // 2. PLP (Product Listing Page) Parsing
+            const items = document.querySelectorAll('.product-card, .product-item, .grid-view-item, .card-wrapper');
 
             items.forEach(item => {
-                const titleEl = item.querySelector('.product-item-meta__title, .product-card__title, .grid-view-item__title, h3, a[href*="/products/"]');
-                const priceEl = item.querySelector('.price--highlight, .price, .product-card__price, .grid-view-item__meta');
-                const linkEl = item.querySelector('a[href*="/products/"]');
+                const titleEl = item.querySelector('.product-card__title, .grid-view-item__title, .card__heading, h3 a');
+                const priceEl = item.querySelector('.price-item--regular, .product-card__price, .price');
+                const linkEl = item.querySelector('a.full-unstyled-link, a.grid-view-item__link, .product-card__title');
 
                 if (titleEl) {
                     const title = titleEl.innerText.trim();
                     let link = linkEl ? linkEl.href : '';
-                    if (!link && titleEl.tagName === 'A') link = titleEl.href;
+                    if (!link) {
+                        // heavy strategy
+                        const a = item.querySelector('a');
+                        if (a) link = a.href;
+                    }
 
-                    // If relative, make absolute (though .href is usually absolute in puppeteer)
+                    // If relative, make absolute
                     if (link && link.startsWith('/')) {
                         link = `https://www.footlocker.co.il${link}`;
                     }

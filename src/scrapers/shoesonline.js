@@ -8,14 +8,43 @@ class ShoesOnlineScraper extends BaseScraper {
     }
 
     async parse(page) {
-        // Wait for product list (WooCommerce standard)
-        try {
-            await page.waitForSelector('ul.products, .products, .product-grid-item', { timeout: 10000 });
-        } catch (e) {
-            return [];
-        }
-
         return await page.evaluate(() => {
+            const results = [];
+
+            // 1. PDP Handling (Direct Product Page)
+            if (document.body.classList.contains('single-product')) {
+                const titleEl = document.querySelector('.product_title.entry-title');
+                const priceEl = document.querySelector('p.price');
+                const imageEl = document.querySelector('.woocommerce-product-gallery__image img');
+
+                if (titleEl) {
+                    const title = titleEl.innerText.trim();
+                    const link = window.location.href; // Current URL
+                    let price = 0;
+                    if (priceEl) {
+                        // Handle range or sale price
+                        const insPrice = priceEl.querySelector('ins .amount');
+                        const priceText = insPrice ? insPrice.innerText : priceEl.innerText;
+
+                        const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) {
+                            price = parseFloat(numbers[0]);
+                        }
+                    }
+
+                    results.push({
+                        store: 'Shoesonline',
+                        title,
+                        price,
+                        link,
+                        sizes: [] // Will be filled by parseSizes
+                    });
+                    return results;
+                }
+            }
+
+
+            // 2. Search Page Handling
             const items = [];
             const elements = document.querySelectorAll('li.product, .product-grid-item');
 

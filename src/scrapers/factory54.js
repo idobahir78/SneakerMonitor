@@ -8,15 +8,23 @@ class Factory54Scraper extends BaseScraper {
     }
 
     async parse(page) {
+        // Wait for items to load
+        try {
+            await page.waitForSelector('.product-item, .card, div[data-id], .product_list_item', { timeout: 15000 });
+        } catch (e) {
+            console.log('Factory 54: No products found after wait.');
+            return [];
+        }
+
         return await page.evaluate(() => {
             const results = [];
             // Common selectors for F54: .product-item, .card, [data-id]
-            const items = document.querySelectorAll('.product-item, .card, div[data-id]');
+            const items = document.querySelectorAll('.product-item, .card, div[data-id], .product_list_item');
 
             items.forEach(item => {
                 const linkEl = item.querySelector('a') || item.closest('a');
-                const titleEl = item.querySelector('.product-name, .title, h3, h4');
-                const priceEl = item.querySelector('.price, .value, span[data-price]');
+                const titleEl = item.querySelector('.product-name, .title, h3, h4, .product_item_title');
+                const priceEl = item.querySelector('.price, .value, span[data-price], .product_item_price');
 
                 if (linkEl && titleEl) {
                     const title = titleEl.innerText.trim();
