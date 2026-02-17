@@ -89,6 +89,16 @@ class SmartSearch {
             variations.add('MB');
         }
 
+        // Generic Brand Removal (e.g. "New Balance 530" -> "530")
+        const brands = ['Nike', 'Adidas', 'Jordan', 'New Balance', 'Puma', 'Under Armour', 'Asics', 'Hoka', 'On Cloud', 'Saucony'];
+        for (const brand of brands) {
+            const regex = new RegExp(brand, 'gi');
+            if (query.match(regex)) {
+                const brandless = query.replace(regex, '').trim();
+                if (brandless.length > 1) variations.add(brandless);
+            }
+        }
+
         return Array.from(variations);
     }
 }

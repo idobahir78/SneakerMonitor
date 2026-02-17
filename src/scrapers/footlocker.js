@@ -10,33 +10,42 @@ class FootLockerScraper extends BaseScraper {
     async parse(page) {
         return await page.evaluate(() => {
             const results = [];
-            const items = document.querySelectorAll('product-item');
+            // Robust selectors for Foot Locker IL (Shopify/Liquid based)
+            const items = document.querySelectorAll('product-item, .product-item, .product-card, .grid-view-item');
 
             items.forEach(item => {
-                const titleEl = item.querySelector('.product-item-meta__title');
-                const priceEl = item.querySelector('.price--highlight, .price');
+                const titleEl = item.querySelector('.product-item-meta__title, .product-card__title, .grid-view-item__title, h3, a[href*="/products/"]');
+                const priceEl = item.querySelector('.price--highlight, .price, .product-card__price, .grid-view-item__meta');
+                const linkEl = item.querySelector('a[href*="/products/"]');
 
                 if (titleEl) {
                     const title = titleEl.innerText.trim();
-                    const link = titleEl.href;
+                    let link = linkEl ? linkEl.href : '';
+                    if (!link && titleEl.tagName === 'A') link = titleEl.href;
+
+                    // If relative, make absolute (though .href is usually absolute in puppeteer)
+                    if (link && link.startsWith('/')) {
+                        link = `https://www.footlocker.co.il${link}`;
+                    }
+
                     let priceText = priceEl ? priceEl.innerText.trim() : '0';
 
-                    // Clean up price (remove currency symbols like ₪)
+                    // Parse price
                     const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
                     let price = 0;
                     if (numbers && numbers.length > 0) {
                         price = parseFloat(numbers[0]);
                     }
 
-                    const sizes = []; // Sizes verified via deep scrape
-
-                    results.push({
-                        store: 'Foot Locker IL',
-                        title,
-                        price,
-                        link,
-                        sizes
-                    });
+                    if (title && link) {
+                        results.push({
+                            store: 'Foot Locker IL',
+                            title,
+                            price,
+                            link,
+                            sizes: []
+                        });
+                    }
                 }
             });
             return results;

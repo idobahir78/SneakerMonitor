@@ -1,73 +1,57 @@
 const BaseScraper = require('./base-scraper');
 
 class ZolSportScraper extends BaseScraper {
-    constructor(searchInput) {
-        super(searchInput, 'Zol Sport');
-        this.baseUrl = 'https://zolsport.co.il/';
-        this.searchUrl = (query) => `https://zolsport.co.il/?s=${encodeURIComponent(query)}&post_type=product`;
+    constructor(searchTerm) {
+        const query = searchTerm;
+        if (!query) throw new Error("Search term is required for ZolSportScraper");
+        super('Zol Sport', `https://zolsport.co.il/?s=${encodeURIComponent(query)}&post_type=product`);
     }
 
-    async scrape(browser, targetModels, targetSizes) {
-        return super.scrape(browser, targetModels, targetSizes);
-    }
-
-    async scrapePage(page, url, targetModels, targetSizes) {
-        console.log(`[${this.storeName}] Navigating to: ${url}`);
-
-        // Use networkidle2 because read_url_content failed, suggesting complex loading or protection
-        await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
-
+    async parse(page) {
         try {
-            await page.waitForSelector('ul.products, .products', { timeout: 15000 });
+            await page.waitForSelector('ul.products, .products, .product-grid-item', { timeout: 15000 });
         } catch (e) {
-            console.log(`[${this.storeName}] No products container found or timeout. Possibly 0 results.`);
             return [];
         }
 
-        const products = await page.evaluate(() => {
+        return await page.evaluate(() => {
             const items = [];
             const elements = document.querySelectorAll('li.product, .product-grid-item');
 
             elements.forEach(el => {
-                try {
-                    let titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2');
-                    let title = titleEl ? titleEl.innerText.trim() : '';
+                const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2');
+                const priceEls = el.querySelectorAll('.price bdi, .price .amount');
+                const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a');
 
-                    if (!title) return;
-
-                    const priceEls = el.querySelectorAll('.price bdi');
-                    let priceText = '';
+                if (titleEl && linkEl) {
+                    const title = titleEl.innerText.trim();
+                    const link = linkEl.href;
+                    let price = 0;
 
                     if (priceEls.length > 0) {
-                        priceText = priceEls[priceEls.length - 1].innerText;
-                    } else {
-                        const priceEl = el.querySelector('.price');
-                        priceText = priceEl ? priceEl.innerText : '';
+                        const priceText = priceEls[priceEls.length - 1].innerText;
+                        price = parseFloat(priceText.replace(/[^\d.]/g, ''));
                     }
-
-                    const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
-
-                    const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link');
-                    const link = linkEl ? linkEl.href : '';
-
-                    const imgEl = el.querySelector('img.attachment-woocommerce_thumbnail, img.wp-post-image');
-                    const image = imgEl ? (imgEl.getAttribute('data-src') || imgEl.src) : '';
 
                     const isOutOfStock = el.classList.contains('outofstock') ||
                         (el.innerText && el.innerText.includes('אזל במלאי'));
 
-                    if (title && price && !isNaN(price) && !isOutOfStock) {
-                        items.push({ title, price, link, image, store: 'Zol Sport' });
+                    if (title && price && !isOutOfStock) {
+                        items.push({ title, price, link, store: 'Zol Sport', sizes: [] });
                     }
-                } catch (err) {
-                    // ignore
                 }
             });
             return items;
         });
+    }
 
-        console.log(`[${this.storeName}] Raw items found: ${products.length}`);
-        return products;
+    async parseSizes(page) {
+        return await page.evaluate(() => {
+            const sizes = [];
+            const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled)');
+            sizeEls.forEach(el => sizes.push(el.innerText.trim()));
+            return sizes;
+        });
     }
 }
 

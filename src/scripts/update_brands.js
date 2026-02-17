@@ -13,9 +13,34 @@ const BLOCKLIST = [
     'SALE', 'BEST OF', 'COLLECTION', 'JUST LANDED', 'LAST CALL', 'NEW', 'VIP',
     'DREAMCARD', 'FW23', 'FW24', 'SS23', 'SS24', 'SS25', 'GIFT', 'OUTLET', 'WIN',
     'BRANDS', 'DAY TO DAY', 'EXTRA', 'FINAL', 'FOX', 'GROUP', 'IL', 'LANDING',
-    'VIEW ALL', 'TEEN', 'BOYS', 'GIRLS', 'BABY', 'KIDS', 'WOMEN', 'MEN', 'IMPORT',
-    'PREMIUM', 'RETURN', 'EXCHANGE', 'TEST', 'TERMINAL', 'ANDROID', 'IOS', 'APP',
-    'WORKOUT', 'ACTIVITIES', 'OS', 'ONE SIZE', 'MENS', 'WOMENS'
+    'VIEW ALL', 'TEEN', 'BOYS', 'GIRLS', 'BABY', 'KIDS', 'WOMEN', 'MEN', 'IMPORT', 'PREMIUM', 'RETURN', 'EXCHANGE', 'TEST', 'TERMINAL', 'ANDROID',
+    'IOS', 'APP', 'WORKOUT', 'ACTIVITIES', 'OS', 'ONE SIZE', 'MENS', 'WOMENS',
+    'ACCESSORIES', 'SNEAKERS & SPORTSWEAR', 'SNEAKERS ICONS', 'SPORTEX15',
+    'TX25 UP TO', 'SPORTS ACTIVITY', 'SPORTS FASHION', 'ALL SHOES',
+    'ICONIC SNEAKERS', 'LAST CHANCE', 'URBAN EDIT', 'VALENTINES DAY',
+    'VOTE SPORT', 'UP TO 149.9', 'BACK TO COLLEGE', 'BASKETBALL', 'LIFESTYLE',
+    'PAGUMX', 'STREET WEAR', 'STREETSTYLE', '15% OFF', '20% OFF', '30% OFF',
+    'SPORT15', 'SPORT30', 'VOTE 30', 'ACTIVITY', 'ORIGINALS', 'PERFORMANCE',
+    'PROFESSIONAL RUNNING', 'RUNNING SHOES', 'SOCCER', 'STREET', 'UNDERWEAR',
+    'BRA', 'LEGGINGS', 'TOP', 'VEST', 'SHORT', 'DRESS', 'SKIRT', 'PANT', 'TIGHTS',
+    'TANK', 'HOODIE', 'SWEATSHIRT', 'JACKET', 'COAT', 'SOCKS', 'HAT', 'BAG',
+    'SWIM', 'GIFT CARD', 'EQUIPMENT', 'BALL', 'JERSEY', 'TEE', 'POCKET',
+    'FLEECE', 'KNIT', 'WOVEN', 'CARGO', 'CHINO', 'JEANS', 'DENIM', 'CLOTHING',
+    'APPAREL', 'ACTIVEWEAR', 'YOGA', 'TRAINING', 'FITNESS', 'SPORTS', 'MOTO',
+    'AUTO', 'RACING', 'OUTDOOR', 'BOXER', 'BRIEF', 'TRUNK', 'UNDIES', 'CAMI',
+    'BODYSUIT', 'BRALETTE', 'HIKING', 'GEAR', 'MAT', 'TOWEL', 'BOTTLE', 'SANTAGZ',
+    'SHAVUOT', 'V DAY'
+];
+
+const HEBREW_BLOCKLIST = [
+    'דף הבית', 'מותגים', 'פעילות', 'קטגוריות', 'קולקציות', 'אביזרים', 'אימון', 'בנות', 'בנים', 'גברים', 'נשים', 'ילדים', 'בייבי',
+    'נייק', 'אדידס', 'פומה', 'אנדר ארמור', 'אסיקס', 'סאקוני', 'הוקה', 'סנדלים',
+    'כפכפים', 'חולצות', 'מכנסיים', 'טייצים', 'חזיות', 'חזיית', 'גרביים', 'כובעים',
+    'תיקים', 'בגדי ים', 'הלבשה תחתונה', 'שרוול קצר', 'שרוול ארוך', 'גופיות',
+    'סטייל', 'מבצע', 'הנחה', 'חדש', 'בלעדי', 'חולצה', 'מכנס', 'ג\'ינס', 'כדור',
+    'ציוד', 'סווטשירט', 'קפוצ\'ון', 'ז\'קט', 'מעיל', 'חצאית', 'שמלה', 'בגד ים',
+    'אביזרי', 'אקססוריז', 'ריצה', 'ספורט', 'תחתונים', 'מארז', 'גופיית', 'גופיה',
+    'טי שירט', 'טישירט', 'חולצת', 'מכנסי', 'טופים', 'פולו', 'שבועות', 'וולנטיין'
 ];
 
 // 2. Clothing Filter (Hebrew + English) - We want SHOES ONLY
@@ -196,7 +221,11 @@ function cleanName(name, brand) {
     name = name.replace(brandRegex, '').trim();
 
     // Cleanup Hebrew & common junk
-    name = name.replace(/נעלי|ספורט|סניקרס|נשים|גברים|ילדים|יוניסקס|פלטפורמה/g, '').trim();
+    name = name.replace(/נעלי|ספורט|סניקרס|נשים|גברים|ילדים|יוניסקס|פלטפורמה|נוער/g, '').trim();
+
+    // Hebrew Blocklist Check
+    if (HEBREW_BLOCKLIST.some(bad => name.includes(bad))) return null;
+
     name = name.replace(/^-\s*/, '').trim();
     name = name.replace(/\//g, '').trim();
 
