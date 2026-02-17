@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-17T07:48:43.243Z",
+  "updatedAt": "2026-02-17T07:49:10.631Z",
   "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "*",
@@ -11,6 +11,41 @@
   },
   "results": [
     {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 EasyOn",
+      "price": 299.9,
+      "link": "https://www.nike.com/il/t/air-max-90-easyon-younger-shoes-baIPilKS/IQ0096-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 EasyOn",
+      "price": 299.9,
+      "link": "https://www.nike.com/il/t/air-max-90-easyon-younger-shoes-baIPilKS/IQ0096-003",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 SE",
+      "price": 379.9,
+      "link": "https://www.nike.com/il/t/air-max-90-se-older-shoes-vzggKR/IF2623-003",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 429.9,
+      "link": "https://www.nike.com/il/t/air-max-90-older-shoe-4a09el2P/IQ0098-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 449.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-nqglHB/DH8010-001",
+      "sizes": []
+    },
+    {
       "index": 1,
       "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 Scooby Doo",
       "price": 479,
@@ -19,12 +54,40 @@
       "store": "Ballers"
     },
     {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 G",
+      "price": 479.9,
+      "link": "https://www.nike.com/il/t/air-max-90-g-golf-shoes-3v6cLX/HV9305-001",
+      "sizes": []
+    },
+    {
       "index": 0,
       "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 LaFrancé",
       "price": 499,
       "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-lafrance/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.04-LaFrance1-430x430.jpeg",
       "store": "Ballers"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 LTR",
+      "price": 529.9,
+      "link": "https://www.nike.com/il/t/air-max-90-ltr-older-shoes-nmkjpJ/CD6864-133",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 LTR",
+      "price": 529.9,
+      "link": "https://www.nike.com/il/t/air-max-90-ltr-older-shoes-nmkjpJ/CD6864-034",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 529.9,
+      "link": "https://www.nike.com/il/t/air-max-90-older-shoe-4a09el2P/IQ0098-003",
+      "sizes": []
     },
     {
       "index": 2,
@@ -41,6 +104,83 @@
       "link": "https://thekitsclub7.com/product/mb04-lafrance/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2024/10/MB.04-LAFRANCE-web-01-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-nwwcHpDQ/IO1908-065",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoe-R0p58M/CN8490-003",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-3KiuBtKO/IM3110-101",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 Premium",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-with-reflective-design-accents-XdVinTNv/HV4517-003",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-WFhC8j/DM0029-600",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 Drift",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-drift-shoes-lrh1RW/HQ1416-001",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-Npg4H6/HV4915-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoe-R0p58M/CN8490-002",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-nwwcHpDQ/IO1908-010",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-3KiuBtKO/IM3110-500",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90",
+      "price": 629.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-nqglHB/DH8010-002",
+      "sizes": []
     },
     {
       "index": 0,
@@ -62,6 +202,69 @@
       "store": "Foot Locker IL",
       "title": "PUMA X FAST & FURIOUS MB.05 MIAMI נעלי כדורסל",
       "price": 679.9,
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 Premium 'Valentine’s Day\"",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-90-valentines-day-shoes-ff7RDswj/IB6606-600",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 Premium",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-YZPoZA0E/HV6663-300",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 Premium",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-90-shoes-cBc271/DH0569-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 SE",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-90-se-shoes-TW3p8p/HF1212-200",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 G",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-90-g-golf-shoes-3v6cLX/HV9305-102",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 G",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-90-g-golf-shoes-WLzXr7kk/HV9305-104",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 By You",
+      "price": 729.9,
+      "link": "https://www.nike.com/il/u/custom-nike-air-max-90-shoes-by-you-10002041/2667687259",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 By You",
+      "price": 729.9,
+      "link": "https://www.nike.com/il/u/custom-nike-air-max-90-shoes-by-you-10002042/5323229428",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max 90 By You",
+      "price": 729.9,
+      "link": "https://www.nike.com/il/u/custom-nike-air-max-90-shoes-by-you-10002041/3529692820",
       "sizes": []
     }
   ],
