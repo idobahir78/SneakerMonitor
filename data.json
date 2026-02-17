@@ -1,11 +1,252 @@
 {
-  "updatedAt": "2026-02-17T23:19:11.959Z",
+  "updatedAt": "2026-02-17T23:39:41.429Z",
   "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
   },
-  "results": [],
+  "results": [
+    {
+      "title": "Z904710027",
+      "price": 299.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/1434476",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/9/x989060027-11643547246_2.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "X596440008",
+      "price": 299.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/496892",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/5/x596440008-11687176025.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "Z540960007",
+      "price": 299.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/1149356",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/5/z540960007-11664796588.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "R539390008",
+      "price": 329.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2452986",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r539390008-11771147805.jpg",
+      "brand": "1502"
+    },
+    {
+      "title": "Z540942006",
+      "price": 339.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/1149354",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/5/z540942006-11664796534.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "X596490008",
+      "price": 339.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/496897",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/5/x596490008-11687176061.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "Z233800001",
+      "price": 339.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/927682",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/2/z233800001-11638707709.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "R067890012",
+      "price": 349.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2161806",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/0/r067890012-11750591688.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "R513510002",
+      "price": 349.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2439298",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r513510002-11770726602.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "R513520004",
+      "price": 349.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2439299",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r513520004-11770726602.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "R640970001",
+      "price": 399.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2513532",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/6/r640970001-11770737403.jpg",
+      "brand": "1593"
+    },
+    {
+      "title": "R640990001",
+      "price": 399.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2513534",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/6/r640990001-11770737403.jpg",
+      "brand": "1593"
+    },
+    {
+      "title": "W022340002",
+      "price": 429.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/1504680",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w022340002-11708519172.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "X887160007",
+      "price": 429.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/697089",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/8/x887160007-11615111284.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "1593"
+    },
+    {
+      "title": "R472190001",
+      "price": 479.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2408491",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r472190001-11760964903.jpg",
+      "brand": "13"
+    },
+    {
+      "title": "R455640001",
+      "price": 579.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2393467",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r455640001-11760508303.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "13"
+    },
+    {
+      "title": "R455800005",
+      "price": 579.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2393483",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r455800005-11760508304.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "21236"
+    },
+    {
+      "title": "R489560027",
+      "price": 599,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2421571",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r489560027-11763973003.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "11853"
+    },
+    {
+      "title": "R472170006",
+      "price": 629.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2408489",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r472170006-11760964903.jpg",
+      "brand": "21236"
+    },
+    {
+      "title": "נעלי כדורסל פומה X מהיר ועצבני",
+      "price": 650,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919173569.html?pi=2",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw08f5cadb/images/new//919173569/919173569_P_2.png?sw=476&sh=714",
+      "brand": "PUMA"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=2dae12f92&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=2dae12f92&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=be53fa79f&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=be53fa79f&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+    },
+    {
+      "title": "R315650008",
+      "price": 679.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2307757",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r315650008-11757593239.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "33650"
+    },
+    {
+      "title": "נעלי כדורסל פומה X מהיר ועצבני",
+      "price": 680,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919176071.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw203bccba/images/new//919176071/919176071_P_2.png?sw=476&sh=714",
+      "brand": "PUMA"
+    },
+    {
+      "title": "R315560027",
+      "price": 699.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2307748",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r315560027-11757593239.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "33650"
+    },
+    {
+      "title": "R315610018",
+      "price": 699.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2307753",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r315610018-11757593239.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "33650"
+    },
+    {
+      "title": "R489570008",
+      "price": 759,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2421572",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r489570008-11763973003.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "11853"
+    },
+    {
+      "title": "R516720001",
+      "price": 759,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2439660",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r516720001-11762935331.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "11853"
+    }
+  ],
   "lastSearchTerm": "Puma MB.05"
 }
