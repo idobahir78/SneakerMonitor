@@ -43,18 +43,25 @@ class SmartSearch {
         const terms = inputStr.split(',').map(t => t.trim()).filter(t => t.length > 0);
 
         return terms.map(term => {
-            // Escape special regex characters except dots which we want to make flexible
-            let escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            // Split term into words to allow order-agnostic matching
+            // e.g. "New Balance" -> ["New", "Balance"]
+            const words = term.split(/[\s\.]+/).filter(w => w.length > 0);
 
-            // Logic:
-            // 1. "MB.05" -> We want to match "MB 05", "MB05", "MB.05"
-            //    So we replace literal "\." with "[\.\s]?"
-            // 2. "MB 05" -> Same goal.
+            if (words.length <= 1) {
+                // Single word or special case - keep simple
+                let escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                let patternStr = escaped.replace(/\\\.| /g, '[\\.\\s]?');
+                return new RegExp(patternStr, 'i');
+            }
 
-            // Replace dots or spaces with a flexible group
-            let patternStr = escaped.replace(/\\\.| /g, '[\\.\\s]?');
+            // Multi-word: Use positive lookaheads for each word
+            // e.g. "(?=.*New)(?=.*Balance)"
+            const lookaheads = words.map(word => {
+                const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                return `(?=.*${escapedWord})`;
+            }).join('');
 
-            return new RegExp(patternStr, 'i');
+            return new RegExp(`^${lookaheads}.*`, 'i');
         });
     }
 

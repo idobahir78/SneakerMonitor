@@ -254,7 +254,7 @@ async function run() {
                 }
                 return results;
             } catch (err) {
-                // Silent error in main loop to keep others running
+                console.error(`   ❌ ${scraper.storeName} failed:`.red, err.message);
                 return [];
             }
         };

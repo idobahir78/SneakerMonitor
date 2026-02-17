@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [1, 2, 3]
+        group: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -48,9 +48,13 @@ jobs:
         id: set-group
         run: |
           if [ "${{ matrix.group }}" == "1" ]; then
-            echo "stores=factory 54,terminal x,foot locker,the shoval,ballers,player six" >> $GITHUB_OUTPUT
+            echo "stores=terminal x,foot locker" >> $GITHUB_OUTPUT
           elif [ "${{ matrix.group }}" == "2" ]; then
-            echo "stores=nike,kits club,mega sport,shoesonline,master sport,zol sport" >> $GITHUB_OUTPUT
+            echo "stores=nike,mega sport" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.group }}" == "3" ]; then
+            echo "stores=factory 54,the shoval,ballers,player six" >> $GITHUB_OUTPUT
+          elif [ "${{ matrix.group }}" == "4" ]; then
+            echo "stores=kits club,shoesonline,master sport,zol sport" >> $GITHUB_OUTPUT
           else
             echo "stores=aluf sport,lime shoes,mayers,shoes2u,arba4,ksp" >> $GITHUB_OUTPUT
           fi
@@ -68,7 +72,17 @@ jobs:
              node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" "--stores=${{ steps.set-group.outputs.stores }}" --json "$OUTPUT_FILE"
           fi
 
-      - name: Upload Partial
+      - name: Patch & Push Partial Results
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git pull --rebase -X theirs origin main
+          node src/scripts/patch_results.js data-part-${{ matrix.group }}.json
+          git add frontend/public/data.json
+          git commit -m "Partial update: Group ${{ matrix.group }} [$(date -u)]" || echo "No changes"
+          git push origin main
+
+      - name: Upload Partial (Backup)
         uses: actions/upload-artifact@v4
         with:
           name: data-part-${{ matrix.group }}
@@ -87,22 +101,24 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Download All Artifacts
+      - name: Download All Artifacts (Final Sync)
         uses: actions/download-artifact@v4
         with:
           pattern: data-part-*
           merge-multiple: true
           path: . 
 
-      - name: Merge Results
-        run: node src/scripts/merge_results.js
+      - name: Final Merge
+        run: |
+          node src/scripts/merge_results.js
+          # Final merge sets isRunning to false automatically (per script logic)
 
-      - name: Commit & Push Data
+      - name: Commit & Push Final Data
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add frontend/public/data.json
-          git commit -m "Update sneaker data: $(date -u)" || echo "No changes"
+          git commit -m "Final data sync: $(date -u)" || echo "No changes"
           git pull --rebase -X theirs origin main
           git push origin main
 

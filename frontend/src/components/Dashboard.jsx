@@ -80,8 +80,16 @@ const Dashboard = () => {
             });
     };
 
-    if (loading || !data) return <div className="loading-screen">Loading Sneaker Monitor...</div>;
-    if (error) return <div className="error-screen">Error: {error}</div>;
+    if (error) return (
+        <div className="error-screen">
+            <p>Error: {error}</p>
+            <button onClick={() => { setError(null); setLoading(true); fetchData(); }} className="retry-btn">
+                🔄 Retry
+            </button>
+        </div>
+    );
+    if (loading && !data) return <div className="loading-screen">Loading Sneaker Monitor...</div>;
+    if (!data) return <div className="loading-screen">Initializing Data...</div>;
 
     const { results, updatedAt, searchTerm, lastUpdated, lastSearchTerm } = data;
 

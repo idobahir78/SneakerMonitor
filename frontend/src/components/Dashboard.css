@@ -298,6 +298,26 @@ body {
 
 .error-screen {
     color: var(--error-color);
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.retry-btn {
+    padding: 10px 25px;
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.3);
+    transition: all 0.3s ease;
+}
+
+.retry-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(187, 134, 252, 0.5);
 }
 
 .empty-state {
