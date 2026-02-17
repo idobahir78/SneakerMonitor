@@ -5,6 +5,9 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'frontend/public/data.json'
+      - '**.md'
   schedule:
     - cron: '0 * * * *'
   workflow_dispatch:
@@ -20,6 +23,10 @@ on:
         description: 'Enable Progressive Updates'
         required: false
         default: 'true'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 permissions:
   contents: write

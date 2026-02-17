@@ -4,7 +4,7 @@ class PlayerSixScraper extends BaseScraper {
     constructor(searchTerm) {
         const query = searchTerm;
         if (!query) throw new Error("Search term is required for PlayerSixScraper");
-        super('Player Six', `https://player-six.com/?s=${encodeURIComponent(query)}&post_type=product`);
+        super('Player Six', `https://playersix.co.il/?s=${encodeURIComponent(query)}&post_type=product`);
     }
 
     async parse(page) {

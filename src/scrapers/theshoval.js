@@ -4,7 +4,7 @@ class TheShovalScraper extends BaseScraper {
     constructor(searchTerm) {
         const query = searchTerm;
         if (!query) throw new Error("Search term is required for TheShovalScraper");
-        super('The Shoval', `https://theshoval.co.il/search?q=${encodeURIComponent(query)}`);
+        super('The Shoval', `https://theshoval.com/search?q=${encodeURIComponent(query)}`);
     }
 
     async parse(page) {
