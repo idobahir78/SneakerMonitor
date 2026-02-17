@@ -23,21 +23,15 @@ let finalData = {
     results: []
 };
 
-// --- Additive Logic: Load existing results first ---
+// --- Metadata Logic: Load existing structure but NOT results ---
 if (fs.existsSync(OUTPUT_PATH)) {
     try {
         const existingRaw = fs.readFileSync(OUTPUT_PATH, 'utf8');
         const existingData = JSON.parse(existingRaw);
-        if (existingData.results) {
-            finalData.results = existingData.results;
-            console.log(`📜 Loaded ${existingData.results.length} existing items from data.json`);
-        }
-        // Preserve other metadata if not present in partials
-        finalData.searchTerm = existingData.searchTerm || "";
-        finalData.lastSearchTerm = existingData.lastSearchTerm || "";
-        finalData.lastSizeInput = existingData.lastSizeInput || "";
+        // We do NOT load old results. New search = fresh results.
+        console.log(`📜 Keeping existing data.json structure (found ${existingData.results.length} old results to be replaced)`);
     } catch (e) {
-        console.warn("⚠️ Could not load existing data.json, starting fresh.");
+        console.warn("⚠️ Could not load existing data.json structure.");
     }
 }
 
