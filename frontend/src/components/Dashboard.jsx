@@ -31,7 +31,10 @@ const Dashboard = () => {
         return () => clearInterval(interval);
     }, [isScanning]); // Re-create interval when scanning status changes
 
-    const fetchData = () => {
+    const fetchData = (retryCount = 0) => {
+        // Clear error at start of request so UI doesn't get stuck in error state during retries
+        setError(null);
+
         // Add timestamp to prevent caching
         const cacheBuster = new Date().getTime();
         fetch(`data.json?t=${cacheBuster}`)
@@ -75,8 +78,15 @@ const Dashboard = () => {
             })
             .catch(err => {
                 console.error("Error fetching data:", err);
-                setError(err.message);
-                setLoading(false);
+
+                // Auto-retry once on initial load (handles iOS network wake-up race condition)
+                if (!data && retryCount < 2) {
+                    console.log(`Auto-retrying fetch (Attempt ${retryCount + 1})...`);
+                    setTimeout(() => fetchData(retryCount + 1), 1000);
+                } else {
+                    setError(err.message);
+                    setLoading(false);
+                }
             });
     };
 
