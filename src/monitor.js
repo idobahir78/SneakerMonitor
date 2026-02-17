@@ -10,8 +10,8 @@ const SizeUtils = require('./utils/size-utils');
 // Add stealth plugin to evade detection (StockX etc)
 puppeteer.use(StealthPlugin());
 
-const Factory54Scraper = require('./scrapers/factory54');
-const TerminalXScraper = require('./scrapers/terminalx');
+const Factory54Scraper = require('./scrapers/factory54_puppeteer');
+const TerminalXScraper = require('./scrapers/terminalx_puppeteer');
 const FootLockerScraper = require('./scrapers/footlocker');
 const TheShovalScraper = require('./scrapers/theshoval');
 const BallersScraper = require('./scrapers/ballers');
@@ -132,6 +132,8 @@ async function limitConcurrency(limit, items, fn) {
 // Global results accumulator for progressive updates
 let allAccumulatedResults = [];
 
+const { exec } = require('child_process');
+
 // Helper function to write progressive updates
 function writeProgressiveUpdate(isRunning = true) {
     if (!PROGRESSIVE_UPDATES) return; // Skip if not in progressive mode
@@ -164,6 +166,22 @@ function writeProgressiveUpdate(isRunning = true) {
         fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2));
         if (isRunning && uniqueSoFar.length > 0) {
             console.log(`   💾 Progressive update: ${uniqueSoFar.length} results saved...`.dim);
+
+            // --- TRIGGER GIT SYNC ---
+            // Only sync if we have results and we are in a CI environment (checked via env var or assumption)
+            // We assume safe to run if PROGRESSIVE_UPDATES is true.
+            // Fire and forget-ish (don't await to avoid blocking scraping too much, but maybe we should?)
+            // We'll run it detached? No, simple exec.
+            const syncScript = path.join(__dirname, 'scripts/git_sync.js');
+            console.log(`   🔄 Triggering background git sync...`.dim);
+            exec(`node "${syncScript}" "${outputPath}"`, (error, stdout, stderr) => {
+                if (error) {
+                    console.error(`   ⚠️ Sync Warning: ${error.message}`.yellow);
+                    return;
+                }
+                if (stdout) console.log(`   [Sync] ${stdout.trim()}`.gray);
+                if (stderr) console.error(`   [Sync Err] ${stderr.trim()}`.gray);
+            });
         }
     } catch (err) {
         console.error(`   ⚠️ Failed to write progressive update: ${err.message}`.yellow);

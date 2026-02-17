@@ -8,81 +8,107 @@ class FootLockerScraper extends BaseScraper {
     }
 
     async parse(page) {
-        return await page.evaluate(() => {
-            const results = [];
+        const results = [];
 
-            // 1. Check for PDP (Product Detail Page) indicators
-            const isPDP = !!document.querySelector('.product-form') || !!document.querySelector('.product-single__title') || !!document.querySelector('[data-product-id]');
+        // Method 1: Extract from data-events script (most reliable for search)
+        try {
+            const html = await page.content();
+            // Look for the specific script tag with data-events
+            const eventMatch = html.match(/data-events="(\[\[.*?\]\])"/);
 
-            if (isPDP) {
-                const titleEl = document.querySelector('.product-single__title, h1.product_title, .product-details h1');
-                const priceEl = document.querySelector('.product__price, .price-item--regular, .product-details .price');
+            if (eventMatch && eventMatch[1]) {
+                const rawJson = eventMatch[1].replace(/&quot;/g, '"');
+                const events = JSON.parse(rawJson);
 
-                if (titleEl) {
-                    const title = titleEl.innerText.trim();
-                    const link = window.location.href;
-                    let price = 0;
-                    if (priceEl) {
-                        const priceText = priceEl.innerText.trim();
-                        const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
-                        if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
+                // Find search_submitted event or similar which contains product data
+                const searchEvent = events.find(e => e[0] === 'search_submitted' || e[0] === 'view_item_list');
+
+                if (searchEvent && searchEvent[1]) {
+                    let products = [];
+                    if (searchEvent[1].searchResult && searchEvent[1].searchResult.productVariants) {
+                        products = searchEvent[1].searchResult.productVariants.map(p => ({
+                            title: p.product.title,
+                            price: p.price.amount,
+                            link: p.product.url,
+                            vendor: p.product.vendor,
+                            image: p.image?.src
+                        }));
+                    } else if (searchEvent[1].items) {
+                        products = searchEvent[1].items;
                     }
 
-                    results.push({
-                        store: 'Foot Locker IL',
-                        title,
-                        price,
-                        link,
-                        sizes: []
-                    });
-                    return results;
-                }
-            }
+                    if (products.length > 0) {
+                        console.info(`Extracted ${products.length} products from JSON events.`);
+                        products.forEach(p => {
+                            if (results.length >= 15) return;
 
-            // 2. PLP (Product Listing Page) Parsing
-            const items = document.querySelectorAll('.product-card, .product-item, .grid-view-item, .card-wrapper');
+                            let link = p.link || p.url;
+                            if (link && link.startsWith('/')) link = `https://www.footlocker.co.il${link}`;
 
-            items.forEach(item => {
-                const titleEl = item.querySelector('.product-card__title, .grid-view-item__title, .card__heading, h3 a');
-                const priceEl = item.querySelector('.price-item--regular, .product-card__price, .price');
-                const linkEl = item.querySelector('a.full-unstyled-link, a.grid-view-item__link, .product-card__title');
-
-                if (titleEl) {
-                    const title = titleEl.innerText.trim();
-                    let link = linkEl ? linkEl.href : '';
-                    if (!link) {
-                        // heavy strategy
-                        const a = item.querySelector('a');
-                        if (a) link = a.href;
-                    }
-
-                    // If relative, make absolute
-                    if (link && link.startsWith('/')) {
-                        link = `https://www.footlocker.co.il${link}`;
-                    }
-
-                    let priceText = priceEl ? priceEl.innerText.trim() : '0';
-
-                    // Parse price
-                    const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
-                    let price = 0;
-                    if (numbers && numbers.length > 0) {
-                        price = parseFloat(numbers[0]);
-                    }
-
-                    if (title && link) {
-                        results.push({
-                            store: 'Foot Locker IL',
-                            title,
-                            price,
-                            link,
-                            sizes: []
+                            results.push({
+                                title: p.title || p.item_name,
+                                price: Number(p.price),
+                                priceText: `₪${p.price}`,
+                                link: link,
+                                brand: p.vendor || p.item_brand || 'Foot Locker',
+                                image: p.image ? (p.image.startsWith('//') ? `https:${p.image}` : p.image) : null
+                            });
                         });
                     }
                 }
+            }
+        } catch (e) {
+            console.error('Error parsing Foot Locker JSON events:', e);
+        }
+
+        // Method 2: Fallback to DOM selectors if JSON failed or no products found
+        if (results.length === 0) {
+            console.info('JSON extraction failed or found no products, falling back to DOM parsing.');
+
+            const domResults = await page.evaluate(() => {
+                const pageResults = [];
+                // Specific Foot Locker Search Result Selectors
+                // They often use a grid structure with specific classes
+                const items = document.querySelectorAll('.product-card, .product-item, .card-wrapper, .c-product-card');
+
+                items.forEach(item => {
+                    if (pageResults.length >= 15) return;
+
+                    const titleEl = item.querySelector('.product-card__title, .c-product-card__title, h3');
+                    const priceEl = item.querySelector('.price-item--regular, .product-card__price, .c-price__regular');
+                    const linkEl = item.querySelector('a');
+                    const imgEl = item.querySelector('img');
+
+                    if (titleEl && linkEl) {
+                        const title = titleEl.innerText.trim();
+                        let link = linkEl.href;
+
+                        let price = 0;
+                        if (priceEl) {
+                            const priceText = priceEl.innerText.trim();
+                            const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
+                            if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
+                        }
+
+                        if (title) {
+                            pageResults.push({
+                                title,
+                                price,
+                                priceText: `₪${price}`,
+                                link,
+                                image: imgEl ? imgEl.src : null,
+                                brand: 'Foot Locker'
+                            });
+                        }
+                    }
+                });
+                return pageResults;
             });
-            return results;
-        });
+
+            results.push(...domResults);
+        }
+
+        return results;
     }
 
     async parseSizes(page) {

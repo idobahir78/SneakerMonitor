@@ -8,6 +8,13 @@ class ShoesOnlineScraper extends BaseScraper {
     }
 
     async parse(page) {
+        // Wait for results
+        try {
+            await page.waitForSelector('.product, .type-product', { timeout: 10000 });
+        } catch (e) {
+            console.log('ShoesOnline: Selector not found (timeout), checking for other layouts...');
+        }
+
         return await page.evaluate(() => {
             const results = [];
 
@@ -19,66 +26,83 @@ class ShoesOnlineScraper extends BaseScraper {
 
                 if (titleEl) {
                     const title = titleEl.innerText.trim();
-                    const link = window.location.href; // Current URL
+                    const link = window.location.href;
                     let price = 0;
                     if (priceEl) {
-                        // Handle range or sale price
-                        const insPrice = priceEl.querySelector('ins .amount');
-                        const priceText = insPrice ? insPrice.innerText : priceEl.innerText;
-
+                        const priceText = priceEl.innerText;
                         const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
-                        if (numbers && numbers.length > 0) {
-                            price = parseFloat(numbers[0]);
-                        }
+                        if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
                     }
 
                     results.push({
                         store: 'Shoesonline',
                         title,
                         price,
+                        priceText: priceEl ? priceEl.innerText.trim() : '',
                         link,
-                        sizes: [] // Will be filled by parseSizes
+                        image: imageEl ? imageEl.src : null,
+                        sizes: []
                     });
                     return results;
                 }
             }
 
+            // 2. Search Results / Product Archive
+            const items = document.querySelectorAll('.product, .type-product, li.product, .product-grid-item');
 
-            // 2. Search Page Handling
-            const items = [];
-            const elements = document.querySelectorAll('li.product, .product-grid-item');
+            items.forEach(item => {
+                const titleEl = item.querySelector('.woocommerce-loop-product__title, .product-title, .name, .model-name, h3, h2');
+                const linkEl = item.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a');
+                const imgEl = item.querySelector('img.wp-post-image, img');
 
-            elements.forEach(el => {
-                const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2');
-                const priceEls = el.querySelectorAll('.price bdi, .price .amount');
-                const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a');
+                // Fix: Select sale price first (ins), otherwise default
+                const salePriceEl = item.querySelector('ins .amount');
+                const regularPriceEl = item.querySelector('.price');
 
-                if (titleEl && linkEl) {
+                let priceText = '';
+                if (salePriceEl) {
+                    priceText = salePriceEl.innerText;
+                } else if (regularPriceEl) {
+                    // split by newline in case of multiple prices without tags
+                    const raw = regularPriceEl.innerText.trim();
+                    const parts = raw.split(/\n/);
+                    // usually the last one is the current price if multiple
+                    priceText = parts.length > 0 ? parts[parts.length - 1] : raw;
+                }
+
+                // Remove non-numeric (keep dot)
+                const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+
+                if (price > 0) {
                     const title = titleEl.innerText.trim();
-                    const link = linkEl.href;
-                    let price = 0;
+                    let link = linkEl ? linkEl.href : '';
+                    const image = imgEl ? (imgEl.dataset.src || imgEl.src) : null;
 
-                    if (priceEls.length > 0) {
-                        const priceText = priceEls[priceEls.length - 1].innerText;
-                        price = parseFloat(priceText.replace(/[^\d.]/g, ''));
-                    }
+                    // Check out of stock
+                    const isOutOfStock = item.classList.contains('outofstock') ||
+                        (item.innerText && item.innerText.includes('אזל במלאי'));
 
-                    const isOutOfStock = el.classList.contains('outofstock') ||
-                        (el.innerText && el.innerText.includes('אזל במלאי'));
-
-                    if (title && price && !isOutOfStock) {
-                        items.push({ title, price, link, store: 'Shoesonline', sizes: [] });
+                    if (!isOutOfStock) {
+                        results.push({
+                            store: 'Shoesonline',
+                            title: title,
+                            price: price,
+                            priceText: priceText.trim(),
+                            link: link,
+                            image: image,
+                            brand: 'N/A'
+                        });
                     }
                 }
             });
-            return items;
+            return results;
         });
     }
 
     async parseSizes(page) {
         return await page.evaluate(() => {
             const sizes = [];
-            const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled)');
+            const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled), .selection-box:not(.disabled)');
             sizeEls.forEach(el => sizes.push(el.innerText.trim()));
             return sizes;
         });
