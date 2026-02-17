@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-17T23:57:06.748Z",
-  "isRunning": true,
-  "searchTerm": "Puma MB.05",
+  "updatedAt": "2026-02-17T23:57:20.789Z",
+  "isRunning": false,
+  "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
@@ -168,6 +168,38 @@
       "brand": "PUMA"
     },
     {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=990a0316f&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=990a0316f&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=afc252d5d&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
+    },
+    {
+      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
+      "price": 679.9,
+      "priceText": "₪679.9",
+      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=afc252d5d&amp;_ss=r",
+      "brand": "PUMA",
+      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+    },
+    {
       "title": "R315650008",
       "price": 679.9,
       "store": "Terminal X",
@@ -179,39 +211,7 @@
       "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
       "price": 679.9,
       "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=be9024f69&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=be9024f69&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=9d66aba6e&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=9d66aba6e&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=2&amp;_sid=466fa9ae6&amp;_ss=r",
+      "link": "https://www.footlocker.co.il/products/f323860012?_pos=2&amp;_sid=850fc8a7e&amp;_ss=r",
       "brand": "PUMA",
       "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
     },
