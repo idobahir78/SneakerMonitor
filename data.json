@@ -1,60 +1,11 @@
 {
-  "updatedAt": "2026-02-17T13:32:00.377Z",
+  "updatedAt": "2026-02-17T13:44:18.807Z",
   "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
   },
-  "results": [
-    {
-      "index": 1,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 Scooby Doo",
-      "price": 479,
-      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-scooby-doo/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-%E2%80%98PUMA-x-LAMELO-BALL-MB.04-%E2%80%98Scooby-Doo1-430x430.jpeg",
-      "store": "Ballers"
-    },
-    {
-      "index": 0,
-      "title": "נעלי כדורסל פומה – PUMA x LAMELO BALL MB.04 LaFrancé",
-      "price": 499,
-      "link": "https://ballers.co.il/product/puma-x-lamelo-ball-mb-04-lafrance/",
-      "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-%E2%80%93-PUMA-x-LAMELO-BALL-MB.04-LaFrance1-430x430.jpeg",
-      "store": "Ballers"
-    },
-    {
-      "index": 2,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 LOVE. מידות 36-46. משלוח חינם",
-      "price": 559,
-      "link": "https://thekitsclub7.com/product/mb04-love/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2024/10/MB.04-LOVE-web-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "index": 3,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 LAFRANCE. מידות 36-46. משלוח חינם",
-      "price": 559,
-      "link": "https://thekitsclub7.com/product/mb04-lafrance/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2024/10/MB.04-LAFRANCE-web-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "index": 0,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 TM NINJA TURTLES RAPHAEL & DONATELLO. מידות 36-46. משלוח חינם",
-      "price": 659,
-      "link": "https://thekitsclub7.com/product/mb04-tmnt-rd/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2026/02/MB04-NINJA-PURPLE-RED-01-300x300.jpg",
-      "store": "Kits Club"
-    },
-    {
-      "index": 1,
-      "title": "נעלי כדורסל פומה לאמלו LAMELO BALL MB.04 TM NINJA TURTLES LEONARDO AND MICHELANGELO. מידות 36-46. משלוח חינם",
-      "price": 659,
-      "link": "https://thekitsclub7.com/product/mb04-tmnt-lm/",
-      "image": "https://thekitsclub7.com/wp-content/uploads/2026/02/MB04-NINJA-ORANGE-BLUE-01-300x300.jpg",
-      "store": "Kits Club"
-    }
-  ],
-  "lastSearchTerm": "Puma MB.04"
+  "results": [],
+  "lastSearchTerm": "New Balance 530"
 }
