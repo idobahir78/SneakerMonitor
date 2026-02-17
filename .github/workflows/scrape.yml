@@ -76,8 +76,13 @@ jobs:
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
+          # Discard local changes to data.json from monitor run to allow pull
+          git checkout frontend/public/data.json || echo "No existing data.json to checkout"
+          # Pull latest to avoid conflicts
           git pull --rebase -X theirs origin main
+          # Merge our partial results into the fresh data.json
           node src/scripts/patch_results.js data-part-${{ matrix.group }}.json
+          # Commit and push
           git add frontend/public/data.json
           git commit -m "Partial update: Group ${{ matrix.group }} [$(date -u)]" || echo "No changes"
           git push origin main
