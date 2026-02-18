@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-18T20:02:09.927Z",
-  "isRunning": true,
-  "searchTerm": "Nike",
-  "lastSearchTerm": "New Balance 530",
+  "updatedAt": "2026-02-18T20:02:23.433Z",
+  "isRunning": false,
+  "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
   },
-  "results": []
+  "results": [],
+  "lastSearchTerm": "New Balance 530"
 }
