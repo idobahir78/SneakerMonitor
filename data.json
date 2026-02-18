@@ -1,8 +1,9 @@
 {
   "updatedAt": "2026-02-18T19:29:32.923Z",
   "isRunning": false,
-  "searchTerm": "",
-  "lastSizeInput": "",
+  "searchTerm": "Nike",
+  "lastSearchTerm": "Nike",
+  "lastSizeInput": "*",
   "filters": {
     "sizes": []
   },
