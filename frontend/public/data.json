@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:15.964Z",
+  "updatedAt": "2026-02-18T20:18:16.791Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -22,6 +22,13 @@
       "link": "https://thekitsclub7.com/product/nikelab-tiedye-socks-3-pairs/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2020/10/NIKE-LAB-TIE-DUE-web-01-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Mercurial Vapor 16 Elite",
+      "price": 1,
+      "link": "https://www.nike.com/il/t/mercurial-vapor-16-elite-low-top-football-boot-vbl2lq/FQ1457-446",
+      "sizes": []
     },
     {
       "title": "Nike Short Socks – 3 Pack",
@@ -61,10 +68,24 @@
       "store": "Kits Club"
     },
     {
+      "store": "Nike IL",
+      "title": "Nike Academy",
+      "price": 99.9,
+      "link": "https://www.nike.com/il/t/academy-dri-fit-short-sleeve-football-top-N2sGGr/HJ3791-010",
+      "sizes": []
+    },
+    {
       "title": "נעלי ספורט פעוטות Nike Revolution 6 כחול לבן",
       "price": 116.91,
       "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c%d7%99-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%a4%d7%a2%d7%95%d7%98%d7%95%d7%aa-nike-revolution-6-%d7%9b%d7%97%d7%95%d7%9c-%d7%9c%d7%91%d7%9f/",
       "store": "Shoes2u",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Offcourt Adjust",
+      "price": 134.9,
+      "link": "https://www.nike.com/il/t/offcourt-adjust-slides-dZnStk/DQ9624-001",
       "sizes": []
     },
     {
@@ -98,6 +119,13 @@
       "link": "https://www.footlocker.co.il/products/m-nk-club-bb-jogger-1?_pos=1&amp;_sid=30b20dc67&amp;_ss=r",
       "brand": "NIKE",
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_FN3787-100_PHSFM001-2000.jpg?v=1753968454"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Calm",
+      "price": 159.9,
+      "link": "https://www.nike.com/il/t/calm-slides-NzJHxT/FD4116-201",
+      "sizes": []
     },
     {
       "title": "נעלי נייק ילדים Nike Omni Multi-Court שחור לבן",
@@ -143,6 +171,13 @@
       "sizes": []
     },
     {
+      "store": "Nike IL",
+      "title": "Nike Form",
+      "price": 199.9,
+      "link": "https://www.nike.com/il/t/form-dri-fit-open-hem-versatile-trousers-z2ZX0G/HV0390-010",
+      "sizes": []
+    },
+    {
       "title": "NIKE TECH FULL-ZIPPED סווטשירט",
       "price": 209.94,
       "priceText": "₪209.94",
@@ -177,6 +212,27 @@
       "price": 224.91,
       "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%a0%d7%99%d7%99%d7%a7-nike-revolution-6-4e-%d7%a6%d7%91%d7%a2-%d7%a9%d7%97%d7%95%d7%a8-%d7%a8%d7%97%d7%91/",
       "store": "Shoes2u",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Club",
+      "price": 229.9,
+      "link": "https://www.nike.com/il/t/club-joggers-q65kzs/FN3787-010",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike G.T. Jump Academy",
+      "price": 259.9,
+      "link": "https://www.nike.com/il/t/gt-jump-academy-basketball-shoes-0xSw1C/FV5524-400",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike G.T. Jump Academy",
+      "price": 259.9,
+      "link": "https://www.nike.com/il/t/gt-jump-academy-basketball-shoes-Q7mk9tTJ/FV5524-006",
       "sizes": []
     },
     {
@@ -238,12 +294,61 @@
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HM7151-297_PHSFM001-2000.jpg?v=1754215951"
     },
     {
+      "store": "Nike IL",
+      "title": "Nike Initiator",
+      "price": 349.9,
+      "link": "https://www.nike.com/il/t/initiator-shoes-jKr5LX/FQ6873-101",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Initiator",
+      "price": 349.9,
+      "link": "https://www.nike.com/il/t/initiator-shoes-gdnvP5/394053-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Sportswear All Day Play",
+      "price": 369.9,
+      "link": "https://www.nike.com/il/t/sportswear-all-day-play-older-loose-fit-puffer-jacket-vbS3K3/HQ4976-010",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike V5 RNR",
+      "price": 369.9,
+      "link": "https://www.nike.com/il/t/v5-rnr-shoes-k7t7ZG/II6294-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 Shadow",
+      "price": 389.9,
+      "link": "https://www.nike.com/il/t/air-force-1-shadow-shoes-FP6HDr/CI0919-100",
+      "sizes": []
+    },
+    {
       "index": 7,
       "title": "קיירי 5 HAVE A NIKE DAY. מידות: 36-46. משלוח חינם",
       "price": 399,
       "link": "https://thekitsclub7.com/product/ki5-hnd/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2022/10/KYRIE-5-HAVE-A-NIKE-DAY-web-01-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 LE",
+      "price": 429.9,
+      "link": "https://www.nike.com/il/t/air-force-1-le-older-shoe-sCkTz9/DH2920-111",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike P-6000",
+      "price": 449.9,
+      "link": "https://www.nike.com/il/t/p-6000-shoes-2Bh6rT/CD6404-107",
+      "sizes": []
     },
     {
       "title": "Nike Air Force 1 07 LV8 נעלי אייר פורס",
@@ -300,6 +405,13 @@
       "price": 499,
       "link": "https://www.mayers.co.il/p/nike_air_force_1_lv8/",
       "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 '07",
+      "price": 529.9,
+      "link": "https://www.nike.com/il/t/air-force-1-07-shoes-rWtqPn/CW2288-111",
       "sizes": []
     },
     {
@@ -383,6 +495,34 @@
       "price": 549,
       "link": "https://www.mayers.co.il/p/nike_vapormax_3_0_flyknit/",
       "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 '07 SE 'LNY'",
+      "price": 549.9,
+      "link": "https://www.nike.com/il/t/air-force-1-07-se-lny-shoes-RUQc1m4y/IQ1119-011",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 '07 LV8",
+      "price": 549.9,
+      "link": "https://www.nike.com/il/t/air-force-1-07-lv8-shoes-Ge1zPL6m/IQ0292-060",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 '07",
+      "price": 549.9,
+      "link": "https://www.nike.com/il/t/air-force-1-07-shoes-h7Sg1d/HF2016-100",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Force 1 '07 LX",
+      "price": 549.9,
+      "link": "https://www.nike.com/il/t/air-force-1-07-lx-shoes-f8vQbG/DD1525-100",
       "sizes": []
     },
     {
@@ -597,6 +737,13 @@
       "sizes": []
     },
     {
+      "store": "Nike IL",
+      "title": "Nike Air Max Muse",
+      "price": 679.9,
+      "link": "https://www.nike.com/il/t/air-max-muse-shoes-Pq1hXn/FV1920-001",
+      "sizes": []
+    },
+    {
       "title": "Nike Zoom Vomero 5 Virgil Custom – נייק זום",
       "price": 699,
       "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-virgil-custom-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
@@ -608,6 +755,20 @@
       "price": 759,
       "link": "https://www.mayers.co.il/p/nike_air_jordan_1retro_twist_panda/",
       "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Air Max Plus",
+      "price": 799.9,
+      "link": "https://www.nike.com/il/t/air-max-plus-shoes-nnTrAZe0/604133-050",
+      "sizes": []
+    },
+    {
+      "store": "Nike IL",
+      "title": "Nike Romaleos 4",
+      "price": 849.9,
+      "link": "https://www.nike.com/il/t/romaleos-4-weightlifting-shoes-f1nCw3/CD3463-101",
       "sizes": []
     }
   ]
