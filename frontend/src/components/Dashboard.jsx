@@ -53,7 +53,16 @@ const Dashboard = () => {
                 setRefreshFlash(true);
                 setTimeout(() => setRefreshFlash(false), 2000);
             } else if (isStale) {
-                if (data && data.results && data.results.length > 0) {
+                // If data is stale (server has old data), we want to show "Scanning" state.
+                // If 'data' is null (first load), we MUST initialize it to prevent "Initializing Data..." stick.
+                if (!data) {
+                    setData({
+                        results: [],
+                        searchTerm: triggeredSearchTerm || jsonData.searchTerm || '',
+                        updatedAt: jsonData.updatedAt,
+                        isRunning: true // Force running state visually
+                    });
+                } else if (data.results && data.results.length > 0) {
                     setData(prev => ({ ...prev, results: [] }));
                 }
             }
