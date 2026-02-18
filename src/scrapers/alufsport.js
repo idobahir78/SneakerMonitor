@@ -7,14 +7,49 @@ class AlufSportScraper extends BaseScraper {
         super('Aluf Sport', `https://www.alufsport.co.il/?s=${encodeURIComponent(query)}&post_type=product`);
     }
 
+    async navigate(page) {
+        // Aluf Sport has strict bot protection. Use a specific, recent User-Agent that is known to work.
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');
+        await super.navigate(page);
+    }
+
     async parse(page) {
         return await page.evaluate(() => {
             const items = [];
 
-            // 1. PDP Handling
-            if (document.body.classList.contains('single-product')) {
-                const titleEl = document.querySelector('h1.product_title');
-                const priceEl = document.querySelector('p.price');
+            // 1. Grid Handling (Primary for Search)
+            const gridItems = document.querySelectorAll('.layout_list_item');
+            if (gridItems.length > 0) {
+                gridItems.forEach(el => {
+                    const titleEl = el.querySelector('.title, .product_title, h3, h2');
+                    const priceEl = el.querySelector('.price, .price_value');
+                    const linkEl = el.querySelector('a');
+
+                    if (titleEl && linkEl) {
+                        const title = titleEl.innerText.trim();
+                        const link = linkEl.href;
+                        let price = 0;
+
+                        if (priceEl) {
+                            const priceText = priceEl.innerText;
+                            const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
+                            if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
+                        }
+
+                        // Size parsing from grid if available (optional optimization)
+                        const sizes = [];
+                        // Sometimes sizes are in .size_list or similar, but for now deep scrape handles it.
+
+                        items.push({ title, price, link, store: 'Aluf Sport', sizes });
+                    }
+                });
+                return items;
+            }
+
+            // 2. PDP Handling (Fallback)
+            if (document.body.classList.contains('single-product') || document.querySelector('#item_details')) {
+                const titleEl = document.querySelector('h1.product_title, #item_details h1');
+                const priceEl = document.querySelector('p.price, #item_details .price_value');
 
                 if (titleEl) {
                     const title = titleEl.innerText.trim();
@@ -32,32 +67,6 @@ class AlufSportScraper extends BaseScraper {
                 }
             }
 
-            // 2. Search Results Handling
-            const elements = document.querySelectorAll('li.product, .product-grid-item');
-
-            elements.forEach(el => {
-                const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2');
-                const priceEls = el.querySelectorAll('.price bdi, .price .amount');
-                const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a');
-
-                if (titleEl && linkEl) {
-                    const title = titleEl.innerText.trim();
-                    const link = linkEl.href;
-                    let price = 0;
-
-                    if (priceEls.length > 0) {
-                        const priceText = priceEls[priceEls.length - 1].innerText;
-                        price = parseFloat(priceText.replace(/[^\d.]/g, ''));
-                    }
-
-                    const isOutOfStock = el.classList.contains('outofstock') ||
-                        (el.innerText && el.innerText.includes('אזל במלאי'));
-
-                    if (title && price && !isOutOfStock) {
-                        items.push({ title, price, link, store: 'Aluf Sport', sizes: [] });
-                    }
-                }
-            });
             return items;
         });
     }

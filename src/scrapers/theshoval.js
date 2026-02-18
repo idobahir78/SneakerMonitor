@@ -7,46 +7,46 @@ class TheShovalScraper extends BaseScraper {
         super('The Shoval', `https://theshoval.com/search?q=${encodeURIComponent(query)}`);
     }
 
+    async navigate(page) {
+        // Use consistent successful UA
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');
+        await super.navigate(page);
+    }
+
     async parse(page) {
         return await page.evaluate(() => {
             const results = [];
-            // Selectors: .product-small usually wraps items in WordPress/WooCommerce themes
-            const items = document.querySelectorAll('.product-small, .product-item');
+            // Shopify Dawn Theme Selectors
+            const items = document.querySelectorAll('.card-wrapper, .product-card-wrapper, .product-item');
 
             items.forEach(item => {
-                const titleEl = item.querySelector('.name a, .woocommerce-loop-product__title');
-                const priceEl = item.querySelector('.price');
-                const linkEl = item.querySelector('a.woocommerce-LoopProduct-link');
+                const titleEl = item.querySelector('.card__heading a, .full-unstyled-link, .product-title');
+                const priceEl = item.querySelector('.price__sale .price-item--last, .price__regular .price-item--regular, .price .amount');
+                const linkEl = item.querySelector('a.full-unstyled-link, a.product-card__link');
 
                 if (titleEl) {
                     const title = titleEl.innerText.trim();
                     const link = linkEl ? linkEl.href : titleEl.href;
+                    let price = 0;
 
-                    let priceText = '0';
                     if (priceEl) {
-                        // Handle ranges or sale prices (get the active/last price)
-                        const amountEls = priceEl.querySelectorAll('.woocommerce-Price-amount');
-                        if (amountEls.length > 0) {
-                            priceText = amountEls[amountEls.length - 1].innerText; // Last one is usually final price
-                        } else {
-                            priceText = priceEl.innerText;
+                        const priceText = priceEl.innerText;
+                        const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
+                        if (numbers && numbers.length > 0) {
+                            price = parseFloat(numbers[0]);
                         }
                     }
 
-                    const numbers = priceText.match(/[0-9.]+/g);
-                    let price = 0;
-                    if (numbers && numbers.length > 0) {
-                        price = Math.min(...numbers.map(n => parseFloat(n)));
+                    if (title && price > 0) {
+                        const sizes = []; // Deep scrape handles sizes
+                        results.push({
+                            store: 'The Shoval',
+                            title,
+                            price,
+                            link,
+                            sizes
+                        });
                     }
-                    const sizes = []; // Sizes verified via deep scrape
-
-                    results.push({
-                        store: 'The Shoval',
-                        title,
-                        price,
-                        link,
-                        sizes
-                    });
                 }
             });
             return results;

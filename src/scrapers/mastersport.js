@@ -10,51 +10,44 @@ class MasterSportScraper extends BaseScraper {
     async parse(page) {
         return await page.evaluate(() => {
             const items = [];
-
-            // 1. PDP Handling
-            if (document.body.classList.contains('single-product')) {
-                const titleEl = document.querySelector('h1.product_title');
-                const priceEl = document.querySelector('p.price');
-
-                if (titleEl) {
-                    const title = titleEl.innerText.trim();
-                    const link = window.location.href;
-                    let price = 0;
-                    if (priceEl) {
-                        const insPrice = priceEl.querySelector('ins .amount');
-                        const priceText = insPrice ? insPrice.innerText : priceEl.innerText;
-                        const numbers = priceText.replace(/[^\d.]/g, '').match(/[0-9.]+/g);
-                        if (numbers && numbers.length > 0) price = parseFloat(numbers[0]);
-                    }
-
-                    items.push({ store: 'Master Sport', title, price, link, sizes: [] });
-                    return items;
-                }
-            }
-
-            // 2. Search Results Handling
-            const elements = document.querySelectorAll('li.product, .product-grid-item');
+            const elements = document.querySelectorAll('.product-item, li.product');
 
             elements.forEach(el => {
-                const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2');
-                const priceEls = el.querySelectorAll('.price bdi, .price .amount');
-                const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a');
+                const titleEl = el.querySelector('.name, .woocommerce-loop-product__title');
+                const linkEl = el.querySelector('.name, .woocommerce-loop-product__title, a.woocommerce-LoopProduct-link');
+                const priceEl = el.querySelector('.price');
 
                 if (titleEl && linkEl) {
                     const title = titleEl.innerText.trim();
                     const link = linkEl.href;
                     let price = 0;
 
-                    if (priceEls.length > 0) {
-                        const priceText = priceEls[priceEls.length - 1].innerText;
-                        price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+                    if (priceEl) {
+                        // Check for sale price first (ins)
+                        const insPrice = priceEl.querySelector('ins .amount bdi');
+                        // Fallback to regular price if no sale price
+                        const regularPrice = priceEl.querySelector('.amount bdi');
+
+                        const priceElementToUse = insPrice || regularPrice;
+
+                        if (priceElementToUse) {
+                            // Extract just the number, removing currency symbol and other chars
+                            const priceText = priceElementToUse.innerText;
+                            price = parseFloat(priceText.replace(/[^\d.]/g, ''));
+                        }
                     }
 
                     const isOutOfStock = el.classList.contains('outofstock') ||
                         (el.innerText && el.innerText.includes('אזל במלאי'));
 
-                    if (title && price && !isOutOfStock) {
-                        items.push({ title, price, link, store: 'Master Sport', sizes: [] });
+                    if (title && price > 0 && !isOutOfStock) {
+                        items.push({
+                            store: 'Master Sport',
+                            title,
+                            price,
+                            link,
+                            sizes: []
+                        });
                     }
                 }
             });

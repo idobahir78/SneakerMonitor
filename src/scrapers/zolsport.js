@@ -8,35 +8,52 @@ class ZolSportScraper extends BaseScraper {
     }
 
     async parse(page) {
+        // Wait for product items (try multiple selectors)
         try {
-            await page.waitForSelector('ul.products, .products, .product-grid-item', { timeout: 15000 });
+            await page.waitForSelector('.product-item, li.product', { timeout: 10000 });
         } catch (e) {
+            // No elements found
             return [];
         }
 
         return await page.evaluate(() => {
             const items = [];
-            const elements = document.querySelectorAll('li.product, .product-grid-item');
+            // Select all potential product containers
+            const elements = document.querySelectorAll('.product-item, li.product');
 
             elements.forEach(el => {
-                const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2');
-                const priceEls = el.querySelectorAll('.price bdi, .price .amount');
-                const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a');
+                // Title
+                const titleEl = el.querySelector('.caption-title a, .woocommerce-loop-product__title, h4 a');
+
+                // Link
+                const linkEl = el.querySelector('.media-link, .woocommerce-LoopProduct-link, a.product-link');
+
+                // Price
+                // Try to find specific price elements first
+                let price = 0;
+                const priceIns = el.querySelector('.price ins .amount, .price ins');
+                const priceAmount = el.querySelector('.price .amount, .price');
+
+                let priceText = '';
+                if (priceIns) {
+                    priceText = priceIns.innerText;
+                } else if (priceAmount) {
+                    priceText = priceAmount.innerText;
+                }
 
                 if (titleEl && linkEl) {
                     const title = titleEl.innerText.trim();
                     const link = linkEl.href;
-                    let price = 0;
 
-                    if (priceEls.length > 0) {
-                        const priceText = priceEls[priceEls.length - 1].innerText;
+                    if (priceText) {
                         price = parseFloat(priceText.replace(/[^\d.]/g, ''));
                     }
 
+                    // Check for out of stock
                     const isOutOfStock = el.classList.contains('outofstock') ||
                         (el.innerText && el.innerText.includes('אזל במלאי'));
 
-                    if (title && price && !isOutOfStock) {
+                    if (title && price > 0 && !isOutOfStock) {
                         items.push({ title, price, link, store: 'Zol Sport', sizes: [] });
                     }
                 }

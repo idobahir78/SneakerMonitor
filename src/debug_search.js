@@ -4,29 +4,56 @@ const fs = require('fs');
 
 puppeteer.use(StealthPlugin());
 
-const Factory54Scraper = require('./scrapers/factory54_puppeteer'); // Use the new one!
-const TerminalXScraper = require('./scrapers/terminalx_puppeteer'); // Use the new one!
+const Factory54Scraper = require('./scrapers/factory54_puppeteer');
+const TerminalXScraper = require('./scrapers/terminalx_puppeteer');
 const FootLockerScraper = require('./scrapers/footlocker');
 const MegaSportScraper = require('./scrapers/megasport');
 const ShoesOnlineScraper = require('./scrapers/shoesonline');
 const MayersScraper = require('./scrapers/mayers');
+const AlufSportScraper = require('./scrapers/alufsport');
+const LimeShoesScraper = require('./scrapers/limeshoes');
+const Arba4Scraper = require('./scrapers/arba4');
+const TheShovalScraper = require('./scrapers/theshoval');
+const BallersScraper = require('./scrapers/ballers');
+const PlayerSixScraper = require('./scrapers/player-six');
+const KitsClubScraper = require('./scrapers/kits-club');
+const MasterSportScraper = require('./scrapers/mastersport');
+const ZolSportScraper = require('./scrapers/zolsport');
+const Shoes2uScraper = require('./scrapers/shoes2u');
+const KSPScraper = require('./scrapers/ksp');
 
 // Query that should definitely have results
 const QUERY = process.argv[2] || "Nike";
 
 const STORES = [
+    // Previously Verified
     // { name: 'Terminal X', Class: TerminalXScraper },
     // { name: 'Foot Locker', Class: FootLockerScraper },
     // { name: 'Factory 54', Class: Factory54Scraper },
     // { name: 'Mega Sport', Class: MegaSportScraper },
-    { name: 'ShoesOnline', Class: ShoesOnlineScraper },
-    { name: 'Mayers', Class: MayersScraper }
+    // { name: 'ShoesOnline', Class: ShoesOnlineScraper },
+    // { name: 'Mayers', Class: MayersScraper },
+
+    // To Audit
+    { name: 'Aluf Sport', Class: AlufSportScraper },
+    { name: 'Lime Shoes', Class: LimeShoesScraper },
+    { name: 'The Shoval', Class: TheShovalScraper },
+    { name: 'Master Sport', Class: MasterSportScraper },
+    { name: 'Zol Sport', Class: ZolSportScraper },
+    { name: 'Shoes2u', Class: Shoes2uScraper },
 ];
 
+const os = require('os');
+const path = require('path');
+
 (async () => {
+    // Unique User Data Dir to prevent "Browser already running" locks
+    const uniqueUserDataDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'puppeteer_debug_'));
+
     // Launch browser
     const browser = await puppeteer.launch({
         headless: "new",
+        userDataDir: uniqueUserDataDir,
         args: ['--no-sandbox', '--disable-setuid-sandbox', '--window-size=1920,1080']
     });
 
@@ -72,6 +99,21 @@ const STORES = [
                 await scraper.navigate(page);
                 await new Promise(r => setTimeout(r, 5000));
                 items = await scraper.parse(page);
+
+                // Debug: Check items before closing page
+                if (items.length === 0) {
+                    console.error(`   ❌ [CRITICAL] 0 Items found for ${store.name}! Capturing state before close...`);
+                    const safeName = store.name.replace(/\s+/g, '_');
+                    try {
+                        await page.screenshot({ path: `debug_${safeName}.png`, fullPage: true });
+                        const html = await page.content();
+                        fs.writeFileSync(`debug_${safeName}.html`, html);
+                        console.log(`   📸 Saved debug screenshot and HTML for "${store.name}"`);
+                    } catch (err) {
+                        console.error(`   ⚠️ Failed to capture debug artifacts: ${err.message}`);
+                    }
+                }
+
                 if (page && !page.isClosed()) await page.close();
             }
 
@@ -79,7 +121,6 @@ const STORES = [
 
             // Validation Rule: No Data = Crash
             if (items.length === 0) {
-                console.error(`   ❌ [CRITICAL] 0 Items found for ${store.name}! Blocking or Layout Change detected.`);
                 throw new Error(`Zero results for ${store.name}`);
             } else {
                 const s = items[0];
