@@ -11,7 +11,7 @@ class MayersScraper extends BaseScraper {
         return await page.evaluate(() => {
             const items = [];
             // 1. PDP Handling
-            if (document.body.classList.contains('single-product')) {
+            if (document.body && document.body.classList.contains('single-product')) {
                 const titleEl = document.querySelector('h1.product_title');
                 const priceEl = document.querySelector('p.price');
 

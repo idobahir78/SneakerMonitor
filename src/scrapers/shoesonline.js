@@ -9,10 +9,14 @@ class ShoesOnlineScraper extends BaseScraper {
 
     async parse(page) {
         // Wait for results
+        // Wait for results or no-results
         try {
-            await page.waitForSelector('.product, .type-product', { timeout: 10000 });
+            await Promise.race([
+                page.waitForSelector('.product, .type-product, .products, .woocommerce-info', { timeout: 15000 }),
+                page.waitForFunction(() => document.body.innerText.includes('לא נמצאו') || document.body.innerText.includes('No products'), { timeout: 15000 })
+            ]);
         } catch (e) {
-            console.log('ShoesOnline: Selector not found (timeout), checking for other layouts...');
+            console.log('ShoesOnline: Results verification timed out. Assuming no results or structure change.');
         }
 
         return await page.evaluate(() => {

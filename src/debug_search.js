@@ -9,16 +9,18 @@ const TerminalXScraper = require('./scrapers/terminalx_puppeteer'); // Use the n
 const FootLockerScraper = require('./scrapers/footlocker');
 const MegaSportScraper = require('./scrapers/megasport');
 const ShoesOnlineScraper = require('./scrapers/shoesonline');
+const MayersScraper = require('./scrapers/mayers');
 
 // Query that should definitely have results
 const QUERY = process.argv[2] || "Nike";
 
 const STORES = [
-    { name: 'Terminal X', Class: TerminalXScraper },
-    { name: 'Foot Locker', Class: FootLockerScraper },
-    { name: 'Factory 54', Class: Factory54Scraper },
-    { name: 'Mega Sport', Class: MegaSportScraper },
-    { name: 'ShoesOnline', Class: ShoesOnlineScraper }
+    // { name: 'Terminal X', Class: TerminalXScraper },
+    // { name: 'Foot Locker', Class: FootLockerScraper },
+    // { name: 'Factory 54', Class: Factory54Scraper },
+    // { name: 'Mega Sport', Class: MegaSportScraper },
+    { name: 'ShoesOnline', Class: ShoesOnlineScraper },
+    { name: 'Mayers', Class: MayersScraper }
 ];
 
 (async () => {

@@ -11,6 +11,13 @@ const ScanningBanner = ({ startTime }) => {
         return () => clearInterval(interval);
     }, [startTime]);
 
+    const formatTime = (totalSeconds) => {
+        const h = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
+        const m = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
+        const s = (totalSeconds % 60).toString().padStart(2, '0');
+        return `${h}:${m}:${s}`;
+    };
+
     return (
         <div className="scanning-banner" style={{
             background: 'rgba(255, 255, 255, 0.05)',
@@ -27,21 +34,26 @@ const ScanningBanner = ({ startTime }) => {
             boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
             animation: 'fadeIn 0.5s ease-out'
         }}>
+            {/* Spinning Basketball Icon */}
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{
                 width: '24px',
                 height: '24px',
                 animation: 'spin 2s linear infinite'
             }}>
-                <path d="M12 22C17.5228 22 22 17.5228 22 12H19C19 15.866 15.866 19 12 19V22Z" fill="#ff4d4d" />
-                <path d="M2 12C2 6.47715 6.47715 2 12 2V5C8.13401 5 5 8.13401 5 12H2Z" fill="#ff4d4d" />
+                <circle cx="12" cy="12" r="10" stroke="#ff7f50" strokeWidth="2" />
+                <path d="M12 2C12 2 12 22 12 22" stroke="#ff7f50" strokeWidth="2" />
+                <path d="M2 12C2 12 22 12 22 12" stroke="#ff7f50" strokeWidth="2" />
+                <path d="M12 2C6.47715 2 2 6.47715 2 12" stroke="#ff7f50" strokeWidth="2" strokeLinecap="round" />
+                <path d="M12 22C17.5228 22 22 17.5228 22 12" stroke="#ff7f50" strokeWidth="2" strokeLinecap="round" />
             </svg>
             <span style={{
                 fontSize: '1em',
                 fontWeight: '500',
                 color: '#fff',
-                letterSpacing: '0.5px'
+                letterSpacing: '0.5px',
+                fontVariantNumeric: 'tabular-nums'
             }}>
-                Scanning... {elapsed}s
+                Scanning... {formatTime(elapsed)}
             </span>
             <style>{`
                 @keyframes spin {

@@ -31,61 +31,62 @@ const Dashboard = () => {
     }, [isScanning]); // Re-create interval when scanning status changes
 
     const fetchData = (retryCount = 0) => {
-        // Clear error at start of request so UI doesn't get stuck in error state during retries
         setError(null);
-
-        // Add timestamp to prevent caching
         const cacheBuster = new Date().getTime();
-        fetch(`data.json?t=${cacheBuster}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Data file not found');
+
+        // REAL-TIME FETCH STRATEGY
+        // 1. Try fetching directly from GitHub Raw (updates immediately on push)
+        // 2. Fallback to local/hosted file if that fails
+        const rawUrl = `https://raw.githubusercontent.com/idobahir78/SneakerMonitor/main/frontend/public/data.json?t=${cacheBuster}`;
+        const localUrl = `data.json?t=${cacheBuster}`;
+
+        const handleData = (jsonData) => {
+            const serverIsRunning = jsonData.isRunning === true;
+            const serverUpdateTime = new Date(jsonData.updatedAt || jsonData.lastUpdated || 0).getTime();
+            const currentTriggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
+            const isStale = currentTriggerTime > 0 && serverUpdateTime < currentTriggerTime;
+            const isStillScanning = serverIsRunning || isStale;
+            setIsScanning(isStillScanning);
+
+            if (!isStale && JSON.stringify(jsonData) !== JSON.stringify(data)) {
+                setData(jsonData);
+                setRefreshFlash(true);
+                setTimeout(() => setRefreshFlash(false), 2000);
+            } else if (isStale) {
+                if (data && data.results && data.results.length > 0) {
+                    setData(prev => ({ ...prev, results: [] }));
                 }
-                return response.json();
+            }
+            setLoading(false);
+        };
+
+        // Try Raw First
+        fetch(rawUrl)
+            .then(res => {
+                if (!res.ok) throw new Error('Raw fetch failed');
+                return res.json();
             })
-            .then(jsonData => {
-                const serverIsRunning = jsonData.isRunning === true;
-                const serverUpdateTime = new Date(jsonData.updatedAt || jsonData.lastUpdated || 0).getTime();
-
-                // Load trigger time from state or local storage just in case
-                const currentTriggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
-
-                // Logic to ignore stale data:
-                // If we triggered a search recently (e.g. within last 15 mins)
-                // and the server file is still from BEFORE that trigger, ignore its results/metadata.
-                const isStale = currentTriggerTime > 0 && serverUpdateTime < currentTriggerTime;
-
-                // We are scanning if:
-                // 1. Server says it's running
-                // 2. OR our local state says we triggered it recently and server hasn't updated yet
-                const isStillScanning = serverIsRunning || isStale;
-                setIsScanning(isStillScanning);
-
-                // Check if data actually changed AND isn't stale
-                if (!isStale && JSON.stringify(jsonData) !== JSON.stringify(data)) {
-                    setData(jsonData);
-                    setRefreshFlash(true);
-                    setTimeout(() => setRefreshFlash(false), 2000);
-                } else if (isStale) {
-                    // If stale, ensure we at least clear the results if they aren't already
-                    if (data && data.results && data.results.length > 0) {
-                        setData(prev => ({ ...prev, results: [] }));
-                    }
-                }
-
-                setLoading(false);
+            .then(data => {
+                console.log('Fetched real-time data from GitHub Raw');
+                handleData(data);
             })
-            .catch(err => {
-                console.error("Error fetching data:", err);
-
-                // Auto-retry once on initial load (handles iOS network wake-up race condition)
-                if (!data && retryCount < 2) {
-                    console.log(`Auto-retrying fetch (Attempt ${retryCount + 1})...`);
-                    setTimeout(() => fetchData(retryCount + 1), 1000);
-                } else {
-                    setError(err.message);
-                    setLoading(false);
-                }
+            .catch(() => {
+                console.log('Falling back to local data.json...');
+                fetch(localUrl)
+                    .then(res => {
+                        if (!res.ok) throw new Error('Data file not found');
+                        return res.json();
+                    })
+                    .then(data => handleData(data))
+                    .catch(err => {
+                        console.error("Error fetching data:", err);
+                        if (!data && retryCount < 2) {
+                            setTimeout(() => fetchData(retryCount + 1), 1000);
+                        } else {
+                            setError(err.message);
+                            setLoading(false);
+                        }
+                    });
             });
     };
 
