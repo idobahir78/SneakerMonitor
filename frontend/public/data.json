@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-18T20:18:38.186Z",
-  "isRunning": true,
-  "searchTerm": "Nike",
+  "updatedAt": "2026-02-18T20:18:54.942Z",
+  "isRunning": false,
+  "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
@@ -244,6 +244,13 @@
       "store": "Kits Club"
     },
     {
+      "store": "Nike IL",
+      "title": "Nike Form",
+      "price": 199.9,
+      "link": "https://www.nike.com/il/t/form-dri-fit-open-hem-versatile-trousers-z2ZX0G/HV0390-010",
+      "sizes": []
+    },
+    {
       "title": "נעלי נייק Nike Omni Multi-Court | ילדים",
       "price": 199.9,
       "link": "https://www.alufsport.co.il/items/8424649-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A0%D7%99%D7%99%D7%A7-Nike-Omni-Multi-Court-%D7%99%D7%9C%D7%93%D7%99%D7%9D",
@@ -251,10 +258,40 @@
       "sizes": []
     },
     {
-      "store": "Nike IL",
-      "title": "Nike Form",
-      "price": 199.9,
-      "link": "https://www.nike.com/il/t/form-dri-fit-open-hem-versatile-trousers-z2ZX0G/HV0390-010",
+      "title": "NIKE TECH FULL-ZIPPED סווטשירט",
+      "price": 209.94,
+      "priceText": "₪209.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f300120032?_pos=5&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV5867-234_PHSFM001-2000.jpg?v=1764590878"
+    },
+    {
+      "title": "נעל ספורט לגברים נייק Nike Downshifter 12 שחור לבן",
+      "price": 224.91,
+      "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%a0%d7%99%d7%99%d7%a7-nike-downshifter-12-%d7%a9%d7%97%d7%95%d7%a8-%d7%9c%d7%91%d7%9f/",
+      "store": "Shoes2u",
+      "sizes": []
+    },
+    {
+      "title": "נעל ספורט לגברים נייק Nike Downshifter 12 שחור",
+      "price": 224.91,
+      "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%a0%d7%99%d7%99%d7%a7-nike-downshifter-12-%d7%a9%d7%97%d7%95%d7%a8/",
+      "store": "Shoes2u",
+      "sizes": []
+    },
+    {
+      "title": "נעל ספורט לגברים נייק Nike Revolution 6 שחור לבן‏‏",
+      "price": 224.91,
+      "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%a0%d7%99%d7%99%d7%a7-nike-revolution-6-%d7%a9%d7%97%d7%95%d7%a8-%d7%9c%d7%91%d7%9f/",
+      "store": "Shoes2u",
+      "sizes": []
+    },
+    {
+      "title": "נעל ספורט לגברים נייק Nike Revolution 6 4E צבע שחור רחבה במיוחד",
+      "price": 224.91,
+      "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%a0%d7%99%d7%99%d7%a7-nike-revolution-6-4e-%d7%a6%d7%91%d7%a2-%d7%a9%d7%97%d7%95%d7%a8-%d7%a8%d7%97%d7%91/",
+      "store": "Shoes2u",
       "sizes": []
     },
     {
@@ -279,12 +316,37 @@
       "sizes": []
     },
     {
+      "title": "NIKE TECH FLEECE מכנסיים ארוכים",
+      "price": 275.94,
+      "priceText": "₪275.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299600007?_pos=10&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV0959-365_PHSYD001-2000.jpg?v=1764063271"
+    },
+    {
+      "title": "WMNS NIKE P-6000",
+      "price": 287.94,
+      "priceText": "₪287.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f238880016?_pos=13&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/jpeg-optimizer_AURORA_FV6603-101_PHSRH000-2000.jpg?v=1746372031"
+    },
+    {
       "index": 6,
       "title": "חיסול!! נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
       "price": 299,
       "link": "https://thekitsclub7.com/product/air-force-1-triple-white-clearance/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2023/03/AF1-TRIPLE-WHITE-CLEARANCE-120-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "title": "Air Zoom Pegasus 38 נעלי ריצה לנשים",
+      "price": 299,
+      "link": "",
+      "store": "Lime Shoes",
+      "sizes": []
     },
     {
       "title": "מזרן יוגה 4 ממ",
@@ -303,6 +365,22 @@
       "brand": "NIKE"
     },
     {
+      "title": "NIKE DUNK LOW סניקרס",
+      "price": 307.93,
+      "priceText": "₪307.93",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-dunk-low-gs-20?_pos=6&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_II7639-001_PHSRH000-2000.jpg?v=1757671774"
+    },
+    {
+      "title": "נעל נייק Nike Quest 5 שחור לבן",
+      "price": 314.91,
+      "link": "https://www.shoes2u.co.il/product/%d7%a0%d7%a2%d7%9c-%d7%a0%d7%99%d7%99%d7%a7-nike-quest-5-%d7%a9%d7%97%d7%95%d7%a8-%d7%9c%d7%91%d7%9f/",
+      "store": "Shoes2u",
+      "sizes": []
+    },
+    {
       "title": "נעלי סניקרס קורטז",
       "price": 322.5,
       "store": "Factory 54",
@@ -317,6 +395,15 @@
       "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%9C.%D7%93%D7%99-1000/960035683.html?pi=40",
       "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw17f9abbd/images/new/960035683/960035683_P_2.png?sw=476&sh=714",
       "brand": "NIKE"
+    },
+    {
+      "title": "Nike Tech ז'קט",
+      "price": 335.94,
+      "priceText": "₪335.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/m-nk-tch-wvn-wr-fz-jkt-2?_pos=12&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HM7151-297_PHSFM001-2000.jpg?v=1754215951"
     },
     {
       "title": "נעלי סניקרס קורטז",
@@ -502,6 +589,36 @@
       "store": "Ballers"
     },
     {
+      "title": "Nike Air Force 1 07 LV8 נעלי אייר פורס",
+      "price": 479,
+      "link": "https://www.mayers.co.il/p/nike-air-force-1-07-lv8-%d7%a0%d7%a2%d7%9c%d7%99-%d7%90%d7%99%d7%99%d7%a8-%d7%a4%d7%95%d7%a8%d7%a1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Force 1 ‘07 נעלי אייר פורס",
+      "price": 479,
+      "link": "https://www.mayers.co.il/p/nike-air-force-1-07-%d7%a0%d7%a2%d7%9c%d7%99-%d7%90%d7%99%d7%99%d7%a8-%d7%a4%d7%95%d7%a8%d7%a1-2/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Force 1 ‘07 נעלי אייר פורס",
+      "price": 479,
+      "link": "https://www.mayers.co.il/p/nike-air-force-1-07-%d7%a0%d7%a2%d7%9c%d7%99-%d7%90%d7%99%d7%99%d7%a8-%d7%a4%d7%95%d7%a8%d7%a1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "NIKE P-6000 סניקרס",
+      "price": 479.9,
+      "priceText": "₪479.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f297430032?_pos=2&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_CD6404-203_PHSRH000-2000.jpg?v=1756719386"
+    },
+    {
       "store": "The Shoval",
       "title": "Nike NBA Tracksuit - Golden State Warriors",
       "price": 489,
@@ -523,6 +640,34 @@
       "link": "https://ballers.co.il/product/nike-nike-giannis-antetokounmpo-freak-5/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A0%D7%99%D7%99%D7%A7-%E2%80%93-NIKE-Giannis-Antetokounmpo-Freak-51-430x430.jpg",
       "store": "Ballers"
+    },
+    {
+      "title": "Nike P-6000 Light Iron Ore",
+      "price": 499,
+      "link": "https://www.mayers.co.il/p/nike-p-6000-light-iron-ore-sneakers/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "nike cortez Green suede- נעלי נייק",
+      "price": 499,
+      "link": "https://www.mayers.co.il/p/nike-cortez-green-suede-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%99%d7%a7/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "nike cortez Black suede- נעלי נייק",
+      "price": 499,
+      "link": "https://www.mayers.co.il/p/nike-cortez-black-suede-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%99%d7%a7/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air force 1 Low Lv8",
+      "price": 499,
+      "link": "https://www.mayers.co.il/p/nike_air_force_1_lv8/",
+      "store": "Mayers",
+      "sizes": []
     },
     {
       "title": "נעלי סניקרס זום וומרו 5",
@@ -698,6 +843,41 @@
       "store": "Kits Club"
     },
     {
+      "title": "\"Nike Zoom Vomero 5 SP \"Laser Orange – נייק זום",
+      "price": 549,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-sp-laser-orange-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "\"Nike Zoom Vomero 5 SP \"Vast Grey – נייק זום",
+      "price": 549,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-sp-vast-grey-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 Sail Light Orewood Brown – נייק זום",
+      "price": 549,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-sail-light-orewood-brown-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Max 270 – נעלי נייקי",
+      "price": 549,
+      "link": "https://www.mayers.co.il/p/nike_air_max_270/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Vapormax 3.0 flyknit",
+      "price": 549,
+      "link": "https://www.mayers.co.il/p/nike_vapormax_3_0_flyknit/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
       "store": "Nike IL",
       "title": "Nike Air Force 1 '07 SE 'LNY'",
       "price": 549.9,
@@ -756,6 +936,132 @@
       "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07-%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D/960035659.html?pi=45",
       "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwc4307a2f/images/new//960035659/960035659_P_2.png?sw=476&sh=714",
       "brand": "NIKE"
+    },
+    {
+      "title": "Nike Air Max 1 87 Clear Jade – נייק איר מקס 1",
+      "price": 565,
+      "link": "https://www.mayers.co.il/p/nike-air-max-1-87-clear-jade-%d7%a0%d7%99%d7%99%d7%a7-%d7%90%d7%99%d7%a8-%d7%9e%d7%a7%d7%a1-1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Max 1 Tiger Swoosh Cow Print – נייק איר מקס 1",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike-air-max-1-tiger-swoosh-cow-print-%d7%a0%d7%99%d7%99%d7%a7-%d7%90%d7%99%d7%a8-%d7%9e%d7%a7%d7%a1-1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Max 1 White Black – נייק איר מקס 1",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike-air-max-1-white-black-%d7%a0%d7%99%d7%99%d7%a7-%d7%90%d7%99%d7%a8-%d7%9e%d7%a7%d7%a1-1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 High OG Denim W",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_high_og_denim_w/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low SE Lightbulb",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_se_lightbulb/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air jordan 1 Mid Dutch Green",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_mid_dutch_green/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low UNC",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_unc/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low Panda",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_panda/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low Court Purple White",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_court_purple_white/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low Hemp White",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_hemp_white/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low Arctic Punch",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_arctic_punch/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1Retro High Shadow 2.0",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1retro_high_shadow_2_0/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low White Camo",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_white_camo/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air jordan 1 High Lucky Green",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_high_lucky_green/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Retro High OG Tokyo Bio Hack",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_retro_high_og_tokyo_bio_hack/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Mid Diamond",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_mid_diamond/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air jordan 1 Low SE Barely Green (W)",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_se_barely_green__w/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Jordan 1 Low Aluminium Wolf Grey",
+      "price": 569,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_low_aluminium_wolf_grey/",
+      "store": "Mayers",
+      "sizes": []
     },
     {
       "title": "NIKE AIR FORCE 1 07 סניקרס",
@@ -871,6 +1177,62 @@
       "store": "Kits Club"
     },
     {
+      "title": "NIKE V2K RUN White- נייק V2K",
+      "price": 589,
+      "link": "https://www.mayers.co.il/p/nike-v2k-run-white/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Vapormax 2020 Flyknit",
+      "price": 589,
+      "link": "https://www.mayers.co.il/p/nike_vapormax_2020_flyknit/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 White Pink – נייק זום",
+      "price": 590,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-white-pink-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 Sail Laser Orange Medium Olive – נייק זום",
+      "price": 595,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-sail-laser-orange-medium-olive-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 נעלי נייק",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%99%d7%a7/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Air Max 1 Dirty Denim – נייק איר מקס 1",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/nike-air-max-1-dirty-denim-%d7%a0%d7%99%d7%99%d7%a7-%d7%90%d7%99%d7%a8-%d7%9e%d7%a7%d7%a1-1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 Photon Dust University Blue – נייק זום",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-photon-dust-university-blue-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 Photon Dust Silver",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-photon-dust-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
       "title": "נעלי סניקרס איר ג'ורדן 1 טריפל סטק",
       "price": 600,
       "store": "Factory 54",
@@ -927,6 +1289,38 @@
       "brand": "NIKE"
     },
     {
+      "title": "Nike Air Zoom Spiridon Cage 2 X Stussy",
+      "price": 605,
+      "link": "https://www.mayers.co.il/p/nike-air-zoom-spiridon-cage-2-x-stussy/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 Wheat Grass – נייק זום",
+      "price": 619,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-wheat-grass-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "NIKE DUNK LOW GTX סניקרס",
+      "price": 629.9,
+      "priceText": "₪629.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299140002?_pos=7&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2053-001_PHSRH000-2000.jpg?v=1762953916"
+    },
+    {
+      "title": "NIKE VOMERO 18 נעלי ריצה",
+      "price": 649.9,
+      "priceText": "₪649.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f298910008?_pos=15&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HM6803-215_PHSRH000-2000.jpg?v=1763295112"
+    },
+    {
       "store": "The Shoval",
       "title": "Nike KD 17 'Aunt Pearl'",
       "price": 659,
@@ -939,6 +1333,15 @@
       "price": 659,
       "link": "https://theshoval.com/products/nike-kd-17-easy-money?_pos=10&_sid=606f07805&_ss=r",
       "sizes": []
+    },
+    {
+      "title": "NIKE AIR MAX 90 PREMIUM סניקרס",
+      "price": 659.9,
+      "priceText": "₪659.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299990002?_pos=9&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4517-002_PHSRH000-2000.jpg?v=1756371925"
     },
     {
       "title": "נעלי סניקרס ג'ורדן 4 רטרו",
@@ -965,6 +1368,13 @@
       "store": "Ballers"
     },
     {
+      "title": "Nike Air Jordan 1 Retro High OG A Ma Maniére",
+      "price": 679,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1_retro_high_og_a_ma_maniere/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
       "store": "Nike IL",
       "title": "Nike Air Max Muse",
       "price": 679.9,
@@ -977,6 +1387,22 @@
       "price": 699,
       "link": "https://theshoval.com/products/nike-kobe-6-protro-total-orange?_pos=4&_sid=606f07805&_ss=r",
       "sizes": []
+    },
+    {
+      "title": "Nike Zoom Vomero 5 Virgil Custom – נייק זום",
+      "price": 699,
+      "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-virgil-custom-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "NIKE ZOOM VOMERO 5 סניקרס",
+      "price": 709.9,
+      "priceText": "₪709.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-zoom-vomero-15?_pos=14&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_BV1358-003_PHSRH001-2000.jpg?v=1753965498"
     },
     {
       "store": "The Shoval",
@@ -1027,6 +1453,13 @@
       "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%A8%D7%98%D7%A8%D7%95/960035730.html?pi=31",
       "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa2358be2/images/new/960035730/960035730_P_2.png?sw=476&sh=714",
       "brand": "NIKE"
+    },
+    {
+      "title": "Nike Air Jordan 1Retro Twist Panda",
+      "price": 759,
+      "link": "https://www.mayers.co.il/p/nike_air_jordan_1retro_twist_panda/",
+      "store": "Mayers",
+      "sizes": []
     },
     {
       "index": 4,
