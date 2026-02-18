@@ -1,4 +1,5 @@
 const BaseScraper = require('./base-scraper');
+const SmartFilter = require('../utils/smart-filter');
 
 class LimeShoesScraper extends BaseScraper {
     constructor(searchTerm) {
@@ -25,15 +26,12 @@ class LimeShoesScraper extends BaseScraper {
                 data = JSON.parse(apiResponse);
             } catch (e) {
                 console.error('[Lime Shoes] Failed to parse AJAX response', e);
-                return [];
             }
 
             // 3. Find a Category URL in the suggestions
-            // The API returns mixed results (products, categories, etc.). We prefer a specific brand category if available.
             let targetUrl = null;
 
             if (data && data.suggestions) {
-                // Look for a taxonomy term (category/brand) that matches our query
                 const categoryMatch = data.suggestions.find(s =>
                     s.type === 'taxonomy' &&
                     s.taxonomy === 'product_cat' &&
@@ -44,24 +42,27 @@ class LimeShoesScraper extends BaseScraper {
                     targetUrl = categoryMatch.url;
                     console.log(`[Lime Shoes] Found category match: ${targetUrl}`);
                 }
-                // Fallback: If no category, check if there are direct product links? 
-                // The current issue is that standard search fails. If we can't find a category, we might be stuck.
-                // But for "Nike", "Adidas", etc., this API usually returns a brand category.
             }
 
             if (!targetUrl) {
-                console.log(`[Lime Shoes] No specific category found for "${this.searchTerm}". Aborting to avoid broken search page.`);
-                return [];
+                console.log(`[Lime Shoes] No specific category found for "${this.searchTerm}". Failing over to Standard Search.`);
+                // Fallback: Standard WooCommerce Search
+                targetUrl = `https://limeshoes.co.il/?s=${encodeURIComponent(this.searchTerm)}&post_type=product`;
             }
 
-            // 4. Navigate to the found Category Page
+            // 4. Navigate to the found Category Page OR Search Result Page
             console.log(`[Lime Shoes] Navigating to: ${targetUrl}`);
             await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
-            // 5. Build parsed items from the Category Page
+            // 5. Build parsed items
             const items = await this.parse(page);
-            console.log(`[Lime Shoes] Found ${items.length} items.`);
-            return items;
+            console.log(`[Lime Shoes] Found ${items.length} raw items.`);
+
+            // 6. Apply Smart Filter
+            const filteredItems = SmartFilter.filter(items, this.searchTerm);
+            console.log(`[Lime Shoes] Final output: ${filteredItems.length} items (after Smart Filter).`);
+
+            return filteredItems;
 
         } catch (error) {
             console.error(`[Lime Shoes] Error during scraping: ${error.message}`);
