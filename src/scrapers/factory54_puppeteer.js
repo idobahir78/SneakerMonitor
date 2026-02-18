@@ -78,7 +78,7 @@ class Factory54PuppeteerScraper {
                             const titleLower = title.toLowerCase();
 
                             // 1. Blacklist Check
-                            const blacklist = ['מסכה', 'מכנס', 'חולצה', 'תיק', 'mask', 'pants', 'shirt', 'bag', 'jacket', 'hoodie', 'sweatshirt'];
+                            const blacklist = ['מסכה', 'מכנס', 'חולצה', 'תיק', 'mask', 'pants', 'shirt', 'bag', 'jacket', 'hoodie', 'sweatshirt', 'socks', 'hat', 'cap', 'גרביים', 'כובע', 'ארנק', 'wallet'];
                             const isBlacklisted = blacklist.some(word => titleLower.includes(word));
 
                             if (isBlacklisted) {

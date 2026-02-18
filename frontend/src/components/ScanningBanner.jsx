@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BasketballIcon from './BasketballIcon';
 
 const ScanningBanner = ({ startTime }) => {
     const [elapsed, setElapsed] = useState(0);
@@ -35,17 +36,8 @@ const ScanningBanner = ({ startTime }) => {
             animation: 'fadeIn 0.5s ease-out'
         }}>
             {/* Spinning Basketball Icon */}
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{
-                width: '24px',
-                height: '24px',
-                animation: 'spin 2s linear infinite'
-            }}>
-                <circle cx="12" cy="12" r="10" stroke="#ff7f50" strokeWidth="2" />
-                <path d="M12 2C12 2 12 22 12 22" stroke="#ff7f50" strokeWidth="2" />
-                <path d="M2 12C2 12 22 12 22 12" stroke="#ff7f50" strokeWidth="2" />
-                <path d="M12 2C6.47715 2 2 6.47715 2 12" stroke="#ff7f50" strokeWidth="2" strokeLinecap="round" />
-                <path d="M12 22C17.5228 22 22 17.5228 22 12" stroke="#ff7f50" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            {/* Spinning Basketball Icon */}
+            <BasketballIcon className="basketball-icon" />
             <span style={{
                 fontSize: '1em',
                 fontWeight: '500',
@@ -56,6 +48,12 @@ const ScanningBanner = ({ startTime }) => {
                 Scanning... {formatTime(elapsed)}
             </span>
             <style>{`
+                .basketball-icon {
+                    width: 32px;
+                    height: 32px;
+                    animation: spin 3s linear infinite;
+                    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+                }
                 @keyframes spin {
                     0% { transform: rotate(0deg); }
                     100% { transform: rotate(360deg); }
