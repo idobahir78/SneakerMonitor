@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:16.227Z",
+  "updatedAt": "2026-02-18T20:18:17.569Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -82,11 +82,44 @@
       "sizes": []
     },
     {
-      "store": "Nike IL",
-      "title": "Nike Offcourt Adjust",
-      "price": 134.9,
-      "link": "https://www.nike.com/il/t/offcourt-adjust-slides-dZnStk/DQ9624-001",
-      "sizes": []
+      "title": "רצועת יוגה תכלת",
+      "price": 120,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%99%D7%95%D7%92%D7%94-%D7%AA%D7%9B%D7%9C%D7%AA/971000021.html?pi=32",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw50c96338/images/new/971000021/971000021_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "רצועת יוגה בגוון ירוק מנטה",
+      "price": 120,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%99%D7%95%D7%92%D7%94-%D7%91%D7%92%D7%95%D7%95%D7%9F-%D7%99%D7%A8%D7%95%D7%A7-%D7%9E%D7%A0%D7%98%D7%94/971000012.html?pi=33",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw31f73a3f/images/new/971000012/971000012_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "רצועת יוגה בגוון בז'",
+      "price": 120,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%99%D7%95%D7%92%D7%94-%D7%91%D7%92%D7%95%D7%95%D7%9F-%D7%91%D7%96%27/971000011.html?pi=38",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwfd202d24/images/new/971000011/971000011_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "סרט ראש סופג זיעה עם לוגו",
+      "price": 130,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A1%D7%A8%D7%98-%D7%A8%D7%90%D7%A9-%D7%A1%D7%95%D7%A4%D7%92-%D7%96%D7%99%D7%A2%D7%94-%D7%A2%D7%9D-%D7%9C%D7%95%D7%92%D7%95/971000019.html?pi=25",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwe7a2f429/images/new/971000019/971000019_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "חבל קפיצה בגווני שחור ולבן",
+      "price": 130,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%97%D7%91%D7%9C-%D7%A7%D7%A4%D7%99%D7%A6%D7%94-%D7%91%D7%92%D7%95%D7%95%D7%A0%D7%99-%D7%A9%D7%97%D7%95%D7%A8-%D7%95%D7%9C%D7%91%D7%9F/971000003.html?pi=29",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw9ea182bf/images/new/971000003/971000003_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "title": "NIKE STAR RUNNER 3 נייק‏‏ לבן ורוד",
@@ -101,6 +134,30 @@
       "link": "https://www.shoes2u.co.il/product/nike-star-runner-3-%d7%a0%d7%99%d7%99%d7%a7-%d7%a9%d7%97%d7%95%d7%a8-%d7%95%d7%a8%d7%95%d7%93-2/",
       "store": "Shoes2u",
       "sizes": []
+    },
+    {
+      "title": "רצועת יוגה שחורה",
+      "price": 140,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%99%D7%95%D7%92%D7%94-%D7%A9%D7%97%D7%95%D7%A8%D7%94/971000027.html?pi=7",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw3cc6716b/images/new/971000027/971000027_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "בקבוק מים 710 מ''ל בגוון ירוק שקוף עם לוגו",
+      "price": 140,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%91%D7%A7%D7%91%D7%95%D7%A7-%D7%9E%D7%99%D7%9D-710-%D7%9E%27%27%D7%9C-%D7%91%D7%92%D7%95%D7%95%D7%9F-%D7%99%D7%A8%D7%95%D7%A7-%D7%A9%D7%A7%D7%95%D7%A3-%D7%A2%D7%9D-%D7%9C%D7%95%D7%92%D7%95/971000005.html?pi=14",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw13cac90d/images/new/971000005/971000005_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "בקבוק מים 710 מ''ל בגוון שחור שקוף",
+      "price": 140,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%91%D7%A7%D7%91%D7%95%D7%A7-%D7%9E%D7%99%D7%9D-710-%D7%9E%27%27%D7%9C-%D7%91%D7%92%D7%95%D7%95%D7%9F-%D7%A9%D7%97%D7%95%D7%A8-%D7%A9%D7%A7%D7%95%D7%A3/971000004.html?pi=28",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwcb4a72dd/images/new/971000004/971000004_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "title": "NIKE TEMPO FLASH חולצת טי",
@@ -121,11 +178,20 @@
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_FN3787-100_PHSFM001-2000.jpg?v=1753968454"
     },
     {
-      "store": "Nike IL",
-      "title": "Nike Calm",
-      "price": 159.9,
-      "link": "https://www.nike.com/il/t/calm-slides-NzJHxT/FD4116-201",
-      "sizes": []
+      "title": "רצועת סמארטפון לזרוע",
+      "price": 160,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%A1%D7%9E%D7%90%D7%A8%D7%98%D7%A4%D7%95%D7%9F-%D7%9C%D7%96%D7%A8%D7%95%D7%A2/971000018.html?pi=6",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwc29dfa58/images/new/971000018/971000018_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "רצועת סמארטפון לזרוע",
+      "price": 160,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A8%D7%A6%D7%95%D7%A2%D7%AA-%D7%A1%D7%9E%D7%90%D7%A8%D7%98%D7%A4%D7%95%D7%9F-%D7%9C%D7%96%D7%A8%D7%95%D7%A2/971000017.html?pi=37",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw922add71/images/new/971000017/971000017_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "title": "נעלי נייק ילדים Nike Omni Multi-Court שחור לבן",
@@ -171,6 +237,134 @@
       "sizes": []
     },
     {
+      "title": "מזרן יוגה 4 ממ",
+      "price": 300,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%96%D7%A8%D7%9F-%D7%99%D7%95%D7%92%D7%94-4-%D7%9E%D7%9E/971000010.html?pi=13",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwb43f7c0a/images/new/971000010/971000010_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "משטח יוגה כחול עם כתמי צבע",
+      "price": 300,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%A9%D7%98%D7%97-%D7%99%D7%95%D7%92%D7%94-%D7%9B%D7%97%D7%95%D7%9C-%D7%A2%D7%9D-%D7%9B%D7%AA%D7%9E%D7%99-%D7%A6%D7%91%D7%A2/971000020.html?pi=42",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwe65d4d6c/images/new/971000020/971000020_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס קורטז",
+      "price": 322.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%A7%D7%95%D7%A8%D7%98%D7%96/960035647.html?pi=39",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwd76384d4/images/new/960035647/960035647_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אל.די 1000",
+      "price": 322.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%9C.%D7%93%D7%99-1000/960035683.html?pi=40",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw17f9abbd/images/new/960035683/960035683_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס קורטז",
+      "price": 337.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%A7%D7%95%D7%A8%D7%98%D7%96/960035642.html?pi=46",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw1a981af3/images/new/960035642/960035642_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס דאנק רטרו",
+      "price": 397.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%93%D7%90%D7%A0%D7%A7-%D7%A8%D7%98%D7%A8%D7%95/960035716.html?pi=8",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwe6404654/images/new/960035716/960035716_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס דאנק",
+      "price": 397.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%93%D7%90%D7%A0%D7%A7/960035729.html?pi=20",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7d39fe21/images/new/960035729/960035729_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי ריצה פי - 6000",
+      "price": 397.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A8%D7%99%D7%A6%D7%94-%D7%A4%D7%99---6000/960035704.html?pi=22",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4641b515/images/new/960035704/960035704_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס דאנק",
+      "price": 397.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%93%D7%90%D7%A0%D7%A7/960035621.html?pi=35",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw873cb22d/images/new/960035621/960035621_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1",
+      "price": 397.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1/960035695.html?pi=44",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw3fdf948a/images/new/960035695/960035695_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1 07'",
+      "price": 412.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07%27/960035748.html?pi=5",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw160e66b7/images/new/960035748/960035748_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס דאנק",
+      "price": 412.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%93%D7%90%D7%A0%D7%A7/960035649.html?pi=34",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7d0aa9a4/images/new/960035649/960035649_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1",
+      "price": 412.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1/960035703.html?pi=47",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw1650d060/images/new/960035703/960035703_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס שוקס זד",
+      "price": 412.5,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%A9%D7%95%D7%A7%D7%A1-%D7%96%D7%93/960035733.html?pi=48",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw007f3b2a/images/new/960035733/960035733_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס קורטז",
+      "price": 430,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%A7%D7%95%D7%A8%D7%98%D7%96/960035749.html?pi=36",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa6698517/images/new/960035749/960035749_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס קורטז",
+      "price": 430,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%A7%D7%95%D7%A8%D7%98%D7%96/960035728.html?pi=41",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8bf111a5/images/new/960035728/960035728_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
       "store": "The Shoval",
       "title": "Nike Varsity Elite Backpack",
       "price": 439,
@@ -183,6 +377,14 @@
       "price": 439,
       "link": "https://theshoval.com/products/nike-varsity-elite-backpack-2?_pos=22&_sid=606f07805&_ss=r",
       "sizes": []
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1 07",
+      "price": 450,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07/960035694.html?pi=9",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw64a8a1f5/images/new/960035694/960035694_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "index": 9,
@@ -206,6 +408,30 @@
       "link": "https://ballers.co.il/product/nike-nike-giannis-antetokounmpo-freak-5/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A0%D7%99%D7%99%D7%A7-%E2%80%93-NIKE-Giannis-Antetokounmpo-Freak-51-430x430.jpg",
       "store": "Ballers"
+    },
+    {
+      "title": "נעלי סניקרס זום וומרו 5",
+      "price": 510,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%96%D7%95%D7%9D-%D7%95%D7%95%D7%9E%D7%A8%D7%95-5/960035648.html?pi=4",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw9c0e2d73/images/new/960035648/960035648_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר מקס 1 87' פרמיום",
+      "price": 510,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%9E%D7%A7%D7%A1-1-87%27-%D7%A4%D7%A8%D7%9E%D7%99%D7%95%D7%9D/960035452.html?pi=12",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw70f96a65/images/new/960035452/960035452_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס זום וומרו 5",
+      "price": 510,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%96%D7%95%D7%9D-%D7%95%D7%95%D7%9E%D7%A8%D7%95-5/960035715.html?pi=30",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7e28fbe1/images/new/960035715/960035715_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "index": 5,
@@ -246,6 +472,30 @@
       "link": "https://ballers.co.il/product/nike-kyrie-5-squidward-tentacles/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/09/imgi_20_kyrie-5-squidward-tentacles-release-date-2-e1715362832486-430x439.jpeg",
       "store": "Ballers"
+    },
+    {
+      "title": "נעלי סניקרס",
+      "price": 530,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1/960035773.html?pi=10",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8149c89a/images/new//960035773/960035773_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס",
+      "price": 530,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1/960035755.html?pi=17",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8969031c/images/new//960035755/960035755_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס דאנק",
+      "price": 530,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%93%D7%90%D7%A0%D7%A7/960035774.html?pi=18",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa3b203f7/images/new/960035774/960035774_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "index": 11,
@@ -303,6 +553,38 @@
       "link": "https://ballers.co.il/product/nike-nike-kd16-boardroom/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/kd16-basketball-shoes-H3gcDG-e1713016266749-430x434.jpeg",
       "store": "Ballers"
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1 07",
+      "price": 550,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07/960035692.html?pi=21",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw52caec1d/images/new/960035692/960035692_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1 07",
+      "price": 550,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07/960035753.html?pi=27",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw83a4f600/images/new/960035753/960035753_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס דאנק",
+      "price": 550,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%93%D7%90%D7%A0%D7%A7/960035761.html?pi=43",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf32b8c40/images/new/960035761/960035761_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס איר פורס 1 07 פרימיום",
+      "price": 550,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07-%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D/960035659.html?pi=45",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwc4307a2f/images/new//960035659/960035659_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "index": 1,
@@ -383,6 +665,62 @@
       "sizes": []
     },
     {
+      "title": "נעלי סניקרס איר ג'ורדן 1 טריפל סטק",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%98%D7%A8%D7%99%D7%A4%D7%9C-%D7%A1%D7%98%D7%A7/960035657.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwcdbdfdc4/images/new//960035657/960035657_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר ג'ורדן 1 רטרו",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%A8%D7%98%D7%A8%D7%95/960035705.html?pi=2",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwfc924043/images/new/960035705/960035705_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר ג'ורדן 1 רטרו",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%A8%D7%98%D7%A8%D7%95/960035409.html?pi=3",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8134d275/images/new/960035409/960035409_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר ג'ורדן 1 רטרו",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%A8%D7%98%D7%A8%D7%95/960035429.html?pi=19",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwea2ce394/images/new/960035429/960035429_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר פורס 1 07",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07/960035620.html?pi=23",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwffbe5550/images/new/960035620/960035620_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר ג'ורדן 1 רטרו",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%A8%D7%98%D7%A8%D7%95/960035431.html?pi=24",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw57f7fd6b/images/new/960035431/960035431_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי ריצה שוקס",
+      "price": 600,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A8%D7%99%D7%A6%D7%94-%D7%A9%D7%95%D7%A7%D7%A1/960035669.html?pi=26",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw5bd6df45/images/new//960035669/960035669_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
       "store": "The Shoval",
       "title": "Nike KD 17 'Aunt Pearl'",
       "price": 659,
@@ -395,6 +733,22 @@
       "price": 659,
       "link": "https://theshoval.com/products/nike-kd-17-easy-money?_pos=10&_sid=606f07805&_ss=r",
       "sizes": []
+    },
+    {
+      "title": "נעלי סניקרס ג'ורדן 4 רטרו",
+      "price": 660,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-4-%D7%A8%D7%98%D7%A8%D7%95/960035587.html?pi=15",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw79667937/images/new/960035587/960035587_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
+      "title": "נעלי סניקרס אייר ג'ורדן 3 רטרו",
+      "price": 660,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-3-%D7%A8%D7%98%D7%A8%D7%95/960035625.html?pi=16",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw1ab633ef/images/new/960035625/960035625_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     },
     {
       "index": 3,
@@ -454,12 +808,28 @@
       "sizes": []
     },
     {
+      "title": "נעלי סניקרס אייר ג'ורדן 1 רטרו",
+      "price": 750,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-1-%D7%A8%D7%98%D7%A8%D7%95/960035730.html?pi=31",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa2358be2/images/new/960035730/960035730_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
+    {
       "index": 4,
       "title": "נעלי כדורסל נייק – Nike Kobe 6 Protro Grinch",
       "price": 799,
       "link": "https://ballers.co.il/product/nike-kobe-6-protro-grinch/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/09/imgi_16_236701_Gallery_1_0835322-430x430.jpeg",
       "store": "Ballers"
+    },
+    {
+      "title": "נעלי סניקרס ג'ורדן 4 רטרו קוזי גירל",
+      "price": 880,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%92%27%D7%95%D7%A8%D7%93%D7%9F-4-%D7%A8%D7%98%D7%A8%D7%95-%D7%A7%D7%95%D7%96%D7%99-%D7%92%D7%99%D7%A8%D7%9C/960035758.html?pi=11",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4dc0a25c/images/new/960035758/960035758_P_2.png?sw=476&sh=714",
+      "brand": "NIKE"
     }
   ],
   "lastSearchTerm": "Nike"
