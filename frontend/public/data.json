@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:09.349Z",
+  "updatedAt": "2026-02-18T20:18:11.809Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -8,11 +8,131 @@
   },
   "results": [
     {
+      "index": 13,
+      "title": "מחיר מיוחד!! 6 זוגות גרבי NIKE EVERYDAY NO SHOW מקוריות. שחור\\לבן. מידות 42-46. משלוח חינם.",
+      "price": 0,
+      "link": "https://thekitsclub7.com/product/everyday-noshow-socks-6-pairs/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/10/NIKE-EVERYDAY-LIGHTWEIGHT-NOSHOW-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 14,
+      "title": "מחיר מיוחד!! 3 זוגות גרבי NIKE LAB TIE DYE מקוריות. צבעים לבחירתכם. מתאים למידות 36-42. משלוח חינם.",
+      "price": 0,
+      "link": "https://thekitsclub7.com/product/nikelab-tiedye-socks-3-pairs/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/10/NIKE-LAB-TIE-DUE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 11,
+      "title": "מחיר מיוחד!! מארז 3 זוגות גרבי ספורט NIKE PERFORMANCE CUSHIONED מקוריות. שחור. מידות 41-46. משלוח חינם.",
+      "price": 79,
+      "link": "https://thekitsclub7.com/product/performance-cushioned-3-pairs-black/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/10/NIKE-PERFORMANCE-CUSHION-CREW-BLACK-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 12,
+      "title": "מחיר מיוחד!! מארז 3 זוגות גרבי ספורט NIKE PERFORMANCE CUSHIONED מקוריות. לבן. מידות 41-46. משלוח חינם.",
+      "price": 79,
+      "link": "https://thekitsclub7.com/product/performance-cushioned-3-pairs-white/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2020/10/NIKE-PERFORMANCE-CUSHION-CREW-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 10,
+      "title": "השלמת הזמנה: Nike AirMax 90 OFF WHITE. מידה 39",
+      "price": 191,
+      "link": "https://thekitsclub7.com/product/po-amof-39/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2017/05/cropped-FB-Profile-logo-512px.jpg",
+      "store": "Kits Club"
+    },
+    {
       "title": "נעלי נייק Nike Omni Multi-Court | ילדים",
       "price": 199.9,
       "link": "https://www.alufsport.co.il/items/8424649-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A0%D7%99%D7%99%D7%A7-Nike-Omni-Multi-Court-%D7%99%D7%9C%D7%93%D7%99%D7%9D",
       "store": "Aluf Sport",
       "sizes": []
+    },
+    {
+      "index": 6,
+      "title": "חיסול!! נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
+      "price": 299,
+      "link": "https://thekitsclub7.com/product/air-force-1-triple-white-clearance/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/03/AF1-TRIPLE-WHITE-CLEARANCE-120-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 7,
+      "title": "קיירי 5 HAVE A NIKE DAY. מידות: 36-46. משלוח חינם",
+      "price": 399,
+      "link": "https://thekitsclub7.com/product/ki5-hnd/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/10/KYRIE-5-HAVE-A-NIKE-DAY-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 9,
+      "title": "נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
+      "price": 489,
+      "link": "https://thekitsclub7.com/product/air-force-1-triple-white/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/04/AIR-FORCE-1-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 0,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 KEEP IT A BUCK. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-buck/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-KEEO-IT-A-BUCK-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 1,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FIVE THE HARD WAY. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-five/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FIVE-THE-HARD-WAY-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 2,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 OREO. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-oreo/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-OREO-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 3,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 MADE IN SEPOLIA. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-mis/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-MADE-IN-SEPOLIA-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 4,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FOSSIL STONE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-fossil/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FOSSIL-STONE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 5,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 WHITE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-white/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 8,
+      "title": "נייקי PIEACEMINUSONE X NIKE KWONDO. מידות 36-46. משלוח חינם",
+      "price": 589,
+      "link": "https://thekitsclub7.com/product/pmk/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/01/PIEACEMINUSONE-X-NIKE-KWONDO-web-01-300x300.jpg",
+      "store": "Kits Club"
     }
   ]
 }
