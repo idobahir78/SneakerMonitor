@@ -1,4 +1,5 @@
 const InteractionScraper = require('./interaction-scraper');
+const SmartFilter = require('../utils/smart-filter');
 
 class MegaSportScraper extends InteractionScraper {
     constructor(searchTerm) {
@@ -197,8 +198,8 @@ class MegaSportScraper extends InteractionScraper {
                         }
                     }
 
-                    // Strict filter: Title must basically match if it's very short, or just be valid
-                    if (title && link) {
+                    // Relaxed extraction - keep if we have title AND (price OR link)
+                    if (title && (price || link)) {
                         results.push({
                             title: title,
                             price: price,
@@ -211,6 +212,14 @@ class MegaSportScraper extends InteractionScraper {
             });
             return results;
         }, this.searchTerm);
+
+        console.log(`[Mega Sport] Found ${items.length} raw items from page.`);
+
+        // --- USE SMART FILTER ---
+        const filtered = SmartFilter.filter(items, this.searchTerm);
+        console.log(`[Mega Sport] Final output: ${filtered.length} products.`);
+
+        return filtered;
     }
 
     // Keep existing parseSizes
