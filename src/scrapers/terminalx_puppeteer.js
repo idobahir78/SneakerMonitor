@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const vm = require('vm');
+const SmartFilter = require('../utils/smart-filter');
 
 class TerminalXPuppeteerScraper {
     constructor(query) {
@@ -105,31 +106,9 @@ class TerminalXPuppeteerScraper {
                 } catch (err) { return null; }
             }).filter(p => p !== null);
 
-            // 6. Filter by Query (Client Side - Improved Token Based)
-            const queryLower = this.query.toLowerCase();
-            const queryTokens = queryLower.split(' ').filter(t => t.trim().length > 0);
-
-            const filtered = mappedProducts.filter(p => {
-                const text = (p.title + ' ' + (p.brand || '') + ' ' + (p.sku || '')).toLowerCase();
-                // Check if ALL tokens exist in the text (e.g. "Puma" AND "MB.05")
-                return queryTokens.every(token => text.includes(token));
-            });
-
-            console.log(`[TerminalX] Valid products: ${mappedProducts.length}, Matching '${this.query}': ${filtered.length}`);
-
-            if (filtered.length === 0 && mappedProducts.length > 0) {
-                console.log("[TerminalX] Strict Filter returned 0. Applying Fallback (Brand Match)...");
-
-                // Fallback: Only return items where the Brand (if present) matches one of the query tokens
-                const fallbackFiltered = mappedProducts.filter(p => {
-                    if (!p.brand) return true; // Keep generic items
-                    const brand = p.brand.toLowerCase();
-                    return queryLower.includes(brand) || brand.includes(queryLower);
-                });
-
-                console.log(`[TerminalX] Fallback kept ${fallbackFiltered.length} items.`);
-                return fallbackFiltered;
-            }
+            // --- USE SMART FILTER ---
+            const filtered = SmartFilter.filter(mappedProducts, this.query);
+            console.log(`[TerminalX] Final output: ${filtered.length} products.`);
 
             return filtered;
 
