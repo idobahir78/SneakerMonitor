@@ -46,9 +46,11 @@ if (!RAW_SEARCH_INPUT && !shouldLoadLast) {
 
 if (shouldLoadLast) {
     try {
-        const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
-        if (fs.existsSync(jsonPath)) {
-            const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+        // ALWAYS load from the main data file, even if exporting to a partial file
+        const loadPath = path.join(__dirname, '../frontend/public/data.json');
+
+        if (fs.existsSync(loadPath)) {
+            const data = JSON.parse(fs.readFileSync(loadPath, 'utf8'));
             if (data.lastSearchTerm) {
                 console.log(`🔄 Loaded last search term: "${data.lastSearchTerm}"`.cyan);
                 RAW_SEARCH_INPUT = data.lastSearchTerm;
