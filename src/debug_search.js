@@ -11,7 +11,7 @@ const MegaSportScraper = require('./scrapers/megasport');
 const ShoesOnlineScraper = require('./scrapers/shoesonline');
 
 // Query that should definitely have results
-const QUERY = "Nike"; // Changed to 'Nike' for better hit rate across all stores
+const QUERY = process.argv[2] || "Nike";
 
 const STORES = [
     { name: 'Terminal X', Class: TerminalXScraper },

@@ -85,14 +85,23 @@ class MegaSportScraper extends InteractionScraper {
 
             // Wait for results OR "No results" message
             try {
-                await Promise.race([
-                    page.waitForSelector('.product-card, .grid__item', { timeout: 30000 }), // Shopify uses product-card or grid__item
-                    page.waitForSelector('.template-search__results', { timeout: 30000 }),
-                    page.waitForFunction(() => document.body.innerText.includes('לא נמצאו') || document.body.innerText.includes('No results'), { timeout: 30000 })
+                // We use a race to see WHAT we find first
+                const foundSelector = await Promise.race([
+                    page.waitForSelector('.product-card, .grid__item', { timeout: 30000 }).then(() => 'PRODUCTS'),
+                    page.waitForSelector('.template-search__results', { timeout: 30000 }).then(() => 'RESULTS_CONTAINER'),
+                    page.waitForFunction(() => document.body.innerText.includes('לא נמצאו') || document.body.innerText.includes('No results'), { timeout: 30000 }).then(() => 'NO_RESULTS_TEXT')
                 ]);
-                console.log(`[Mega Sport] Search results page loaded.`);
+
+                if (foundSelector === 'NO_RESULTS_TEXT') {
+                    console.log(`[Mega Sport] Site explicitly reports "No Results".`);
+                } else {
+                    console.log(`[Mega Sport] Search results page loaded (Detected: ${foundSelector}).`);
+                }
             } catch (e) {
-                console.warn(`[Mega Sport] Search result wait timeout. Checking URL...`);
+                console.warn(`[Mega Sport] Timeout waiting for results or 'no results' text. Possible layout change or slow load.`);
+                // Dump HTML snippet for debugging logic
+                const snippet = await page.evaluate(() => document.body.innerText.substring(0, 500));
+                console.log(`[Mega Sport HTML Dump]: ${snippet.replace(/\n/g, ' ')}...`);
             }
 
         } catch (e) {
