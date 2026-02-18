@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:16.791Z",
+  "updatedAt": "2026-02-18T20:18:17.686Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -372,6 +372,15 @@
       "sizes": []
     },
     {
+      "title": "NIKE P-6000 סניקרס",
+      "price": 479.9,
+      "priceText": "₪479.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f297430032?_pos=2&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_CD6404-203_PHSRH000-2000.jpg?v=1756719386"
+    },
+    {
       "index": 9,
       "title": "נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
       "price": 489,
@@ -652,6 +661,33 @@
       "sizes": []
     },
     {
+      "title": "NIKE AIR FORCE 1 07 סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-air-force-1-10?_pos=3&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IB3080-001_PHSRH000-2000.jpg?v=1741281480"
+    },
+    {
+      "title": "NIKE AIR MAX MOTO 2K סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f309900032?_pos=4&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IQ0272-030_PHSRH000-2000.jpg?v=1767000779"
+    },
+    {
+      "title": "NIKE AIR MAX MOTO 2K סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299180016?_pos=11&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2056-104_PHSRH000-2000.jpg?v=1762954048"
+    },
+    {
       "index": 8,
       "title": "נייקי PIEACEMINUSONE X NIKE KWONDO. מידות 36-46. משלוח חינם",
       "price": 589,
@@ -730,6 +766,33 @@
       "sizes": []
     },
     {
+      "title": "NIKE DUNK LOW GTX סניקרס",
+      "price": 629.9,
+      "priceText": "₪629.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299140002?_pos=7&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2053-001_PHSRH000-2000.jpg?v=1762953916"
+    },
+    {
+      "title": "NIKE VOMERO 18 נעלי ריצה",
+      "price": 649.9,
+      "priceText": "₪649.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f298910008?_pos=15&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HM6803-215_PHSRH000-2000.jpg?v=1763295112"
+    },
+    {
+      "title": "NIKE AIR MAX 90 PREMIUM סניקרס",
+      "price": 659.9,
+      "priceText": "₪659.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299990002?_pos=9&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4517-002_PHSRH000-2000.jpg?v=1756371925"
+    },
+    {
       "title": "Nike Air Jordan 1 Retro High OG A Ma Maniére",
       "price": 679,
       "link": "https://www.mayers.co.il/p/nike_air_jordan_1_retro_high_og_a_ma_maniere/",
@@ -749,6 +812,15 @@
       "link": "https://www.mayers.co.il/p/nike-zoom-vomero-5-virgil-custom-%d7%a0%d7%99%d7%99%d7%a7-%d7%96%d7%95%d7%9d/",
       "store": "Mayers",
       "sizes": []
+    },
+    {
+      "title": "NIKE ZOOM VOMERO 5 סניקרס",
+      "price": 709.9,
+      "priceText": "₪709.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-zoom-vomero-15?_pos=14&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_BV1358-003_PHSRH001-2000.jpg?v=1753965498"
     },
     {
       "title": "Nike Air Jordan 1Retro Twist Panda",
@@ -771,5 +843,6 @@
       "link": "https://www.nike.com/il/t/romaleos-4-weightlifting-shoes-f1nCw3/CD3463-101",
       "sizes": []
     }
-  ]
+  ],
+  "lastSearchTerm": "Nike"
 }
