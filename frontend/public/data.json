@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-18T16:00:42.273Z",
-  "isRunning": true,
+  "updatedAt": "2026-02-18T16:01:01.109Z",
+  "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "*",
   "filters": {
@@ -20,7 +20,7 @@
       "price": 679.9,
       "priceText": "₪679.9",
       "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=6adcf956b&amp;_ss=r",
+      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=e6b9752c8&amp;_ss=r",
       "brand": "PUMA",
       "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
     },
@@ -29,7 +29,7 @@
       "price": 679.9,
       "priceText": "₪679.9",
       "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=6adcf956b&amp;_ss=r",
+      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=e6b9752c8&amp;_ss=r",
       "brand": "PUMA",
       "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
     },
