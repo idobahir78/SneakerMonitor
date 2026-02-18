@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BRANDS_DATA from '../data/brands';
 
-const ScraperControl = ({ onTrigger }) => {
+const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [token, setToken] = useState('');
 
@@ -12,7 +12,10 @@ const ScraperControl = ({ onTrigger }) => {
     const [manualSearchTerm, setManualSearchTerm] = useState('');
 
     const [sizes, setSizes] = useState('*');
-    const [progressiveUpdates, setProgressiveUpdates] = useState(false); // NEW: Progressive mode toggle
+
+    // Auto-Scan State
+    const [isAutoEnabled, setIsAutoEnabled] = useState(autoScrapeEnabled);
+
     const [status, setStatus] = useState(null); // 'loading', 'success', 'error'
     const [message, setMessage] = useState('');
 
@@ -22,10 +25,6 @@ const ScraperControl = ({ onTrigger }) => {
 
         const savedSizes = localStorage.getItem('scraper_sizes');
         if (savedSizes) setSizes(savedSizes);
-
-        // Load progressive mode preference
-        const savedProgressive = localStorage.getItem('scraper_progressive_updates') === 'true';
-        setProgressiveUpdates(savedProgressive);
 
         // Load saved selections
         const savedBrand = localStorage.getItem('scraper_brand');
@@ -50,11 +49,16 @@ const ScraperControl = ({ onTrigger }) => {
         }
     }, []);
 
+    // Sync with prop updates (e.g. from Dashboard data refresh)
+    useEffect(() => {
+        if (typeof autoScrapeEnabled !== 'undefined') {
+            setIsAutoEnabled(autoScrapeEnabled);
+        }
+    }, [autoScrapeEnabled]);
+
     const saveSettings = () => {
         localStorage.setItem('github_pat', token);
         localStorage.setItem('scraper_sizes', sizes);
-        localStorage.setItem('scraper_progressive_updates', progressiveUpdates);
-
         localStorage.setItem('scraper_brand', selectedBrand);
         localStorage.setItem('scraper_model', selectedModel);
         localStorage.setItem('scraper_manual_term', manualSearchTerm);
@@ -82,7 +86,6 @@ const ScraperControl = ({ onTrigger }) => {
             });
             if (response.ok) {
                 const data = await response.json();
-                // Filter for "Scrape and Deploy" workflow specifically if needed, but safe to assume any active run is a blocker
                 const running = data.workflow_runs.filter(run => run.name === 'Scrape and Deploy' && run.status === 'in_progress');
                 return running.length > 0;
             }
@@ -117,6 +120,7 @@ const ScraperControl = ({ onTrigger }) => {
 
             if (response.ok) {
                 setStatus('success');
+                setIsAutoEnabled(true); // Optimistic UI Update
                 setMessage('Auto-Scan Enabled! ✅');
                 setTimeout(() => setMessage(''), 3000);
             } else {
@@ -171,19 +175,20 @@ const ScraperControl = ({ onTrigger }) => {
                     inputs: {
                         search_term: termToScrape,
                         sizes: sizes,
-                        progressive_updates: progressiveUpdates ? 'true' : 'false',
-                        trigger_type: 'manual' // Explicitly set manual trigger
+                        progressive_updates: 'true', // Always true
+                        trigger_type: 'manual'
                     }
                 })
             });
 
             if (response.ok) {
                 setStatus('success');
+                setIsAutoEnabled(false); // Optimistic UI Update: Manual scan pauses auto
                 setMessage('Scrape started! Auto-scan paused.');
 
                 // Notify parent that scrape started
                 if (onTrigger) onTrigger({
-                    progressiveMode: progressiveUpdates,
+                    progressiveMode: true,
                     searchTerm: termToScrape
                 });
             } else {
@@ -288,23 +293,28 @@ const ScraperControl = ({ onTrigger }) => {
                 />
             </div>
 
-            <div className="control-group checkbox-group">
-                <label className="checkbox-label">
-                    <input
-                        type="checkbox"
-                        checked={progressiveUpdates}
-                        onChange={(e) => setProgressiveUpdates(e.target.checked)}
-                    />
-                    <span>Progressive Updates (Real-time) 🔄</span>
-                </label>
-                <small className="hint">See results appear live as they're found (slower, but exciting!)</small>
-            </div>
+            {/* Checkbox removed - Progressive Updates is always true */}
 
             <div className="action-row">
                 <div style={{ display: 'flex', gap: '10px' }}>
                     <button onClick={saveSettings} className="save-btn">Save</button>
-                    <button onClick={enableAutoScan} className="save-btn" style={{ background: '#4CAF50' }} title="Resume scheduled scans">
-                        Auto ON 🕒
+
+                    {/* Dynamic Auto Button */}
+                    <button
+                        onClick={() => {
+                            if (!isAutoEnabled) enableAutoScan();
+                        }}
+                        className="save-btn"
+                        style={{
+                            background: isAutoEnabled ? '#4CAF50' : '#FF9800', // Green if ON, Orange if Paused
+                            opacity: isAutoEnabled ? 0.8 : 1,
+                            cursor: isAutoEnabled ? 'default' : 'pointer',
+                            display: 'flex', alignItems: 'center', gap: '5px'
+                        }}
+                        title="Resume scheduled scans"
+                        disabled={isAutoEnabled}
+                    >
+                        {isAutoEnabled ? 'Auto: ON ✅' : 'Auto: PAUSED ⏸️'}
                     </button>
                 </div>
                 <button
