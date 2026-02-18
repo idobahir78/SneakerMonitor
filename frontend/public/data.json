@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T06:01:41.443Z",
+  "updatedAt": "2026-02-18T06:01:56.538Z",
   "isRunning": true,
   "searchTerm": "New Balance 530",
   "lastSizeInput": "*",
@@ -88,6 +88,14 @@
       "brand": "1593"
     },
     {
+      "title": "מסכת שיער פלסטיסיטי",
+      "price": 399,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%A1%D7%9B%D7%AA-%D7%A9%D7%99%D7%A2%D7%A8-%D7%A4%D7%9C%D7%A1%D7%98%D7%99%D7%A1%D7%99%D7%98%D7%99/876100004.html?pi=5",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw737b49d4/images/new/876100004/876100004_P_2.png?sw=476&sh=714",
+      "brand": "MAGINISTA"
+    },
+    {
       "title": "R640970001",
       "price": 399.9,
       "store": "Terminal X",
@@ -118,6 +126,14 @@
       "link": "https://www.terminalx.com/catalog/product/view/id/697089",
       "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/8/x887160007-11615111284.jpg?image_type_mobile=webp_jpeg_like_70",
       "brand": "1593"
+    },
+    {
+      "title": "מכנסי חליפה מחוייטים",
+      "price": 476,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%9B%D7%A0%D7%A1%D7%99-%D7%97%D7%9C%D7%99%D7%A4%D7%94-%D7%9E%D7%97%D7%95%D7%99%D7%99%D7%98%D7%99%D7%9D/897405757.html?pi=3",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwd4845d51/images/new/897405757/897405757_L_2.jpg?sw=476&sh=714",
+      "brand": "MICHAEL KORS"
     },
     {
       "title": "R472190001",
@@ -246,6 +262,14 @@
       "link": "https://www.terminalx.com/catalog/product/view/id/2307753",
       "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r315610018-11757593239.jpg?image_type_mobile=webp_jpeg_like_70",
       "brand": "33650"
+    },
+    {
+      "title": "מכנסי חליפה מחוייטים",
+      "price": 714,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%9B%D7%A0%D7%A1%D7%99-%D7%97%D7%9C%D7%99%D7%A4%D7%94-%D7%9E%D7%97%D7%95%D7%99%D7%99%D7%98%D7%99%D7%9D/897405756.html?pi=4",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwb793c64d/images/new/897405756/897405756_L_2.jpg?sw=476&sh=714",
+      "brand": "MICHAEL KORS"
     },
     {
       "title": "R489570008",
