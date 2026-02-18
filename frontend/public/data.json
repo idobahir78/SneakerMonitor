@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-18T20:18:54.942Z",
-  "isRunning": false,
-  "searchTerm": "",
+  "updatedAt": "2026-02-18T20:21:05.330Z",
+  "isRunning": true,
+  "searchTerm": "New Balance 530",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
@@ -1233,6 +1233,14 @@
       "sizes": []
     },
     {
+      "title": "נעלי סניקרס 530",
+      "price": 599.25,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4220453e/images/new/970002483/970002483_P_2.png?sw=476&sh=714",
+      "brand": "NEW BALANCE"
+    },
+    {
       "title": "נעלי סניקרס איר ג'ורדן 1 טריפל סטק",
       "price": 600,
       "store": "Factory 54",
@@ -1366,6 +1374,14 @@
       "link": "https://ballers.co.il/product/nike-kobe-6-protro-grinch-2/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/09/imgi_21_1006475_Gallery_1_1673793-430x430.jpeg",
       "store": "Ballers"
+    },
+    {
+      "title": "נעלי סניקרס 530",
+      "price": 669,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwfe128bc2/images/new/970002463/970002463_P_2.png?sw=476&sh=714",
+      "brand": "NEW BALANCE"
     },
     {
       "title": "Nike Air Jordan 1 Retro High OG A Ma Maniére",
