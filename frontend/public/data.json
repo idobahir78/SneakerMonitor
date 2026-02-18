@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:18.300Z",
+  "updatedAt": "2026-02-18T20:18:21.213Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -520,33 +520,6 @@
       "sizes": []
     },
     {
-      "title": "NIKE AIR FORCE 1 07 סניקרס",
-      "price": 579.9,
-      "priceText": "₪579.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/nike-air-force-1-10?_pos=3&amp;_sid=30b20dc67&amp;_ss=r",
-      "brand": "NIKE",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IB3080-001_PHSRH000-2000.jpg?v=1741281480"
-    },
-    {
-      "title": "NIKE AIR MAX MOTO 2K סניקרס",
-      "price": 579.9,
-      "priceText": "₪579.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f309900032?_pos=4&amp;_sid=30b20dc67&amp;_ss=r",
-      "brand": "NIKE",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IQ0272-030_PHSRH000-2000.jpg?v=1767000779"
-    },
-    {
-      "title": "NIKE AIR MAX MOTO 2K סניקרס",
-      "price": 579.9,
-      "priceText": "₪579.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f299180016?_pos=11&amp;_sid=30b20dc67&amp;_ss=r",
-      "brand": "NIKE",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2056-104_PHSRH000-2000.jpg?v=1762954048"
-    },
-    {
       "index": 8,
       "title": "נעלי כדורסל נייק – Nike KD16 Boardroom",
       "price": 549,
@@ -585,6 +558,33 @@
       "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%A8-%D7%A4%D7%95%D7%A8%D7%A1-1-07-%D7%A4%D7%A8%D7%99%D7%9E%D7%99%D7%95%D7%9D/960035659.html?pi=45",
       "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwc4307a2f/images/new//960035659/960035659_P_2.png?sw=476&sh=714",
       "brand": "NIKE"
+    },
+    {
+      "title": "NIKE AIR FORCE 1 07 סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-air-force-1-10?_pos=3&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IB3080-001_PHSRH000-2000.jpg?v=1741281480"
+    },
+    {
+      "title": "NIKE AIR MAX MOTO 2K סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f309900032?_pos=4&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IQ0272-030_PHSRH000-2000.jpg?v=1767000779"
+    },
+    {
+      "title": "NIKE AIR MAX MOTO 2K סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299180016?_pos=11&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2056-104_PHSRH000-2000.jpg?v=1762954048"
     },
     {
       "index": 1,
