@@ -107,21 +107,18 @@ const Dashboard = () => {
             </button>
         </div>
     );
-    if (loading && !data) return <div className="loading-screen">Loading Sneaker Monitor...</div>;
-    if (!data) return <div className="loading-screen">Initializing Data...</div>;
 
-    const { results, updatedAt, searchTerm, lastUpdated, lastSearchTerm } = data;
-
-    // Unify schema locally (fallback for old data files)
-    const effectiveResults = results || [];
-    const effectiveUpdateAt = updatedAt || lastUpdated;
+    // Initial state handling to prevent "Black Screen"
+    // Use default values if data is not yet loaded
+    const effectiveResults = data?.results || [];
+    const effectiveUpdateAt = data?.updatedAt || data?.lastUpdated;
+    const currentSearchTerm = data?.searchTerm || data?.lastSearchTerm || '';
 
     // Display triggered term immediately if we're scanning and data hasn't caught up
-    const isWaitingForNewData = isScanning && triggeredSearchTerm && (searchTerm !== triggeredSearchTerm && lastSearchTerm !== triggeredSearchTerm);
-    const effectiveSearchTerm = isWaitingForNewData ? triggeredSearchTerm : (searchTerm || lastSearchTerm || 'Unknown');
+    const isWaitingForNewData = isScanning && triggeredSearchTerm && (currentSearchTerm !== triggeredSearchTerm);
+    const effectiveSearchTerm = isWaitingForNewData ? triggeredSearchTerm : (currentSearchTerm || 'Unknown');
 
     // Filter results based on client-side search
-    // CRITICAL FIX: Safe check for item.store to prevent crash
     const filteredResults = effectiveResults.filter(item =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (item.store || '').toLowerCase().includes(searchQuery.toLowerCase())
@@ -133,32 +130,27 @@ const Dashboard = () => {
     const bestPriceDisplay = totalFound > 0 && lowestPrice !== Infinity ? `₪${lowestPrice.toFixed(2)}` : '-';
 
     // Format Date
-    const lastUpdatedDisplay = effectiveUpdateAt ? new Date(effectiveUpdateAt).toLocaleString() : 'N/A';
+    const lastUpdatedDisplay = effectiveUpdateAt ? new Date(effectiveUpdateAt).toLocaleString() : 'Loading...';
 
-    // Handle scrape trigger from ScraperControl
     const handleScrapeTrigger = (options = {}) => {
         const now = new Date().getTime();
         const newSearchTerm = options.searchTerm || '';
         console.log('Scrape triggered via UI at:', now, options);
 
-        // Record the exact time and term we started the search
         setLastTriggerTime(now);
         setTriggeredSearchTerm(newSearchTerm);
         setIsScanning(true);
 
-        // Persist to survive refresh
         localStorage.setItem('lastTriggerTime', now.toString());
         localStorage.setItem('triggeredSearchTerm', newSearchTerm);
 
-        // Clear current results immediately for visual feedback
         setData(prev => ({
             ...prev,
             results: [],
-            searchTerm: '', // Clear this so we use triggeredSearchTerm
+            searchTerm: '',
             lastSearchTerm: ''
         }));
 
-        // Force an immediate refresh check in 10 seconds (allow Action to start)
         setTimeout(() => fetchData(), 10000);
     };
 
@@ -169,7 +161,7 @@ const Dashboard = () => {
             <header className="dashboard-header">
                 <h1>Sneaker Monitor 👟</h1>
 
-                {/* Scanning Status Banner (New Component) */}
+                {/* Scanning Status Banner */}
                 {isScanning && (
                     <ScanningBanner startTime={lastTriggerTime || new Date().getTime()} />
                 )}
@@ -194,7 +186,7 @@ const Dashboard = () => {
                 <div className="stats-grid">
                     <div className="stat-card">
                         <h3>Found</h3>
-                        <p className="stat-value">{totalFound}</p>
+                        <p className="stat-value">{data ? totalFound : '-'}</p>
                     </div>
                     <div className="stat-card">
                         <h3>Best Price</h3>
@@ -208,7 +200,13 @@ const Dashboard = () => {
             </header>
 
             <main className="results-grid">
-                {filteredResults.length === 0 ? (
+                {!data ? (
+                    /* Skeleton / Loading State inside App Shell */
+                    <div className="empty-state">
+                        <div className="spinner-small"></div>
+                        <span>Loading Data...</span>
+                    </div>
+                ) : filteredResults.length === 0 ? (
                     <div className="empty-state">
                         {isScanning ? (
                             <>
@@ -229,7 +227,7 @@ const Dashboard = () => {
                     ))
                 )}
             </main>
-        </div >
+        </div>
     );
 };
 
