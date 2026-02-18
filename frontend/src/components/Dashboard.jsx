@@ -156,7 +156,10 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-            <ScraperControl onTrigger={handleScrapeTrigger} />
+            <ScraperControl
+                onTrigger={handleScrapeTrigger}
+                autoScrapeEnabled={data?.autoScrapeEnabled}
+            />
 
             <header className="dashboard-header">
                 <h1>Sneaker Monitor 👟</h1>
