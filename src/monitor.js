@@ -54,7 +54,9 @@ if (shouldLoadLast) {
         // ALWAYS load from the main data file, even if exporting to a partial file
         const loadPath = path.join(__dirname, '../frontend/public/data.json');
 
+        console.log(`DEBUG: Checking for data file at: ${loadPath}`);
         if (fs.existsSync(loadPath)) {
+            console.log("DEBUG: Data file found! Reading...");
             const data = JSON.parse(fs.readFileSync(loadPath, 'utf8'));
             if (data.lastSearchTerm) {
                 console.log(`🔄 Loaded last search term: "${data.lastSearchTerm}"`.cyan);
