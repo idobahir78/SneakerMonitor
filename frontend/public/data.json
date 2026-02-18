@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:21.573Z",
+  "updatedAt": "2026-02-18T20:18:38.186Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -279,6 +279,14 @@
       "sizes": []
     },
     {
+      "index": 6,
+      "title": "חיסול!! נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
+      "price": 299,
+      "link": "https://thekitsclub7.com/product/air-force-1-triple-white-clearance/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/03/AF1-TRIPLE-WHITE-CLEARANCE-120-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
       "title": "מזרן יוגה 4 ממ",
       "price": 300,
       "store": "Factory 54",
@@ -394,6 +402,14 @@
       "brand": "NIKE"
     },
     {
+      "index": 7,
+      "title": "קיירי 5 HAVE A NIKE DAY. מידות: 36-46. משלוח חינם",
+      "price": 399,
+      "link": "https://thekitsclub7.com/product/ki5-hnd/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/10/KYRIE-5-HAVE-A-NIKE-DAY-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
       "title": "נעלי סניקרס אייר פורס 1 07'",
       "price": 412.5,
       "store": "Factory 54",
@@ -491,6 +507,14 @@
       "price": 489,
       "link": "https://theshoval.com/products/nike-nba-hoodie-%D7%A7%D7%A4%D7%95%D7%A6-%D7%95%D7%9F-%D7%9E%D7%A9%D7%97%D7%A7-%D7%90%D7%9F-%D7%91%D7%99-%D7%90%D7%99%D7%99-%D7%92%D7%95%D7%9C%D7%93%D7%9F-%D7%A1%D7%98%D7%99%D7%99%D7%98-golden-state-%D7%95%D7%9E%D7%A9%D7%9C%D7%95%D7%97-%D7%97%D7%99%D7%A0%D7%9D-%D7%94%D7%A9%D7%95%D7%91%D7%9C-theshova?_pos=19&_sid=606f07805&_ss=r",
       "sizes": []
+    },
+    {
+      "index": 9,
+      "title": "נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
+      "price": 489,
+      "link": "https://thekitsclub7.com/product/air-force-1-triple-white/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2021/04/AIR-FORCE-1-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
     },
     {
       "index": 10,
@@ -624,6 +648,54 @@
       "link": "https://ballers.co.il/product/nike-nike-kd16-boardroom/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/kd16-basketball-shoes-H3gcDG-e1713016266749-430x434.jpeg",
       "store": "Ballers"
+    },
+    {
+      "index": 0,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 KEEP IT A BUCK. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-buck/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-KEEO-IT-A-BUCK-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 1,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FIVE THE HARD WAY. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-five/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FIVE-THE-HARD-WAY-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 2,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 OREO. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-oreo/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-OREO-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 3,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 MADE IN SEPOLIA. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-mis/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-MADE-IN-SEPOLIA-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 4,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 FOSSIL STONE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-fossil/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-FOSSIL-STONE-web-01-300x300.jpg",
+      "store": "Kits Club"
+    },
+    {
+      "index": 5,
+      "title": "נעלי כדורסל יאניס פריק 5 NIKE ZOOM FREAK 5 WHITE. מידות 36-46. משלוח חינם",
+      "price": 549,
+      "link": "https://thekitsclub7.com/product/zoom-freak-5-white/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2023/11/FREAK5-WHITE-web-01-300x300.jpg",
+      "store": "Kits Club"
     },
     {
       "store": "Nike IL",
@@ -789,6 +861,14 @@
       "price": 589,
       "link": "https://theshoval.com/products/nike-ja-3-halloween?_pos=21&_sid=606f07805&_ss=r",
       "sizes": []
+    },
+    {
+      "index": 8,
+      "title": "נייקי PIEACEMINUSONE X NIKE KWONDO. מידות 36-46. משלוח חינם",
+      "price": 589,
+      "link": "https://thekitsclub7.com/product/pmk/",
+      "image": "https://thekitsclub7.com/wp-content/uploads/2022/01/PIEACEMINUSONE-X-NIKE-KWONDO-web-01-300x300.jpg",
+      "store": "Kits Club"
     },
     {
       "title": "נעלי סניקרס איר ג'ורדן 1 טריפל סטק",
