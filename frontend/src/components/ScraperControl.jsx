@@ -71,12 +71,78 @@ const ScraperControl = ({ onTrigger }) => {
         return '';
     };
 
+    const checkRunningWorkflows = async () => {
+        if (!token) return false;
+        try {
+            const response = await fetch(`https://api.github.com/repos/idobahir78/SneakerMonitor/actions/runs?status=in_progress`, {
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Authorization': `token ${token}`,
+                }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                // Filter for "Scrape and Deploy" workflow specifically if needed, but safe to assume any active run is a blocker
+                const running = data.workflow_runs.filter(run => run.name === 'Scrape and Deploy' && run.status === 'in_progress');
+                return running.length > 0;
+            }
+        } catch (e) { console.error("Failed to check runs:", e); }
+        return false;
+    };
+
+    const enableAutoScan = async () => {
+        if (!token) {
+            setStatus('error');
+            setMessage('Please enter a GitHub Token first.');
+            return;
+        }
+        setStatus('loading');
+        setMessage('Enabling Auto-Scan...');
+
+        try {
+            const response = await fetch(`https://api.github.com/repos/idobahir78/SneakerMonitor/actions/workflows/scrape.yml/dispatches`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ref: 'main',
+                    inputs: {
+                        trigger_type: 'enable_auto'
+                    }
+                })
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setMessage('Auto-Scan Enabled! ✅');
+                setTimeout(() => setMessage(''), 3000);
+            } else {
+                throw new Error('Failed to enable auto-scan');
+            }
+        } catch (err) {
+            setStatus('error');
+            setMessage(err.message);
+        }
+    };
+
     const triggerScrape = async () => {
         const termToScrape = getFinalSearchTerm();
 
         if (!token) {
             setStatus('error');
             setMessage('Please enter a GitHub Token first.');
+            return;
+        }
+
+        // 1. Check for running workflows
+        setMessage('Checking for conflicts...');
+        const isRunning = await checkRunningWorkflows();
+        if (isRunning) {
+            setStatus('error');
+            setMessage('⚠️ Scan already in progress! Please wait.');
             return;
         }
 
@@ -105,14 +171,15 @@ const ScraperControl = ({ onTrigger }) => {
                     inputs: {
                         search_term: termToScrape,
                         sizes: sizes,
-                        progressive_updates: progressiveUpdates ? 'true' : 'false'
+                        progressive_updates: progressiveUpdates ? 'true' : 'false',
+                        trigger_type: 'manual' // Explicitly set manual trigger
                     }
                 })
             });
 
             if (response.ok) {
                 setStatus('success');
-                setMessage('Scrape started! Update in ~5 mins.');
+                setMessage('Scrape started! Auto-scan paused.');
 
                 // Notify parent that scrape started
                 if (onTrigger) onTrigger({
@@ -234,7 +301,12 @@ const ScraperControl = ({ onTrigger }) => {
             </div>
 
             <div className="action-row">
-                <button onClick={saveSettings} className="save-btn">Save</button>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                    <button onClick={saveSettings} className="save-btn">Save</button>
+                    <button onClick={enableAutoScan} className="save-btn" style={{ background: '#4CAF50' }} title="Resume scheduled scans">
+                        Auto ON 🕒
+                    </button>
+                </div>
                 <button
                     className={`trigger-btn ${status}`}
                     onClick={triggerScrape}

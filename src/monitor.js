@@ -93,6 +93,60 @@ if (jsonArg) {
     }
 }
 
+// --- SMART SCHEDULING LOGIC ---
+const triggerTypeArg = args.find(arg => arg.startsWith('--trigger-type='));
+const TRIGGER_TYPE = triggerTypeArg ? triggerTypeArg.split('=')[1] : 'manual'; // 'manual', 'schedule', 'enable_auto'
+
+const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+let currentData = {};
+
+if (fs.existsSync(jsonPath)) {
+    try {
+        currentData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+    } catch (e) {
+        console.error("Failed to parse existing data.json:", e.message);
+    }
+}
+
+// 1. Enable Auto Mode
+if (TRIGGER_TYPE === 'enable_auto') {
+    console.log('\n🔄 Enabling Auto-Scan Mode...'.green.bold);
+    currentData.autoScrapeEnabled = true;
+    currentData.isRunning = false; // Reset running state
+    fs.writeFileSync(jsonPath, JSON.stringify(currentData, null, 2));
+    console.log('✅ Auto-Scan Enabled. Next scheduled run will execute.'.green);
+
+    // Trigger Sync to save this state to GitHub
+    const syncScript = path.join(__dirname, 'scripts/git_sync.js');
+    try {
+        console.log('🔄 Syncing state to GitHub...');
+        require('child_process').execSync(`node "${syncScript}" "${jsonPath}"`, { stdio: 'inherit' });
+        console.log('✅ State synced.');
+    } catch (e) {
+        console.error(`⚠️ Sync Failed: ${e.message}`);
+    }
+    process.exit(0);
+}
+
+// 2. Schedule Check
+if (TRIGGER_TYPE === 'schedule') {
+    // Default to enabled if undefined
+    if (currentData.autoScrapeEnabled === false) {
+        console.log('\n⏸️  Auto-Scan is DISABLED by user. Skipping scheduled run.'.yellow.bold);
+        process.exit(0);
+    }
+    console.log('\n⏰ Scheduled Run - Auto-Scan is Enabled.'.green);
+}
+
+// 3. Manual Run -> Disable Auto
+if (TRIGGER_TYPE === 'manual') {
+    console.log('\n👤 Manual Run Detected - Disabling future Auto-Scans until re-enabled.'.magenta.bold);
+    currentData.autoScrapeEnabled = false;
+    try {
+        fs.writeFileSync(jsonPath, JSON.stringify(currentData, null, 2));
+    } catch (e) { }
+}
+
 // Generate Regex patterns dynamically
 const TARGET_MODELS = SmartSearch.generatePatterns(SEARCH_INPUT);
 

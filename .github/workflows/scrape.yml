@@ -23,6 +23,10 @@ on:
         description: 'Enable Progressive Updates'
         required: false
         default: 'true'
+      trigger_type:
+        description: 'Trigger Type (manual/schedule/enable_auto)'
+        required: false
+        default: 'manual'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -82,15 +86,19 @@ jobs:
 
       - name: Run Scraper
         env:
-          SEARCH_INPUT: ${{ github.event.inputs.search_term }}
-          SIZE_INPUT: ${{ github.event.inputs.sizes }}
-          PROGRESSIVE_UPDATES: ${{ github.event.inputs.progressive_updates }}
+          PROGRESSIVE_UPDATES: ${{ github.event.inputs.progressive_updates || 'true' }}
+          TRIGGER_TYPE: ${{ github.event.inputs.trigger_type || (github.event_name == 'schedule' && 'schedule') || 'manual' }}
         run: |
           OUTPUT_FILE="data-part-${{ matrix.group }}.json"
+          SEARCH_INPUT="${{ github.event.inputs.search_term }}"
+          SIZE_INPUT="${{ github.event.inputs.sizes }}"
+          
+          COMMON_ARGS="--stores=${{ steps.set-group.outputs.stores }} --json $OUTPUT_FILE --group=${{ matrix.group }}/5 --trigger-type=$TRIGGER_TYPE"
+
           if [ -z "$SEARCH_INPUT" ]; then
-             node src/monitor.js --load-last "--stores=${{ steps.set-group.outputs.stores }}" --json "$OUTPUT_FILE"
+             node src/monitor.js --load-last $COMMON_ARGS
           else
-             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" "--stores=${{ steps.set-group.outputs.stores }}" --json "$OUTPUT_FILE"
+             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" $COMMON_ARGS
           fi
 
       - name: Patch & Push Partial Results
