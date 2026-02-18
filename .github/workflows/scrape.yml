@@ -99,13 +99,16 @@ jobs:
           echo "DEBUG: Received TRIGGER_TYPE='$TRIGGER_TYPE'"
 
           # Fix quoting for stores to prevent argument splitting
-          COMMON_ARGS="--stores='${{ steps.set-group.outputs.stores }}' --json $OUTPUT_FILE --group=${{ matrix.group }}/5 --trigger-type=$TRIGGER_TYPE"
+          # We construct the command directly to avoid shell word splitting issues with variables
+          
+          STORES_ARG="--stores='${{ steps.set-group.outputs.stores }}'"
+          EXTRA_ARGS="--json $OUTPUT_FILE --group=${{ matrix.group }}/5 --trigger-type=$TRIGGER_TYPE"
 
           if [ -z "$SEARCH_INPUT" ]; then
              echo "DEBUG: SEARCH_INPUT is empty, using --load-last"
-             node src/monitor.js --load-last $COMMON_ARGS
+             node src/monitor.js --load-last $STORES_ARG $EXTRA_ARGS
           else
-             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" $COMMON_ARGS
+             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" $STORES_ARG $EXTRA_ARGS
           fi
 
       - name: Patch & Push Partial Results

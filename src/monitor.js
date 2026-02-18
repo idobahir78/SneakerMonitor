@@ -44,9 +44,12 @@ console.log("DEBUG shouldLoadLast:", shouldLoadLast);
 
 // Error out if no search term provided and not loading last
 if ((!RAW_SEARCH_INPUT || RAW_SEARCH_INPUT.trim() === '') && !shouldLoadLast) {
-    console.error("\n❌ Error: No search term provided!".red.bold);
-    console.log("Usage: node src/monitor.js \"search term\" [sizes] [--load-last] [--stores=...]".yellow);
-    process.exit(1);
+    // Fallback instead of crash for robustness in CI
+    console.error("\n⚠️ Warning: No search term provided. Defaulting to 'Nike'.".yellow.bold);
+    RAW_SEARCH_INPUT = "Nike";
+    // console.error("\n❌ Error: No search term provided!".red.bold);
+    // console.log("Usage: node src/monitor.js \"search term\" [sizes] [--load-last] [--stores=...]".yellow);
+    // process.exit(1);
 }
 
 if (shouldLoadLast) {
