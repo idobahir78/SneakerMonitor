@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T20:18:11.809Z",
+  "updatedAt": "2026-02-18T20:18:13.905Z",
   "isRunning": true,
   "searchTerm": "Nike",
   "lastSizeInput": "*",
@@ -40,6 +40,24 @@
       "store": "Kits Club"
     },
     {
+      "title": "NIKE TEMPO FLASH חולצת טי",
+      "price": 149.94,
+      "priceText": "₪149.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299770002?_pos=8&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV2996-010_PHSYM001-2000.jpg?v=1764596240"
+    },
+    {
+      "title": "NIKE CLUB מכנסי ג'וגרים",
+      "price": 155.93,
+      "priceText": "₪155.93",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/m-nk-club-bb-jogger-1?_pos=1&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_FN3787-100_PHSFM001-2000.jpg?v=1753968454"
+    },
+    {
       "index": 10,
       "title": "השלמת הזמנה: Nike AirMax 90 OFF WHITE. מידה 39",
       "price": 191,
@@ -55,6 +73,33 @@
       "sizes": []
     },
     {
+      "title": "NIKE TECH FULL-ZIPPED סווטשירט",
+      "price": 209.94,
+      "priceText": "₪209.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f300120032?_pos=5&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV5867-234_PHSFM001-2000.jpg?v=1764590878"
+    },
+    {
+      "title": "NIKE TECH FLEECE מכנסיים ארוכים",
+      "price": 275.94,
+      "priceText": "₪275.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299600007?_pos=10&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV0959-365_PHSYD001-2000.jpg?v=1764063271"
+    },
+    {
+      "title": "WMNS NIKE P-6000",
+      "price": 287.94,
+      "priceText": "₪287.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f238880016?_pos=13&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/jpeg-optimizer_AURORA_FV6603-101_PHSRH000-2000.jpg?v=1746372031"
+    },
+    {
       "index": 6,
       "title": "חיסול!! נייקי אייר פורס Nike AIR FORCE 1 TRIPLE WHITE. מידות 36-46. משלוח חינם",
       "price": 299,
@@ -63,12 +108,39 @@
       "store": "Kits Club"
     },
     {
+      "title": "NIKE DUNK LOW סניקרס",
+      "price": 307.93,
+      "priceText": "₪307.93",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-dunk-low-gs-20?_pos=6&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_II7639-001_PHSRH000-2000.jpg?v=1757671774"
+    },
+    {
+      "title": "Nike Tech ז'קט",
+      "price": 335.94,
+      "priceText": "₪335.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/m-nk-tch-wvn-wr-fz-jkt-2?_pos=12&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HM7151-297_PHSFM001-2000.jpg?v=1754215951"
+    },
+    {
       "index": 7,
       "title": "קיירי 5 HAVE A NIKE DAY. מידות: 36-46. משלוח חינם",
       "price": 399,
       "link": "https://thekitsclub7.com/product/ki5-hnd/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2022/10/KYRIE-5-HAVE-A-NIKE-DAY-web-01-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "title": "NIKE P-6000 סניקרס",
+      "price": 479.9,
+      "priceText": "₪479.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f297430032?_pos=2&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_CD6404-203_PHSRH000-2000.jpg?v=1756719386"
     },
     {
       "index": 9,
@@ -127,12 +199,75 @@
       "store": "Kits Club"
     },
     {
+      "title": "NIKE AIR FORCE 1 07 סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-air-force-1-10?_pos=3&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IB3080-001_PHSRH000-2000.jpg?v=1741281480"
+    },
+    {
+      "title": "NIKE AIR MAX MOTO 2K סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f309900032?_pos=4&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_IQ0272-030_PHSRH000-2000.jpg?v=1767000779"
+    },
+    {
+      "title": "NIKE AIR MAX MOTO 2K סניקרס",
+      "price": 579.9,
+      "priceText": "₪579.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299180016?_pos=11&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2056-104_PHSRH000-2000.jpg?v=1762954048"
+    },
+    {
       "index": 8,
       "title": "נייקי PIEACEMINUSONE X NIKE KWONDO. מידות 36-46. משלוח חינם",
       "price": 589,
       "link": "https://thekitsclub7.com/product/pmk/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2022/01/PIEACEMINUSONE-X-NIKE-KWONDO-web-01-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "title": "NIKE DUNK LOW GTX סניקרס",
+      "price": 629.9,
+      "priceText": "₪629.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299140002?_pos=7&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2053-001_PHSRH000-2000.jpg?v=1762953916"
+    },
+    {
+      "title": "NIKE VOMERO 18 נעלי ריצה",
+      "price": 649.9,
+      "priceText": "₪649.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f298910008?_pos=15&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HM6803-215_PHSRH000-2000.jpg?v=1763295112"
+    },
+    {
+      "title": "NIKE AIR MAX 90 PREMIUM סניקרס",
+      "price": 659.9,
+      "priceText": "₪659.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f299990002?_pos=9&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4517-002_PHSRH000-2000.jpg?v=1756371925"
+    },
+    {
+      "title": "NIKE ZOOM VOMERO 5 סניקרס",
+      "price": 709.9,
+      "priceText": "₪709.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/nike-zoom-vomero-15?_pos=14&amp;_sid=30b20dc67&amp;_ss=r",
+      "brand": "NIKE",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_BV1358-003_PHSRH001-2000.jpg?v=1753965498"
     }
   ]
 }
