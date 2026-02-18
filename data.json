@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-18T05:05:57.744Z",
+  "updatedAt": "2026-02-18T06:03:15.904Z",
   "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "*",
@@ -88,6 +88,28 @@
       "brand": "1593"
     },
     {
+      "title": "New Balance 530 Black Kids – נעלי ניו באלנס ילדים",
+      "price": 359,
+      "link": "https://www.mayers.co.il/p/new-balance-530-black-kids-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%a0%d7%a1-%d7%99%d7%9c%d7%93%d7%99%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 White Blue Kids – נעלי ניו באלנס ילדים",
+      "price": 359,
+      "link": "https://www.mayers.co.il/p/new-balance-530-blue-and-white-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%a0%d7%a1-%d7%99%d7%9c%d7%93%d7%99%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "מסכת שיער פלסטיסיטי",
+      "price": 399,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%A1%D7%9B%D7%AA-%D7%A9%D7%99%D7%A2%D7%A8-%D7%A4%D7%9C%D7%A1%D7%98%D7%99%D7%A1%D7%99%D7%98%D7%99/876100004.html?pi=5",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw737b49d4/images/new/876100004/876100004_P_2.png?sw=476&sh=714",
+      "brand": "MAGINISTA"
+    },
+    {
       "title": "R640970001",
       "price": 399.9,
       "store": "Terminal X",
@@ -120,12 +142,48 @@
       "brand": "1593"
     },
     {
+      "title": "מכנסי חליפה מחוייטים",
+      "price": 476,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%9B%D7%A0%D7%A1%D7%99-%D7%97%D7%9C%D7%99%D7%A4%D7%94-%D7%9E%D7%97%D7%95%D7%99%D7%99%D7%98%D7%99%D7%9D/897405757.html?pi=3",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwd4845d51/images/new/897405757/897405757_L_2.jpg?sw=476&sh=714",
+      "brand": "MICHAEL KORS"
+    },
+    {
+      "title": "New Balance 530 Trainers Black White – נעלי ניו באלנס",
+      "price": 479,
+      "link": "https://www.mayers.co.il/p/new_balance_530_trainers_black_white/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
       "title": "R472190001",
       "price": 479.9,
       "store": "Terminal X",
       "link": "https://www.terminalx.com/catalog/product/view/id/2408491",
       "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r472190001-11760964903.jpg",
       "brand": "13"
+    },
+    {
+      "title": "New Balance 530 trainers in off white",
+      "price": 529,
+      "link": "https://www.mayers.co.il/p/new_balance_530_trainers_in_off_white/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 Trainers White And Green",
+      "price": 539,
+      "link": "https://www.mayers.co.il/p/new_balance_530_trainers_white_and_green/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance MR 530 KA",
+      "price": 549,
+      "link": "https://www.mayers.co.il/p/new_balance_mr_530_ka/",
+      "store": "Mayers",
+      "sizes": []
     },
     {
       "title": "R455640001",
@@ -144,6 +202,77 @@
       "brand": "11853"
     },
     {
+      "title": "New Balance 530 Black – נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-black-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 Olive Grey – נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1-5/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 Grey – נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1-4/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 Black – נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1-7/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1-3/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1-2/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "New Balance 530 נעלי ניו באלאנס",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/new-balance-530-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%90%d7%a0%d7%a1/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "נעלי ניו באלנס – New Balance 530 White Silver",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%a0%d7%a1-new-balance-530/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "נעלי ניו באלנס – New Balance 530 Trainers",
+      "price": 599,
+      "link": "https://www.mayers.co.il/p/%d7%a0%d7%99%d7%95-%d7%91%d7%90%d7%9c%d7%a0%d7%a1-530-%d7%a0%d7%a9%d7%99%d7%9d/",
+      "store": "Mayers",
+      "sizes": []
+    },
+    {
+      "title": "נעלי סניקרס 530",
+      "price": 599.25,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4220453e/images/new/970002483/970002483_P_2.png?sw=476&sh=714",
+      "brand": "NEW BALANCE"
+    },
+    {
       "title": "R472170006",
       "price": 629.9,
       "store": "Terminal X",
@@ -152,28 +281,12 @@
       "brand": "21236"
     },
     {
-      "title": "נעלי כדורסל פומה X מהיר ועצבני",
-      "price": 650,
+      "title": "נעלי סניקרס 530",
+      "price": 669,
       "store": "Factory 54",
-      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919173569.html?pi=2",
-      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw08f5cadb/images/new//919173569/919173569_P_2.png?sw=476&sh=714",
-      "brand": "PUMA"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=c7be09cc2&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=c7be09cc2&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwfe128bc2/images/new/970002463/970002463_P_2.png?sw=476&sh=714",
+      "brand": "NEW BALANCE"
     },
     {
       "title": "R315650008",
@@ -182,78 +295,6 @@
       "link": "https://www.terminalx.com/catalog/product/view/id/2307757",
       "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r315650008-11757593239.jpg?image_type_mobile=webp_jpeg_like_70",
       "brand": "33650"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=5ecc2febf&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=5ecc2febf&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=2&amp;_sid=dae197ff4&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=c7be09cc2&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=c7be09cc2&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=5ecc2febf&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=5ecc2febf&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
-    },
-    {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=2&amp;_sid=dae197ff4&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
-    },
-    {
-      "title": "נעלי כדורסל פומה X מהיר ועצבני",
-      "price": 680,
-      "store": "Factory 54",
-      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919176071.html?pi=1",
-      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw203bccba/images/new//919176071/919176071_P_2.png?sw=476&sh=714",
-      "brand": "PUMA"
     },
     {
       "title": "R315560027",
@@ -270,6 +311,14 @@
       "link": "https://www.terminalx.com/catalog/product/view/id/2307753",
       "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r315610018-11757593239.jpg?image_type_mobile=webp_jpeg_like_70",
       "brand": "33650"
+    },
+    {
+      "title": "מכנסי חליפה מחוייטים",
+      "price": 714,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%9E%D7%9B%D7%A0%D7%A1%D7%99-%D7%97%D7%9C%D7%99%D7%A4%D7%94-%D7%9E%D7%97%D7%95%D7%99%D7%99%D7%98%D7%99%D7%9D/897405756.html?pi=4",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwb793c64d/images/new/897405756/897405756_L_2.jpg?sw=476&sh=714",
+      "brand": "MICHAEL KORS"
     },
     {
       "title": "R489570008",
@@ -296,5 +345,5 @@
       "brand": "423"
     }
   ],
-  "lastSearchTerm": "Puma MB.05"
+  "lastSearchTerm": "New Balance 530"
 }
