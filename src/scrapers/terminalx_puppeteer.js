@@ -105,18 +105,30 @@ class TerminalXPuppeteerScraper {
                 } catch (err) { return null; }
             }).filter(p => p !== null);
 
-            // Filter (Client Side)
+            // 6. Filter by Query (Client Side - Improved Token Based)
             const queryLower = this.query.toLowerCase();
+            const queryTokens = queryLower.split(' ').filter(t => t.trim().length > 0);
+
             const filtered = mappedProducts.filter(p => {
                 const text = (p.title + ' ' + (p.brand || '') + ' ' + (p.sku || '')).toLowerCase();
-                return text.includes(queryLower);
+                // Check if ALL tokens exist in the text (e.g. "Puma" AND "MB.05")
+                return queryTokens.every(token => text.includes(token));
             });
 
             console.log(`[TerminalX] Valid products: ${mappedProducts.length}, Matching '${this.query}': ${filtered.length}`);
 
             if (filtered.length === 0 && mappedProducts.length > 0) {
-                console.log("[TerminalX] Filter returned 0. Returning ALL mapped products as fallback.");
-                return mappedProducts;
+                console.log("[TerminalX] Strict Filter returned 0. Applying Fallback (Brand Match)...");
+
+                // Fallback: Only return items where the Brand (if present) matches one of the query tokens
+                const fallbackFiltered = mappedProducts.filter(p => {
+                    if (!p.brand) return true; // Keep generic items
+                    const brand = p.brand.toLowerCase();
+                    return queryLower.includes(brand) || brand.includes(queryLower);
+                });
+
+                console.log(`[TerminalX] Fallback kept ${fallbackFiltered.length} items.`);
+                return fallbackFiltered;
             }
 
             return filtered;

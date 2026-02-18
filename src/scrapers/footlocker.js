@@ -49,6 +49,7 @@ class FootLockerScraper extends BaseScraper {
                                 title: p.title || p.item_name,
                                 price: Number(p.price),
                                 priceText: `₪${p.price}`,
+                                store: 'Foot Locker',
                                 link: link,
                                 brand: p.vendor || p.item_brand || 'Foot Locker',
                                 image: p.image ? (p.image.startsWith('//') ? `https:${p.image}` : p.image) : null
@@ -95,6 +96,7 @@ class FootLockerScraper extends BaseScraper {
                                 title,
                                 price,
                                 priceText: `₪${price}`,
+                                store: 'Foot Locker',
                                 link,
                                 image: imgEl ? imgEl.src : null,
                                 brand: 'Foot Locker'

@@ -143,9 +143,18 @@ function writeProgressiveUpdate(isRunning = true) {
     // Deduplicate accumulated results before writing
     const uniqueSoFar = [];
     const seenLinks = new Set();
+
+    // Helper to normalize link (strip query params)
+    const normalizeLink = (url) => {
+        try {
+            return url.split('?')[0];
+        } catch (e) { return url; }
+    };
+
     for (const r of allAccumulatedResults) {
-        if (!seenLinks.has(r.link)) {
-            seenLinks.add(r.link);
+        const cleanLink = normalizeLink(r.link);
+        if (!seenLinks.has(cleanLink)) {
+            seenLinks.add(cleanLink);
             uniqueSoFar.push(r);
         }
     }
@@ -283,9 +292,15 @@ async function run() {
         // Final Deduplication
         const seenLinks = new Set();
         const uniqueResults = [];
+
+        const normalizeLink = (url) => {
+            try { return url.split('?')[0]; } catch (e) { return url; }
+        };
+
         for (const result of allAccumulatedResults) {
-            if (!seenLinks.has(result.link)) {
-                seenLinks.add(result.link);
+            const cleanLink = normalizeLink(result.link);
+            if (!seenLinks.has(cleanLink)) {
+                seenLinks.add(cleanLink);
                 uniqueResults.push(result);
             }
         }

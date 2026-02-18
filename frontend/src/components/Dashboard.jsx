@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import ShoeCard from './ShoeCard';
-
 import ScraperControl from './ScraperControl';
+import ScanningBanner from './ScanningBanner';
 
 const Dashboard = () => {
     const [data, setData] = useState(null);
@@ -112,9 +111,10 @@ const Dashboard = () => {
     const effectiveSearchTerm = isWaitingForNewData ? triggeredSearchTerm : (searchTerm || lastSearchTerm || 'Unknown');
 
     // Filter results based on client-side search
+    // CRITICAL FIX: Safe check for item.store to prevent crash
     const filteredResults = effectiveResults.filter(item =>
         item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.store.toLowerCase().includes(searchQuery.toLowerCase())
+        (item.store || '').toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     // Calculate Stats
@@ -159,15 +159,9 @@ const Dashboard = () => {
             <header className="dashboard-header">
                 <h1>Sneaker Monitor 👟</h1>
 
-                {/* Scanning Status Banner */}
+                {/* Scanning Status Banner (New Component) */}
                 {isScanning && (
-                    <div className="scanning-banner">
-                        <span className="scanning-icon">🔄</span>
-                        <span className="scanning-text">Scanning in progress...</span>
-                        <span className="results-count">
-                            {isWaitingForNewData ? 0 : filteredResults.length} items found
-                        </span>
-                    </div>
+                    <ScanningBanner startTime={lastTriggerTime || new Date().getTime()} />
                 )}
 
                 <p className={`last-updated ${refreshFlash ? 'flash-update' : ''}`}>
