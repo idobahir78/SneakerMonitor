@@ -1,10 +1,18 @@
 {
-  "updatedAt": "2026-02-18T20:05:57.461Z",
-  "isRunning": false,
-  "searchTerm": "",
-  "lastSizeInput": "",
+  "updatedAt": "2026-02-18T20:18:09.349Z",
+  "isRunning": true,
+  "searchTerm": "Nike",
+  "lastSizeInput": "*",
   "filters": {
     "sizes": []
   },
-  "results": []
+  "results": [
+    {
+      "title": "נעלי נייק Nike Omni Multi-Court | ילדים",
+      "price": 199.9,
+      "link": "https://www.alufsport.co.il/items/8424649-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A0%D7%99%D7%99%D7%A7-Nike-Omni-Multi-Court-%D7%99%D7%9C%D7%93%D7%99%D7%9D",
+      "store": "Aluf Sport",
+      "sizes": []
+    }
+  ]
 }
