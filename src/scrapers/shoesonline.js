@@ -1,10 +1,22 @@
-const BaseScraper = require('./base-scraper');
+const SmartFilter = require('../utils/smart-filter');
 
 class ShoesOnlineScraper extends BaseScraper {
     constructor(searchTerm) {
         const query = searchTerm;
         if (!query) throw new Error("Search term is required for ShoesOnlineScraper");
         super('Shoesonline', `https://shoesonline.co.il/?s=${encodeURIComponent(query)}&post_type=product`);
+        this.searchTerm = query;
+    }
+
+    async scrape(browser) {
+        // Call base scraper to handle navigation and parsing
+        const items = await super.scrape(browser);
+
+        // Apply SmartFilter to the results
+        const filtered = SmartFilter.filter(items, this.searchTerm);
+        console.log(`[ShoesOnline] Smart Filter: ${items.length} -> ${filtered.length} items`);
+
+        return filtered;
     }
 
     async parse(page) {
@@ -12,8 +24,8 @@ class ShoesOnlineScraper extends BaseScraper {
         // Wait for results or no-results
         try {
             await Promise.race([
-                page.waitForSelector('.product, .type-product, .products, .woocommerce-info', { timeout: 15000 }),
-                page.waitForFunction(() => document.body.innerText.includes('לא נמצאו') || document.body.innerText.includes('No products'), { timeout: 15000 })
+                page.waitForSelector('.product, .type-product, .products, .woocommerce-info', { timeout: 30000 }),
+                page.waitForFunction(() => document.body.innerText.includes('לא נמצאו') || document.body.innerText.includes('No products'), { timeout: 30000 })
             ]);
         } catch (e) {
             console.log('ShoesOnline: Results verification timed out. Assuming no results or structure change.');
@@ -45,8 +57,12 @@ class ShoesOnlineScraper extends BaseScraper {
                         priceText: priceEl ? priceEl.innerText.trim() : '',
                         link,
                         image: imageEl ? imageEl.src : null,
-                        sizes: []
+                        sizes: [],
+                        brand: 'N/A' // Attempt to extract brand if possible
                     });
+
+                    // Attempt to find brand in meta or attributes
+                    // Not crucial as SmartFilter handles generic text matching too
                     return results;
                 }
             }
@@ -77,7 +93,7 @@ class ShoesOnlineScraper extends BaseScraper {
                 // Remove non-numeric (keep dot)
                 const price = parseFloat(priceText.replace(/[^\d.]/g, ''));
 
-                if (price > 0) {
+                if (price > 0 && titleEl) { // Ensure titleEl exists
                     const title = titleEl.innerText.trim();
                     let link = linkEl ? linkEl.href : '';
                     const image = imgEl ? (imgEl.dataset.src || imgEl.src) : null;
@@ -99,18 +115,19 @@ class ShoesOnlineScraper extends BaseScraper {
                     }
                 }
             });
+
             return results;
         });
     }
-
+}
     async parseSizes(page) {
-        return await page.evaluate(() => {
-            const sizes = [];
-            const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled), .selection-box:not(.disabled)');
-            sizeEls.forEach(el => sizes.push(el.innerText.trim()));
-            return sizes;
-        });
-    }
+    return await page.evaluate(() => {
+        const sizes = [];
+        const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled), .selection-box:not(.disabled)');
+        sizeEls.forEach(el => sizes.push(el.innerText.trim()));
+        return sizes;
+    });
+}
 }
 
 module.exports = ShoesOnlineScraper;
