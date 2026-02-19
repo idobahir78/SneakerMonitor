@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-19T06:09:58.384Z",
-  "isRunning": false,
-  "searchTerm": "",
+  "updatedAt": "2026-02-19T06:35:31.425Z",
+  "isRunning": true,
+  "searchTerm": "New Balance 530",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
@@ -17,33 +17,6 @@
       "image": "https://footlocker.co.il/cdn/shop/files/paidiko-kolan-mauro-jordan-dri-fit-essentials-208110.jpg?v=1754998492"
     },
     {
-      "title": "JORDAN DRI-FIT ESSENTIALS טייץ",
-      "price": 59.94,
-      "priceText": "₪59.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f303520002?_pos=12&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/paidiko-kolan-mauro-jordan-dri-fit-essentials-208110.jpg?v=1754998492"
-    },
-    {
-      "title": "JORDAN JUMPMAN 3.0 טי שירט",
-      "price": 83.94,
-      "priceText": "₪83.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f303720002?_pos=8&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/G_95F057_023_Front.jpg?v=1755506766"
-    },
-    {
-      "title": "JORDAN JUMPMAN 3.0 טי שירט",
-      "price": 83.94,
-      "priceText": "₪83.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f303730032?_pos=15&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/G_95F057_782_Front_04.jpg?v=1755506895"
-    },
-    {
       "title": "JORDAN JUMPMAN 3.0 טי שירט",
       "price": 83.94,
       "priceText": "₪83.94",
@@ -78,33 +51,6 @@
       "link": "https://www.footlocker.co.il/products/u-j-ed-cush-poly-ale-3pr-wht?_pos=11&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_DX9655-100_PHCFH001-2000.jpg?v=1769033806"
-    },
-    {
-      "title": "JORDAN מארז 3 זוגות גרביים",
-      "price": 84.9,
-      "priceText": "₪84.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/u-j-ed-cush-poly-crew-3pr-wht?_pos=10&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_DX9632-100_PHCFH001-2000.jpg?v=1769033395"
-    },
-    {
-      "title": "JORDAN מארז 3 זוגות גרביים",
-      "price": 84.9,
-      "priceText": "₪84.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/u-j-ed-cush-poly-ale-3pr-wht?_pos=11&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_DX9655-100_PHCFH001-2000.jpg?v=1769033806"
-    },
-    {
-      "title": "Jordan Brooklyn Fleece סווטשירט",
-      "price": 125.94,
-      "priceText": "₪125.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f303900032?_pos=3&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/G_95F116_782_Front.jpg?v=1755596740"
     },
     {
       "title": "Jordan Brooklyn Fleece סווטשירט",
@@ -147,24 +93,6 @@
       "link": "https://www.footlocker.co.il/products/f300010032?_pos=14&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4567-133_PHSFM001-2000.jpg?v=1762099918"
-    },
-    {
-      "title": "JORDAN BROOKLYN סווטשירט",
-      "price": 131.94,
-      "priceText": "₪131.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f300010032?_pos=14&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4567-133_PHSFM001-2000.jpg?v=1762099918"
-    },
-    {
-      "title": "JORDAN STREET CHAMP סווטשירט",
-      "price": 137.94,
-      "priceText": "₪137.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f304130032?_pos=6&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/G_95F428_782_Front.jpg?v=1755602678"
     },
     {
       "title": "JORDAN STREET CHAMP סווטשירט",
@@ -280,15 +208,6 @@
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F281_023_Front.jpg?v=1755600183"
     },
     {
-      "title": "AIR JORDAN HAS LANDED סווטשירט",
-      "price": 149.94,
-      "priceText": "₪149.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f304000002?_pos=9&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/G_95F281_023_Front.jpg?v=1755600183"
-    },
-    {
       "store": "The Shoval",
       "title": "גופיית NBA Chicago Bulls - Michael Jordan",
       "price": 159,
@@ -338,24 +257,6 @@
       "price": 169,
       "link": "https://playersix.co.il/product/jordan-sport-essentials-if0899-100/",
       "sizes": []
-    },
-    {
-      "title": "JORDAN BROOKLYN FLEECE סווטשירט",
-      "price": 185.94,
-      "priceText": "₪185.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f298480008?_pos=1&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_FV7281-050_PHSFM001-2000.jpg?v=1758023033"
-    },
-    {
-      "title": "JORDAN BROOKLYN FLEECE קפוצ'ון",
-      "price": 185.94,
-      "priceText": "₪185.94",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/w-j-brkln-flc-po-44?_pos=4&amp;_sid=542425b74&amp;_ss=r",
-      "brand": "JORDAN",
-      "image": "https://footlocker.co.il/cdn/shop/files/F249010002-3.jpg?v=1726499753"
     },
     {
       "title": "JORDAN BROOKLYN FLEECE סווטשירט",
@@ -984,13 +885,6 @@
       "sizes": []
     },
     {
-      "store": "Player Six",
-      "title": "Jordan Luka 5 \"Viper Edge\" IQ0630-301",
-      "price": 569,
-      "link": "https://playersix.co.il/product/jordan-luka-5-viper-edge-iq0630-301/",
-      "sizes": []
-    },
-    {
       "title": "Nike Air Jordan 1 Retro High Midnight 2020",
       "price": 589,
       "link": "https://www.mayers.co.il/p/nike_air_jordan_1_retro_high_midnight_2020/",
@@ -1004,6 +898,14 @@
       "link": "https://ballers.co.il/product/jordan-luka-4-space-navigator/",
       "image": "https://ballers.co.il/wp-content/uploads/2025/08/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%92%D7%95%D7%A8%D7%93%D7%9F-%E2%80%93-%E2%80%98Jordan-Luka-4-%E2%80%98Space-Navigator1-430x430.jpeg",
       "store": "Ballers"
+    },
+    {
+      "title": "נעלי סניקרס 530",
+      "price": 599.25,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4220453e/images/new/970002483/970002483_P_2.png?sw=476&sh=714",
+      "brand": "NEW BALANCE"
     },
     {
       "store": "Nike IL",
@@ -1068,6 +970,14 @@
       "link": "https://www.mayers.co.il/p/nike_air_jordan1_low_paris/",
       "store": "Mayers",
       "sizes": []
+    },
+    {
+      "title": "נעלי סניקרס 530",
+      "price": 669,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwfe128bc2/images/new/970002463/970002463_P_2.png?sw=476&sh=714",
+      "brand": "NEW BALANCE"
     },
     {
       "title": "Nike Air Jordan 1 Retro High OG A Ma Maniére",
