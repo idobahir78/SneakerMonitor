@@ -1,31 +1,14 @@
 {
-  "updatedAt": "2026-02-19T08:57:17.559Z",
+  "updatedAt": "2026-02-19T09:15:59.088Z",
   "isRunning": false,
   "searchTerm": "",
-  "lastSizeInput": "38",
+  "lastSizeInput": "44",
   "filters": {
     "sizes": [
-      38,
-      6
+      44,
+      10.5
     ]
   },
-  "results": [
-    {
-      "title": "נעלי סניקרס 530",
-      "price": 599.25,
-      "store": "Factory 54",
-      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
-      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4220453e/images/new/970002483/970002483_P_2.png?sw=476&sh=714",
-      "brand": "NEW BALANCE"
-    },
-    {
-      "title": "נעלי סניקרס 530",
-      "price": 669,
-      "store": "Factory 54",
-      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
-      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwfe128bc2/images/new/970002463/970002463_P_2.png?sw=476&sh=714",
-      "brand": "NEW BALANCE"
-    }
-  ],
-  "lastSearchTerm": "New Balance 530"
+  "results": [],
+  "lastSearchTerm": "On Cloud Cloudflow"
 }
