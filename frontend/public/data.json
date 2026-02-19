@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-19T06:05:45.609Z",
-  "isRunning": false,
-  "searchTerm": "",
+  "updatedAt": "2026-02-19T06:09:22.874Z",
+  "isRunning": true,
+  "searchTerm": "Jordan",
   "lastSizeInput": "*",
   "filters": {
     "sizes": []
@@ -13,6 +13,15 @@
       "priceText": "₪59.94",
       "store": "Foot Locker",
       "link": "https://www.footlocker.co.il/products/f303520002?_pos=12&amp;_sid=7f69910c9&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/paidiko-kolan-mauro-jordan-dri-fit-essentials-208110.jpg?v=1754998492"
+    },
+    {
+      "title": "JORDAN DRI-FIT ESSENTIALS טייץ",
+      "price": 59.94,
+      "priceText": "₪59.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f303520002?_pos=12&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/paidiko-kolan-mauro-jordan-dri-fit-essentials-208110.jpg?v=1754998492"
     },
@@ -35,6 +44,24 @@
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F057_782_Front_04.jpg?v=1755506895"
     },
     {
+      "title": "JORDAN JUMPMAN 3.0 טי שירט",
+      "price": 83.94,
+      "priceText": "₪83.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f303720002?_pos=8&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/G_95F057_023_Front.jpg?v=1755506766"
+    },
+    {
+      "title": "JORDAN JUMPMAN 3.0 טי שירט",
+      "price": 83.94,
+      "priceText": "₪83.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f303730032?_pos=15&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/G_95F057_782_Front_04.jpg?v=1755506895"
+    },
+    {
       "title": "JORDAN מארז 3 זוגות גרביים",
       "price": 84.9,
       "priceText": "₪84.9",
@@ -53,11 +80,38 @@
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_DX9655-100_PHCFH001-2000.jpg?v=1769033806"
     },
     {
+      "title": "JORDAN מארז 3 זוגות גרביים",
+      "price": 84.9,
+      "priceText": "₪84.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/u-j-ed-cush-poly-crew-3pr-wht?_pos=10&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_DX9632-100_PHCFH001-2000.jpg?v=1769033395"
+    },
+    {
+      "title": "JORDAN מארז 3 זוגות גרביים",
+      "price": 84.9,
+      "priceText": "₪84.9",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/u-j-ed-cush-poly-ale-3pr-wht?_pos=11&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_DX9655-100_PHCFH001-2000.jpg?v=1769033806"
+    },
+    {
       "title": "Jordan Brooklyn Fleece סווטשירט",
       "price": 125.94,
       "priceText": "₪125.94",
       "store": "Foot Locker",
       "link": "https://www.footlocker.co.il/products/f303900032?_pos=3&amp;_sid=7f69910c9&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/G_95F116_782_Front.jpg?v=1755596740"
+    },
+    {
+      "title": "Jordan Brooklyn Fleece סווטשירט",
+      "price": 125.94,
+      "priceText": "₪125.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f303900032?_pos=3&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F116_782_Front.jpg?v=1755596740"
     },
@@ -95,11 +149,29 @@
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4567-133_PHSFM001-2000.jpg?v=1762099918"
     },
     {
+      "title": "JORDAN BROOKLYN סווטשירט",
+      "price": 131.94,
+      "priceText": "₪131.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f300010032?_pos=14&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV4567-133_PHSFM001-2000.jpg?v=1762099918"
+    },
+    {
       "title": "JORDAN STREET CHAMP סווטשירט",
       "price": 137.94,
       "priceText": "₪137.94",
       "store": "Foot Locker",
       "link": "https://www.footlocker.co.il/products/f304130032?_pos=6&amp;_sid=7f69910c9&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/G_95F428_782_Front.jpg?v=1755602678"
+    },
+    {
+      "title": "JORDAN STREET CHAMP סווטשירט",
+      "price": 137.94,
+      "priceText": "₪137.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f304130032?_pos=6&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F428_782_Front.jpg?v=1755602678"
     },
@@ -208,6 +280,15 @@
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F281_023_Front.jpg?v=1755600183"
     },
     {
+      "title": "AIR JORDAN HAS LANDED סווטשירט",
+      "price": 149.94,
+      "priceText": "₪149.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f304000002?_pos=9&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/G_95F281_023_Front.jpg?v=1755600183"
+    },
+    {
       "store": "The Shoval",
       "title": "גופיית NBA Chicago Bulls - Michael Jordan",
       "price": 159,
@@ -238,6 +319,15 @@
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F301_E6F_Front.jpg?v=1755600534"
     },
     {
+      "title": "JORDAN MVP סווטשירט",
+      "price": 161.93,
+      "priceText": "₪161.93",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f304020100?_pos=13&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/G_95F301_E6F_Front.jpg?v=1755600534"
+    },
+    {
       "title": "JORDAN BROOKLYN FLEECE סווטשירט",
       "price": 185.94,
       "priceText": "₪185.94",
@@ -252,6 +342,24 @@
       "priceText": "₪185.94",
       "store": "Foot Locker",
       "link": "https://www.footlocker.co.il/products/w-j-brkln-flc-po-44?_pos=4&amp;_sid=7f69910c9&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/F249010002-3.jpg?v=1726499753"
+    },
+    {
+      "title": "JORDAN BROOKLYN FLEECE סווטשירט",
+      "price": 185.94,
+      "priceText": "₪185.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/f298480008?_pos=1&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_FV7281-050_PHSFM001-2000.jpg?v=1758023033"
+    },
+    {
+      "title": "JORDAN BROOKLYN FLEECE קפוצ'ון",
+      "price": 185.94,
+      "priceText": "₪185.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/w-j-brkln-flc-po-44?_pos=4&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/F249010002-3.jpg?v=1726499753"
     },
@@ -383,6 +491,33 @@
       "priceText": "₪215.94",
       "store": "Foot Locker",
       "link": "https://www.footlocker.co.il/products/m-j-brk-cllgte-hbr-po-hd-lb-1?_pos=7&amp;_sid=7f69910c9&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV0093-051_PHSFM001-2000.jpg?v=1753792648"
+    },
+    {
+      "title": "JORDAN BROOKLYN FLEECE קפוצ'ון",
+      "price": 215.94,
+      "priceText": "₪215.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/m-j-brkln-flc-po-2?_pos=2&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/F249220002-1.jpg?v=1726499753"
+    },
+    {
+      "title": "Jordan Brooklyn טרנינג",
+      "price": 215.94,
+      "priceText": "₪215.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/m-j-brk-cllgte-hbr-pant-lb?_pos=5&amp;_sid=542425b74&amp;_ss=r",
+      "brand": "JORDAN",
+      "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV0091-051_PHSFM001-2000_34c7ce68-427d-4399-b06f-a0b42d385e4d.jpg?v=1753644315"
+    },
+    {
+      "title": "Jordan Brooklyn קפוצ'ון",
+      "price": 215.94,
+      "priceText": "₪215.94",
+      "store": "Foot Locker",
+      "link": "https://www.footlocker.co.il/products/m-j-brk-cllgte-hbr-po-hd-lb-1?_pos=7&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV0093-051_PHSFM001-2000.jpg?v=1753792648"
     },
