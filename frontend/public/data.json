@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-19T09:59:16.464Z",
-  "isRunning": false,
+  "updatedAt": "2026-02-19T10:47:16.993Z",
+  "isRunning": true,
   "searchTerm": "",
   "lastSizeInput": "44",
   "filters": {
@@ -10,5 +10,5 @@
     ]
   },
   "results": [],
-  "lastSearchTerm": "On Cloud Cloud 5"
+  "lastSearchTerm": "On Cloud Cloud X"
 }
