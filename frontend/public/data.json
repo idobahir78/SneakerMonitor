@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-19T19:36:31.287Z",
-  "isRunning": true,
-  "searchTerm": "Nike Air Max 1",
+  "updatedAt": "2026-02-19T19:36:48.183Z",
+  "isRunning": false,
+  "searchTerm": "",
   "lastSizeInput": "44",
   "filters": {
     "sizes": [
@@ -16,46 +16,6 @@
       "store": "Factory 54",
       "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%9E%D7%A7%D7%A1-1-87%27-%D7%A4%D7%A8%D7%9E%D7%99%D7%95%D7%9D/960035452.html?pi=1",
       "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4157c79b/images/new/960035452/960035452_P_1.png?sw=476&sh=714",
-      "brand": "NIKE"
-    },
-    {
-      "title": "R323820005",
-      "price": 549.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312272",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323820005-11760011504.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
-    },
-    {
-      "title": "W957920005",
-      "price": 594.92,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2108428",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/9/w957920005-11741778437.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
-    },
-    {
-      "title": "R323790005",
-      "price": 699.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312269",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323790005-11767186303.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
-    },
-    {
-      "title": "R323690005",
-      "price": 699.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312259",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323690005-11760011504.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
-    },
-    {
-      "title": "R323850005",
-      "price": 899.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312275",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323850005-11767273903.jpg?image_type_mobile=webp_jpeg_like_70",
       "brand": "NIKE"
     }
   ],
