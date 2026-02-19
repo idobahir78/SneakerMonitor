@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-02-19T19:02:01.571Z",
-  "isRunning": false,
-  "searchTerm": "",
+  "updatedAt": "2026-02-19T19:34:21.665Z",
+  "isRunning": true,
+  "searchTerm": "Nike Air Max 1",
   "lastSizeInput": "44",
   "filters": {
     "sizes": [
@@ -10,6 +10,14 @@
     ]
   },
   "results": [
+    {
+      "title": "נעלי סניקרס אייר מקס 1 87' פרמיום",
+      "price": 510,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-%D7%90%D7%99%D7%99%D7%A8-%D7%9E%D7%A7%D7%A1-1-87%27-%D7%A4%D7%A8%D7%9E%D7%99%D7%95%D7%9D/960035452.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4157c79b/images/new/960035452/960035452_P_1.png?sw=476&sh=714",
+      "brand": "NIKE"
+    },
     {
       "title": "R323820005",
       "price": 549.9,
