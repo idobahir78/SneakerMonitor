@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-19T15:58:29.640Z",
+  "updatedAt": "2026-02-19T16:47:39.572Z",
   "isRunning": false,
   "searchTerm": "",
   "lastSizeInput": "44",
@@ -9,6 +9,23 @@
       10.5
     ]
   },
-  "results": [],
-  "lastSearchTerm": "Hoka Clifton 9"
+  "results": [
+    {
+      "title": "נעלי כדורסל פומה X מהיר ועצבני",
+      "price": 650,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919173569.html?pi=2",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw08f5cadb/images/new//919173569/919173569_P_2.png?sw=476&sh=714",
+      "brand": "PUMA"
+    },
+    {
+      "title": "נעלי כדורסל פומה X מהיר ועצבני",
+      "price": 680,
+      "store": "Factory 54",
+      "link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919176071.html?pi=1",
+      "image": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw203bccba/images/new//919176071/919176071_P_2.png?sw=476&sh=714",
+      "brand": "PUMA"
+    }
+  ],
+  "lastSearchTerm": "Puma MB.05"
 }
