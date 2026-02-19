@@ -17,3 +17,8 @@ cls
 # OS files
 .DS_Store
 Thumbs.db
+
+# Dumps
+*.html
+*.png
+qa_report.json

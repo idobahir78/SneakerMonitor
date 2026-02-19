@@ -55,7 +55,7 @@ class LimeShoesScraper extends BaseScraper {
             await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
             // 5. Build parsed items
-            const items = await this.parse(page);
+            const items = await this.parse(page, this.searchTerm);
             console.log(`[Lime Shoes] Found ${items.length} raw items.`);
 
             // 6. Apply Smart Filter
@@ -73,8 +73,8 @@ class LimeShoesScraper extends BaseScraper {
     }
 
     // Reuse existing parse logic, but updated generic selectors slightly just in case
-    async parse(page) {
-        return await page.evaluate(() => {
+    async parse(page, brandName) {
+        return await page.evaluate((storeName, brandName) => {
             const items = [];
             const elements = document.querySelectorAll('li.product, .product-grid-item, div.product-item');
 
@@ -85,7 +85,8 @@ class LimeShoesScraper extends BaseScraper {
 
                 if (titleEl && linkEl) {
                     const title = titleEl.innerText.trim();
-                    const link = linkEl.href;
+                    let link = linkEl.href;
+                    if (!link) link = linkEl.getAttribute('href');
                     let price = 0;
 
                     if (priceEls.length > 0) {
@@ -99,14 +100,20 @@ class LimeShoesScraper extends BaseScraper {
                         (el.innerText && el.innerText.includes('אזל במלאי'));
 
                     if (title && price && !isOutOfStock) {
-                        items.push({ title, price, link, store: 'Lime Shoes', sizes: [] });
+                        items.push({
+                            title,
+                            price,
+                            link,
+                            store: storeName,
+                            sizes: [],
+                            brand: brandName // Injected context
+                        });
                     }
                 }
             });
             return items;
-        });
+        }, this.storeName, brandName);
     }
 }
 
-module.exports = LimeShoesScraper;
 module.exports = LimeShoesScraper;

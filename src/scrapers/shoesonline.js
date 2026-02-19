@@ -1,3 +1,4 @@
+const BaseScraper = require('./base-scraper');
 const SmartFilter = require('../utils/smart-filter');
 
 class ShoesOnlineScraper extends BaseScraper {
@@ -119,15 +120,14 @@ class ShoesOnlineScraper extends BaseScraper {
             return results;
         });
     }
-}
     async parseSizes(page) {
-    return await page.evaluate(() => {
-        const sizes = [];
-        const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled), .selection-box:not(.disabled)');
-        sizeEls.forEach(el => sizes.push(el.innerText.trim()));
-        return sizes;
-    });
-}
+        return await page.evaluate(() => {
+            const sizes = [];
+            const sizeEls = document.querySelectorAll('.variable-items-wrapper .variable-item:not(.disabled), .swatch-wrapper .swatch:not(.disabled), .selection-box:not(.disabled)');
+            sizeEls.forEach(el => sizes.push(el.innerText.trim()));
+            return sizes;
+        });
+    }
 }
 
 module.exports = ShoesOnlineScraper;

@@ -29,18 +29,27 @@ class TerminalXPuppeteerScraper {
 
             // Fallback: Parse HTML
             if (!extractedState) {
-                console.log("[TerminalX] __INITIAL_STATE__ missing in window. Attempting HTML parse...");
                 try {
                     const html = await page.content();
-                    const startMarker = 'window.__INITIAL_STATE__ =';
-                    const startIndex = html.indexOf(startMarker);
+                    const markers = [
+                        'window.__INITIAL_STATE__ =',
+                        'window.__INITIAL_STATE__=',
+                    ];
+
+                    let startIndex = -1;
+                    for (const m of markers) {
+                        startIndex = html.indexOf(m);
+                        if (startIndex !== -1) break;
+                    }
 
                     if (startIndex !== -1) {
                         const scriptEnd = html.indexOf('</script>', startIndex);
                         if (scriptEnd !== -1) {
-                            const scriptContent = html.substring(startIndex, scriptEnd);
+                            let scriptContent = html.substring(startIndex, scriptEnd);
                             const sandbox = { window: {} };
-                            vm.runInNewContext(scriptContent, sandbox);
+                            vm.createContext(sandbox);
+                            vm.runInContext(scriptContent, sandbox);
+
                             if (sandbox.window && sandbox.window.__INITIAL_STATE__) {
                                 extractedState = sandbox.window.__INITIAL_STATE__;
                             }
@@ -65,9 +74,10 @@ class TerminalXPuppeteerScraper {
                 const listing = extractedState.listingAndSearchStoreData.data.listing;
                 if (listing.products) productsRaw = listing.products;
                 else if (listing.items) productsRaw = listing.items;
-            } catch (e) { }
+            } catch (e) {
+                console.log("[TerminalX] Path retrieval error:", e.message);
+            }
 
-            // Handle non-array
             if (productsRaw && !Array.isArray(productsRaw)) {
                 if (productsRaw.items && Array.isArray(productsRaw.items)) productsRaw = productsRaw.items;
                 else if (productsRaw.hits && Array.isArray(productsRaw.hits)) productsRaw = productsRaw.hits;
@@ -79,14 +89,29 @@ class TerminalXPuppeteerScraper {
                 return [];
             }
 
+            console.log(`[TerminalX] Found ${productsRaw.length} raw products. Starting Loop.`);
+
             // Map products
-            const mappedProducts = productsRaw.map(p => {
+            const mappedProducts = [];
+            for (let i = 0; i < productsRaw.length; i++) {
+                const p = productsRaw[i];
+                if (!p) continue;
+
                 try {
                     let price = 0;
                     if (p.price_range?.maximum_price?.final_price) price = p.price_range.maximum_price.final_price.value;
                     else if (p.price_range?.minimum_price?.final_price) price = p.price_range.minimum_price.final_price.value;
+                    else if (p.price) price = p.price;
 
-                    let title = p.name || p.sku;
+                    let title = p.meta_title || p.name || p.sku;
+                    if (!title || title === p.sku) {
+                        try {
+                            if (p.description && typeof p.description === 'string') {
+                                title = p.description.replace(/<[^>]*>?/gm, '');
+                            }
+                        } catch (err) { /* ignore description error */ }
+                    }
+
                     let image = '';
                     if (p.image?.url) image = p.image.url;
                     else if (p.thumbnail?.url) image = p.thumbnail.url;
@@ -95,16 +120,42 @@ class TerminalXPuppeteerScraper {
 
                     let link = p.url_key ? `https://www.terminalx.com/${p.url_key}` : `https://www.terminalx.com/catalog/product/view/id/${p.id}`;
 
-                    return {
+                    let brand = p.brand_name;
+                    // SAFE BRAND EXTRACTION
+                    try {
+                        if (!brand && p.brand_url && typeof p.brand_url === 'string') {
+                            brand = p.brand_url.split('/').pop().replace(/-/g, ' ').toUpperCase();
+                        }
+                    } catch (err) { /* ignore brand parse error */ }
+
+                    if (!brand || !isNaN(brand)) brand = p.brand || 'Terminal X';
+
+                    // Hardcoded fix for known Terminal X IDs
+                    if (brand === '11636' || String(p.brand) === '11636') brand = 'NIKE';
+                    if (brand === '11639' || String(p.brand) === '11639') brand = 'JORDAN';
+                    if (brand === '11646' || String(p.brand) === '11646') brand = 'ADIDAS';
+                    if (brand === '11649' || String(p.brand) === '11649') brand = 'NEW BALANCE';
+
+                    const mapped = {
                         title: title,
                         price: price,
                         store: 'Terminal X',
                         link: link,
                         image: image,
-                        brand: p.brand
+                        brand: brand
                     };
-                } catch (err) { return null; }
-            }).filter(p => p !== null);
+                    mappedProducts.push(mapped);
+
+                } catch (err) {
+                    // Silent fail on individual item
+                }
+            }
+
+            if (mappedProducts.length > 0) {
+                console.log(`[TerminalX Debug] Mapped ${mappedProducts.length} items. First item:`, JSON.stringify(mappedProducts[0]));
+            } else {
+                console.log(`[TerminalX Debug] 0 items mapped. Raw count: ${productsRaw.length}`);
+            }
 
             // --- USE SMART FILTER ---
             const filtered = SmartFilter.filter(mappedProducts, this.query);

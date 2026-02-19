@@ -218,9 +218,9 @@ const Dashboard = () => {
                             </>
                         ) : (
                             <>
-                                <span>No matches found for "{searchQuery}"</span>
+                                <span>No matches found for "{searchQuery || effectiveSearchTerm}"</span>
                                 <br />
-                                <small>(Last search: {effectiveSearchTerm})</small>
+                                {searchQuery && <small>(Last search: {effectiveSearchTerm})</small>}
                             </>
                         )}
                     </div>

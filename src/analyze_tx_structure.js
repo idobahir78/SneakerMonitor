@@ -1,121 +1,82 @@
 const fs = require('fs');
-const path = require('path');
-const vm = require('vm');
-
-// Path to the artifact: ../debug_search_Terminal_X.html relative to this script (in src/)
-const htmlPath = path.join(__dirname, '..', 'debug_search_Terminal_X.html');
 
 try {
-    if (!fs.existsSync(htmlPath)) {
-        console.error(`CRITICAL: File not found at ${htmlPath}`);
-        process.exit(1);
-    }
+    const html = fs.readFileSync('tx_debug.html', 'utf8');
+    const startMarker = 'window.__INITIAL_STATE__ =';
+    const startIndex = html.indexOf(startMarker);
 
-    const html = fs.readFileSync(htmlPath, 'utf8');
+    if (startIndex !== -1) {
+        // Find the first opening brace after the marker
+        const openBraceIndex = html.indexOf('{', startIndex);
 
-    // Find start of the state object
-    const identifier = 'window.__INITIAL_STATE__ = ';
-    const startIndex = html.indexOf(identifier);
+        if (openBraceIndex !== -1) {
+            let braceCount = 1;
+            let currentIndex = openBraceIndex + 1;
 
-    if (startIndex === -1) {
-        console.error("CRITICAL: Could not find window.__INITIAL_STATE__ pattern in the HTML.");
-        process.exit(1);
-    }
+            // Advance until braceCount returns to 0
+            while (braceCount > 0 && currentIndex < html.length) {
+                if (html[currentIndex] === '{') braceCount++;
+                else if (html[currentIndex] === '}') braceCount--;
+                currentIndex++;
+            }
 
-    // Move to the start of the JS object (the first '{' after identifier)
-    let openBraceIndex = html.indexOf('{', startIndex);
-    if (openBraceIndex === -1) {
-        console.error("CRITICAL: Could not find starting brace '{' after identifier.");
-        process.exit(1);
-    }
+            if (braceCount === 0) {
+                const jsonString = html.substring(openBraceIndex, currentIndex);
+                try {
+                    const state = JSON.parse(jsonString);
+                    console.log("✅ JSON Parsed Successfully!");
+                    console.log("State Root Keys:", Object.keys(state));
 
-    // ---------------------------------------------------------
-    // Robust Brace Counting Algorithm
-    // ---------------------------------------------------------
-    let braceCount = 0;
-    let jsonString = '';
-    let foundEnd = false;
+                    // Helper to recursively find objects that look like products
+                    // A product usually has: name, price, brand, sku/id, image
+                    function findProducts(obj, path = '') {
+                        if (path.length > 80) return; // limit depth
 
-    for (let i = openBraceIndex; i < html.length; i++) {
-        const char = html[i];
-        if (char === '{') braceCount++;
-        else if (char === '}') braceCount--;
+                        if (Array.isArray(obj)) {
+                            if (obj.length > 0) {
+                                const sample = obj[0];
+                                // Heuristic for a product object
+                                if (sample && typeof sample === 'object') {
+                                    // Check for typical product keys
+                                    const keys = Object.keys(sample).join(',').toLowerCase();
+                                    const hasName = keys.includes('name') || keys.includes('title');
+                                    const hasPrice = keys.includes('price');
+                                    const hasImage = keys.includes('image') || keys.includes('thumb');
 
-        if (braceCount === 0) {
-            jsonString = html.substring(openBraceIndex, i + 1);
-            foundEnd = true;
-            break;
-        }
-    }
+                                    if (hasName && (hasPrice || hasImage)) {
+                                        console.log(`\n🎯 CANDIDATE FOUND at path: '${path}' (Count: ${obj.length})`);
+                                        console.log("Sample Items Keys:", Object.keys(sample));
+                                        console.log("Sample Item:", JSON.stringify(sample, null, 2).substring(0, 500) + "...");
+                                    }
+                                }
+                            }
+                            return;
+                        }
 
-    if (!foundEnd) {
-        console.error("CRITICAL: Could not find matching closing brace for JSON object.");
-        process.exit(1);
-    }
+                        if (typeof obj === 'object' && obj !== null) {
+                            for (const key in obj) {
+                                // Skip huge configuration chunks to save time
+                                if (['commonConfig', 'translations', 'menu', 'seo'].includes(key)) continue;
+                                findProducts(obj[key], path ? `${path}.${key}` : key);
+                            }
+                        }
+                    }
 
-    // ---------------------------------------------------------
-    // Parsing & Analysis (using VM for JS Object Literals)
-    // ---------------------------------------------------------
-    console.log(`Extracted string length: ${jsonString.length}`);
+                    console.log("\n--- Traversing State for Products ---");
+                    findProducts(state);
 
-    let state;
-    try {
-        const sandbox = {};
-        // Assign to a variable in the sandbox
-        vm.runInNewContext(`state = ${jsonString}`, sandbox);
-        state = sandbox.state;
-        console.log("JS Object Evaluation Success!");
-    } catch (e) {
-        console.error("JS Evaluation Error:", e.message);
-        process.exit(1);
-    }
-
-    // ---------------------------------------------------------
-    // Specific Inspection: listingAndSearchStoreData
-    // ---------------------------------------------------------
-    console.log("\n--- Inspection: listingAndSearchStoreData ---");
-    const listing = state.listingAndSearchStoreData;
-
-    if (listing) {
-        console.log("Keys:", Object.keys(listing));
-
-        // Check nesting
-        if (listing.products) {
-            console.log("Found 'products' directly in listingAndSearchStoreData");
-            if (Array.isArray(listing.products)) {
-                console.log("It is an array of length:", listing.products.length);
-                if (listing.products.length > 0) {
-                    console.log("First Item Keys:", Object.keys(listing.products[0]));
+                } catch (e) {
+                    console.error("JSON Parse Error:", e.message);
                 }
             } else {
-                console.log("Type:", typeof listing.products);
+                console.log("Brace counting failed to find closing brace.");
             }
+        } else {
+            console.log("Could not find opening brace after marker.");
         }
-
-        if (listing.items) {
-            console.log("Found 'items' directly in listingAndSearchStoreData");
-            // ...
-        }
-
-        // Just recursively search inside *this* object to find array of objects
-        console.log("\n--- Deep Search in listingAndSearchStoreData ---");
-        function findArrays(obj, path) {
-            if (!obj || typeof obj !== 'object') return;
-            if (Array.isArray(obj)) {
-                if (obj.length > 0 && typeof obj[0] === 'object') {
-                    console.log(`[ARRAY FOUND] Path: ${path} | Length: ${obj.length}`);
-                    console.log("Sample Keys:", Object.keys(obj[0]).slice(0, 10));
-                }
-                return;
-            }
-            Object.keys(obj).forEach(key => findArrays(obj[key], `${path}.${key}`));
-        }
-        findArrays(listing, 'listingAndSearchStoreData');
-
     } else {
-        console.log("listingAndSearchStoreData is MISSING.");
+        console.log("Could not find start marker '__INITIAL_STATE__'.");
     }
-
-} catch (error) {
-    console.error("Error analyzing file:", error.message);
+} catch (err) {
+    console.error("File read error:", err);
 }
