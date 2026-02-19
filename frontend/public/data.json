@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-19T10:58:24.815Z",
-  "isRunning": false,
+  "updatedAt": "2026-02-19T11:12:17.086Z",
+  "isRunning": true,
   "searchTerm": "",
   "lastSizeInput": "44",
   "filters": {
@@ -10,5 +10,5 @@
     ]
   },
   "results": [],
-  "lastSearchTerm": "On Cloud Cloud X"
+  "lastSearchTerm": "On Cloud Cloudmonster"
 }
