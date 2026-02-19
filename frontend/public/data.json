@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-19T06:09:27.001Z",
+  "updatedAt": "2026-02-19T06:09:30.797Z",
   "isRunning": true,
   "searchTerm": "Jordan",
   "lastSizeInput": "*",
@@ -310,6 +310,20 @@
       "sizes": []
     },
     {
+      "store": "Player Six",
+      "title": "Jordan Sport Essentials IF0897-100",
+      "price": 159,
+      "link": "https://playersix.co.il/product/jordan-sport-essentials-if0897-100/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Sport Essentials IF0897-010",
+      "price": 159,
+      "link": "https://playersix.co.il/product/jordan-sport-essentials-if0897-010/",
+      "sizes": []
+    },
+    {
       "title": "JORDAN MVP סווטשירט",
       "price": 161.93,
       "priceText": "₪161.93",
@@ -326,6 +340,13 @@
       "link": "https://www.footlocker.co.il/products/f304020100?_pos=13&amp;_sid=542425b74&amp;_ss=r",
       "brand": "JORDAN",
       "image": "https://footlocker.co.il/cdn/shop/files/G_95F301_E6F_Front.jpg?v=1755600534"
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Sport Essentials IF0899-100",
+      "price": 169,
+      "link": "https://playersix.co.il/product/jordan-sport-essentials-if0899-100/",
+      "sizes": []
     },
     {
       "title": "JORDAN BROOKLYN FLEECE סווטשירט",
@@ -522,6 +543,20 @@
       "image": "https://footlocker.co.il/cdn/shop/files/AURORA_HV0093-051_PHSFM001-2000.jpg?v=1753792648"
     },
     {
+      "store": "Player Six",
+      "title": "Jordan Sport Paolo Banchero IO0527-010",
+      "price": 219,
+      "link": "https://playersix.co.il/product/jordan-sport-paolo-banchero-io0527-010/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Sport IF0853-040",
+      "price": 219,
+      "link": "https://playersix.co.il/product/jordan-sport-if0853-040/",
+      "sizes": []
+    },
+    {
       "index": 6,
       "title": "חדש!! חולצת נוסטלגיה שיקגו ג’ורדן Mitchell & Ness BULLS RED SHIRT JORDAN. משלוח חינם",
       "price": 229,
@@ -544,6 +579,20 @@
       "link": "https://thekitsclub7.com/product/bulls-jordan-mvp/",
       "image": "https://thekitsclub7.com/wp-content/uploads/2022/06/BULLS-BLACK-MVP-JORDAN-web-01-300x300.jpg",
       "store": "Kits Club"
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Luka Doncic IM2206-247",
+      "price": 249,
+      "link": "https://playersix.co.il/product/jordan-luka-doncic-im2206-247/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Luka Doncic IM2206-010",
+      "price": 249,
+      "link": "https://playersix.co.il/product/jordan-luka-doncic-im2206-010/",
+      "sizes": []
     },
     {
       "store": "Nike IL",
@@ -613,6 +662,13 @@
       "title": "Air Jordan 1 Low",
       "price": 389.9,
       "link": "https://www.nike.com/il/t/air-jordan-1-low-shoes-Q2ZLMh/553558-040",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Tatum 4 HQ4611-300",
+      "price": 409,
+      "link": "https://playersix.co.il/product/jordan-tatum-4-hq4611-300/",
       "sizes": []
     },
     {
@@ -780,6 +836,20 @@
       "store": "Ballers"
     },
     {
+      "store": "Player Six",
+      "title": "Jordan Luka 5 \"Venom\" HV8082-302",
+      "price": 519,
+      "link": "https://playersix.co.il/product/jordan-luka-5-venom-hv8082-302/",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Jordan Tatum 4 HQ4614-700",
+      "price": 519,
+      "link": "https://playersix.co.il/product/jordan-tatum-4-hq4614-700/",
+      "sizes": []
+    },
+    {
       "index": 4,
       "title": "נעלי כדורסל ג’ורדן – Air Jordan 38",
       "price": 529,
@@ -943,6 +1013,13 @@
       "sizes": []
     },
     {
+      "store": "Player Six",
+      "title": "Jordan Luka 5 \"Viper Edge\" IQ0630-301",
+      "price": 569,
+      "link": "https://playersix.co.il/product/jordan-luka-5-viper-edge-iq0630-301/",
+      "sizes": []
+    },
+    {
       "title": "Nike Air Jordan 1 Retro High Midnight 2020",
       "price": 589,
       "link": "https://www.mayers.co.il/p/nike_air_jordan_1_retro_high_midnight_2020/",
@@ -969,6 +1046,13 @@
       "title": "Air Jordan 1 Triple Stack",
       "price": 599.9,
       "link": "https://www.nike.com/il/t/air-jordan-1-triple-stack-shoes-ZzUoCN9W/HV8288-100",
+      "sizes": []
+    },
+    {
+      "store": "Player Six",
+      "title": "Air Jordan 1 Retro Low HQ6998-200",
+      "price": 609,
+      "link": "https://playersix.co.il/product/air-jordan-1-retro-low-hq6998-200/",
       "sizes": []
     },
     {
