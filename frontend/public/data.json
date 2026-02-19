@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-02-19T09:15:59.088Z",
-  "isRunning": false,
+  "updatedAt": "2026-02-19T09:18:20.596Z",
+  "isRunning": true,
   "searchTerm": "",
   "lastSizeInput": "44",
   "filters": {
@@ -10,5 +10,5 @@
     ]
   },
   "results": [],
-  "lastSearchTerm": "On Cloud Cloudflow"
+  "lastSearchTerm": "On Cloud Cloud 5"
 }
