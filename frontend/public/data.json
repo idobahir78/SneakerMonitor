@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-02-19T08:57:17.559Z",
-  "isRunning": false,
+  "updatedAt": "2026-02-19T09:13:55.464Z",
+  "isRunning": true,
   "searchTerm": "",
-  "lastSizeInput": "38",
+  "lastSizeInput": "44",
   "filters": {
     "sizes": [
       38,
@@ -27,5 +27,5 @@
       "brand": "NEW BALANCE"
     }
   ],
-  "lastSearchTerm": "New Balance 530"
+  "lastSearchTerm": "On Cloud Cloudflow"
 }
