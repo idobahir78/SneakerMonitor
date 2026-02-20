@@ -43,9 +43,10 @@ class UXPolisher {
                 display_title: displayTitle,
                 price_ils: saneItem.price_ils,
                 size_available: saneItem.size_available,
-                image_url: saneItem.image_url, // passed Agent 4 and 6
+                sizes: saneItem.sizes || [],
+                image_url: saneItem.image_url,
                 badges: badges,
-                buy_link: saneItem.buy_link, // Critical requirement
+                buy_link: saneItem.buy_link,
                 store_name: saneItem.store_name
             };
 
