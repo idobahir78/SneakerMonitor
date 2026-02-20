@@ -19,7 +19,9 @@ class AdidasIsraelAgent extends DOMNavigator {
                 this.page.on('response', async (response) => {
                     if (apiDataCaptured) return;
                     try {
-                        if (response.headers()['content-type']?.includes('application/json')) {
+                        const url = response.url().toLowerCase();
+                        if (response.headers()['content-type']?.includes('application/json') &&
+                            (url.includes('api') || url.includes('search') || url.includes('graphql'))) {
                             const data = await response.json();
                             const products = this.findAdidasProducts(data);
 

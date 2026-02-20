@@ -24,7 +24,7 @@ class Factory54Scraper extends BaseScraper {
             items.forEach(item => {
                 const linkEl = item.querySelector('a.product-item-link, .pdp-link a') || item.querySelector('a');
                 // The crucial fix: title must come from the named span/div, not the generic generic wrapper that includes "add to cart" text
-                const titleEl = item.querySelector('.product-name, .title, .product-item-name, h3, h4, .b-product_tile-name');
+                const titleEl = item.querySelector('.product-item-link, .product-name, .title, .product-item-name, h3, h4, .b-product_tile-name');
                 const priceEl = item.querySelector('.price, .value, span[data-price], .product_item_price');
 
                 if (linkEl && titleEl) {
