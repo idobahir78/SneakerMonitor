@@ -37,8 +37,8 @@ const Dashboard = () => {
         // REAL-TIME FETCH STRATEGY
         // 1. Try fetching directly from GitHub Raw (updates immediately on push)
         // 2. Fallback to local/hosted file if that fails
-        const rawUrl = `https://raw.githubusercontent.com/idobahir78/SneakerMonitor/main/frontend/public/data.json?t=${cacheBuster}`;
-        const localUrl = `/data.json?t=${cacheBuster}`;
+        const rawUrl = `https://raw.githubusercontent.com/idobahir78/SneakerMonitor/main/frontend/public/data.json?v=${cacheBuster}`;
+        const localUrl = `/data.json?v=${cacheBuster}`;
 
         const handleData = (jsonData) => {
             const serverIsRunning = jsonData.isRunning === true;
