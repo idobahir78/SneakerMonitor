@@ -62,6 +62,53 @@ class Factory54Agent extends DOMNavigator {
 
                 await new Promise(r => setTimeout(r, 5000));
 
+                // === DIAGNOSTIC: Dump all data-* attributes on first .present-product ===
+                const tileDiag = await this.page.evaluate(() => {
+                    const tile = document.querySelector('.present-product');
+                    if (!tile) return null;
+
+                    const dataAttrs = {};
+                    for (const attr of tile.attributes) {
+                        if (attr.name.startsWith('data-')) {
+                            dataAttrs[attr.name] = attr.value.substring(0, 200);
+                        }
+                    }
+
+                    // Check all children for data attributes too
+                    const childDataAttrs = [];
+                    tile.querySelectorAll('[data-pid], [data-product-metadata], [data-sizes], [data-attr]').forEach(el => {
+                        const info = { tag: el.tagName, className: el.className.substring(0, 80) };
+                        for (const attr of el.attributes) {
+                            if (attr.name.startsWith('data-')) {
+                                info[attr.name] = attr.value.substring(0, 200);
+                            }
+                        }
+                        childDataAttrs.push(info);
+                    });
+
+                    // Check for any hidden size elements
+                    const hiddenSizeEls = [];
+                    tile.querySelectorAll('[class*="size"], [class*="Size"]').forEach(el => {
+                        hiddenSizeEls.push({
+                            tag: el.tagName,
+                            className: el.className.substring(0, 100),
+                            text: el.innerText?.substring(0, 100) || '',
+                            childCount: el.children.length,
+                            display: window.getComputedStyle(el).display
+                        });
+                    });
+
+                    return { dataAttrs, childDataAttrs, hiddenSizeEls };
+                });
+
+                if (tileDiag) {
+                    console.log(`[Factory 54] DEBUG: Tile data-* attributes: ${JSON.stringify(tileDiag.dataAttrs)}`);
+                    console.log(`[Factory 54] DEBUG: Children with data-attrs: ${JSON.stringify(tileDiag.childDataAttrs)}`);
+                    console.log(`[Factory 54] DEBUG: Elements with 'size' class: ${JSON.stringify(tileDiag.hiddenSizeEls)}`);
+                } else {
+                    console.log(`[Factory 54] DEBUG: No .present-product tile found for diagnostics`);
+                }
+
                 const products = await this.page.evaluate(() => {
                     function norm(u) {
                         if (!u) return '';
@@ -103,53 +150,59 @@ class Factory54Agent extends DOMNavigator {
                         // === SIZE EXTRACTION ===
                         const sizes = [];
 
-                        // Strategy 1: Check data-product-metadata or data-pid for JSON
-                        const pid = tile.getAttribute('data-pid') || tile.querySelector('[data-pid]')?.getAttribute('data-pid') || '';
-                        const metadataAttr = tile.getAttribute('data-product-metadata') || tile.querySelector('[data-product-metadata]')?.getAttribute('data-product-metadata') || '';
-                        if (metadataAttr) {
-                            try {
-                                const meta = JSON.parse(metadataAttr);
-                                if (meta.sizes && Array.isArray(meta.sizes)) {
-                                    meta.sizes.forEach(s => { if (s) sizes.push(s.toString()); });
-                                }
-                            } catch (e) { }
-                        }
+                        // Strategy 1: data-product-metadata JSON
+                        const allDataEls = tile.querySelectorAll('[data-product-metadata], [data-sizes]');
+                        allDataEls.forEach(el => {
+                            const metaVal = el.getAttribute('data-product-metadata') || el.getAttribute('data-sizes') || '';
+                            if (metaVal) {
+                                try {
+                                    const meta = JSON.parse(metaVal);
+                                    const sizeArr = meta.sizes || meta.availableSizes || meta.size || [];
+                                    if (Array.isArray(sizeArr)) {
+                                        sizeArr.forEach(s => {
+                                            const sv = s.toString();
+                                            if (sv && !sizes.includes(sv)) sizes.push(sv);
+                                        });
+                                    }
+                                } catch (e) { }
+                            }
+                        });
 
-                        // Strategy 2: Look for size swatches/buttons in popover
+                        // Strategy 2: Size buttons/swatches (visible or hidden)
                         if (sizes.length === 0) {
-                            const sizeEls = tile.querySelectorAll(
-                                '.popover .size-btn, .popover .size-option, ' +
-                                '[class*="size-list"] button, [class*="size-list"] a, ' +
-                                '.product-tile__size button, .swatches [data-attr="size"] button, ' +
-                                '[class*="size"] .selectable, [data-attr*="size"] .swatch-value'
-                            );
-                            sizeEls.forEach(el => {
-                                const val = el.innerText?.trim() || el.getAttribute('data-value') || el.getAttribute('value') || '';
+                            tile.querySelectorAll(
+                                '[class*="size"] button, [class*="size"] a, [class*="size"] span, ' +
+                                '.popover button, .popover a, ' +
+                                '[data-attr="size"] button, [data-attr="size"] .swatch-value'
+                            ).forEach(el => {
+                                const val = el.getAttribute('data-value') || el.innerText?.trim() || el.getAttribute('value') || '';
                                 if (val && /^\d{2}(\.\d)?$/.test(val) && !sizes.includes(val)) sizes.push(val);
                             });
                         }
 
-                        // Strategy 3: Look for JSON in script tags with product ID
-                        if (sizes.length === 0 && pid) {
-                            const scripts = document.querySelectorAll('script[type="application/json"]');
-                            scripts.forEach(script => {
-                                try {
-                                    const data = JSON.parse(script.textContent);
-                                    if (data && data.id === pid && data.variationAttributes) {
-                                        const sizeAttr = data.variationAttributes.find(a =>
-                                            (a.attributeId || '').toLowerCase().includes('size')
-                                        );
-                                        if (sizeAttr && sizeAttr.values) {
-                                            sizeAttr.values.forEach(v => {
-                                                if (v.selectable !== false) {
-                                                    const val = v.displayValue || v.value || '';
-                                                    if (val && !sizes.includes(val)) sizes.push(val);
-                                                }
-                                            });
+                        // Strategy 3: Check data-pid and look for variation JSON in scripts
+                        if (sizes.length === 0) {
+                            const pid = tile.querySelector('[data-pid]')?.getAttribute('data-pid') || '';
+                            if (pid) {
+                                document.querySelectorAll('script[type="application/json"]').forEach(script => {
+                                    try {
+                                        const data = JSON.parse(script.textContent);
+                                        if (data && (data.id === pid || data.pid === pid) && data.variationAttributes) {
+                                            const sizeAttr = data.variationAttributes.find(a =>
+                                                (a.attributeId || '').toLowerCase().includes('size')
+                                            );
+                                            if (sizeAttr && sizeAttr.values) {
+                                                sizeAttr.values.forEach(v => {
+                                                    if (v.selectable !== false) {
+                                                        const sv = v.displayValue || v.value || '';
+                                                        if (sv && !sizes.includes(sv)) sizes.push(sv);
+                                                    }
+                                                });
+                                            }
                                         }
-                                    }
-                                } catch (e) { }
-                            });
+                                    } catch (e) { }
+                                });
+                            }
                         }
 
                         results.push({
@@ -168,9 +221,7 @@ class Factory54Agent extends DOMNavigator {
                 clearTimeout(timeout);
                 console.log(`[Factory 54] Scraped ${products.length} products.`);
                 products.forEach(p => {
-                    if (p.raw_sizes.length > 0) {
-                        console.log(`[Factory 54] DEBUG: Found ${p.raw_sizes.length} sizes for ${p.raw_title}: [${p.raw_sizes.join(', ')}]`);
-                    }
+                    console.log(`[Factory 54] DEBUG: ${p.raw_title} → Sizes: [${p.raw_sizes.join(', ')}]`);
                 });
                 resolve(products);
 

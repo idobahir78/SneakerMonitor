@@ -6,7 +6,7 @@ class QASentinel {
      * Agent 6 Logic: Final logic and sanity checks before UI rendering.
      * Prevents displaying broken links, dead images, or pricing glitches.
      */
-    async check(normalizedItem) {
+    async check(normalizedItem, targetSize) {
         if (!normalizedItem) return false;
 
         const itemTitle = normalizedItem.title || normalizedItem.raw_title || 'Unknown';
@@ -40,6 +40,15 @@ class QASentinel {
             } catch (e) {
                 console.error(`[Agent 6 - QA Sentinel] FAILED Product URL check (malformed): ${productUrl}`);
                 return false;
+            }
+
+            // 3. Size Availability Check (if user specified a size)
+            if (targetSize && targetSize !== '*') {
+                const sizes = normalizedItem.sizes || [];
+                if (sizes.length > 0 && !sizes.some(s => s.toString() === targetSize.toString())) {
+                    console.log(`[Agent 6 - QA Sentinel] REJECTED (Size ${targetSize} not in [${sizes.join(', ')}]): ${itemTitle}`);
+                    return false;
+                }
             }
 
             console.log(`[Agent 6 - QA Sentinel] PASSED all checks: ${itemTitle}`);

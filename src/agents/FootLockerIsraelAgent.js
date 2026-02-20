@@ -21,8 +21,35 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     console.log('[Foot Locker Israel] Timeout waiting for product containers.');
                 }
 
-                const tileCount = await this.page.evaluate(() => document.querySelectorAll('.product-item').length);
-                console.log(`[Foot Locker Israel] DEBUG: Found ${tileCount} .product-item tiles`);
+                // === DIAGNOSTIC: Dump all JSON script tags to find where Shopify stores product data ===
+                const jsonDiag = await this.page.evaluate(() => {
+                    const scripts = document.querySelectorAll('script[type="application/json"]');
+                    return [...scripts].map((s, i) => ({
+                        index: i,
+                        id: s.id || null,
+                        dataProductId: s.getAttribute('data-product-id') || null,
+                        dataProductJson: s.hasAttribute('data-product-json') ? true : null,
+                        snippet: s.textContent.substring(0, 200)
+                    }));
+                });
+                console.log(`[Foot Locker Israel] DEBUG: Found ${jsonDiag.length} script[type="application/json"] tags`);
+                jsonDiag.forEach(s => {
+                    console.log(`[Foot Locker Israel] JSON Script #${s.index}: id="${s.id}", data-product-id="${s.dataProductId}", data-product-json=${s.dataProductJson}, snippet="${s.snippet}"`);
+                });
+
+                // === DIAGNOSTIC: Check for product-item data attributes ===
+                const tileAttrs = await this.page.evaluate(() => {
+                    const tile = document.querySelector('.product-item');
+                    if (!tile) return null;
+                    const attrs = {};
+                    for (const attr of tile.attributes) {
+                        attrs[attr.name] = attr.value.substring(0, 100);
+                    }
+                    return attrs;
+                });
+                if (tileAttrs) {
+                    console.log(`[Foot Locker Israel] DEBUG: First tile attributes: ${JSON.stringify(tileAttrs)}`);
+                }
 
                 const products = await this.page.evaluate((baseDomain) => {
                     function norm(u) {
@@ -35,46 +62,52 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         return baseDomain + '/' + u;
                     }
 
-                    // === STEP 1: Build a size map from ALL Shopify product JSON script tags ===
+                    // === Build size map from ALL Shopify JSON script tags ===
                     const sizeMap = {};
-                    const jsonScripts = document.querySelectorAll('script[type="application/json"][data-product-id], script[id*="product-json"], script.product-json');
-                    jsonScripts.forEach(script => {
+                    const allJsonScripts = document.querySelectorAll('script[type="application/json"]');
+                    allJsonScripts.forEach(script => {
                         try {
-                            const data = JSON.parse(script.textContent);
-                            if (data && data.variants && data.handle) {
+                            const raw = script.textContent.trim();
+                            if (!raw || raw.length < 10) return;
+                            const data = JSON.parse(raw);
+
+                            // Single product object with variants
+                            if (data && data.variants && (data.handle || data.id)) {
+                                const key = data.handle || data.id.toString();
                                 const availableSizes = data.variants
-                                    .filter(v => v.available === true || (v.inventory_quantity && v.inventory_quantity > 0))
+                                    .filter(v => v.available === true)
                                     .map(v => v.option1 || v.title || '')
                                     .filter(s => s && s.length < 10);
-                                if (availableSizes.length > 0) {
-                                    sizeMap[data.handle] = availableSizes;
-                                }
+                                if (availableSizes.length > 0) sizeMap[key] = availableSizes;
                             }
-                        } catch (e) { }
-                    });
 
-                    // Also try to find sizes in generic script tags containing product data
-                    const allScripts = document.querySelectorAll('script[type="application/json"]');
-                    allScripts.forEach(script => {
-                        try {
-                            const data = JSON.parse(script.textContent);
+                            // Array of product objects
                             if (Array.isArray(data)) {
                                 data.forEach(item => {
-                                    if (item && item.variants && item.handle) {
+                                    if (item && item.variants && (item.handle || item.id)) {
+                                        const key = item.handle || item.id.toString();
                                         const availableSizes = item.variants
                                             .filter(v => v.available === true)
                                             .map(v => v.option1 || v.title || '')
                                             .filter(s => s && s.length < 10);
-                                        if (availableSizes.length > 0) {
-                                            sizeMap[item.handle] = availableSizes;
-                                        }
+                                        if (availableSizes.length > 0) sizeMap[key] = availableSizes;
                                     }
                                 });
+                            }
+
+                            // Nested product data (sometimes under .product or .products)
+                            if (data && data.product && data.product.variants) {
+                                const p = data.product;
+                                const key = p.handle || p.id?.toString() || '';
+                                const availableSizes = p.variants
+                                    .filter(v => v.available === true)
+                                    .map(v => v.option1 || v.title || '')
+                                    .filter(s => s && s.length < 10);
+                                if (key && availableSizes.length > 0) sizeMap[key] = availableSizes;
                             }
                         } catch (e) { }
                     });
 
-                    // === STEP 2: Extract products from tiles ===
                     const results = [];
                     const tiles = document.querySelectorAll('.product-item');
 
@@ -112,28 +145,15 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             title = slug.replace(/-/g, ' ');
                         }
 
-                        // === STEP 3: Match sizes from JSON to this product ===
+                        // === Size lookup by handle or product ID ===
                         let sizes = [];
                         if (productHandle && sizeMap[productHandle]) {
                             sizes = sizeMap[productHandle];
                         }
-
-                        // Also try: product-item has data-product-id, look for matching script
                         if (sizes.length === 0) {
                             const productId = tile.getAttribute('data-infinator-id') || tile.getAttribute('data-product-id') || '';
-                            if (productId) {
-                                const productScript = document.querySelector(`script[data-product-id="${productId}"]`);
-                                if (productScript) {
-                                    try {
-                                        const pData = JSON.parse(productScript.textContent);
-                                        if (pData && pData.variants) {
-                                            sizes = pData.variants
-                                                .filter(v => v.available === true)
-                                                .map(v => v.option1 || v.title || '')
-                                                .filter(s => s && s.length < 10);
-                                        }
-                                    } catch (e) { }
-                                }
+                            if (productId && sizeMap[productId]) {
+                                sizes = sizeMap[productId];
                             }
                         }
 
@@ -143,7 +163,6 @@ class FootLockerIsraelAgent extends DOMNavigator {
                                 const priceText = priceEl.innerText.replace(/[^\d.]/g, '');
                                 price = parseFloat(priceText) || 0;
                             }
-
                             const rawImg = norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('srcset')?.split(' ')[0] || '');
 
                             results.push({
@@ -155,20 +174,27 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             });
                         }
                     });
-                    return results;
+
+                    return { results, sizeMapKeys: Object.keys(sizeMap), sizeMapSample: Object.entries(sizeMap).slice(0, 2) };
                 }, domain);
 
-                if (products.length === 0) {
-                    console.error(`[Foot Locker Israel] DEBUG: Blocked by security or empty response. 0 products.`);
-                } else {
-                    console.log(`[Foot Locker Israel] Found ${products.length} products`);
-                    products.forEach(p => {
-                        if (p.raw_sizes.length > 0) {
-                            console.log(`[Foot Locker Israel] DEBUG: Found ${p.raw_sizes.length} sizes for ${p.raw_title}: [${p.raw_sizes.join(', ')}]`);
-                        }
+                console.log(`[Foot Locker Israel] DEBUG: sizeMap has ${products.sizeMapKeys.length} entries: [${products.sizeMapKeys.join(', ')}]`);
+                if (products.sizeMapSample.length > 0) {
+                    products.sizeMapSample.forEach(([key, sizes]) => {
+                        console.log(`[Foot Locker Israel] DEBUG: Sizes for "${key}": [${sizes.join(', ')}]`);
                     });
                 }
-                resolve(products);
+
+                const items = products.results;
+                if (items.length === 0) {
+                    console.error(`[Foot Locker Israel] DEBUG: 0 products.`);
+                } else {
+                    console.log(`[Foot Locker Israel] Found ${items.length} products`);
+                    items.forEach(p => {
+                        console.log(`[Foot Locker Israel] DEBUG: ${p.raw_title} → Sizes: [${p.raw_sizes.join(', ')}]`);
+                    });
+                }
+                resolve(items);
             } catch (err) {
                 console.error(`[Foot Locker Israel] Scrape error: ${err.message}`);
                 resolve([]);

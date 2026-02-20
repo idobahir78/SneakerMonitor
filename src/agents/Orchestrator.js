@@ -129,7 +129,7 @@ class Orchestrator extends EventEmitter {
             if (!normalizedItem) return;
 
             // AGENT 6: QA Sentinel
-            const isSane = await QASentinel.check(normalizedItem);
+            const isSane = await QASentinel.check(normalizedItem, size);
             if (!isSane) return;
 
             // AGENT 7: UX Polisher
