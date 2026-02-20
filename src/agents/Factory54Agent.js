@@ -100,12 +100,28 @@ class Factory54Agent extends DOMNavigator {
                         const tileBody = tile.querySelector('.tile-body, .present-product__tile-body');
                         const fullContext = tileBody?.innerText?.trim() || '';
 
+                        const sizes = [];
+                        const sizeEls = tile.querySelectorAll('[class*="size"] button, [class*="size"] a, [class*="size"] option, .popover [class*="size"] span');
+                        sizeEls.forEach(el => {
+                            const val = el.innerText?.trim() || el.getAttribute('value') || '';
+                            if (val && /^\d{2}(\.\d)?$/.test(val)) sizes.push(val);
+                        });
+                        if (sizes.length === 0) {
+                            const sizeMatches = fullContext.match(/\b(3[5-9]|4[0-9]|50)(\.\d)?\b/g);
+                            if (sizeMatches) {
+                                const priceStr = (priceMatch ? priceMatch[0] : '');
+                                sizeMatches.forEach(s => {
+                                    if (s !== priceStr && !sizes.includes(s)) sizes.push(s);
+                                });
+                            }
+                        }
+
                         results.push({
                             raw_title: title,
                             raw_price: price,
                             raw_url: norm(linkHref),
                             raw_image_url: norm(imgSrc),
-                            raw_sizes: [],
+                            raw_sizes: sizes,
                             full_context: fullContext,
                         });
                     });

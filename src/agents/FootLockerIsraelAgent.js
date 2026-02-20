@@ -69,6 +69,13 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             title = slug.replace(/-/g, ' ');
                         }
 
+                        const sizes = [];
+                        const sizeEls = tile.querySelectorAll('[class*="size"] option, [class*="variant"] option, [data-option-name*="size"] li, .product-item__swatch--size');
+                        sizeEls.forEach(el => {
+                            const val = el.getAttribute('value') || el.innerText?.trim() || '';
+                            if (val && val !== '' && !val.toLowerCase().includes('select')) sizes.push(val);
+                        });
+
                         if (title) {
                             let price = 0;
                             if (priceEl) {
@@ -82,7 +89,8 @@ class FootLockerIsraelAgent extends DOMNavigator {
                                 raw_title: title,
                                 raw_price: price,
                                 raw_url: productUrl,
-                                raw_image_url: rawImg
+                                raw_image_url: rawImg,
+                                raw_sizes: sizes
                             });
                         }
                     });

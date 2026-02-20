@@ -145,6 +145,29 @@ class TerminalXAgent extends DOMNavigator {
             }
         }
 
+        // Size extraction from variants/configurable_options
+        let sizes = [];
+        try {
+            const sizeOption = (p.configurable_options || p.product?.configurable_options || [])
+                .find(opt => (opt.attribute_code || opt.code || '').toLowerCase().includes('size'));
+            if (sizeOption && sizeOption.values) {
+                sizes = sizeOption.values
+                    .filter(v => v.in_stock !== false && v.is_available !== false)
+                    .map(v => v.label || v.value_index?.toString() || '')
+                    .filter(s => s);
+            }
+            if (sizes.length === 0 && p.variants) {
+                const variantArr = Array.isArray(p.variants) ? p.variants : Object.values(p.variants);
+                for (const v of variantArr) {
+                    const prod = v.product || v;
+                    if (prod.stock_status === 'OUT_OF_STOCK' || prod.is_salable === false) continue;
+                    const sizeAttr = (prod.attributes || []).find(a => (a.code || '').toLowerCase().includes('size'));
+                    if (sizeAttr) sizes.push(sizeAttr.label || sizeAttr.value || '');
+                }
+                sizes = sizes.filter(s => s);
+            }
+        } catch (e) { }
+
         // Extremely generous filtering so we don't drop viable items
         if (!title || title === 'Terminal X Sneaker' || priceVal <= 0) {
             try { require('fs').writeFileSync('tx-rejected.json', JSON.stringify(p, null, 2)); } catch (e) { }
@@ -155,8 +178,10 @@ class TerminalXAgent extends DOMNavigator {
             raw_title: title.trim(),
             raw_price: priceVal,
             raw_image_url: imageUrl,
+            raw_url: link,
             product_url: link,
-            raw_brand: brandName
+            raw_brand: brandName,
+            raw_sizes: sizes
         };
     }
 
