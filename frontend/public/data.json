@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T09:41:33.195Z",
+  "updatedAt": "2026-02-20T09:41:35.309Z",
   "isRunning": true,
   "searchTerm": "Puma MB.05",
   "lastSizeInput": "*",
@@ -19,6 +19,22 @@
       "brand": "NIKE"
     },
     {
+      "title": "R323820005",
+      "price": 549.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2312272",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323820005-11760011504.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "NIKE"
+    },
+    {
+      "title": "W957920005",
+      "price": 594.92,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2108428",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/9/w957920005-11741778437.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "NIKE"
+    },
+    {
       "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
       "price": 679.9,
       "priceText": "₪679.9",
@@ -35,6 +51,30 @@
       "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=035b664e1&amp;_ss=r",
       "brand": "PUMA",
       "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+    },
+    {
+      "title": "R323790005",
+      "price": 699.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2312269",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323790005-11767186303.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "NIKE"
+    },
+    {
+      "title": "R323690005",
+      "price": 699.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2312259",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323690005-11760011504.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "NIKE"
+    },
+    {
+      "title": "R323850005",
+      "price": 899.9,
+      "store": "Terminal X",
+      "link": "https://www.terminalx.com/catalog/product/view/id/2312275",
+      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323850005-11767273903.jpg?image_type_mobile=webp_jpeg_like_70",
+      "brand": "NIKE"
     }
   ],
   "lastSearchTerm": "Nike Air Max 1"
