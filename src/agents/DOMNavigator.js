@@ -44,7 +44,8 @@ class DOMNavigator {
             const userAgent = this.getRandomUserAgent();
             await this.page.setUserAgent(userAgent);
             await this.page.setExtraHTTPHeaders({
-                'Accept-Language': 'he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7'
+                'Accept-Language': 'he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7',
+                'Referer': 'https://www.google.com/'
                 // Let Chrome handle Sec-Fetch-* headers natively to avoid mismatches
             });
 
@@ -72,7 +73,13 @@ class DOMNavigator {
                 attempt++;
                 console.warn(`[${this.storeName}] Navigation failed (${err.message}). Retry ${attempt}/${maxRetries}...`);
                 if (attempt > maxRetries) throw err;
-                await new Promise(r => setTimeout(r, 2000 * attempt)); // exponential pause
+
+                // Shift viewport on retry to bypass bot checks based on static screen sizes
+                const width = 1440 + Math.floor(Math.random() * 500);
+                const height = 900 + Math.floor(Math.random() * 300);
+                await this.page.setViewport({ width, height });
+
+                await new Promise(r => setTimeout(r, 5000)); // 5s pause on block
             }
         }
     }
