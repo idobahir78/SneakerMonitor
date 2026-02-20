@@ -15,7 +15,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
                 try {
-                    await this.page.waitForSelector('.product-item, .product-card, [class*="ProductItem"], .grid-product', { timeout: 30000 });
+                    await this.page.waitForSelector('.product-item, .product-card, .product-facet__result-item', { timeout: 30000 });
                 } catch (e) {
                     console.log('[Foot Locker Israel] Timeout waiting for product containers.');
                 }
@@ -30,13 +30,13 @@ class FootLockerIsraelAgent extends DOMNavigator {
 
                 const products = await this.page.evaluate(() => {
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-item, .product-card, [class*="ProductItem"], .grid-product, .product-list .card');
+                    const tiles = document.querySelectorAll('.product-item, .product-card, .product-facet__result-item, .product-list .card');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.product-item-link, .product-card__title, h3, h2, .product-title, [class*="title"]');
-                        const priceEl = tile.querySelector('.price, .money, [class*="price"], [class*="Price"]');
                         const linkEl = tile.querySelector('a[href*="/products/"]') || tile.querySelector('a');
-                        const imgEl = tile.querySelector('img');
+                        const titleEl = tile.querySelector('.product-item__title, .product-card__title, h3, h2') || linkEl;
+                        const priceEl = tile.querySelector('.price__current, .product-item__price, .price, .money');
+                        const imgEl = tile.querySelector('.product-item__primary-image, img');
 
                         if (titleEl) {
                             const title = titleEl.innerText.trim();

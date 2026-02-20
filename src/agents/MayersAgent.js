@@ -7,7 +7,7 @@ class MayersAgent extends DOMNavigator {
 
     async scrape(brand, model) {
         const query = encodeURIComponent(`${brand} ${model}`);
-        const searchUrl = `${this.targetUrl}/search?q=${query}&type=product`;
+        const searchUrl = `${this.targetUrl}/?s=${query}&post_type=product`;
 
         return new Promise(async (resolve) => {
             try {

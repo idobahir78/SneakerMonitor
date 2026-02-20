@@ -66,13 +66,13 @@ class Factory54Agent extends DOMNavigator {
                     const tiles = document.querySelectorAll('.b-product_tile, .product-tile, [data-pid]');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.product-item-link, .b-product_tile-name, .product-name, h2, h3');
+                        const titleEl = tile.querySelector('.product-item-name a, .product-item-link span, .b-product_tile-name a, .product-name a') || tile.querySelector('h2 a, h3 a');
                         const priceEl = tile.querySelector('.b-price-item, .sales .value, .price .value, [data-price]');
                         const linkEl = tile.querySelector('a[href*="/p/"], a[href*="factory54.co.il"]') || tile.querySelector('a');
                         const imgEl = tile.querySelector('img');
 
                         const title = titleEl?.innerText?.trim() || titleEl?.textContent?.trim();
-                        if (!title) return;
+                        if (!title || title.includes('הוספה לסל') || title.includes('הוסף')) return;
 
                         const priceText = priceEl?.innerText?.trim() || priceEl?.getAttribute('content') || '0';
                         const priceMatch = priceText.replace(/,/g, '').match(/[\d.]+/);

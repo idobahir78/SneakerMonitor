@@ -8,7 +8,7 @@ class PumaIsraelAgent extends DOMNavigator {
     async scrape(brand, model) {
         if (brand.toLowerCase() !== 'puma') return [];
         const query = encodeURIComponent(`${brand} ${model}`);
-        const searchUrl = `${this.targetUrl}/search?q=${query}`;
+        const searchUrl = `${this.targetUrl}/il/he/search?q=${query}`;
 
         let interceptedItems = [];
         let apiDataCaptured = false;
