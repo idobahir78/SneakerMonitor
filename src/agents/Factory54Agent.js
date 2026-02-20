@@ -100,20 +100,56 @@ class Factory54Agent extends DOMNavigator {
                         const tileBody = tile.querySelector('.tile-body, .present-product__tile-body');
                         const fullContext = tileBody?.innerText?.trim() || '';
 
+                        // === SIZE EXTRACTION ===
                         const sizes = [];
-                        const sizeEls = tile.querySelectorAll('[class*="size"] button, [class*="size"] a, [class*="size"] option, .popover [class*="size"] span');
-                        sizeEls.forEach(el => {
-                            const val = el.innerText?.trim() || el.getAttribute('value') || '';
-                            if (val && /^\d{2}(\.\d)?$/.test(val)) sizes.push(val);
-                        });
+
+                        // Strategy 1: Check data-product-metadata or data-pid for JSON
+                        const pid = tile.getAttribute('data-pid') || tile.querySelector('[data-pid]')?.getAttribute('data-pid') || '';
+                        const metadataAttr = tile.getAttribute('data-product-metadata') || tile.querySelector('[data-product-metadata]')?.getAttribute('data-product-metadata') || '';
+                        if (metadataAttr) {
+                            try {
+                                const meta = JSON.parse(metadataAttr);
+                                if (meta.sizes && Array.isArray(meta.sizes)) {
+                                    meta.sizes.forEach(s => { if (s) sizes.push(s.toString()); });
+                                }
+                            } catch (e) { }
+                        }
+
+                        // Strategy 2: Look for size swatches/buttons in popover
                         if (sizes.length === 0) {
-                            const sizeMatches = fullContext.match(/\b(3[5-9]|4[0-9]|50)(\.\d)?\b/g);
-                            if (sizeMatches) {
-                                const priceStr = (priceMatch ? priceMatch[0] : '');
-                                sizeMatches.forEach(s => {
-                                    if (s !== priceStr && !sizes.includes(s)) sizes.push(s);
-                                });
-                            }
+                            const sizeEls = tile.querySelectorAll(
+                                '.popover .size-btn, .popover .size-option, ' +
+                                '[class*="size-list"] button, [class*="size-list"] a, ' +
+                                '.product-tile__size button, .swatches [data-attr="size"] button, ' +
+                                '[class*="size"] .selectable, [data-attr*="size"] .swatch-value'
+                            );
+                            sizeEls.forEach(el => {
+                                const val = el.innerText?.trim() || el.getAttribute('data-value') || el.getAttribute('value') || '';
+                                if (val && /^\d{2}(\.\d)?$/.test(val) && !sizes.includes(val)) sizes.push(val);
+                            });
+                        }
+
+                        // Strategy 3: Look for JSON in script tags with product ID
+                        if (sizes.length === 0 && pid) {
+                            const scripts = document.querySelectorAll('script[type="application/json"]');
+                            scripts.forEach(script => {
+                                try {
+                                    const data = JSON.parse(script.textContent);
+                                    if (data && data.id === pid && data.variationAttributes) {
+                                        const sizeAttr = data.variationAttributes.find(a =>
+                                            (a.attributeId || '').toLowerCase().includes('size')
+                                        );
+                                        if (sizeAttr && sizeAttr.values) {
+                                            sizeAttr.values.forEach(v => {
+                                                if (v.selectable !== false) {
+                                                    const val = v.displayValue || v.value || '';
+                                                    if (val && !sizes.includes(val)) sizes.push(val);
+                                                }
+                                            });
+                                        }
+                                    }
+                                } catch (e) { }
+                            });
                         }
 
                         results.push({
@@ -131,6 +167,11 @@ class Factory54Agent extends DOMNavigator {
 
                 clearTimeout(timeout);
                 console.log(`[Factory 54] Scraped ${products.length} products.`);
+                products.forEach(p => {
+                    if (p.raw_sizes.length > 0) {
+                        console.log(`[Factory 54] DEBUG: Found ${p.raw_sizes.length} sizes for ${p.raw_title}: [${p.raw_sizes.join(', ')}]`);
+                    }
+                });
                 resolve(products);
 
             } catch (err) {
