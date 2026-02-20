@@ -1,88 +1,244 @@
 {
-  "updatedAt": "2026-02-20T13:15:16.461Z",
+  "updatedAt": "2026-02-20T14:01:52.680Z",
   "isRunning": false,
-  "searchTerm": "",
+  "lastSearchTerm": "Nike Dunk",
   "lastSizeInput": "*",
   "filters": {
+    "models": [
+      "Nike Dunk"
+    ],
     "sizes": []
   },
   "results": [
     {
-      "title": "R323820005",
-      "price": 549.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312272",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323820005-11760011504.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
+      "id": "item_1771596087444_6vwe4",
+      "display_title": "סניקרס NIKE DUNK HIGH / נשים",
+      "price_ils": 370.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/2/w296360004-11708868772.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w296360004?color=6",
+      "store_name": "TerminalX"
     },
     {
-      "title": "W957920005",
-      "price": 594.92,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2108428",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/9/w957920005-11741778437.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
+      "id": "item_1771596089016_lakld",
+      "display_title": "סניקרס Nike Dunk High / נשים",
+      "price_ils": 423.92,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/2/w234320005-11709555104.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w234320005?color=10",
+      "store_name": "TerminalX"
     },
     {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=57e84f08e&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
+      "id": "item_1771596089976_jcx4q",
+      "display_title": "סניקרס Nike Dunk High / נשים",
+      "price_ils": 370.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/9/z953370001-11686751017.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/z953370001?color=4",
+      "store_name": "TerminalX"
     },
     {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=57e84f08e&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+      "id": "item_1771596091699_gylht",
+      "display_title": "סניקרס NIKE DUNK LOW / teen",
+      "price_ils": 335.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r217430005-11751362558.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r217430005?color=10",
+      "store_name": "TerminalX"
     },
     {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 MIAMI נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f323860012?_pos=1&amp;_sid=57e84f08e&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742"
+      "id": "item_1771596092448_c42xr",
+      "display_title": "סניקרס NIKE DUNK LOW / נשים",
+      "price_ils": 405.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w669110001-11732630225.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w669110001?color=4",
+      "store_name": "TerminalX"
     },
     {
-      "title": "PUMA X FAST &amp; FURIOUS MB.05 LA FRANCE נעלי כדורסל",
-      "price": 679.9,
-      "priceText": "₪679.9",
-      "store": "Foot Locker",
-      "link": "https://www.footlocker.co.il/products/f323870002?_pos=2&amp;_sid=57e84f08e&amp;_ss=r",
-      "brand": "PUMA",
-      "image": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247"
+      "id": "item_1771596093756_5ncuz",
+      "display_title": "משקפי שמש NIKE ZEUS RISE",
+      "price_ils": 700,
+      "size_available": "Available",
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw3ba675ea/images/new/971000037/971000037_P_1.png?sw=476&amp;sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%9E%D7%A9%D7%A7%D7%A4%D7%99-%D7%A9%D7%9E%D7%A9-nike-zeus-rise/971000037.html?pi=30",
+      "store_name": "Factory 54"
     },
     {
-      "title": "R323790005",
-      "price": 699.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312269",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323790005-11767186303.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
+      "id": "item_1771596093531_vwscz",
+      "display_title": "סניקרס NIKE DUNK LOW / נשים",
+      "price_ils": 405.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w669120005-11733212775.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w669120005?color=10",
+      "store_name": "TerminalX"
     },
     {
-      "title": "R323690005",
-      "price": 699.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312259",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323690005-11760011504.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
+      "id": "item_1771596094655_ol3lg",
+      "display_title": "סניקרס NIKE DUNK LOW / נשים",
+      "price_ils": 405.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w669130012-11733212804.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w669130012?color=100",
+      "store_name": "TerminalX"
     },
     {
-      "title": "R323850005",
-      "price": 899.9,
-      "store": "Terminal X",
-      "link": "https://www.terminalx.com/catalog/product/view/id/2312275",
-      "image": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323850005-11767273903.jpg?image_type_mobile=webp_jpeg_like_70",
-      "brand": "NIKE"
+      "id": "item_1771596095780_dju1g",
+      "display_title": "סניקרס Nike Dunk Low / TEEN",
+      "price_ils": 314.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w018220008-11689056672.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w018220008?color=7",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596096938_tu983",
+      "display_title": "סניקרס Nike Dunk Low / TEEN",
+      "price_ils": 300.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w890960006-11741068697.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w890960006?color=9",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596098044_nmuap",
+      "display_title": "סניקרס NIKE DUNK LOW / נשים",
+      "price_ils": 405.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w834670005-11736950698.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w834670005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596099167_3w341",
+      "display_title": "סניקרס Nike Dunk Low / נשים",
+      "price_ils": 405.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w824610007-11736661926.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w824610007?color=22",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596100508_8f1ev",
+      "display_title": "סניקרס Nike Dunk Low / נשים",
+      "price_ils": 384.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w824660011-11736662004.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w824660011?color=8",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596101645_3zmbd",
+      "display_title": "סניקרס Twist Nike Dunk Low / נשים",
+      "price_ils": 499.9,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/3/w354620001-11716708698.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w354620001?color=7",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596102695_lese1",
+      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
+      "price_ils": 384.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r242010027-11757929610.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r242010027?color=2148",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596103878_e21ph",
+      "display_title": "סניקרס Nike Dunk Low Retro / גברים",
+      "price_ils": 549.9,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w848850005-11737557989.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w848850005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596104998_lsitu",
+      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
+      "price_ils": 349.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w536440005-11720350433.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w536440005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596106128_7d0rq",
+      "display_title": "סניקרס NIKE DUNK LOW / בנים",
+      "price_ils": 263.92,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r187190005-11756825887.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r187190005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596107247_2uze2",
+      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
+      "price_ils": 405.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/9/w947560652-11741763018.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w947560652?color=2094",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596108394_ewsha",
+      "display_title": "סניקרס Nike Dunk Low Retro / גברים",
+      "price_ils": 370.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w669980005-11734003053.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w669980005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596109506_ewpqj",
+      "display_title": "סניקרס Nike Dunk Low Retro / גברים",
+      "price_ils": 349.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w596410005-11725959740.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w596410005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596110630_umza8",
+      "display_title": "סניקרס Nike Dunk Low Retro / נשים",
+      "price_ils": 349.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w596420005-11725959781.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w596420005?color=9214",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771596111761_a996q",
+      "display_title": "סניקרס Nike Dunk Low Retro / גברים",
+      "price_ils": 349.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w595000013?color=70",
+      "store_name": "TerminalX"
     }
-  ],
-  "lastSearchTerm": "Puma MB.05"
+  ]
 }
