@@ -97,12 +97,16 @@ class Factory54Agent extends DOMNavigator {
                         const imgEl = tile.querySelector('img');
                         const imgSrc = imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || '';
 
+                        const tileBody = tile.querySelector('.tile-body, .present-product__tile-body');
+                        const fullContext = tileBody?.innerText?.trim() || '';
+
                         results.push({
                             raw_title: title,
                             raw_price: price,
                             raw_url: norm(linkHref),
                             raw_image_url: norm(imgSrc),
                             raw_sizes: [],
+                            full_context: fullContext,
                         });
                     });
 
