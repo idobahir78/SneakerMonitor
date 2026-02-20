@@ -42,7 +42,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                 });
 
                 if (products.length === 0) {
-                    console.error(`[Foot Locker Israel] 0 products found. Selector not found or bot detection suspected.`);
+                    console.error(`[Foot Locker Israel] DEBUG: Blocked by security or DEBUG: Empty response. 0 products found.`);
                 } else {
                     console.log(`[Foot Locker Israel] Found ${products.length} products`);
                 }

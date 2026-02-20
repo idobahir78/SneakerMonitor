@@ -68,6 +68,12 @@ class DOMNavigator {
         let attempt = 0;
         while (attempt <= maxRetries) {
             try {
+                // Randomize fingerprint on every request
+                const width = 1440 + Math.floor(Math.random() * 500);
+                const height = 900 + Math.floor(Math.random() * 300);
+                await this.page.setViewport({ width, height });
+                await this.page.setUserAgent(this.getRandomUserAgent());
+
                 const response = await this.page.goto(url, options);
                 // Human behavior: add a random delay (1000ms - 3000ms) after the page loads
                 const delay = 1000 + Math.floor(Math.random() * 2000);

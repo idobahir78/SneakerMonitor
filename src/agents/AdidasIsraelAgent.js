@@ -70,7 +70,7 @@ class AdidasIsraelAgent extends DOMNavigator {
                 });
 
                 if (domProducts.length === 0 && interceptedItems.length === 0) {
-                    console.error(`[Adidas Israel] 0 products found. Selector not found or bot detection suspected.`);
+                    console.error(`[Adidas Israel] DEBUG: Blocked by security or DEBUG: Empty response. 0 products found.`);
                 } else {
                     console.log(`[Adidas Israel] Found ${domProducts.length} products via DOM fallback`);
                 }
