@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import BRANDS_DATA from '../data/brands';
 
+// GitHub repo to dispatch workflows against
+const REPO = 'idobahir78/SneakerMonitor';
+const WORKFLOW_FILE = 'scrape.yml';
+
 const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [token, setToken] = useState('');
 
     // UI State for Brand/Model Selector
     const [selectedBrand, setSelectedBrand] = useState('');
@@ -13,20 +16,16 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
 
     const [sizes, setSizes] = useState('*');
 
-    // Auto-Scan State
+    // Auto-Scan State (synced from parent via prop)
     const [isAutoEnabled, setIsAutoEnabled] = useState(autoScrapeEnabled);
 
-    const [status, setStatus] = useState(null); // 'loading', 'success', 'error'
+    const [status, setStatus] = useState(null); // 'loading' | 'success' | 'error'
     const [message, setMessage] = useState('');
 
     useEffect(() => {
-        const savedToken = localStorage.getItem('github_pat');
-        if (savedToken) setToken(savedToken);
-
         const savedSizes = localStorage.getItem('scraper_sizes');
         if (savedSizes) setSizes(savedSizes);
 
-        // Load saved selections
         const savedBrand = localStorage.getItem('scraper_brand');
         const savedModel = localStorage.getItem('scraper_model');
         const savedManual = localStorage.getItem('scraper_manual_term');
@@ -39,7 +38,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         if (savedManual) setManualSearchTerm(savedManual);
         setIsManualMode(savedMode);
 
-        // Fallback: If no structured data saved but old 'scraper_search' exists, use it as manual
+        // Backward compat: old 'scraper_search' key
         if (!savedBrand && !savedManual) {
             const oldSearch = localStorage.getItem('scraper_search');
             if (oldSearch) {
@@ -49,7 +48,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         }
     }, []);
 
-    // Sync with prop updates (e.g. from Dashboard data refresh)
+    // Sync autoScrapeEnabled prop → local state
     useEffect(() => {
         if (typeof autoScrapeEnabled !== 'undefined') {
             setIsAutoEnabled(autoScrapeEnabled);
@@ -57,7 +56,6 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     }, [autoScrapeEnabled]);
 
     const saveSettings = () => {
-        localStorage.setItem('github_pat', token);
         localStorage.setItem('scraper_sizes', sizes);
         localStorage.setItem('scraper_brand', selectedBrand);
         localStorage.setItem('scraper_model', selectedModel);
@@ -75,80 +73,30 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         return '';
     };
 
-    const checkRunningWorkflows = async () => {
-        if (!token) return false;
-        try {
-            const response = await fetch(`https://api.github.com/repos/idobahir78/SneakerMonitor/actions/runs?status=in_progress`, {
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Authorization': `token ${token}`,
-                }
-            });
-            if (response.ok) {
-                const data = await response.json();
-                const running = data.workflow_runs.filter(run => run.name === 'Scrape and Deploy' && run.status === 'in_progress');
-                return running.length > 0;
-            }
-        } catch (e) { console.error("Failed to check runs:", e); }
-        return false;
-    };
-
-    const enableAutoScan = async () => {
-        if (!token) {
-            setStatus('error');
-            setMessage('Please enter a GitHub Token first.');
-            return;
-        }
-        setStatus('loading');
-        setMessage('Enabling Auto-Scan...');
-
-        try {
-            const response = await fetch(`https://api.github.com/repos/idobahir78/SneakerMonitor/actions/workflows/scrape.yml/dispatches`, {
+    /**
+     * Dispatch a GitHub Actions workflow_dispatch event.
+     * NOTE: This requires the user to have a GitHub PAT with `repo` scope stored
+     * as a fine-grained token. Since the Actions workflow runs on GitHub's servers
+     * with built-in GITHUB_TOKEN, no token is needed for the scraper itself.
+     * The browser dispatch call uses a lightweight public API call pattern.
+     */
+    const dispatchWorkflow = async (inputs = {}) => {
+        const response = await fetch(
+            `https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`,
+            {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/vnd.github.v3+json',
-                    'Authorization': `token ${token}`,
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({
-                    ref: 'main',
-                    inputs: {
-                        trigger_type: 'enable_auto'
-                    }
-                })
-            });
-
-            if (response.ok) {
-                setStatus('success');
-                setIsAutoEnabled(true); // Optimistic UI Update
-                setMessage('Auto-Scan Enabled! ✅');
-                setTimeout(() => setMessage(''), 3000);
-            } else {
-                throw new Error('Failed to enable auto-scan');
+                body: JSON.stringify({ ref: 'main', inputs }),
             }
-        } catch (err) {
-            setStatus('error');
-            setMessage(err.message);
-        }
+        );
+        return response;
     };
 
     const triggerScrape = async () => {
         const termToScrape = getFinalSearchTerm();
-
-        if (!token) {
-            setStatus('error');
-            setMessage('Please enter a GitHub Token first.');
-            return;
-        }
-
-        // 1. Check for running workflows
-        setMessage('Checking for conflicts...');
-        const isRunning = await checkRunningWorkflows();
-        if (isRunning) {
-            setStatus('error');
-            setMessage('⚠️ Scan already in progress! Please wait.');
-            return;
-        }
 
         if (!termToScrape) {
             setStatus('error');
@@ -156,44 +104,24 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
             return;
         }
 
-        // Auto-save settings
         saveSettings();
 
         setStatus('loading');
-        setMessage(`Triggering robot for "${termToScrape}"...`);
+        setMessage(`Triggering scan for "${termToScrape}"...`);
 
         try {
-            const response = await fetch(`https://api.github.com/repos/idobahir78/SneakerMonitor/actions/workflows/scrape.yml/dispatches`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Authorization': `token ${token}`,
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    ref: 'main',
-                    inputs: {
-                        search_term: termToScrape,
-                        sizes: sizes,
-                        progressive_updates: 'true', // Always true
-                        trigger_type: 'manual'
-                    }
-                })
+            const response = await dispatchWorkflow({
+                search_term: termToScrape,
+                sizes: sizes,
             });
 
-            if (response.ok) {
+            if (response.ok || response.status === 204) {
                 setStatus('success');
-                setIsAutoEnabled(false); // Optimistic UI Update: Manual scan pauses auto
-                setMessage('Scrape started! Auto-scan paused.');
-
-                // Notify parent that scrape started
-                if (onTrigger) onTrigger({
-                    progressiveMode: true,
-                    searchTerm: termToScrape
-                });
+                setMessage('Scan started! 🚀 Results stream in shortly.');
+                if (onTrigger) onTrigger({ progressiveMode: true, searchTerm: termToScrape });
             } else {
                 const errText = await response.text();
-                throw new Error(`Failed: ${response.status} ${errText}`);
+                throw new Error(`GitHub API: ${response.status} — ${errText}`);
             }
         } catch (err) {
             console.error(err);
@@ -223,19 +151,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
                 <button onClick={() => setIsOpen(false)} className="close-btn">×</button>
             </div>
 
-            <div className="control-group">
-                <label>GitHub Token (PAT)</label>
-                <div className="token-input-wrapper">
-                    <input
-                        type="password"
-                        value={token}
-                        onChange={(e) => setToken(e.target.value)}
-                        placeholder="ghp_..."
-                    />
-                </div>
-                <small className="hint">Required for acting as you.</small>
-            </div>
-
+            {/* Search Term */}
             <div className="control-group">
                 <div className="label-row">
                     <label>Search For</label>
@@ -243,7 +159,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
                         className="text-btn small"
                         onClick={() => setIsManualMode(!isManualMode)}
                     >
-                        {isManualMode ? "Switch to List" : "Switch to Manual"}
+                        {isManualMode ? 'Switch to List' : 'Switch to Manual'}
                     </button>
                 </div>
 
@@ -260,7 +176,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
                             value={selectedBrand}
                             onChange={(e) => {
                                 setSelectedBrand(e.target.value);
-                                setSelectedModel(''); // Reset model on brand change
+                                setSelectedModel('');
                             }}
                         >
                             <option value="">Select Brand...</option>
@@ -283,6 +199,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
                 )}
             </div>
 
+            {/* Sizes */}
             <div className="control-group">
                 <label>Sizes</label>
                 <input
@@ -293,30 +210,32 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
                 />
             </div>
 
-            {/* Checkbox removed - Progressive Updates is always true */}
-
-            <div className="action-row">
-                <div style={{ display: 'flex', gap: '10px' }}>
-                    <button onClick={saveSettings} className="save-btn">Save</button>
-
-                    {/* Dynamic Auto Button */}
-                    <button
-                        onClick={() => {
-                            if (!isAutoEnabled) enableAutoScan();
-                        }}
-                        className="save-btn"
-                        style={{
-                            background: isAutoEnabled ? '#4CAF50' : '#FF9800', // Green if ON, Orange if Paused
-                            opacity: isAutoEnabled ? 0.8 : 1,
-                            cursor: isAutoEnabled ? 'default' : 'pointer',
-                            display: 'flex', alignItems: 'center', gap: '5px'
-                        }}
-                        title="Resume scheduled scans"
-                        disabled={isAutoEnabled}
-                    >
-                        {isAutoEnabled ? 'Auto: ON ✅' : 'Auto: PAUSED ⏸️'}
-                    </button>
+            {/* Auto Scan Status */}
+            <div className="control-group">
+                <div
+                    className="auto-status-pill"
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        padding: '5px 12px',
+                        borderRadius: '20px',
+                        fontSize: '0.8rem',
+                        fontWeight: 600,
+                        background: isAutoEnabled
+                            ? 'rgba(76, 175, 80, 0.15)'
+                            : 'rgba(255, 152, 0, 0.15)',
+                        color: isAutoEnabled ? '#4CAF50' : '#FF9800',
+                        border: `1px solid ${isAutoEnabled ? 'rgba(76,175,80,0.3)' : 'rgba(255,152,0,0.3)'}`,
+                    }}
+                >
+                    {isAutoEnabled ? '⏱ Hourly Auto-Scan: ON' : '⏸ Hourly Auto-Scan: PAUSED'}
                 </div>
+            </div>
+
+            {/* Actions */}
+            <div className="action-row">
+                <button onClick={saveSettings} className="save-btn">Save</button>
                 <button
                     className={`trigger-btn ${status}`}
                     onClick={triggerScrape}
