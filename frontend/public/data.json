@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T17:46:50.982Z",
+  "updatedAt": "2026-02-20T18:10:00.077Z",
   "isRunning": false,
   "lastSearchTerm": "Puma MB.05",
   "lastSizeInput": "*",
@@ -9,5 +9,66 @@
     ],
     "sizes": []
   },
-  "results": []
+  "results": [
+    {
+      "id": "item_1771610987973_872zo",
+      "display_title": "נעלי כדורסל MB.05 WINGS",
+      "price_ils": 454.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508290015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r508290015?color=116",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771610989864_y57tk",
+      "display_title": "נעלי כדורסל MB.05 WINGS",
+      "price_ils": 454.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771610991811_2irvh",
+      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
+      "price_ils": 475.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322940011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r322940011?color=8",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771610993474_1cr3n",
+      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
+      "price_ils": 475.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322950011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r322950011?color=8",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771610995611_9o8gl",
+      "display_title": "נעלי כדורסל MB.04 LO TEAM",
+      "price_ils": 419.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r262500001-11752995683.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r262500001?color=4",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771610997261_0dpe5",
+      "display_title": "נעלי כדורסל MB.04 LO TEAM",
+      "price_ils": 419.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r262510001-11752995717.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r262510001?color=4",
+      "store_name": "TerminalX"
+    }
+  ]
 }
