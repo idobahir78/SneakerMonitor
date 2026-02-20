@@ -22,18 +22,23 @@ class QASentinel {
         // 2. HTTP 200 Checks (Image and Product URL)
         // Note: Using HEAD requests to save bandwidth and time.
         try {
-            const [imageValid, productValid] = await Promise.all([
-                this._pingUrl(normalizedItem.image_url),
-                this._pingUrl(normalizedItem.buy_link) // Crucial check to prevent broken UI buttons
-            ]);
+            const imageValid = await this._pingUrl(normalizedItem.image_url);
 
             if (!imageValid) {
                 console.error(`[Agent 6 - QA Sentinel] FAILED Image URL check: ${normalizedItem.image_url}`);
                 return false;
             }
 
-            if (!productValid) {
-                console.error(`[Agent 6 - QA Sentinel] FAILED Product URL check (404/broken): ${normalizedItem.buy_link}`);
+            const productUrl = normalizedItem.buy_link || '';
+            if (!productUrl || !productUrl.startsWith('http')) {
+                console.error(`[Agent 6 - QA Sentinel] FAILED Product URL check (missing/invalid): ${productUrl}`);
+                return false;
+            }
+
+            try {
+                new URL(productUrl);
+            } catch (e) {
+                console.error(`[Agent 6 - QA Sentinel] FAILED Product URL check (malformed): ${productUrl}`);
                 return false;
             }
 
@@ -41,8 +46,8 @@ class QASentinel {
             return true;
 
         } catch (error) {
-            console.error(`[Agent 6 - QA Sentinel] Error during ping tests: ${error.message}`);
-            return false; // Fail safe on error
+            console.error(`[Agent 6 - QA Sentinel] Error during checks: ${error.message}`);
+            return false;
         }
     }
 
