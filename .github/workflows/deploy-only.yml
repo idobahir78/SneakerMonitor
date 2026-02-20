@@ -35,8 +35,6 @@ jobs:
           cd frontend
           npm ci
           npm run build
-        env:
-          VITE_GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

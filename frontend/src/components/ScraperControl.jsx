@@ -3,10 +3,10 @@ import BRANDS_DATA from '../data/brands';
 
 const REPO = 'idobahir78/SneakerMonitor';
 const WORKFLOW_FILE = 'scrape.yml';
-const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
 const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [token, setToken] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedModel, setSelectedModel] = useState('');
     const [isManualMode, setIsManualMode] = useState(false);
@@ -17,6 +17,9 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const [message, setMessage] = useState('');
 
     useEffect(() => {
+        const savedToken = localStorage.getItem('gh_pat');
+        if (savedToken) setToken(savedToken);
+
         const savedSizes = localStorage.getItem('scraper_sizes');
         if (savedSizes) setSizes(savedSizes);
 
@@ -48,6 +51,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     }, [autoScrapeEnabled]);
 
     const saveSettings = () => {
+        if (token) localStorage.setItem('gh_pat', token);
         localStorage.setItem('scraper_sizes', sizes);
         localStorage.setItem('scraper_brand', selectedBrand);
         localStorage.setItem('scraper_model', selectedModel);
@@ -68,9 +72,8 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         const headers = {
             'Accept': 'application/vnd.github.v3+json',
             'Content-Type': 'application/json',
+            ...(token ? { 'Authorization': `token ${token}` } : {}),
         };
-        if (TOKEN) headers['Authorization'] = `token ${TOKEN}`;
-
         return fetch(
             `https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`,
             { method: 'POST', headers, body: JSON.stringify({ ref: 'main', inputs }) }
@@ -80,6 +83,11 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const triggerScrape = async () => {
         const termToScrape = getFinalSearchTerm();
 
+        if (!token) {
+            setStatus('error');
+            setMessage('Please enter your GitHub Token first.');
+            return;
+        }
         if (!termToScrape) {
             setStatus('error');
             setMessage('Please select a model or enter a search term.');
@@ -130,6 +138,19 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
             <div className="control-header">
                 <h3>Remote Control 🎮</h3>
                 <button onClick={() => setIsOpen(false)} className="close-btn">×</button>
+            </div>
+
+            <div className="control-group">
+                <label>GitHub Token</label>
+                <div className="token-input-wrapper">
+                    <input
+                        type="password"
+                        value={token}
+                        onChange={(e) => setToken(e.target.value)}
+                        placeholder="ghp_..."
+                    />
+                </div>
+                <small className="hint">Saved locally in your browser only. Never sent to our servers.</small>
             </div>
 
             <div className="control-group">
@@ -191,7 +212,6 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
 
             <div className="control-group">
                 <div
-                    className="auto-status-pill"
                     style={{
                         display: 'inline-flex',
                         alignItems: 'center',
