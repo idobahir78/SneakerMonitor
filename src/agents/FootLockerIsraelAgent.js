@@ -21,42 +21,8 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     console.log('[Foot Locker Israel] Timeout waiting for product containers.');
                 }
 
-                const diagnostic = await this.page.evaluate(() => {
-                    const tiles = document.querySelectorAll('.product-item');
-                    const firstTwo = [...tiles].slice(0, 2);
-                    const tilesDump = firstTwo.map((tile, i) => {
-                        const allAnchors = [...tile.querySelectorAll('a')];
-                        const anchorInfo = allAnchors.map(a => ({
-                            href: a.getAttribute('href'),
-                            className: a.className,
-                            dataHref: a.getAttribute('data-href'),
-                            dataUrl: a.getAttribute('data-url'),
-                            textSnippet: a.innerText?.substring(0, 50)
-                        }));
-                        return {
-                            index: i,
-                            outerHTMLSnippet: tile.outerHTML.substring(0, 800),
-                            anchors: anchorInfo
-                        };
-                    });
-
-                    return {
-                        title: document.title,
-                        url: window.location.href,
-                        totalTiles: tiles.length,
-                        bodyContentLength: document.body?.innerText?.length || 0,
-                        tilesDump
-                    };
-                });
-
-                console.log(`[Foot Locker Israel] DEBUG: title="${diagnostic.title}", url="${diagnostic.url}"`);
-                console.log(`[Foot Locker Israel] DEBUG: Total .product-item tiles: ${diagnostic.totalTiles}`);
-                console.log(`[Foot Locker Israel] DEBUG: Page Content Length: ${diagnostic.bodyContentLength} chars`);
-
-                for (const tile of diagnostic.tilesDump) {
-                    console.log(`[Foot Locker Israel] TILE ${tile.index} outerHTML: ${tile.outerHTMLSnippet}`);
-                    console.log(`[Foot Locker Israel] TILE ${tile.index} anchors: ${JSON.stringify(tile.anchors)}`);
-                }
+                const tileCount = await this.page.evaluate(() => document.querySelectorAll('.product-item').length);
+                console.log(`[Foot Locker Israel] DEBUG: Found ${tileCount} .product-item tiles`);
 
                 const products = await this.page.evaluate((baseDomain) => {
                     function norm(u) {

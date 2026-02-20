@@ -11,8 +11,19 @@ class UXPolisher {
         try {
             // 1. Title Truncation (Max 40 chars)
             let displayTitle = rawTitle;
+
+            const words = displayTitle.split(/\s+/);
+            const seen = new Set();
+            const deduped = [];
+            for (const word of words) {
+                const upper = word.toUpperCase();
+                if (seen.has(upper) && upper.length > 2) continue;
+                seen.add(upper);
+                deduped.push(word);
+            }
+            displayTitle = deduped.join(' ');
+
             if (displayTitle.length > 40) {
-                // Try to cut at a word boundary
                 const shortened = displayTitle.substring(0, 40);
                 displayTitle = shortened.substr(0, Math.min(shortened.length, shortened.lastIndexOf(" "))) + '...';
             }
