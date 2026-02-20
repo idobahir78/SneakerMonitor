@@ -13,7 +13,7 @@ class PumaIsraelAgent extends DOMNavigator {
         return new Promise(async (resolve) => {
             try {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
-                try { await this.page.waitForSelector('.product-item, .product-item-info', { timeout: 15000 }); } catch (e) { console.log('[Puma Israel] Timeout waiting for items'); }
+                try { await this.page.waitForSelector('.product-item, .product-item-info', { timeout: 60000 }); } catch (e) { console.log('[Puma Israel] Timeout waiting for items. Bot detection suspected or empty page.'); }
                 await new Promise(r => setTimeout(r, 1000));
 
                 const products = await this.page.evaluate(() => {
@@ -42,7 +42,11 @@ class PumaIsraelAgent extends DOMNavigator {
                     return results;
                 });
 
-                console.log(`[Puma Israel] Found ${products.length} products`);
+                if (products.length === 0) {
+                    console.error(`[Puma Israel] 0 products found. Selector not found or bot detection suspected.`);
+                } else {
+                    console.log(`[Puma Israel] Found ${products.length} products`);
+                }
                 resolve(products);
             } catch (err) {
                 console.error(`[Puma Israel] Scrape error: ${err.message}`);

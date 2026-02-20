@@ -12,7 +12,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
         return new Promise(async (resolve) => {
             try {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
-                try { await this.page.waitForSelector('.product-item, .item.product', { timeout: 15000 }); } catch (e) { console.log('[Foot Locker Israel] Timeout waiting for items'); }
+                try { await this.page.waitForSelector('.product-item, .item.product', { timeout: 60000 }); } catch (e) { console.log('[Foot Locker Israel] Timeout waiting for items. Bot detection suspected or empty page.'); }
                 await new Promise(r => setTimeout(r, 1000));
 
                 const products = await this.page.evaluate(() => {
@@ -41,7 +41,11 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     return results;
                 });
 
-                console.log(`[Foot Locker Israel] Found ${products.length} products`);
+                if (products.length === 0) {
+                    console.error(`[Foot Locker Israel] 0 products found. Selector not found or bot detection suspected.`);
+                } else {
+                    console.log(`[Foot Locker Israel] Found ${products.length} products`);
+                }
                 resolve(products);
             } catch (err) {
                 console.error(`[Foot Locker Israel] Scrape error: ${err.message}`);
