@@ -6,6 +6,12 @@ const Orchestrator = require('./agents/Orchestrator');
 const TerminalXAgent = require('./agents/TerminalXAgent');
 const Factory54Agent = require('./agents/Factory54Agent');
 const LimeShoesAgent = require('./agents/LimeShoesAgent');
+const NikeIsraelAgent = require('./agents/NikeIsraelAgent');
+const AdidasIsraelAgent = require('./agents/AdidasIsraelAgent');
+const FootLockerIsraelAgent = require('./agents/FootLockerIsraelAgent');
+const JDSportsAgent = require('./agents/JDSportsAgent');
+const MayersAgent = require('./agents/MayersAgent');
+const KicksAgent = require('./agents/KicksAgent');
 
 // Default target parameters
 let brandInput = 'Nike';
@@ -73,6 +79,12 @@ async function run() {
     orchestrator.registerWorker(new TerminalXAgent());
     orchestrator.registerWorker(new Factory54Agent());
     orchestrator.registerWorker(new LimeShoesAgent());
+    orchestrator.registerWorker(new NikeIsraelAgent());
+    orchestrator.registerWorker(new AdidasIsraelAgent());
+    orchestrator.registerWorker(new FootLockerIsraelAgent());
+    orchestrator.registerWorker(new JDSportsAgent());
+    orchestrator.registerWorker(new MayersAgent());
+    orchestrator.registerWorker(new KicksAgent());
 
     const accumulatedResults = [];
 

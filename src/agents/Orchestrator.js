@@ -39,10 +39,21 @@ class Orchestrator extends EventEmitter {
         // Emit an event to UI that search has started
         this.emit('search_started', { brand, model, size, totalWorkers: this.workers.length });
 
-        // Execute all workers in parallel
-        const promises = this.workers.map(worker => this.executeWorker(worker, brand, model, size));
+        // Execute workers in batches of 3 to avoid runner crashes / net::ERR_NETWORK_CHANGED
+        const batchSize = 3;
+        for (let i = 0; i < this.workers.length; i += batchSize) {
+            const batch = this.workers.slice(i, i + batchSize);
+            console.log(`\n[Orchestrator] Running batch ${Math.floor(i / batchSize) + 1} (${batch.map(w => w.storeName).join(', ')})`);
 
-        await Promise.allSettled(promises);
+            const promises = batch.map(worker => this.executeWorker(worker, brand, model, size));
+            await Promise.allSettled(promises);
+
+            // Short cooldown between batches to let the network stack breathe
+            if (i + batchSize < this.workers.length) {
+                console.log(`[Orchestrator] Batch complete. Cooling down for 3 seconds before next batch...`);
+                await new Promise(r => setTimeout(r, 3000));
+            }
+        }
 
         console.log(`\n[Orchestrator] Search complete. Processed all worker groups.`);
         this.emit('search_completed', { totalResults: this.results.length });
