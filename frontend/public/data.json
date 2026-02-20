@@ -1,19 +1,37 @@
 {
-  "updatedAt": "2026-02-20T23:38:14.260Z",
+  "updatedAt": "2026-02-20T23:45:45.578Z",
   "isRunning": false,
   "lastSearchTerm": "New Balance 530",
-  "lastSizeInput": "45",
+  "lastSizeInput": "*",
   "filters": {
     "models": [
       "New Balance 530"
     ],
-    "sizes": [
-      "45"
-    ]
+    "sizes": []
   },
   "results": [
     {
-      "id": "item_1771630635051_evj9t",
+      "id": "item_1771631085159_3cd9c",
+      "display_title": "סניקרס New Balance 530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252630018-11753794316.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r252630018?color=17762",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771631085186_q15i0",
       "display_title": "NEW BALANCE נעלי סניקרס 530",
       "price_ils": 599.25,
       "size_available": "Available",
@@ -24,7 +42,7 @@
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1771630636532_ymij0",
+      "id": "item_1771631086305_vylc0",
       "display_title": "NEW BALANCE נעלי סניקרס 530",
       "price_ils": 669,
       "size_available": "Available",
@@ -35,7 +53,27 @@
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1771630637702_lg8tj",
+      "id": "item_1771631086435_n8ud9",
+      "display_title": "סניקרס / נשים New Balance CT500",
+      "price_ils": 482.93,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r152780004-11751520385.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r152780004?color=6",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771631087175_7mm4p",
       "display_title": "NEW BALANCE נעלי סניקרס 530",
       "price_ils": 669,
       "size_available": "Available",
@@ -44,6 +82,25 @@
       "badges": [],
       "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002558.html?pi=3",
       "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771631088035_7xd43",
+      "display_title": "נעלי ספורט New Balance / נשים",
+      "price_ils": 469.95,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w627800005-11725269573.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w627800005?color=10",
+      "store_name": "TerminalX"
     }
   ]
 }
