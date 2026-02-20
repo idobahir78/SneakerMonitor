@@ -78,7 +78,9 @@ jobs:
         run: |
           git add frontend/public/data.json
           git commit -m "Scrape update: $(date -u)" || echo "No changes to commit"
+          git stash push --include-untracked || true
           git pull --rebase -X theirs origin main
+          git stash pop || true
           git push origin main
 
       - name: Build Frontend
