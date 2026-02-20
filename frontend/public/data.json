@@ -1,37 +1,19 @@
 {
-  "updatedAt": "2026-02-20T23:03:29.261Z",
+  "updatedAt": "2026-02-20T23:08:11.354Z",
   "isRunning": false,
   "lastSearchTerm": "Puma MB.05",
-  "lastSizeInput": "*",
+  "lastSizeInput": "45",
   "filters": {
     "models": [
       "Puma MB.05"
     ],
-    "sizes": []
+    "sizes": [
+      "45"
+    ]
   },
   "results": [
     {
-      "id": "item_1771628547153_66u8z",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508290015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508290015?color=116",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771628548523_iq1xk",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771628549653_rdu9c",
+      "id": "item_1771628829077_3wx77",
       "display_title": "PUMA נעלי כדורסל פומה X מהיר ועצבני",
       "price_ils": 680,
       "size_available": "Available",
@@ -41,17 +23,7 @@
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1771628550606_cvhfp",
-      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
-      "price_ils": 475.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322950011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r322950011?color=8",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771628550760_zi110",
+      "id": "item_1771628830047_g2ojf",
       "display_title": "PUMA נעלי כדורסל פומה X מהיר ועצבני",
       "price_ils": 650,
       "size_available": "Available",
@@ -61,33 +33,73 @@
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1771628560351_i4hji",
+      "id": "item_1771628830542_1lka6",
+      "display_title": "נעלי כדורסל MB.05 WINGS",
+      "price_ils": 454.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508290015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r508290015?color=116",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771628831599_icynf",
+      "display_title": "נעלי כדורסל MB.05 WINGS",
+      "price_ils": 454.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771628832617_drp6z",
+      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
+      "price_ils": 475.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322940011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r322940011?color=8",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771628833630_szfe8",
+      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
+      "price_ils": 475.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322950011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r322950011?color=8",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771628843642_5mueg",
       "display_title": "PUMA X FAST & FURIOUS MB.05 MIAMI נעלי...",
       "price_ils": 679.9,
       "size_available": "Available",
       "image_url": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742&width=1280",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f323860012?_pos=1&_sid=6970941d0&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f323860012?_pos=1&_sid=4c8a9367c&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771628561306_qhwna",
+      "id": "item_1771628844590_64sev",
       "display_title": "PUMA X FAST & FURIOUS MB.05 LA FRANCE...",
       "price_ils": 679.9,
       "size_available": "Available",
       "image_url": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247&width=1280",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f323870002?_pos=2&_sid=6970941d0&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f323870002?_pos=2&_sid=4c8a9367c&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771628562232_kgs10",
+      "id": "item_1771628845467_dkjg9",
       "display_title": "PUMA X FAST & FURIOUS LAFRANCE RNR LA...",
       "price_ils": 649.9,
       "size_available": "Available",
       "image_url": "https://footlocker.co.il/cdn/shop/files/314033_01_sv03.jpg?v=1770305732&width=1280",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f323810016?_pos=3&_sid=6970941d0&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f323810016?_pos=3&_sid=4c8a9367c&_ss=r",
       "store_name": "Foot Locker Israel"
     }
   ]
