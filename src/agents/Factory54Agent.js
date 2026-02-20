@@ -26,7 +26,8 @@ class Factory54Agent extends DOMNavigator {
         this.page.setDefaultNavigationTimeout(60000);
         this.page.setDefaultTimeout(60000);
 
-        await this.page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');
+        await this.page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36');
+        await this.page.setViewport({ width: 1920, height: 1080 });
         await this.page.setExtraHTTPHeaders({
             'Accept-Language': 'he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7',
             'Referer': 'https://www.factory54.co.il/men',
@@ -48,8 +49,6 @@ class Factory54Agent extends DOMNavigator {
             try {
                 await this.page.setRequestInterception(true);
 
-                const rawItems = [];
-
                 this.page.on('request', req => {
                     const url = req.url();
                     if (url.includes('.png') || url.includes('.jpg') || url.includes('.gif') || url.includes('.woff')) {
@@ -60,6 +59,46 @@ class Factory54Agent extends DOMNavigator {
                 });
 
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+
+                await new Promise(r => setTimeout(r, 5000));
+
+                const diagnostic = await this.page.evaluate(() => {
+                    const bodyText = document.body?.innerText || '';
+                    const bodyClass = document.body?.className || '';
+                    const iframeCount = document.querySelectorAll('iframe').length;
+                    const allElements = document.querySelectorAll('*');
+                    const classesWithProduct = [];
+                    allElements.forEach(el => {
+                        if (el.className && typeof el.className === 'string' && el.className.includes('product')) {
+                            classesWithProduct.push({
+                                tag: el.tagName,
+                                className: el.className.substring(0, 120),
+                                childCount: el.children.length
+                            });
+                        }
+                    });
+
+                    const allLinks = [...document.querySelectorAll('a')].slice(0, 10).map(a => ({
+                        href: a.getAttribute('href')?.substring(0, 100),
+                        text: a.innerText?.substring(0, 50)
+                    }));
+
+                    return {
+                        bodyContentLength: bodyText.length,
+                        bodyTextSnippet: bodyText.substring(0, 500),
+                        bodyClass: bodyClass.substring(0, 200),
+                        iframeCount,
+                        classesWithProduct: classesWithProduct.slice(0, 15),
+                        firstLinks: allLinks
+                    };
+                });
+
+                console.log(`[Factory 54] DEBUG: Page Content Length: ${diagnostic.bodyContentLength} chars`);
+                console.log(`[Factory 54] DEBUG: Body class: "${diagnostic.bodyClass}"`);
+                console.log(`[Factory 54] DEBUG: Iframes: ${diagnostic.iframeCount}`);
+                console.log(`[Factory 54] DEBUG: Elements with 'product' class: ${JSON.stringify(diagnostic.classesWithProduct)}`);
+                console.log(`[Factory 54] DEBUG: First links: ${JSON.stringify(diagnostic.firstLinks)}`);
+                console.log(`[Factory 54] DEBUG: Body text snippet: "${diagnostic.bodyTextSnippet.substring(0, 300)}"`);
 
                 const products = await this.page.evaluate(() => {
                     function norm(u) {

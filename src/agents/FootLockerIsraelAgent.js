@@ -21,13 +21,42 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     console.log('[Foot Locker Israel] Timeout waiting for product containers.');
                 }
 
-                const debugInfo = await this.page.evaluate(() => ({
-                    title: document.title,
-                    url: window.location.href,
-                    productClasses: [...document.querySelectorAll('[class*="product-item"]')].map(el => el.className).slice(0, 5)
-                }));
-                console.log(`[Foot Locker Israel] DEBUG: title="${debugInfo.title}", url="${debugInfo.url}"`);
-                console.log(`[Foot Locker Israel] DEBUG: Product classes: ${JSON.stringify(debugInfo.productClasses)}`);
+                const diagnostic = await this.page.evaluate(() => {
+                    const tiles = document.querySelectorAll('.product-item');
+                    const firstTwo = [...tiles].slice(0, 2);
+                    const tilesDump = firstTwo.map((tile, i) => {
+                        const allAnchors = [...tile.querySelectorAll('a')];
+                        const anchorInfo = allAnchors.map(a => ({
+                            href: a.getAttribute('href'),
+                            className: a.className,
+                            dataHref: a.getAttribute('data-href'),
+                            dataUrl: a.getAttribute('data-url'),
+                            textSnippet: a.innerText?.substring(0, 50)
+                        }));
+                        return {
+                            index: i,
+                            outerHTMLSnippet: tile.outerHTML.substring(0, 800),
+                            anchors: anchorInfo
+                        };
+                    });
+
+                    return {
+                        title: document.title,
+                        url: window.location.href,
+                        totalTiles: tiles.length,
+                        bodyContentLength: document.body?.innerText?.length || 0,
+                        tilesDump
+                    };
+                });
+
+                console.log(`[Foot Locker Israel] DEBUG: title="${diagnostic.title}", url="${diagnostic.url}"`);
+                console.log(`[Foot Locker Israel] DEBUG: Total .product-item tiles: ${diagnostic.totalTiles}`);
+                console.log(`[Foot Locker Israel] DEBUG: Page Content Length: ${diagnostic.bodyContentLength} chars`);
+
+                for (const tile of diagnostic.tilesDump) {
+                    console.log(`[Foot Locker Israel] TILE ${tile.index} outerHTML: ${tile.outerHTMLSnippet}`);
+                    console.log(`[Foot Locker Israel] TILE ${tile.index} anchors: ${JSON.stringify(tile.anchors)}`);
+                }
 
                 const products = await this.page.evaluate((baseDomain) => {
                     function norm(u) {
@@ -35,17 +64,18 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         u = u.trim();
                         if (u.startsWith('http')) return u;
                         if (u.startsWith('//')) return 'https:' + u;
-                        if (u.startsWith('/')) return baseDomain + u;
+                        if (u.startsWith('/') && !u.includes(baseDomain.replace('https://', ''))) return baseDomain + u;
+                        if (u.startsWith('/')) return 'https:' + u;
                         return baseDomain + '/' + u;
                     }
 
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-item, .product-card');
+                    const tiles = document.querySelectorAll('.product-item');
 
                     tiles.forEach(tile => {
                         let productUrl = '';
-                        const allLinks = tile.querySelectorAll('a');
-                        for (const a of allLinks) {
+                        const allAnchors = [...tile.querySelectorAll('a')];
+                        for (const a of allAnchors) {
                             const h = a.getAttribute('href') || '';
                             if (h.includes('/products/')) {
                                 productUrl = h;
@@ -53,13 +83,18 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             }
                         }
                         if (!productUrl) {
-                            const firstA = tile.querySelector('a');
-                            if (firstA) productUrl = firstA.getAttribute('href') || '';
+                            for (const a of allAnchors) {
+                                const h = a.getAttribute('href') || '';
+                                if (h && h !== '#' && h !== 'javascript:void(0)' && !h.startsWith('mailto:')) {
+                                    productUrl = h;
+                                    break;
+                                }
+                            }
                         }
                         productUrl = norm(productUrl);
 
-                        const titleEl = tile.querySelector('.product-item__title, .product-item__link, .product-card__title, h3, h2');
-                        const priceEl = tile.querySelector('.price__current, .product-item__price, .price, .money');
+                        const titleEl = tile.querySelector('.product-item__title, .product-item__link, h3, h2, [class*="title"]');
+                        const priceEl = tile.querySelector('.price__current, .product-item__price, .price .money, .price, .money');
                         const imgEl = tile.querySelector('.product-item__primary-image, img');
 
                         let title = titleEl?.innerText?.trim() || '';
@@ -68,14 +103,14 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             title = slug.replace(/-/g, ' ');
                         }
 
-                        if (title && productUrl) {
+                        if (title) {
                             let price = 0;
                             if (priceEl) {
                                 const priceText = priceEl.innerText.replace(/[^\d.]/g, '');
                                 price = parseFloat(priceText) || 0;
                             }
 
-                            const rawImg = norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || '');
+                            const rawImg = norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('srcset')?.split(' ')[0] || '');
 
                             results.push({
                                 raw_title: title,
@@ -92,6 +127,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     console.error(`[Foot Locker Israel] DEBUG: Blocked by security or empty response. 0 products.`);
                 } else {
                     console.log(`[Foot Locker Israel] Found ${products.length} products`);
+                    console.log(`[Foot Locker Israel] First item URL: "${products[0]?.raw_url}"`);
                 }
                 resolve(products);
             } catch (err) {
