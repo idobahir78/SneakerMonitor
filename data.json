@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T19:42:14.090Z",
+  "updatedAt": "2026-02-20T19:59:53.227Z",
   "isRunning": false,
   "lastSearchTerm": "Puma MB.05",
   "lastSizeInput": "*",
@@ -11,7 +11,17 @@
   },
   "results": [
     {
-      "id": "item_1771616472488_gzd8a",
+      "id": "item_1771617440418_45k6h",
+      "display_title": "נעלי כדורסל MB.05 WINGS",
+      "price_ils": 454.93,
+      "size_available": "Available",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508290015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r508290015?color=116",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771617442097_946ma",
       "display_title": "נעלי כדורסל MB.05 WINGS",
       "price_ils": 454.93,
       "size_available": "Available",
@@ -21,7 +31,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771616474715_g8i40",
+      "id": "item_1771617444430_2nkt0",
       "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
       "price_ils": 475.93,
       "size_available": "Available",
@@ -31,7 +41,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771616476438_f2tj1",
+      "id": "item_1771617446261_tyud8",
       "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
       "price_ils": 475.93,
       "size_available": "Available",
