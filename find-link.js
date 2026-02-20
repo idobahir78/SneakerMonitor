@@ -1,0 +1,1 @@
+const fs = require('fs'); const html = fs.readFileSync('tx-dump.html', 'utf8'); const idx = html.indexOf('W595000013'); const htmlSlice = html.substring(Math.max(0, idx - 1000), idx + 1000); console.log(htmlSlice.substring(0, 2000));

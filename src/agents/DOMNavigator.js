@@ -1,0 +1,91 @@
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
+
+// Target a specific Chrome signature to match Puppeteer's internal Chromium TLS fingerprint.
+// Using Safari or Firefox UAs with a Chrome network stack guarantees an instant Cloudflare ban.
+const USER_AGENTS = [
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
+];
+
+class DOMNavigator {
+    constructor(storeName, targetUrl) {
+        this.storeName = storeName;
+        this.targetUrl = targetUrl;
+        this.browser = null;
+        this.page = null;
+    }
+
+    getRandomUserAgent() {
+        const randomIndex = Math.floor(Math.random() * USER_AGENTS.length);
+        return USER_AGENTS[randomIndex];
+    }
+
+    async init() {
+        try {
+            this.browser = await puppeteer.launch({
+                headless: 'new',
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--window-size=1920x1080'
+                ]
+            });
+            this.page = await this.browser.newPage();
+
+            // Set 60-second navigation timeout for slow sites like Factory54
+            this.page.setDefaultNavigationTimeout(60000);
+            this.page.setDefaultTimeout(60000);
+
+            // Set random User-Agent to prevent 403 Forbidden
+            const userAgent = this.getRandomUserAgent();
+            await this.page.setUserAgent(userAgent);
+            await this.page.setExtraHTTPHeaders({
+                'Accept-Language': 'he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7'
+                // Let Chrome handle Sec-Fetch-* headers natively to avoid mismatches
+            });
+
+            // Set viewport
+            await this.page.setViewport({ width: 1920, height: 1080 });
+
+            console.log(`[${this.storeName}] Initialized Navigator with agent: ${userAgent.substring(0, 30)}...`);
+        } catch (error) {
+            console.error(`[${this.storeName}] Error initializing browser:`, error.message);
+            throw error;
+        }
+    }
+
+    /**
+     * Navigate to a URL with 1 automatic retry on failure.
+     * @param {string} url
+     * @param {Object} options  puppeteer goto options
+     */
+    async navigateWithRetry(url, options = { waitUntil: 'domcontentloaded' }) {
+        try {
+            return await this.page.goto(url, options);
+        } catch (err) {
+            console.warn(`[${this.storeName}] Navigation failed (${err.message}). Retrying once...`);
+            await new Promise(r => setTimeout(r, 2000)); // 2s pause before retry
+            return await this.page.goto(url, options);
+        }
+    }
+
+    /**
+     * Override this method in child store classes.
+     * It should return an array of raw item objects.
+     */
+    async scrape(brand, model) {
+        throw new Error('scrape() must be implemented by subclass');
+    }
+
+    async close() {
+        if (this.browser) {
+            await this.browser.close();
+            console.log(`[${this.storeName}] Browser closed.`);
+        }
+    }
+}
+
+module.exports = DOMNavigator;

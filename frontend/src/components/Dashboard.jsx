@@ -119,14 +119,18 @@ const Dashboard = () => {
     const effectiveSearchTerm = isWaitingForNewData ? triggeredSearchTerm : (currentSearchTerm || 'Unknown');
 
     // Filter results based on client-side search
-    const filteredResults = effectiveResults.filter(item =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (item.store || '').toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredResults = effectiveResults.filter(item => {
+        const title = (item.display_title || item.title || '').toLowerCase();
+        const store = (item.store_name || item.store || '').toLowerCase();
+        return title.includes(searchQuery.toLowerCase()) || store.includes(searchQuery.toLowerCase());
+    });
 
-    // Calculate Stats
     const totalFound = filteredResults.length;
-    const lowestPrice = filteredResults.reduce((min, item) => (item.price < min ? item.price : min), Infinity);
+    // Support both new (price_ils) and legacy (price) field names
+    const lowestPrice = filteredResults.reduce((min, item) => {
+        const p = item.price_ils ?? item.price;
+        return (p < min ? p : min);
+    }, Infinity);
     const bestPriceDisplay = totalFound > 0 && lowestPrice !== Infinity ? `₪${lowestPrice.toFixed(2)}` : '-';
 
     // Format Date
@@ -226,7 +230,7 @@ const Dashboard = () => {
                     </div>
                 ) : (
                     filteredResults.map((item) => (
-                        <ShoeCard key={item.link} item={item} />
+                        <ShoeCard key={item.buy_link || item.link || item.id} item={item} />
                     ))
                 )}
             </main>

@@ -1,32 +1,17 @@
-
 name: Scrape and Deploy
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'frontend/public/data.json'
-      - '**.md'
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 * * * *'   # Every hour
   workflow_dispatch:
     inputs:
       search_term:
-        description: 'Sneaker Model'
+        description: 'Sneaker Model (e.g. "Nike Dunk")'
         required: false
       sizes:
-        description: 'Sizes'
+        description: 'Size filter (* = all sizes)'
         required: false
         default: '*'
-      progressive_updates:
-        description: 'Enable Progressive Updates'
-        required: false
-        default: 'true'
-      trigger_type:
-        description: 'Trigger Type (manual/schedule/enable_auto)'
-        required: false
-        default: 'manual'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -36,13 +21,10 @@ permissions:
   contents: write
 
 jobs:
-  scrape:
-    name: Scrape Group ${{ matrix.group }}
+  scrape-and-deploy:
+    name: Scrape & Deploy
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        group: [1, 2, 3, 4, 5]
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -69,141 +51,36 @@ jobs:
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
 
-      - name: Set Store Group
-        id: set-group
-        run: |
-          if [ "${{ matrix.group }}" == "1" ]; then
-            echo "stores=terminal x,foot locker" >> $GITHUB_OUTPUT
-          elif [ "${{ matrix.group }}" == "2" ]; then
-            echo "stores=nike,mega sport" >> $GITHUB_OUTPUT
-          elif [ "${{ matrix.group }}" == "3" ]; then
-            echo "stores=factory 54,the shoval,ballers,player six" >> $GITHUB_OUTPUT
-          elif [ "${{ matrix.group }}" == "4" ]; then
-            echo "stores=kits club,shoesonline,master sport,zol sport" >> $GITHUB_OUTPUT
-          else
-            echo "stores=aluf sport,lime shoes,mayers,shoes2u,arba4,ksp" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Run Scraper
+      - name: Run Multi-Agent Scraper
         env:
-          PROGRESSIVE_UPDATES: ${{ github.event.inputs.progressive_updates || 'true' }}
-          TRIGGER_TYPE: ${{ github.event.inputs.trigger_type || (github.event_name == 'schedule' && 'schedule') || 'manual' }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          OUTPUT_FILE="data-part-${{ matrix.group }}.json"
           SEARCH_INPUT="${{ github.event.inputs.search_term }}"
-          SIZE_INPUT="${{ github.event.inputs.sizes }}"
-          
-          # Debug inputs
-          echo "DEBUG: Received SEARCH_INPUT='$SEARCH_INPUT'"
-          echo "DEBUG: Received SIZE_INPUT='$SIZE_INPUT'"
-          echo "DEBUG: Received TRIGGER_TYPE='$TRIGGER_TYPE'"
+          SIZE_INPUT="${{ github.event.inputs.sizes || '*' }}"
 
-          # Fix quoting for stores to prevent argument splitting
-          # Use intermediate variable for clarity and proper quoting
-          STORES_VAL="${{ steps.set-group.outputs.stores }}"
-          
-          # common flags
-          EXTRA_ARGS="--json $OUTPUT_FILE --group=${{ matrix.group }}/5 --trigger-type=$TRIGGER_TYPE"
+          echo "DEBUG: SEARCH_INPUT='$SEARCH_INPUT'"
+          echo "DEBUG: SIZE_INPUT='$SIZE_INPUT'"
 
           if [ -z "$SEARCH_INPUT" ]; then
-             echo "DEBUG: SEARCH_INPUT is empty, using --load-last"
-             # Use double quotes for STORES_VAL to prevent splitting
-             node src/monitor.js --load-last --stores="$STORES_VAL" $EXTRA_ARGS
+            echo "No search term provided — using --load-last"
+            node src/monitor.js --load-last "$SIZE_INPUT"
           else
-             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT" --stores="$STORES_VAL" $EXTRA_ARGS
+            node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT"
           fi
 
-      - name: Patch & Push Partial Results
+      - name: Commit Results
         run: |
-          MAX_RETRIES=10
-          RETRY_COUNT=0
-          SUCCESS=false
-          
-          while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-            echo "Attempt $((RETRY_COUNT+1)) to sync and push results..."
-            
-            # 1. Force discard any local changes to tracked files (like data.json or package-lock)
-            git reset --hard HEAD
-            
-            # 2. Pull latest data from main
-            if git pull --rebase -X theirs origin main; then
-                # 3. Merge our partial results into the fresh data.json
-                if node src/scripts/patch_results.js data-part-${{ matrix.group }}.json; then
-                    # 4. Commit changes
-                    git add frontend/public/data.json
-                    if git commit -m "Partial update: Group ${{ matrix.group }} [$(date -u)]"; then
-                        # 5. Push to origin
-                        if git push origin main; then
-                            SUCCESS=true
-                            echo "✅ Successfully synced and pushed Group ${{ matrix.group }} results."
-                            break
-                        fi
-                    else
-                        # No changes to commit (nothing new found)
-                        SUCCESS=true
-                        echo "ℹ️ No new items found in Group ${{ matrix.group }}. Skipping push."
-                        break
-                    fi
-                fi
-            fi
-            
-            RETRY_COUNT=$((RETRY_COUNT+1))
-            SLEEP_TIME=$(( (RANDOM % 15) + 5 ))
-            echo "⚠️ Sync failed or push rejected (concurrency). Retrying in $SLEEP_TIME seconds..."
-            sleep $SLEEP_TIME
-          done
-          
-          if [ "$SUCCESS" = false ]; then
-            echo "❌ Failed to push Group ${{ matrix.group }} results after $MAX_RETRIES attempts."
-            exit 1
-          fi
-
-      - name: Upload Partial (Backup)
-        uses: actions/upload-artifact@v4
-        with:
-          name: data-part-${{ matrix.group }}
-          path: data-part-${{ matrix.group }}.json
-          retention-days: 1
-
-  merge-and-deploy:
-    needs: scrape
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Download All Artifacts (Final Sync)
-        uses: actions/download-artifact@v4
-        with:
-          pattern: data-part-*
-          merge-multiple: true
-          path: . 
-
-      - name: Final Merge
-        run: |
-          node src/scripts/merge_results.js
-          # Final merge sets isRunning to false automatically (per script logic)
-
-      - name: Commit & Push Final Data
-        run: |
-          git config user.name "GitHub Action"
-          git config user.email "action@github.com"
           git add frontend/public/data.json
-          git commit -m "Final data sync: $(date -u)" || echo "No changes"
+          git commit -m "Scrape update: $(date -u)" || echo "No changes to commit"
           git pull --rebase -X theirs origin main
           git push origin main
 
-      - name: Build & Deploy Frontend
+      - name: Build Frontend
         run: |
           cd frontend
           npm install
           npm run build
-      
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

@@ -1,0 +1,3720 @@
+{
+  "__typename": "ConfigurableProduct",
+  "sku": "W595000013",
+  "id": 1884207,
+  "visibility": "4",
+  "status": "1",
+  "early_cutoff": 0,
+  "return_policy": null,
+  "warranty_block": null,
+  "is_outlet_promo": true,
+  "supplier_style": "DV0833-601",
+  "hide_until": null,
+  "blur_image": 0,
+  "disable_atc": null,
+  "icon_stampa": null,
+  "justlanded": "2024-09-11",
+  "stock_status2": "IN_STOCK",
+  "stampa": null,
+  "stampa_sale": 2057,
+  "stampa_strip": 19280,
+  "stampa_vip_strip": null,
+  "stampa_strip_design": null,
+  "lastcall": "-",
+  "category_ids": [
+    "17094",
+    "31568",
+    "30736",
+    "196",
+    "347",
+    "17588",
+    "29034",
+    "29998",
+    "31085",
+    "31103",
+    "31767",
+    "30421",
+    "31387",
+    "23840",
+    "31811",
+    "31886",
+    "31940",
+    "31947",
+    "24217",
+    "32158",
+    "32244",
+    "32279",
+    "31751",
+    "10",
+    "27418",
+    "19911",
+    "30546",
+    "31574",
+    "30583",
+    "32634",
+    "32678"
+  ],
+  "color_group": "499",
+  "colors_set_alt": null,
+  "brand": "13",
+  "by_fit": null,
+  "gift_eligible": 1,
+  "return_eligible": true,
+  "exchange_eligible": true,
+  "sub_story": "עונתי ממשיך",
+  "has_school": false,
+  "school_symbol_data": {
+    "number_of_items_in_set": 0,
+    "number_of_dark_items": 0,
+    "number_of_light_items": 0
+  },
+  "use_qty": 0,
+  "brand_url": {
+    "brand": 347,
+    "name": "NIKE",
+    "url": "https://www.terminalx.com/brands/nike"
+  },
+  "div_top": "512",
+  "div_top_code": "2",
+  "div": "543",
+  "div_code": "24",
+  "type": "7969",
+  "fabric": "100% עור",
+  "meta_title": null,
+  "meta_keyword": null,
+  "meta_description": null,
+  "swatch_image": null,
+  "image": {
+    "disabled": null,
+    "label": "סניקרס Nike Dunk Low Retro / גברים",
+    "position": null,
+    "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+  },
+  "media_gallery": [
+    {
+      "disabled": false,
+      "label": null,
+      "position": 1,
+      "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70",
+      "__typename": "ProductImage"
+    }
+  ],
+  "small_image": {
+    "disabled": null,
+    "label": "סניקרס Nike Dunk Low Retro / גברים",
+    "position": null,
+    "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+  },
+  "thumbnail": {
+    "disabled": null,
+    "label": "סניקרס Nike Dunk Low Retro / גברים",
+    "position": null,
+    "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+  },
+  "fragile_product": "0",
+  "description": {
+    "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+  },
+  "categories": [
+    {
+      "name": "ON SALE",
+      "path_in_store": null,
+      "path": "1/2/10",
+      "url_key": "on-sale",
+      "url_path": "on-sale",
+      "level": 2,
+      "id": 10,
+      "breadcrumbs": null
+    },
+    {
+      "name": "import",
+      "path_in_store": null,
+      "path": "1/2/11",
+      "url_key": "import",
+      "url_path": "import",
+      "level": 2,
+      "id": 11,
+      "breadcrumbs": null
+    },
+    {
+      "name": "גברים",
+      "path_in_store": null,
+      "path": "1/2/11/12",
+      "url_key": "gbrim",
+      "url_path": "import/gbrim",
+      "level": 3,
+      "id": 12,
+      "breadcrumbs": [
+        {
+          "category_id": 11,
+          "category_level": 2,
+          "category_name": "import",
+          "category_url_path": "import",
+          "category_url_key": "import"
+        }
+      ]
+    },
+    {
+      "name": "נעליים",
+      "path_in_store": null,
+      "path": "1/2/4/196",
+      "url_key": "shoes",
+      "url_path": "men/shoes",
+      "level": 3,
+      "id": 196,
+      "breadcrumbs": [
+        {
+          "category_id": 4,
+          "category_level": 2,
+          "category_name": "גברים",
+          "category_url_path": "men",
+          "category_url_key": "men"
+        }
+      ]
+    },
+    {
+      "name": "NIKE",
+      "path_in_store": null,
+      "path": "1/2/19669/347",
+      "url_key": "nike",
+      "url_path": "brands/nike",
+      "level": 3,
+      "id": 347,
+      "breadcrumbs": [
+        {
+          "category_id": 19669,
+          "category_level": 2,
+          "category_name": "מותגים",
+          "category_url_path": "brands",
+          "category_url_key": "brands"
+        }
+      ]
+    },
+    {
+      "name": "נעליים",
+      "path_in_store": null,
+      "path": "1/2/11/12/17094",
+      "url_key": "נעליים",
+      "url_path": "import/gbrim/נעליים",
+      "level": 4,
+      "id": 17094,
+      "breadcrumbs": [
+        {
+          "category_id": 11,
+          "category_level": 2,
+          "category_name": "import",
+          "category_url_path": "import",
+          "category_url_key": "import"
+        },
+        {
+          "category_id": 12,
+          "category_level": 3,
+          "category_name": "גברים",
+          "category_url_path": "import/gbrim",
+          "category_url_key": "gbrim"
+        }
+      ]
+    },
+    {
+      "name": "VIEW ALL",
+      "path_in_store": null,
+      "path": "1/2/4/17588",
+      "url_key": "all",
+      "url_path": "men/all",
+      "level": 3,
+      "id": 17588,
+      "breadcrumbs": [
+        {
+          "category_id": 4,
+          "category_level": 2,
+          "category_name": "גברים",
+          "category_url_path": "men",
+          "category_url_key": "men"
+        }
+      ]
+    },
+    {
+      "name": "גברים",
+      "path_in_store": null,
+      "path": "1/2/10/19911",
+      "url_key": "men",
+      "url_path": "on-sale/men",
+      "level": 3,
+      "id": 19911,
+      "breadcrumbs": [
+        {
+          "category_id": 10,
+          "category_level": 2,
+          "category_name": "ON SALE",
+          "category_url_path": "on-sale",
+          "category_url_key": "on-sale"
+        }
+      ]
+    },
+    {
+      "name": "קולקציות",
+      "path_in_store": null,
+      "path": "1/2/4/20243",
+      "url_key": "collections",
+      "url_path": "men/collections",
+      "level": 3,
+      "id": 20243,
+      "breadcrumbs": [
+        {
+          "category_id": 4,
+          "category_level": 2,
+          "category_name": "גברים",
+          "category_url_path": "men",
+          "category_url_key": "men"
+        }
+      ]
+    },
+    {
+      "name": "COLLECTIONS",
+      "path_in_store": null,
+      "path": "1/2/23513",
+      "url_key": "collections",
+      "url_path": "collections",
+      "level": 2,
+      "id": 23513,
+      "breadcrumbs": null
+    },
+    {
+      "name": "SNEAKERS ICONS",
+      "path_in_store": null,
+      "path": "1/2/23513/23714",
+      "url_key": "fashion",
+      "url_path": "collections/fashion",
+      "level": 3,
+      "id": 23714,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "BEST OF WOMEN",
+      "path_in_store": null,
+      "path": "1/2/23513/28827/23840",
+      "url_key": "best-of-women",
+      "url_path": "collections/best-of-tx-day/best-of-women",
+      "level": 4,
+      "id": 23840,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        },
+        {
+          "category_id": 28827,
+          "category_level": 3,
+          "category_name": "BEST OF TX DAY",
+          "category_url_path": "collections/best-of-tx-day",
+          "category_url_key": "best-of-tx-day"
+        }
+      ]
+    },
+    {
+      "name": "BEST OF INDEPENDENCE DAY",
+      "path_in_store": null,
+      "path": "1/2/23513/24217",
+      "url_key": "best-of-independence-day",
+      "url_path": "collections/best-of-independence-day",
+      "level": 3,
+      "id": 24217,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "FINAL SALE",
+      "path_in_store": null,
+      "path": "1/2/23513/27411",
+      "url_key": "final-sale",
+      "url_path": "collections/final-sale",
+      "level": 3,
+      "id": 27411,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "FINAL SUMMER SALE",
+      "path_in_store": null,
+      "path": "1/2/23513/27411/27418",
+      "url_key": "final-summer-sale",
+      "url_path": "collections/final-sale/final-summer-sale",
+      "level": 4,
+      "id": 27418,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        },
+        {
+          "category_id": 27411,
+          "category_level": 3,
+          "category_name": "FINAL SALE",
+          "category_url_path": "collections/final-sale",
+          "category_url_key": "final-sale"
+        }
+      ]
+    },
+    {
+      "name": "BEST OF TX DAY",
+      "path_in_store": null,
+      "path": "1/2/23513/28827",
+      "url_key": "best-of-tx-day",
+      "url_path": "collections/best-of-tx-day",
+      "level": 3,
+      "id": 28827,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "NIKE - VIEW ALL",
+      "path_in_store": null,
+      "path": "1/2/19669/347/29034",
+      "url_key": "view-all",
+      "url_path": "brands/nike/view-all",
+      "level": 4,
+      "id": 29034,
+      "breadcrumbs": [
+        {
+          "category_id": 347,
+          "category_level": 3,
+          "category_name": "NIKE",
+          "category_url_path": "brands/nike",
+          "category_url_key": "nike"
+        },
+        {
+          "category_id": 19669,
+          "category_level": 2,
+          "category_name": "מותגים",
+          "category_url_path": "brands",
+          "category_url_key": "brands"
+        }
+      ]
+    },
+    {
+      "name": "נעלי נייק",
+      "path_in_store": null,
+      "path": "1/2/19669/347/29998",
+      "url_key": "nike-shoes",
+      "url_path": "brands/nike/nike-shoes",
+      "level": 4,
+      "id": 29998,
+      "breadcrumbs": [
+        {
+          "category_id": 347,
+          "category_level": 3,
+          "category_name": "NIKE",
+          "category_url_path": "brands/nike",
+          "category_url_key": "nike"
+        },
+        {
+          "category_id": 19669,
+          "category_level": 2,
+          "category_name": "מותגים",
+          "category_url_path": "brands",
+          "category_url_key": "brands"
+        }
+      ]
+    },
+    {
+      "name": "STREET WEAR",
+      "path_in_store": null,
+      "path": "1/2/4/20243/30421",
+      "url_key": "street-wear",
+      "url_path": "men/collections/street-wear",
+      "level": 4,
+      "id": 30421,
+      "breadcrumbs": [
+        {
+          "category_id": 4,
+          "category_level": 2,
+          "category_name": "גברים",
+          "category_url_path": "men",
+          "category_url_key": "men"
+        },
+        {
+          "category_id": 20243,
+          "category_level": 3,
+          "category_name": "קולקציות",
+          "category_url_path": "men/collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SHOES EXTRA15",
+      "path_in_store": null,
+      "path": "1/2/23513/30546",
+      "url_key": "sneakers-collection",
+      "url_path": "collections/sneakers-collection",
+      "level": 3,
+      "id": 30546,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "TEST DANIEL - Smart Category deploy 1",
+      "path_in_store": null,
+      "path": "1/2/30583",
+      "url_key": "test-daniel",
+      "url_path": "test-daniel",
+      "level": 2,
+      "id": 30583,
+      "breadcrumbs": null
+    },
+    {
+      "name": "סניקרס",
+      "path_in_store": null,
+      "path": "1/2/4/196/30736",
+      "url_key": "sneakers-shoes",
+      "url_path": "men/shoes/sneakers-shoes",
+      "level": 4,
+      "id": 30736,
+      "breadcrumbs": [
+        {
+          "category_id": 4,
+          "category_level": 2,
+          "category_name": "גברים",
+          "category_url_path": "men",
+          "category_url_key": "men"
+        },
+        {
+          "category_id": 196,
+          "category_level": 3,
+          "category_name": "נעליים",
+          "category_url_path": "men/shoes",
+          "category_url_key": "shoes"
+        }
+      ]
+    },
+    {
+      "name": "DUNK NIKE",
+      "path_in_store": null,
+      "path": "1/2/23513/23714/31085",
+      "url_key": "dunk-nike",
+      "url_path": "collections/fashion/dunk-nike",
+      "level": 4,
+      "id": 31085,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        },
+        {
+          "category_id": 23714,
+          "category_level": 3,
+          "category_name": "SNEAKERS ICONS",
+          "category_url_path": "collections/fashion",
+          "category_url_key": "fashion"
+        }
+      ]
+    },
+    {
+      "name": "NIKE DUNK ",
+      "path_in_store": null,
+      "path": "1/2/23513/23714/31103",
+      "url_key": "nike-dunk",
+      "url_path": "collections/fashion/nike-dunk",
+      "level": 4,
+      "id": 31103,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        },
+        {
+          "category_id": 23714,
+          "category_level": 3,
+          "category_name": "SNEAKERS ICONS",
+          "category_url_path": "collections/fashion",
+          "category_url_key": "fashion"
+        }
+      ]
+    },
+    {
+      "name": "BEST OF TX DAY",
+      "path_in_store": null,
+      "path": "1/2/23513/31387",
+      "url_key": "tx24-day-best-of",
+      "url_path": "collections/tx24-day-best-of",
+      "level": 3,
+      "id": 31387,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "FW24",
+      "path_in_store": null,
+      "path": "1/2/23513/31568",
+      "url_key": "fw24",
+      "url_path": "collections/fw24",
+      "level": 3,
+      "id": 31568,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "EXTRA 15%",
+      "path_in_store": null,
+      "path": "1/2/23513/31574",
+      "url_key": "extra-15-sport",
+      "url_path": "collections/extra-15-sport",
+      "level": 3,
+      "id": 31574,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "DREAMCARD VIP- BEST OF 30%",
+      "path_in_store": null,
+      "path": "1/2/19670/31751",
+      "url_key": "best-off-30-off",
+      "url_path": "dreamcard-terminalx/best-off-30-off",
+      "level": 3,
+      "id": 31751,
+      "breadcrumbs": [
+        {
+          "category_id": 19670,
+          "category_level": 2,
+          "category_name": "DREAM CARD VIP",
+          "category_url_path": "dreamcard-terminalx",
+          "category_url_key": "dreamcard-terminalx"
+        }
+      ]
+    },
+    {
+      "name": "NEW SHOES",
+      "path_in_store": null,
+      "path": "1/2/23513/31767",
+      "url_key": "new-shoes",
+      "url_path": "collections/new-shoes",
+      "level": 3,
+      "id": 31767,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SPORTS BRANDS SALE",
+      "path_in_store": null,
+      "path": "1/2/23513/31811",
+      "url_key": "sports-brands-sale",
+      "url_path": "collections/sports-brands-sale",
+      "level": 3,
+      "id": 31811,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SS25",
+      "path_in_store": null,
+      "path": "1/2/23513/31886",
+      "url_key": "ss25",
+      "url_path": "collections/ss25",
+      "level": 3,
+      "id": 31886,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "NIKE V DAY",
+      "path_in_store": null,
+      "path": "1/2/23513/31940",
+      "url_key": "nike-v-day",
+      "url_path": "collections/nike-v-day",
+      "level": 3,
+      "id": 31940,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "FOX GROUP",
+      "path_in_store": null,
+      "path": "1/2/23513/31947",
+      "url_key": "fox-group-campaign",
+      "url_path": "collections/fox-group-campaign",
+      "level": 3,
+      "id": 31947,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "GIFTING",
+      "path_in_store": null,
+      "path": "1/2/23513/32158",
+      "url_key": "gifting",
+      "url_path": "collections/gifting",
+      "level": 3,
+      "id": 32158,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SPORTEX15",
+      "path_in_store": null,
+      "path": "1/2/23513/32244",
+      "url_key": "sportex15",
+      "url_path": "collections/sportex15",
+      "level": 3,
+      "id": 32244,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SNEAKERS COLLECTION",
+      "path_in_store": null,
+      "path": "1/2/23513/32279",
+      "url_key": "sneakers-collection-new",
+      "url_path": "collections/sneakers-collection-new",
+      "level": 3,
+      "id": 32279,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SNEAKERS & SPORTSWEAR",
+      "path_in_store": null,
+      "path": "1/2/23513/32634",
+      "url_key": "sneakers-and-sportswear",
+      "url_path": "collections/sneakers-and-sportswear",
+      "level": 3,
+      "id": 32634,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    },
+    {
+      "name": "SPRING 2026",
+      "path_in_store": null,
+      "path": "1/2/23513/32678",
+      "url_key": "spring-2026",
+      "url_path": "collections/spring-2026",
+      "level": 3,
+      "id": 32678,
+      "breadcrumbs": [
+        {
+          "category_id": 23513,
+          "category_level": 2,
+          "category_name": "COLLECTIONS",
+          "category_url_path": "collections",
+          "category_url_key": "collections"
+        }
+      ]
+    }
+  ],
+  "size_recommendation": null,
+  "configurable_options": [
+    {
+      "attribute_code": "color",
+      "attribute_id": "93",
+      "id": 28564710,
+      "label": "צבע",
+      "values": [
+        {
+          "default_label": "אדום",
+          "label": "אדום",
+          "store_label": "אדום",
+          "use_default_value": true,
+          "value_index": 70,
+          "swatch_data": {
+            "value": "#d42020"
+          }
+        }
+      ]
+    },
+    {
+      "attribute_code": "size",
+      "attribute_id": "149",
+      "id": 28564711,
+      "label": "מידה",
+      "values": [
+        {
+          "default_label": "40.5",
+          "label": "40.5",
+          "store_label": "40.5",
+          "use_default_value": true,
+          "value_index": 1442,
+          "swatch_data": {
+            "value": "40.5"
+          }
+        },
+        {
+          "default_label": "41",
+          "label": "41",
+          "store_label": "41",
+          "use_default_value": true,
+          "value_index": 51,
+          "swatch_data": {
+            "value": "41"
+          }
+        },
+        {
+          "default_label": "42",
+          "label": "42",
+          "store_label": "42",
+          "use_default_value": true,
+          "value_index": 52,
+          "swatch_data": {
+            "value": "42"
+          }
+        },
+        {
+          "default_label": "42.5",
+          "label": "42.5",
+          "store_label": "42.5",
+          "use_default_value": true,
+          "value_index": 53,
+          "swatch_data": {
+            "value": "42.5"
+          }
+        },
+        {
+          "default_label": "43",
+          "label": "43",
+          "store_label": "43",
+          "use_default_value": true,
+          "value_index": 54,
+          "swatch_data": {
+            "value": "43"
+          }
+        },
+        {
+          "default_label": "44",
+          "label": "44",
+          "store_label": "44",
+          "use_default_value": true,
+          "value_index": 55,
+          "swatch_data": {
+            "value": "44"
+          }
+        },
+        {
+          "default_label": "44.5",
+          "label": "44.5",
+          "store_label": "44.5",
+          "use_default_value": true,
+          "value_index": 56,
+          "swatch_data": {
+            "value": "44.5"
+          }
+        },
+        {
+          "default_label": "45",
+          "label": "45",
+          "store_label": "45",
+          "use_default_value": true,
+          "value_index": 57,
+          "swatch_data": {
+            "value": "45"
+          }
+        },
+        {
+          "default_label": "45.5",
+          "label": "45.5",
+          "store_label": "45.5",
+          "use_default_value": true,
+          "value_index": 1443,
+          "swatch_data": {
+            "value": "45.5"
+          }
+        },
+        {
+          "default_label": "46",
+          "label": "46",
+          "store_label": "46",
+          "use_default_value": true,
+          "value_index": 58,
+          "swatch_data": {
+            "value": "46"
+          }
+        },
+        {
+          "default_label": "47",
+          "label": "47",
+          "store_label": "47",
+          "use_default_value": true,
+          "value_index": 1553,
+          "swatch_data": {
+            "value": "47"
+          }
+        },
+        {
+          "default_label": "47.5",
+          "label": "47.5",
+          "store_label": "47.5",
+          "use_default_value": true,
+          "value_index": 1548,
+          "swatch_data": {
+            "value": "47.5"
+          }
+        }
+      ]
+    }
+  ],
+  "price_range": {
+    "minimum_price": {
+      "regular_price": {
+        "value": 499.9,
+        "currency": "ILS"
+      },
+      "final_price": {
+        "value": 349.93,
+        "currency": "ILS"
+      },
+      "discount": {
+        "amount_off": 149.97,
+        "percent_off": 30
+      }
+    },
+    "maximum_price": {
+      "regular_price": {
+        "value": 499.9,
+        "currency": "ILS"
+      },
+      "final_price": {
+        "value": 349.93,
+        "currency": "ILS"
+      },
+      "discount": {
+        "amount_off": 149.97,
+        "percent_off": 30
+      }
+    }
+  },
+  "variants": [
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "40.5",
+          "code": "size",
+          "value_index": 1442
+        }
+      ],
+      "product": {
+        "id": 1883479,
+        "sku": "W59500001301",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "41",
+          "code": "size",
+          "value_index": 51
+        }
+      ],
+      "product": {
+        "id": 1883480,
+        "sku": "W59500001302",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "42",
+          "code": "size",
+          "value_index": 52
+        }
+      ],
+      "product": {
+        "id": 1883481,
+        "sku": "W59500001303",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "42.5",
+          "code": "size",
+          "value_index": 53
+        }
+      ],
+      "product": {
+        "id": 1883482,
+        "sku": "W59500001304",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "43",
+          "code": "size",
+          "value_index": 54
+        }
+      ],
+      "product": {
+        "id": 1883483,
+        "sku": "W59500001305",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "44",
+          "code": "size",
+          "value_index": 55
+        }
+      ],
+      "product": {
+        "id": 1883484,
+        "sku": "W59500001306",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "44.5",
+          "code": "size",
+          "value_index": 56
+        }
+      ],
+      "product": {
+        "id": 1883485,
+        "sku": "W59500001307",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "45",
+          "code": "size",
+          "value_index": 57
+        }
+      ],
+      "product": {
+        "id": 1883486,
+        "sku": "W59500001308",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "45.5",
+          "code": "size",
+          "value_index": 1443
+        }
+      ],
+      "product": {
+        "id": 1883487,
+        "sku": "W59500001309",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "IN_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "46",
+          "code": "size",
+          "value_index": 58
+        }
+      ],
+      "product": {
+        "id": 1883488,
+        "sku": "W59500001310",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "OUT_OF_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "47",
+          "code": "size",
+          "value_index": 1553
+        }
+      ],
+      "product": {
+        "id": 1883489,
+        "sku": "W59500001311",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "OUT_OF_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    },
+    {
+      "attributes": [
+        {
+          "label": "אדום",
+          "code": "color",
+          "value_index": 70
+        },
+        {
+          "label": "47.5",
+          "code": "size",
+          "value_index": 1548
+        }
+      ],
+      "product": {
+        "id": 1883490,
+        "sku": "W59500001312",
+        "justlanded": "2024-09-11",
+        "status": "1",
+        "stock_status2": "OUT_OF_STOCK",
+        "stampa": null,
+        "stampa_sale": 2057,
+        "stampa_strip": 19280,
+        "stampa_vip_strip": null,
+        "lastcall": null,
+        "size_scale": "",
+        "by_fit": null,
+        "colors_set_alt": null,
+        "early_cutoff": 0,
+        "hide_until": null,
+        "color_group": null,
+        "marketplace_name": null,
+        "gift_eligible": 1,
+        "return_eligible": true,
+        "exchange_eligible": true,
+        "is_outlet_promo": true,
+        "swatch_image": null,
+        "state_stampa": {
+          "class": "",
+          "html": "",
+          "text": ""
+        },
+        "person_height": null,
+        "person_size": null,
+        "vendor_details": {
+          "vendor_id": 0,
+          "vendor_name": null,
+          "vendor_delay": 0,
+          "vendor_cutoff_hour": null,
+          "all_vendors": [],
+          "exception": null
+        },
+        "parent_product": {
+          "ai_color": {
+            "option_id": 40449,
+            "label": "אדום חמרה",
+            "swatch": "#ab3d15"
+          },
+          "product": {
+            "id": 1884207,
+            "sku": "W595000013",
+            "name": "סניקרס Nike Dunk Low Retro / גברים",
+            "status": "1",
+            "visibility": "4",
+            "colors_set_alt": null,
+            "icon_stampa": null,
+            "stampa_sale": 2057,
+            "state_stampa": {
+              "class": "",
+              "html": "",
+              "text": ""
+            },
+            "blur_image": 0,
+            "disable_atc": null,
+            "person_height": null,
+            "person_size": null,
+            "fabric": "100% עור",
+            "manufacturer": "8062",
+            "laundry": 9071,
+            "importer": "31529",
+            "by_fit": null,
+            "description": {
+              "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+            }
+          }
+        },
+        "image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "media_gallery": [
+          {
+            "disabled": false,
+            "label": null,
+            "position": 1,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 2,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-21725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 3,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-31725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 4,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-41725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 5,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-51725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 6,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-61725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 7,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-71725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          },
+          {
+            "disabled": false,
+            "label": null,
+            "position": 8,
+            "url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w595000013-81725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+          }
+        ],
+        "small_image": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/92af6b9c945798a7e3b64d91033084b3/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "thumbnail": {
+          "disabled": null,
+          "label": "NIKE DUNK LOW RETRO",
+          "position": null,
+          "url": "https://media.terminalx.com/pub/media/catalog/product/cache/07fcf88957aa12468578da7d2fc8b9e7/w/5/w595000013-11725959358.jpg?image_type_mobile=webp_jpeg_like_70"
+        },
+        "name": "סניקרס Nike Dunk Low Retro / גברים",
+        "laundry": 9071,
+        "importer": "31529",
+        "fragile_product": null,
+        "manufacturer": "8062",
+        "brand": "13",
+        "div_top": "512",
+        "div_top_code": "2",
+        "div": "543",
+        "div_code": "24",
+        "type": "7969",
+        "description": {
+          "html": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה."
+        },
+        "price_per_100": {
+          "label": "",
+          "show_price_per_100": false
+        },
+        "remove_shop_the_look": false,
+        "remove_laundry_instructions": false,
+        "price_range": {
+          "minimum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          },
+          "maximum_price": {
+            "regular_price": {
+              "value": 499.9,
+              "currency": "ILS"
+            },
+            "final_price": {
+              "value": 349.93,
+              "currency": "ILS"
+            },
+            "discount": {
+              "amount_off": 149.97,
+              "percent_off": 30
+            }
+          }
+        },
+        "tx_labels": {
+          "stampa_sale": "30% OFF",
+          "brand": "NIKE",
+          "laundry": "5",
+          "manufacturer": "וייטנאם",
+          "div_top": "גברים",
+          "div": "נעליים",
+          "type": "סניקרס",
+          "importer": "30070"
+        },
+        "resizeMap": {},
+        "__decorate_was_here": true,
+        "fabric": "100% עור"
+      }
+    }
+  ],
+  "tx_labels": {
+    "stampa_sale": "30% OFF",
+    "brand": "NIKE",
+    "laundry": "5",
+    "manufacturer": "וייטנאם",
+    "div_top": "גברים",
+    "div": "נעליים",
+    "type": "סניקרס",
+    "color_group": "אדום",
+    "importer": "30070"
+  },
+  "resizeMap": {},
+  "__decorate_was_here": true,
+  "blocks": {
+    "size_chart": "sizechart_nike_2",
+    "brand": "nike_about_product_page",
+    "laundry": "laundry_5",
+    "importer": "importer_30070",
+    "delivery": "delivery_and_exchange_product_page",
+    "description": {
+      "content": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה.",
+      "cssSelector": "wysiwyg_id_desc_block_1884207",
+      "contentReact": "נעלי סניקרס מבית Nike ומדגם Dunk Low Retro. לנעליים גפת עור, דוגמת חירורים בחזית, שרוכי קשירה, לוגו מופיע בצדדים וסולייה שטוחה.",
+      "schedule_contentReact": "",
+      "contentWidgets": [],
+      "schedule_contentWidgets": [],
+      "contentText": "&#x5E0;&#x5E2;&#x5DC;&#x5D9; &#x5E1;&#x5E0;&#x5D9;&#x5E7;&#x5E8;&#x5E1; &#x5DE;&#x5D1;&#x5D9;&#x5EA; Nike &#x5D5;&#x5DE;&#x5D3;&#x5D2;&#x5DD; Dunk Low Retro. &#x5DC;&#x5E0;&#x5E2;&#x5DC;&#x5D9;&#x5D9;&#x5DD; &#x5D2;&#x5E4;&#x5EA; &#x5E2;&#x5D5;&#x5E8;, &#x5D3;&#x5D5;&#x5D2;&#x5DE;&#x5EA; &#x5D7;&#x5D9;&#x5E8;&#x5D5;&#x5E8;&#x5D9;&#x5DD; &#x5D1;&#x5D7;&#x5D6;&#x5D9;&#x5EA;, &#x5E9;&#x5E8;&#x5D5;&#x5DB;&#x5D9; &#x5E7;&#x5E9;&#x5D9;&#x5E8;&#x5D4;, &#x5DC;&#x5D5;&#x5D2;&#x5D5; &#x5DE;&#x5D5;&#x5E4;&#x5D9;&#x5E2; &#x5D1;&#x5E6;&#x5D3;&#x5D3;&#x5D9;&#x5DD; &#x5D5;&#x5E1;&#x5D5;&#x5DC;&#x5D9;&#x5D9;&#x5D4; &#x5E9;&#x5D8;&#x5D5;&#x5D7;&#x5D4;.",
+      "schedule_contentText": ""
+    }
+  },
+  "defaultColorValueIndex": 70,
+  "inStockSkuVariantsBy": {
+    "color": {
+      "70": [
+        "W59500001301",
+        "W59500001302",
+        "W59500001303",
+        "W59500001304",
+        "W59500001305",
+        "W59500001306",
+        "W59500001307",
+        "W59500001308",
+        "W59500001309",
+        "W59500001310",
+        "W59500001311",
+        "W59500001312"
+      ]
+    },
+    "size": {
+      "51": [
+        "W59500001302"
+      ],
+      "52": [
+        "W59500001303"
+      ],
+      "53": [
+        "W59500001304"
+      ],
+      "54": [
+        "W59500001305"
+      ],
+      "55": [
+        "W59500001306"
+      ],
+      "56": [
+        "W59500001307"
+      ],
+      "57": [
+        "W59500001308"
+      ],
+      "58": [
+        "W59500001310"
+      ],
+      "1442": [
+        "W59500001301"
+      ],
+      "1443": [
+        "W59500001309"
+      ],
+      "1548": [
+        "W59500001312"
+      ],
+      "1553": [
+        "W59500001311"
+      ]
+    }
+  },
+  "__from": "cache"
+}
