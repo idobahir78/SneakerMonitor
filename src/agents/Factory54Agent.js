@@ -62,27 +62,46 @@ class Factory54Agent extends DOMNavigator {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
                 const products = await this.page.evaluate(() => {
+                    function norm(u) {
+                        if (!u) return '';
+                        u = u.trim();
+                        if (u.startsWith('http')) return u;
+                        if (u.startsWith('//')) return 'https:' + u;
+                        if (u.startsWith('/')) return 'https://www.factory54.co.il' + u;
+                        return 'https://www.factory54.co.il/' + u;
+                    }
+
                     const results = [];
-                    const tiles = document.querySelectorAll('.b-product_tile, .product-tile, .product-item-info, [data-pid]');
+                    const tiles = document.querySelectorAll('.product-item-info, .b-product_tile, .product-tile, [data-pid]');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.product-item-details a, .product-item-name a, .product-item-link span, .b-product_tile-name a, .b-product_tile-link') || tile.querySelector('h2 a, h3 a');
-                        const priceEl = tile.querySelector('.b-price-item, .sales .value, .price .value, [data-price]');
-                        const linkEl = tile.querySelector('a[href*="/p/"], a[href*="factory54.co.il"]') || tile.querySelector('a');
-                        const imgEl = tile.querySelector('img');
+                        const nameEl = tile.querySelector('.product-item-details .product-item-link')
+                            || tile.querySelector('.product-item-name a')
+                            || tile.querySelector('.b-product_tile-name a')
+                            || tile.querySelector('.b-product_tile-link');
 
-                        const title = titleEl?.innerText?.trim() || titleEl?.textContent?.trim();
-                        if (!title || title.includes('הוספה לסל') || title.includes('הוסף')) return;
+                        if (!nameEl) return;
+
+                        const title = nameEl.innerText?.trim() || nameEl.textContent?.trim() || '';
+                        if (!title || title.includes('הוספה לסל') || title.includes('הוסף') || title.length < 3) return;
+
+                        const priceEl = tile.querySelector('.b-price-item, .sales .value, .price .value, [data-price]');
+                        const imgEl = tile.querySelector('img');
 
                         const priceText = priceEl?.innerText?.trim() || priceEl?.getAttribute('content') || '0';
                         const priceMatch = priceText.replace(/,/g, '').match(/[\d.]+/);
                         const price = priceMatch ? parseFloat(priceMatch[0]) : 0;
 
+                        const linkHref = nameEl.getAttribute('href')
+                            || tile.querySelector('a[href*="/p/"]')?.getAttribute('href')
+                            || tile.querySelector('a')?.getAttribute('href')
+                            || '';
+
                         results.push({
                             raw_title: title,
                             raw_price: price,
-                            raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || null,
-                            raw_url: linkEl?.href || null,
+                            raw_image_url: norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || ''),
+                            raw_url: norm(linkHref),
                             raw_sizes: [],
                         });
                     });

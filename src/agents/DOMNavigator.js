@@ -102,6 +102,18 @@ class DOMNavigator {
         throw new Error('scrape() must be implemented by subclass');
     }
 
+    static normalizeUrl(url, domain) {
+        if (!url) return '';
+        url = url.trim();
+        if (url.startsWith('http')) return url;
+        if (url.startsWith('//')) return 'https:' + url;
+        if (url.startsWith('/')) {
+            if (url.includes(domain.replace('https://', '').replace('http://', ''))) return 'https:' + url;
+            return domain + url;
+        }
+        return domain + '/' + url;
+    }
+
     async close() {
         if (this.browser) {
             await this.browser.close();

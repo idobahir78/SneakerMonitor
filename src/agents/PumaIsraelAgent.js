@@ -9,6 +9,7 @@ class PumaIsraelAgent extends DOMNavigator {
         if (brand.toLowerCase() !== 'puma') return [];
         const query = encodeURIComponent(`${brand} ${model}`);
         const searchUrl = `${this.targetUrl}/il/he/search?q=${query}`;
+        const domain = this.targetUrl;
 
         let interceptedItems = [];
         let apiDataCaptured = false;
@@ -42,7 +43,7 @@ class PumaIsraelAgent extends DOMNavigator {
                     return resolve(interceptedItems);
                 }
 
-                try { await this.page.waitForSelector('.product-tile, [class*="product"], [data-test-id*="product"]', { timeout: 15000 }); } catch (e) { }
+                try { await this.page.waitForSelector('.product-tile, [class*="product-tile"]', { timeout: 15000 }); } catch (e) { }
 
                 const debugInfo = await this.page.evaluate(() => ({
                     title: document.title,
@@ -52,30 +53,36 @@ class PumaIsraelAgent extends DOMNavigator {
                 console.log(`[Puma Israel] DEBUG: title="${debugInfo.title}", url="${debugInfo.url}"`);
                 console.log(`[Puma Israel] DEBUG: Product classes: ${JSON.stringify(debugInfo.productClasses)}`);
 
-                const products = await this.page.evaluate(() => {
+                const products = await this.page.evaluate((baseDomain) => {
+                    function norm(u) {
+                        if (!u) return '';
+                        u = u.trim();
+                        if (u.startsWith('http')) return u;
+                        if (u.startsWith('//')) return 'https:' + u;
+                        if (u.startsWith('/')) return baseDomain + u;
+                        return baseDomain + '/' + u;
+                    }
+
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-tile, [class*="ProductCard"], [class*="product-card"], [data-test-id*="product"]');
+                    const tiles = document.querySelectorAll('.product-tile');
 
                     tiles.forEach(tile => {
-                        const linkEl = tile.querySelector('a.product-tile__link, a[href*="/pd/"], a[href*="/product"]') || tile.querySelector('a');
-                        const titleEl = tile.querySelector('.product-tile__title, .product-tile-title, h3, h2, [class*="name"]') || linkEl;
-                        const priceEl = tile.querySelector('.product-tile__price-current, [class*="price"], [data-test-id*="price"]');
-                        const imgEl = tile.querySelector('.product-tile__image img, img');
+                        const linkEl = tile.querySelector('a.product-tile__link') || tile.querySelector('a[href*="/pd/"]') || tile.querySelector('a');
+                        const titleEl = tile.querySelector('.product-tile__title, .product-tile-title') || linkEl;
+                        const priceEl = tile.querySelector('.product-tile__price .value, .product-tile__price-current, [class*="price"] .value');
+                        const imgEl = tile.querySelector('img.tile-image, img');
 
                         if (titleEl) {
-                            let rawUrl = linkEl?.href || '';
-                            if (rawUrl.startsWith('/')) rawUrl = 'https://il.puma.com' + rawUrl;
-
                             results.push({
                                 raw_title: titleEl.innerText.trim(),
                                 raw_price: priceEl ? parseFloat(priceEl.innerText.replace(/[^\d.]/g, '')) || 0 : 0,
-                                raw_url: rawUrl,
-                                raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
+                                raw_url: norm(linkEl?.getAttribute('href') || ''),
+                                raw_image_url: norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || '')
                             });
                         }
                     });
                     return results;
-                });
+                }, domain);
 
                 if (products.length === 0 && interceptedItems.length === 0) {
                     console.error(`[Puma Israel] DEBUG: Blocked by security or empty response. 0 products.`);
