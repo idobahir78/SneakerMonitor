@@ -1,6 +1,12 @@
 name: Scrape and Deploy
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'frontend/public/data.json'
+      - '**.md'
   schedule:
     - cron: '0 * * * *'   # Every hour
   workflow_dispatch:
