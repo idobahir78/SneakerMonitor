@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T18:24:49.191Z",
+  "updatedAt": "2026-02-20T18:27:38.020Z",
   "isRunning": false,
   "lastSearchTerm": "Puma MB.05",
   "lastSizeInput": "*",
@@ -9,46 +9,5 @@
     ],
     "sizes": []
   },
-  "results": [
-    {
-      "id": "item_1771611881422_zhkmy",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508290015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508290015?color=116",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771611883504_f7s4h",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771611885198_7cnun",
-      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
-      "price_ils": 475.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322940011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r322940011?color=8",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771611886877_o4kzv",
-      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
-      "price_ils": 475.93,
-      "size_available": "Available",
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322950011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r322950011?color=8",
-      "store_name": "TerminalX"
-    }
-  ]
+  "results": []
 }
