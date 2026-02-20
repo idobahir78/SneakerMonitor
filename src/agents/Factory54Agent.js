@@ -62,53 +62,6 @@ class Factory54Agent extends DOMNavigator {
 
                 await new Promise(r => setTimeout(r, 5000));
 
-                // === DIAGNOSTIC: Dump all data-* attributes on first .present-product ===
-                const tileDiag = await this.page.evaluate(() => {
-                    const tile = document.querySelector('.present-product');
-                    if (!tile) return null;
-
-                    const dataAttrs = {};
-                    for (const attr of tile.attributes) {
-                        if (attr.name.startsWith('data-')) {
-                            dataAttrs[attr.name] = attr.value.substring(0, 200);
-                        }
-                    }
-
-                    // Check all children for data attributes too
-                    const childDataAttrs = [];
-                    tile.querySelectorAll('[data-pid], [data-product-metadata], [data-sizes], [data-attr]').forEach(el => {
-                        const info = { tag: el.tagName, className: el.className.substring(0, 80) };
-                        for (const attr of el.attributes) {
-                            if (attr.name.startsWith('data-')) {
-                                info[attr.name] = attr.value.substring(0, 200);
-                            }
-                        }
-                        childDataAttrs.push(info);
-                    });
-
-                    // Check for any hidden size elements
-                    const hiddenSizeEls = [];
-                    tile.querySelectorAll('[class*="size"], [class*="Size"]').forEach(el => {
-                        hiddenSizeEls.push({
-                            tag: el.tagName,
-                            className: el.className.substring(0, 100),
-                            text: el.innerText?.substring(0, 100) || '',
-                            childCount: el.children.length,
-                            display: window.getComputedStyle(el).display
-                        });
-                    });
-
-                    return { dataAttrs, childDataAttrs, hiddenSizeEls };
-                });
-
-                if (tileDiag) {
-                    console.log(`[Factory 54] DEBUG: Tile data-* attributes: ${JSON.stringify(tileDiag.dataAttrs)}`);
-                    console.log(`[Factory 54] DEBUG: Children with data-attrs: ${JSON.stringify(tileDiag.childDataAttrs)}`);
-                    console.log(`[Factory 54] DEBUG: Elements with 'size' class: ${JSON.stringify(tileDiag.hiddenSizeEls)}`);
-                } else {
-                    console.log(`[Factory 54] DEBUG: No .present-product tile found for diagnostics`);
-                }
-
                 const products = await this.page.evaluate(() => {
                     function norm(u) {
                         if (!u) return '';
@@ -147,40 +100,58 @@ class Factory54Agent extends DOMNavigator {
                         const tileBody = tile.querySelector('.tile-body, .present-product__tile-body');
                         const fullContext = tileBody?.innerText?.trim() || '';
 
-                        // === SIZE EXTRACTION ===
+                        // === SIZE EXTRACTION (Multi-Strategy) ===
                         const sizes = [];
 
-                        // Strategy 1: data-product-metadata JSON
-                        const allDataEls = tile.querySelectorAll('[data-product-metadata], [data-sizes]');
-                        allDataEls.forEach(el => {
-                            const metaVal = el.getAttribute('data-product-metadata') || el.getAttribute('data-sizes') || '';
-                            if (metaVal) {
-                                try {
-                                    const meta = JSON.parse(metaVal);
-                                    const sizeArr = meta.sizes || meta.availableSizes || meta.size || [];
-                                    if (Array.isArray(sizeArr)) {
-                                        sizeArr.forEach(s => {
-                                            const sv = s.toString();
-                                            if (sv && !sizes.includes(sv)) sizes.push(sv);
-                                        });
-                                    }
-                                } catch (e) { }
-                            }
+                        // Strategy 1: data-size attribute on buttons/links
+                        tile.querySelectorAll('[data-size], [data-attr-value]').forEach(el => {
+                            const val = el.getAttribute('data-size') || el.getAttribute('data-attr-value') || '';
+                            if (val && !sizes.includes(val)) sizes.push(val);
                         });
 
-                        // Strategy 2: Size buttons/swatches (visible or hidden)
+                        // Strategy 2: data-value on swatch buttons (Demandware standard)
                         if (sizes.length === 0) {
-                            tile.querySelectorAll(
-                                '[class*="size"] button, [class*="size"] a, [class*="size"] span, ' +
-                                '.popover button, .popover a, ' +
-                                '[data-attr="size"] button, [data-attr="size"] .swatch-value'
-                            ).forEach(el => {
-                                const val = el.getAttribute('data-value') || el.innerText?.trim() || el.getAttribute('value') || '';
-                                if (val && /^\d{2}(\.\d)?$/.test(val) && !sizes.includes(val)) sizes.push(val);
+                            tile.querySelectorAll('.swatch-value, [data-attr="size"] button, [data-attr="size"] a').forEach(el => {
+                                const val = el.getAttribute('data-value') || el.getAttribute('data-attr-value') || '';
+                                if (val && !sizes.includes(val)) sizes.push(val);
                             });
                         }
 
-                        // Strategy 3: Check data-pid and look for variation JSON in scripts
+                        // Strategy 3: Size buttons with text — extract numbers only
+                        if (sizes.length === 0) {
+                            tile.querySelectorAll('[class*="size"] button, [class*="size"] a, [class*="size"] span').forEach(el => {
+                                let val = el.getAttribute('data-size') || el.getAttribute('data-value') || '';
+                                if (!val) {
+                                    // Get raw text, remove "US" prefix, extract number
+                                    const rawText = el.innerText?.trim() || '';
+                                    const numMatch = rawText.replace(/US\s*/i, '').match(/\d{2}(\.\d)?/);
+                                    if (numMatch) val = numMatch[0];
+                                }
+                                if (val && !sizes.includes(val)) sizes.push(val);
+                            });
+                        }
+
+                        // Strategy 4: JSON in data-product-metadata
+                        if (sizes.length === 0) {
+                            const metaEls = tile.querySelectorAll('[data-product-metadata], [data-product]');
+                            metaEls.forEach(el => {
+                                const metaVal = el.getAttribute('data-product-metadata') || el.getAttribute('data-product') || '';
+                                if (metaVal) {
+                                    try {
+                                        const meta = JSON.parse(metaVal);
+                                        const sizeArr = meta.sizes || meta.availableSizes || meta.attributes?.size || [];
+                                        if (Array.isArray(sizeArr)) {
+                                            sizeArr.forEach(s => {
+                                                const sv = typeof s === 'object' ? (s.value || s.label || '') : s.toString();
+                                                if (sv && !sizes.includes(sv)) sizes.push(sv);
+                                            });
+                                        }
+                                    } catch (e) { }
+                                }
+                            });
+                        }
+
+                        // Strategy 5: variationAttributes in script tags matched by data-pid
                         if (sizes.length === 0) {
                             const pid = tile.querySelector('[data-pid]')?.getAttribute('data-pid') || '';
                             if (pid) {
@@ -221,7 +192,7 @@ class Factory54Agent extends DOMNavigator {
                 clearTimeout(timeout);
                 console.log(`[Factory 54] Scraped ${products.length} products.`);
                 products.forEach(p => {
-                    console.log(`[Factory 54] DEBUG: ${p.raw_title} → Sizes: [${p.raw_sizes.join(', ')}]`);
+                    console.log(`[Factory 54] DEBUG: "${p.raw_title}" → Sizes: [${p.raw_sizes.join(', ')}]`);
                 });
                 resolve(products);
 
