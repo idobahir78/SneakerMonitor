@@ -26,7 +26,7 @@ class DataNormalizer {
             }
 
             // 3. Product URL Integrity Check
-            let productUrl = rawItem.product_url || '';
+            let productUrl = rawItem.raw_url || rawItem.product_url || '';
             if (productUrl && !productUrl.startsWith('http')) {
                 // Fix relative paths if possible, else it's invalid
                 // Placeholder logic: assuming base store logic handled this in DOMNavigator

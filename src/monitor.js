@@ -13,7 +13,7 @@ const JDSportsAgent = require('./agents/JDSportsAgent');
 const MayersAgent = require('./agents/MayersAgent');
 const KicksAgent = require('./agents/KicksAgent');
 
-const PumaIsraelAgent = require('./agents/PumaIsraelAgent');
+// Puma Israel removed — il.puma.com is shut down as an online store
 const NewBalanceIsraelAgent = require('./agents/NewBalanceIsraelAgent');
 const HokaIsraelAgent = require('./agents/HokaIsraelAgent');
 const AsicsIsraelAgent = require('./agents/AsicsIsraelAgent');
@@ -91,9 +91,9 @@ async function run() {
     orchestrator.registerWorker(new FootLockerIsraelAgent());
     orchestrator.registerWorker(new JDSportsAgent());
     orchestrator.registerWorker(new MayersAgent());
-    orchestrator.registerWorker(new KicksAgent());
+    // orchestrator.registerWorker(new KicksAgent());    // Removed: 403 Forbidden
 
-    orchestrator.registerWorker(new PumaIsraelAgent());
+    // orchestrator.registerWorker(new PumaIsraelAgent()); // Removed: il.puma.com store is shut down
     orchestrator.registerWorker(new NewBalanceIsraelAgent());
     orchestrator.registerWorker(new HokaIsraelAgent());
     orchestrator.registerWorker(new AsicsIsraelAgent());

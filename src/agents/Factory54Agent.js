@@ -62,44 +62,6 @@ class Factory54Agent extends DOMNavigator {
 
                 await new Promise(r => setTimeout(r, 5000));
 
-                const diagnostic = await this.page.evaluate(() => {
-                    const bodyText = document.body?.innerText || '';
-                    const bodyClass = document.body?.className || '';
-                    const iframeCount = document.querySelectorAll('iframe').length;
-                    const allElements = document.querySelectorAll('*');
-                    const classesWithProduct = [];
-                    allElements.forEach(el => {
-                        if (el.className && typeof el.className === 'string' && el.className.includes('product')) {
-                            classesWithProduct.push({
-                                tag: el.tagName,
-                                className: el.className.substring(0, 120),
-                                childCount: el.children.length
-                            });
-                        }
-                    });
-
-                    const allLinks = [...document.querySelectorAll('a')].slice(0, 10).map(a => ({
-                        href: a.getAttribute('href')?.substring(0, 100),
-                        text: a.innerText?.substring(0, 50)
-                    }));
-
-                    return {
-                        bodyContentLength: bodyText.length,
-                        bodyTextSnippet: bodyText.substring(0, 500),
-                        bodyClass: bodyClass.substring(0, 200),
-                        iframeCount,
-                        classesWithProduct: classesWithProduct.slice(0, 15),
-                        firstLinks: allLinks
-                    };
-                });
-
-                console.log(`[Factory 54] DEBUG: Page Content Length: ${diagnostic.bodyContentLength} chars`);
-                console.log(`[Factory 54] DEBUG: Body class: "${diagnostic.bodyClass}"`);
-                console.log(`[Factory 54] DEBUG: Iframes: ${diagnostic.iframeCount}`);
-                console.log(`[Factory 54] DEBUG: Elements with 'product' class: ${JSON.stringify(diagnostic.classesWithProduct)}`);
-                console.log(`[Factory 54] DEBUG: First links: ${JSON.stringify(diagnostic.firstLinks)}`);
-                console.log(`[Factory 54] DEBUG: Body text snippet: "${diagnostic.bodyTextSnippet.substring(0, 300)}"`);
-
                 const products = await this.page.evaluate(() => {
                     function norm(u) {
                         if (!u) return '';
@@ -111,36 +73,35 @@ class Factory54Agent extends DOMNavigator {
                     }
 
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-item-info, .b-product_tile, .product-tile, [data-pid]');
+                    const tiles = document.querySelectorAll('.present-product');
 
                     tiles.forEach(tile => {
-                        const nameEl = tile.querySelector('.product-item-details .product-item-link')
-                            || tile.querySelector('.product-item-name a')
-                            || tile.querySelector('.b-product_tile-name a')
-                            || tile.querySelector('.b-product_tile-link');
-
+                        const nameEl = tile.querySelector('a.tile-body__product-name');
                         if (!nameEl) return;
 
-                        const title = nameEl.innerText?.trim() || nameEl.textContent?.trim() || '';
-                        if (!title || title.includes('הוספה לסל') || title.includes('הוסף') || title.length < 3) return;
+                        const brandEl = tile.querySelector('span.tile-body__product-name-brand');
+                        const brandText = brandEl?.innerText?.trim() || '';
+                        const fullText = nameEl.innerText?.trim() || '';
+                        const titleText = fullText.replace(brandText, '').trim();
+                        const title = brandText ? `${brandText} ${titleText}` : fullText;
 
-                        const priceEl = tile.querySelector('.b-price-item, .sales .value, .price .value, [data-price]');
-                        const imgEl = tile.querySelector('img');
+                        if (!title || title.length < 3) return;
 
-                        const priceText = priceEl?.innerText?.trim() || priceEl?.getAttribute('content') || '0';
+                        const linkHref = nameEl.getAttribute('href') || '';
+
+                        const priceEl = tile.querySelector('.tile-body__price, [class*="price"]');
+                        const priceText = priceEl?.innerText?.trim() || '0';
                         const priceMatch = priceText.replace(/,/g, '').match(/[\d.]+/);
                         const price = priceMatch ? parseFloat(priceMatch[0]) : 0;
 
-                        const linkHref = nameEl.getAttribute('href')
-                            || tile.querySelector('a[href*="/p/"]')?.getAttribute('href')
-                            || tile.querySelector('a')?.getAttribute('href')
-                            || '';
+                        const imgEl = tile.querySelector('img');
+                        const imgSrc = imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || '';
 
                         results.push({
                             raw_title: title,
                             raw_price: price,
-                            raw_image_url: norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || ''),
                             raw_url: norm(linkHref),
+                            raw_image_url: norm(imgSrc),
                             raw_sizes: [],
                         });
                     });
