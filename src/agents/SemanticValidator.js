@@ -20,6 +20,29 @@ class SemanticValidator {
         const brandUpper = brand.toUpperCase();
         const modelUpper = (model || '').toUpperCase();
 
+        // Strict Version Matching (e.g., MB.05 vs MB.04, Jordan 1 vs Jordan 4)
+        const targetVersionMatch = modelUpper.match(/([A-Z]+)[.\s-]*(\d+(?:\.\d+)?)/);
+        if (targetVersionMatch) {
+            const prefix = targetVersionMatch[1];
+            const targetVersion = targetVersionMatch[2];
+
+            // Allow the title to either have the exact version, or not have the version signature at all.
+            // But if it has the version signature with a DIFFERENT number, kill it.
+            const regex = new RegExp(prefix + '[.\\s-]*(\\d+(?:\\.\\d+)?)', 'g');
+            let match;
+            let foundWrongVersion = false;
+            while ((match = regex.exec(titleUpper)) !== null) {
+                // If it explicitly mentions "MB 04" or "MB.04" when we want "05", reject.
+                // Ignore leading zeros for comparison (e.g. 05 vs 5)
+                if (parseFloat(match[1]) !== parseFloat(targetVersion)) {
+                    foundWrongVersion = true;
+                    console.log(`[Agent 3 - Semantic] REJECTED (Strict Version Mismatch: Expected ${prefix} ${targetVersion}, found ${match[1]}): ${rawItem.raw_title}`);
+                    break;
+                }
+            }
+            if (foundWrongVersion) return false;
+        }
+
         const junkKeywords = ['LACES', 'SOCKS', 'BOX ONLY', 'CLEAN KIT', 'CLEANING KIT', 'INSOLE', 'KEEPER'];
         if (junkKeywords.some(k => titleUpper.includes(k))) {
             const shoeKeywords = ['SHOE', 'SNEAKER', 'BOOT', 'TRAINER', 'נעל', 'סניקר', 'כדורסל'];
