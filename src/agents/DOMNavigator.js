@@ -62,13 +62,17 @@ class DOMNavigator {
      * @param {string} url
      * @param {Object} options  puppeteer goto options
      */
-    async navigateWithRetry(url, options = { waitUntil: 'domcontentloaded' }) {
-        try {
-            return await this.page.goto(url, options);
-        } catch (err) {
-            console.warn(`[${this.storeName}] Navigation failed (${err.message}). Retrying once...`);
-            await new Promise(r => setTimeout(r, 2000)); // 2s pause before retry
-            return await this.page.goto(url, options);
+    async navigateWithRetry(url, options = { waitUntil: 'domcontentloaded' }, maxRetries = 2) {
+        let attempt = 0;
+        while (attempt <= maxRetries) {
+            try {
+                return await this.page.goto(url, options);
+            } catch (err) {
+                attempt++;
+                console.warn(`[${this.storeName}] Navigation failed (${err.message}). Retry ${attempt}/${maxRetries}...`);
+                if (attempt > maxRetries) throw err;
+                await new Promise(r => setTimeout(r, 2000 * attempt)); // exponential pause
+            }
         }
     }
 

@@ -24,23 +24,30 @@ class SemanticValidator {
         const targetVersionMatch = modelUpper.match(/([A-Z]+)[.\s-]*(\d+(?:\.\d+)?)/);
         if (targetVersionMatch) {
             const prefix = targetVersionMatch[1];
-            const targetVersion = targetVersionMatch[2];
+            const targetVersionString = targetVersionMatch[2];
+            const targetVersion = parseFloat(targetVersionString);
 
-            // Allow the title to either have the exact version, or not have the version signature at all.
-            // But if it has the version signature with a DIFFERENT number, kill it.
+            // Extract ALL numbers found right after the prefix in the title
             const regex = new RegExp(prefix + '[.\\s-]*(\\d+(?:\\.\\d+)?)', 'g');
             let match;
-            let foundWrongVersion = false;
+            let foundAnyVersion = false;
+            let exactVersionMatch = false;
+
             while ((match = regex.exec(titleUpper)) !== null) {
-                // If it explicitly mentions "MB 04" or "MB.04" when we want "05", reject.
-                // Ignore leading zeros for comparison (e.g. 05 vs 5)
-                if (parseFloat(match[1]) !== parseFloat(targetVersion)) {
-                    foundWrongVersion = true;
-                    console.log(`[Agent 3 - Semantic] REJECTED (Strict Version Mismatch: Expected ${prefix} ${targetVersion}, found ${match[1]}): ${rawItem.raw_title}`);
-                    break;
+                foundAnyVersion = true;
+                const foundVersion = parseFloat(match[1]);
+                if (foundVersion === targetVersion) {
+                    exactVersionMatch = true;
                 }
             }
-            if (foundWrongVersion) return false;
+
+            // CRITICAL: If the title explicitly contains a version number for this prefix,
+            // and it is NOT our target version, REJECT IMMEDIATELY.
+            // Example: We want "MB.05". Title says "MB.04". foundAnyVersion=true, exact=false -> REJECT.
+            if (foundAnyVersion && !exactVersionMatch) {
+                console.log(`[Agent 3 - Semantic] REJECTED (Strict Version Mismatch: Expected ${prefix} ${targetVersionString}): ${rawItem.raw_title}`);
+                return false;
+            }
         }
 
         const junkKeywords = ['LACES', 'SOCKS', 'BOX ONLY', 'CLEAN KIT', 'CLEANING KIT', 'INSOLE', 'KEEPER'];
