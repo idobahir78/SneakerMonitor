@@ -13,8 +13,8 @@ class NikeIsraelAgent extends DOMNavigator {
         return new Promise(async (resolve) => {
             try {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
-
-                await new Promise(r => setTimeout(r, 2000)); // wait for client-side render
+                try { await this.page.waitForSelector('.product-card, .product-grid__item', { timeout: 15000 }); } catch (e) { console.log('[Nike Israel] Timeout waiting for items'); }
+                await new Promise(r => setTimeout(r, 1000));
 
                 const products = await this.page.evaluate(() => {
                     const results = [];

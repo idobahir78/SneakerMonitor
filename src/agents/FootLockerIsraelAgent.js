@@ -12,7 +12,8 @@ class FootLockerIsraelAgent extends DOMNavigator {
         return new Promise(async (resolve) => {
             try {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
-                await new Promise(r => setTimeout(r, 2000));
+                try { await this.page.waitForSelector('.product-item, .item.product', { timeout: 15000 }); } catch (e) { console.log('[Foot Locker Israel] Timeout waiting for items'); }
+                await new Promise(r => setTimeout(r, 1000));
 
                 const products = await this.page.evaluate(() => {
                     const results = [];
