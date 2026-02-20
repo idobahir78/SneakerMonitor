@@ -10,7 +10,15 @@ class Factory54Agent extends DOMNavigator {
         const StealthPlugin = require('puppeteer-extra-plugin-stealth');
         puppeteer.use(StealthPlugin());
 
-        this.browser = await puppeteer.launch({ headless: "new" });
+        this.browser = await puppeteer.launch({
+            headless: 'new',
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--window-size=1920x1080'
+            ]
+        });
         this.page = await this.browser.newPage();
 
         await this.page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36');

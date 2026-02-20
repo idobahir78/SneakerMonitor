@@ -49,7 +49,14 @@ class SemanticValidator {
                 return false;
             }
 
-            if (!titleUpper.includes(brand.toUpperCase())) {
+            // Brand check: accept if brand OR model name appears in the title.
+            // Hebrew sites (e.g. TerminalX) never include the brand name in product titles —
+            // only the model code (e.g. "MB.05"). We trust the scraper's brand-filtered search.
+            const brandFound = titleUpper.includes(brand.toUpperCase());
+            const modelFound = model && titleUpper.includes(model.toUpperCase().split(' ')[0]);
+            const storeNameFound = rawItem.store_name || rawItem.raw_store; // already brand-filtered
+
+            if (!brandFound && !modelFound && !storeNameFound) {
                 console.log(`[Agent 3 - Semantic] REJECTED (Wrong Brand): ${rawItem.raw_title}`);
                 return false;
             }
