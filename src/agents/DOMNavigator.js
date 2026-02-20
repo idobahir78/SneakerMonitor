@@ -5,8 +5,8 @@ puppeteer.use(StealthPlugin());
 // Target a specific Chrome signature to match Puppeteer's internal Chromium TLS fingerprint.
 // Using Safari or Firefox UAs with a Chrome network stack guarantees an instant Cloudflare ban.
 const USER_AGENTS = [
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
 ];
 
 class DOMNavigator {
@@ -68,7 +68,11 @@ class DOMNavigator {
         let attempt = 0;
         while (attempt <= maxRetries) {
             try {
-                return await this.page.goto(url, options);
+                const response = await this.page.goto(url, options);
+                // Human behavior: add a random delay (1000ms - 3000ms) after the page loads
+                const delay = 1000 + Math.floor(Math.random() * 2000);
+                await new Promise(r => setTimeout(r, delay));
+                return response;
             } catch (err) {
                 attempt++;
                 console.warn(`[${this.storeName}] Navigation failed (${err.message}). Retry ${attempt}/${maxRetries}...`);

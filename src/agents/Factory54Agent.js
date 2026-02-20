@@ -66,7 +66,7 @@ class Factory54Agent extends DOMNavigator {
                     const tiles = document.querySelectorAll('.b-product_tile, .product-tile, [data-pid]');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.b-product_tile-name, .b-product_tile-link, .product-name, h2, h3');
+                        const titleEl = tile.querySelector('.product-item-link, .b-product_tile-name, .product-name, h2, h3');
                         const priceEl = tile.querySelector('.b-price-item, .sales .value, .price .value, [data-price]');
                         const linkEl = tile.querySelector('a[href*="/p/"], a[href*="factory54.co.il"]') || tile.querySelector('a');
                         const imgEl = tile.querySelector('img');
