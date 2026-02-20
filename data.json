@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T22:15:58.692Z",
+  "updatedAt": "2026-02-20T22:29:08.093Z",
   "isRunning": false,
   "lastSearchTerm": "Puma MB.05",
   "lastSizeInput": "*",
@@ -11,7 +11,7 @@
   },
   "results": [
     {
-      "id": "item_1771625670205_rn9lk",
+      "id": "item_1771626482471_hvh4n",
       "display_title": "נעלי כדורסל MB.05 WINGS",
       "price_ils": 454.93,
       "size_available": "Available",
@@ -21,7 +21,17 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771625671889_u85xd",
+      "id": "item_1771626483079_wgxnp",
+      "display_title": "PUMA נעלי כדורסל פומה X מהיר ועצבני",
+      "price_ils": 680,
+      "size_available": "Available",
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw73719515/images/new//919176071/919176071_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919176071.html?pi=1",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771626484243_xq7vk",
       "display_title": "נעלי כדורסל MB.05 WINGS",
       "price_ils": 454.93,
       "size_available": "Available",
@@ -31,7 +41,17 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771625674179_706hf",
+      "id": "item_1771626484961_sms44",
+      "display_title": "PUMA נעלי כדורסל פומה X מהיר ועצבני",
+      "price_ils": 650,
+      "size_available": "Available",
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw0f9dedc4/images/new//919173569/919173569_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%9B%D7%93%D7%95%D7%A8%D7%A1%D7%9C-%D7%A4%D7%95%D7%9E%D7%94-x-%D7%9E%D7%94%D7%99%D7%A8-%D7%95%D7%A2%D7%A6%D7%91%D7%A0%D7%99/919173569.html?pi=2",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771626485926_pt6xp",
       "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
       "price_ils": 475.93,
       "size_available": "Available",
@@ -41,7 +61,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771625675811_x6ult",
+      "id": "item_1771626487956_ppo0n",
       "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
       "price_ils": 475.93,
       "size_available": "Available",
