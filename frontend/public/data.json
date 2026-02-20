@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-20T23:27:46.106Z",
+  "updatedAt": "2026-02-20T23:31:22.260Z",
   "isRunning": false,
-  "lastSearchTerm": "Puma MB.05",
+  "lastSearchTerm": "New Balance 530",
   "lastSizeInput": "45",
   "filters": {
     "models": [
-      "Puma MB.05"
+      "New Balance 530"
     ],
     "sizes": [
       "45"
@@ -13,9 +13,42 @@
   },
   "results": [
     {
-      "id": "item_1771629997936_884z1",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
+      "id": "item_1771630212166_zqre3",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 599.25,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37344309/images/new/970002483/970002483_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771630213237_s05lf",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf2c33d41/images/new/970002463/970002463_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771630214128_6qcwa",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8320a881/images/new//970002558/970002558_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002558.html?pi=3",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771630214571_emphd",
+      "display_title": "סניקרס New Balance 530 / נשים",
+      "price_ils": 669.9,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -23,59 +56,19 @@
         "37.5",
         "38",
         "38.5",
-        "39",
+        "39.5",
         "40",
         "40.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508290015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252630018-11753794316.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508290015?color=116",
+      "buy_link": "https://www.terminalx.com/default-category/r252630018?color=17762",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771629999401_3lop2",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
-      "size_available": "Available",
-      "sizes": [
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771630001674_20dmz",
-      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
-      "price_ils": 475.93,
-      "size_available": "Available",
-      "sizes": [
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322940011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r322940011?color=8",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771630004902_l75e0",
-      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
-      "price_ils": 475.93,
+      "id": "item_1771630215845_bp0k3",
+      "display_title": "סניקרס / נשים New Balance CT500",
+      "price_ils": 482.93,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -83,47 +76,33 @@
         "37.5",
         "38",
         "38.5",
-        "39",
+        "39.5",
         "40",
         "40.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r322950011-11758084377.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r152780004-11751520385.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r322950011?color=8",
+      "buy_link": "https://www.terminalx.com/default-category/r152780004?color=6",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771630017516_eqir4",
-      "display_title": "PUMA X FAST & FURIOUS MB.05 MIAMI נעלי...",
-      "price_ils": 679.9,
+      "id": "item_1771630217125_u3lsp",
+      "display_title": "נעלי ספורט New Balance / נשים",
+      "price_ils": 469.95,
       "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/314021_01_sv03_6ec577ef-3ba9-4406-b60d-db515851b121.jpg?v=1770304742&width=1280",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w627800005-11725269573.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f323860012?_pos=1&_sid=dc3165106&_ss=r",
-      "store_name": "Foot Locker Israel"
-    },
-    {
-      "id": "item_1771630018495_dt56u",
-      "display_title": "PUMA X FAST & FURIOUS MB.05 LA FRANCE...",
-      "price_ils": 679.9,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/312796_01_sv03.jpg?v=1770305247&width=1280",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f323870002?_pos=2&_sid=dc3165106&_ss=r",
-      "store_name": "Foot Locker Israel"
-    },
-    {
-      "id": "item_1771630019414_3gq9e",
-      "display_title": "PUMA X FAST & FURIOUS LAFRANCE RNR LA...",
-      "price_ils": 649.9,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/314033_01_sv03.jpg?v=1770305732&width=1280",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f323810016?_pos=3&_sid=dc3165106&_ss=r",
-      "store_name": "Foot Locker Israel"
+      "buy_link": "https://www.terminalx.com/default-category/w627800005?color=10",
+      "store_name": "TerminalX"
     }
   ]
 }
