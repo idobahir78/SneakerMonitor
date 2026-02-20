@@ -46,11 +46,16 @@ class FootLockerIsraelAgent extends DOMNavigator {
                                 price = parseFloat(priceText) || 0;
                             }
 
+                            let rawUrl = linkEl?.href || '';
+                            if (rawUrl.startsWith('/')) rawUrl = 'https://footlocker.co.il' + rawUrl;
+                            let rawImg = imgEl?.src || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('data-srcset')?.split(' ')[0] || '';
+                            if (rawImg.startsWith('/')) rawImg = 'https://footlocker.co.il' + rawImg;
+
                             results.push({
                                 raw_title: title,
                                 raw_price: price,
-                                raw_url: linkEl?.href || '',
-                                raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('data-srcset')?.split(' ')[0] || ''
+                                raw_url: rawUrl,
+                                raw_image_url: rawImg
                             });
                         }
                     });

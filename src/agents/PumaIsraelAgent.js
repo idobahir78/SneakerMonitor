@@ -54,19 +54,22 @@ class PumaIsraelAgent extends DOMNavigator {
 
                 const products = await this.page.evaluate(() => {
                     const results = [];
-                    const tiles = document.querySelectorAll('[class*="ProductCard"], [class*="product-card"], [class*="product-tile"], [data-test-id*="product"]');
+                    const tiles = document.querySelectorAll('.product-tile, [class*="ProductCard"], [class*="product-card"], [data-test-id*="product"]');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('h3, h2, [class*="name"], [class*="title"], a[class*="link"]');
-                        const priceEl = tile.querySelector('[class*="price"], [class*="Price"], [data-test-id*="price"]');
-                        const linkEl = tile.querySelector('a[href*="/pd/"], a[href*="/product"]') || tile.querySelector('a');
-                        const imgEl = tile.querySelector('img');
+                        const linkEl = tile.querySelector('a.product-tile__link, a[href*="/pd/"], a[href*="/product"]') || tile.querySelector('a');
+                        const titleEl = tile.querySelector('.product-tile__title, .product-tile-title, h3, h2, [class*="name"]') || linkEl;
+                        const priceEl = tile.querySelector('.product-tile__price-current, [class*="price"], [data-test-id*="price"]');
+                        const imgEl = tile.querySelector('.product-tile__image img, img');
 
                         if (titleEl) {
+                            let rawUrl = linkEl?.href || '';
+                            if (rawUrl.startsWith('/')) rawUrl = 'https://il.puma.com' + rawUrl;
+
                             results.push({
                                 raw_title: titleEl.innerText.trim(),
                                 raw_price: priceEl ? parseFloat(priceEl.innerText.replace(/[^\d.]/g, '')) || 0 : 0,
-                                raw_url: linkEl?.href || '',
+                                raw_url: rawUrl,
                                 raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
                             });
                         }
