@@ -33,28 +33,49 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     const tiles = document.querySelectorAll('.product-item, .product-card, .product-facet__result-item, .product-list .card');
 
                     tiles.forEach(tile => {
-                        const linkEl = tile.querySelector('a[href*="/products/"]') || tile.querySelector('a');
-                        const titleEl = tile.querySelector('.product-item__title, .product-card__title, h3, h2') || linkEl;
+                        let productUrl = '';
+                        const allLinks = tile.querySelectorAll('a');
+                        for (const a of allLinks) {
+                            const h = a.getAttribute('href') || '';
+                            if (h.includes('/products/')) {
+                                productUrl = h;
+                                break;
+                            }
+                        }
+                        if (!productUrl) {
+                            const firstA = tile.querySelector('a');
+                            productUrl = firstA?.getAttribute('href') || '';
+                        }
+                        if (productUrl && !productUrl.startsWith('http')) {
+                            productUrl = 'https://footlocker.co.il' + productUrl;
+                        }
+
+                        const titleEl = tile.querySelector('.product-item__title, .product-card__title, h3, h2');
                         const priceEl = tile.querySelector('.price__current, .product-item__price, .price, .money');
                         const imgEl = tile.querySelector('.product-item__primary-image, img');
 
-                        if (titleEl) {
-                            const title = titleEl.innerText.trim();
+                        let title = titleEl?.innerText?.trim() || '';
+                        if (!title && productUrl) {
+                            const slug = productUrl.split('/products/')[1]?.split('?')[0] || '';
+                            title = slug.replace(/-/g, ' ');
+                        }
+
+                        if (title) {
                             let price = 0;
                             if (priceEl) {
                                 const priceText = priceEl.innerText.replace(/[^\d.]/g, '');
                                 price = parseFloat(priceText) || 0;
                             }
 
-                            let rawUrl = linkEl?.href || '';
-                            if (rawUrl.startsWith('/')) rawUrl = 'https://footlocker.co.il' + rawUrl;
-                            let rawImg = imgEl?.src || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('data-srcset')?.split(' ')[0] || '';
-                            if (rawImg.startsWith('/')) rawImg = 'https://footlocker.co.il' + rawImg;
+                            let rawImg = imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('data-srcset')?.split(' ')[0] || '';
+                            if (rawImg && !rawImg.startsWith('http')) {
+                                rawImg = 'https://footlocker.co.il' + rawImg;
+                            }
 
                             results.push({
                                 raw_title: title,
                                 raw_price: price,
-                                raw_url: rawUrl,
+                                raw_url: productUrl,
                                 raw_image_url: rawImg
                             });
                         }

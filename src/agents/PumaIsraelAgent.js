@@ -36,13 +36,13 @@ class PumaIsraelAgent extends DOMNavigator {
                 console.log(`[Puma Israel] Navigating to: ${searchUrl}`);
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
-                await new Promise(r => setTimeout(r, 5000));
+                await new Promise(r => setTimeout(r, 8000));
 
                 if (apiDataCaptured && interceptedItems.length > 0) {
                     return resolve(interceptedItems);
                 }
 
-                try { await this.page.waitForSelector('[class*="product"], [data-test-id*="product"]', { timeout: 15000 }); } catch (e) { }
+                try { await this.page.waitForSelector('.product-tile, [class*="product"], [data-test-id*="product"]', { timeout: 15000 }); } catch (e) { }
 
                 const debugInfo = await this.page.evaluate(() => ({
                     title: document.title,
