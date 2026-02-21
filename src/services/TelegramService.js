@@ -82,15 +82,13 @@ class TelegramService {
             const plainText = this._buildPlainTextSummary(items, targetSize);
             await this._apiCall('sendMessage', {
                 chat_id: this.chatId,
-                text: plainText,
-                parse_mode: null
+                text: plainText
             });
             for (const item of items) {
                 const url = item.buy_link || item.link;
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
-                    text: `🛒 Buy ${item.display_title || item.title}: ${url}`,
-                    parse_mode: null
+                    text: `🛒 Buy ${item.display_title || item.title}: ${url}`
                 });
             }
             console.log('[Telegram] Fallback notification sent successfully.');
