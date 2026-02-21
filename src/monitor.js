@@ -37,7 +37,7 @@ if (args.includes('--load-last')) {
 
 // Known multi-word brands — check longest match first
 const MULTI_WORD_BRANDS = [
-    'New Balance', 'Under Armour', 'On Cloud', 'ON Running', 'Air Jordan',
+    'New Balance', 'Under Armour', 'ON Running', 'Air Jordan',
     'ON', 'Hoka One One'
 ];
 
