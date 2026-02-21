@@ -31,7 +31,7 @@ class TelegramService {
             .filter(item => item.image_url)
             .map((item, index) => ({
                 type: 'photo',
-                media: item.image_url,
+                media: String(item.image_url),
                 caption: index === 0 ? this._buildSummaryCaption(topResults, targetSize) : '',
                 parse_mode: 'MarkdownV2'
             }));
@@ -51,7 +51,8 @@ class TelegramService {
             }
 
             for (const item of topResults) {
-                const escapedTitle = this.escapeMarkdownV2(item.display_title || item.title);
+                const title = this._cleanMetadata(item.display_title || item.title);
+                const escapedTitle = this.escapeMarkdownV2(title);
                 const url = item.buy_link || item.link;
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
@@ -64,6 +65,10 @@ class TelegramService {
             }
         } catch (error) {
             console.error('[Telegram] Error sending notification:', error.message);
+            if (filtered[0]) {
+                const sampleModel = filtered[0].display_title || filtered[0].title || 'Unknown';
+                console.log('[Telegram] Failed Text Sample:', sampleModel);
+            }
         }
     }
 
@@ -75,7 +80,9 @@ class TelegramService {
         lines.push('');
 
         items.forEach(item => {
-            const title = this.escapeMarkdownV2(item.display_title || item.title);
+            const rawTitle = item.display_title || item.title;
+            const cleanTitle = this._cleanMetadata(rawTitle);
+            const title = this.escapeMarkdownV2(cleanTitle);
             const price = this.escapeMarkdownV2(item.price_ils?.toString() || '0');
             const store = this.escapeMarkdownV2(item.store_name || item.store);
             const sizesList = this.escapeMarkdownV2((item.available_sizes || item.sizes || []).join(', '));
@@ -87,6 +94,14 @@ class TelegramService {
         });
 
         return lines.join('\n');
+    }
+
+    _cleanMetadata(text) {
+        if (!text) return '';
+        return String(text)
+            .replace(/\s*\|\s*Intent\s*:\s*\w+/gi, '')
+            .replace(/\s*\|\s*Model\s*:\s*[^|]+/gi, '')
+            .trim();
     }
 
     escapeMarkdownV2(text) {
