@@ -13,7 +13,6 @@ class TelegramService {
             return;
         }
 
-        // 1. Filter by targetSize (Exact Match)
         let filtered = results;
         if (targetSize && targetSize !== '*') {
             filtered = results.filter(item => {
@@ -24,14 +23,12 @@ class TelegramService {
 
         if (filtered.length === 0) return;
 
-        // 2. Sort by price and take top 5
         const topResults = filtered
             .sort((a, b) => (a.price_ils || 0) - (b.price_ils || 0))
             .slice(0, 5);
 
         console.log(`[Telegram] Sending alert for ${topResults.length} items...`);
 
-        // 3. Prepare Media Group (Images)
         const media = topResults
             .filter(item => item.image_url)
             .map((item, index) => ({
@@ -43,13 +40,11 @@ class TelegramService {
 
         try {
             if (media.length > 0) {
-                // Send album if images exist
                 await this._apiCall('sendMediaGroup', {
                     chat_id: this.chatId,
                     media: JSON.stringify(media)
                 });
             } else {
-                // Text only fallback
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
                     text: this._buildSummaryCaption(topResults, targetSize),
@@ -57,15 +52,15 @@ class TelegramService {
                 });
             }
 
-            // 4. Send "Buy" buttons as separate messages (Telegram MediaGroup doesn't support inline keyboards for individual photos well)
             for (const item of topResults) {
-                const buttonText = `🛒 Buy ${item.display_title || item.title}`;
+                const escapedTitle = this._escape(item.display_title || item.title);
+                const url = item.buy_link || item.link;
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
-                    text: `🔗 [${this._escape(item.display_title || item.title)}](${item.buy_link || item.link})`,
+                    text: `🔗 [${escapedTitle}](${url})`,
                     parse_mode: 'MarkdownV2',
                     reply_markup: JSON.stringify({
-                        inline_keyboard: [[{ text: 'Buy Now', url: item.buy_link || item.link }]]
+                        inline_keyboard: [[{ text: 'Buy Now', url: url }]]
                     })
                 });
             }
@@ -100,8 +95,9 @@ class TelegramService {
 
     _escape(text) {
         if (!text) return '';
-        // Basic MarkdownV2 escaping
-        return text.toString().replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+        const str = text.toString();
+        // Mandatory escaping for MarkdownV2: _ * [ ] ( ) ~ ` > # + - = | { } . !
+        return str.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
     }
 
     async _apiCall(method, body) {
@@ -110,9 +106,11 @@ class TelegramService {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)
         });
-        const data = await response.json();
-        if (!data.ok) throw new Error(data.description || 'Unknown API error');
-        return data;
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.description || `API error: ${response.status}`);
+        }
+        return response.json();
     }
 }
 
