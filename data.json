@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-21T18:09:20.767Z",
+  "updatedAt": "2026-02-21T18:38:43.624Z",
   "isRunning": false,
   "lastSearchTerm": "Hoka M SKYWARD X",
   "lastSizeInput": "44",
@@ -13,7 +13,7 @@
   },
   "results": [
     {
-      "id": "item_1771697247280_s4kek",
+      "id": "item_1771699001792_4kqzb",
       "display_title": "נעלי ספורט M SKYWARD X / גברים",
       "price_ils": 1100,
       "size_available": "Available",
@@ -34,6 +34,17 @@
       "badges": [],
       "buy_link": "https://www.terminalx.com/default-category/r283550010?color=5",
       "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771699123408_9a08h",
+      "display_title": "HOKA SKYWARD X - נעלי לגברים סקייווארד...",
+      "price_ils": 1099.90934,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK211M-FLP-1.jpg?v=1745331360&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hok211m-flp?_pos=1&_sid=2f337e992&_ss=r",
+      "store_name": "WeShoes"
     }
   ]
 }
