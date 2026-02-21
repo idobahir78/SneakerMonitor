@@ -34,10 +34,34 @@ if (args.includes('--load-last')) {
     shouldLoadLast = true;
 }
 
+// Known multi-word brands — check longest match first
+const MULTI_WORD_BRANDS = [
+    'New Balance', 'Under Armour', 'On Cloud', 'ON Running', 'Air Jordan',
+    'ON', 'Hoka One One'
+];
+
 if (args[0] && !args[0].startsWith('--')) {
-    const split = args[0].split(' ');
-    brandInput = split[0];
-    modelInput = split.slice(1).join(' ');
+    const input = args[0].trim();
+    const inputUpper = input.toUpperCase();
+
+    let matched = false;
+    // Try multi-word brands first (longest match priority)
+    const sortedBrands = [...MULTI_WORD_BRANDS].sort((a, b) => b.length - a.length);
+    for (const mb of sortedBrands) {
+        if (inputUpper.startsWith(mb.toUpperCase())) {
+            brandInput = input.substring(0, mb.length).trim();
+            modelInput = input.substring(mb.length).trim();
+            matched = true;
+            break;
+        }
+    }
+
+    // Fallback: single first-word split
+    if (!matched) {
+        const split = input.split(' ');
+        brandInput = split[0];
+        modelInput = split.slice(1).join(' ');
+    }
 }
 if (args[1] && !args[1].startsWith('--')) {
     sizeInput = args[1];
