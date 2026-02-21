@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-21T11:21:15.029Z",
+  "updatedAt": "2026-02-21T11:23:11.492Z",
   "isRunning": false,
   "lastSearchTerm": "ON Cloud X",
   "lastSizeInput": "*",
@@ -11,26 +11,9 @@
   },
   "results": [
     {
-      "id": "item_1771672797104_3a0jv",
-      "display_title": "נעלי ספורט CLOUD X 4 / גברים",
-      "price_ils": 765,
-      "size_available": "Available",
-      "sizes": [
-        "40",
-        "40.5",
-        "47.5",
-        "48",
-        "49"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r270240001-11756965991.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r270240001?color=4",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771672798101_my3nz",
-      "display_title": "נעלי ריצה 3 Cloud X / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672910094_iiroe",
+      "display_title": "סניקרס New Balance 530 / נשים",
+      "price_ils": 669.9,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -53,9 +36,333 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771672799081_47z7v",
-      "display_title": "נעלי ריצה 3 Cloud X / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672911046_0fe38",
+      "display_title": "סניקרס MR530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/7/w738660018-11733641432.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w738660018?color=17762",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672911977_uhcz7",
+      "display_title": "סניקרס MR530 / גברים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w826250001-11736761858.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w826250001?color=4",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672912894_zy5yt",
+      "display_title": "סניקרס רשת עם סוליית גומי MR530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/8/x821410005-11680155987.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/x821410005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672913814_vuyev",
+      "display_title": "סניקרס עור MR530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w013560008-11692100987.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w013560008?color=7",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672914493_am2ct",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 599.25,
+      "size_available": "Available",
+      "sizes": [
+        "10",
+        "10.5"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37344309/images/new/970002483/970002483_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771672914734_35elx",
+      "display_title": "סניקרס MR530EMA D / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/5/z506950005-11656238277_8.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/z506950005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672915346_7xg5l",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf2c33d41/images/new/970002463/970002463_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771672915650_v7t5k",
+      "display_title": "נעלי סניקרס MR530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/7/w707130018-11731934528.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w707130018?color=17762",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672916171_38q1n",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8320a881/images/new//970002558/970002558_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002558.html?pi=3",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771672916566_6jjpw",
+      "display_title": "נעלי סניקרס MR530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/2/w255980018-11706435704.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w255980018?color=17762",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672917494_s7k10",
+      "display_title": "נעלי סניקרס 530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w826320005-11736762021.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w826320005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672918413_s16hq",
+      "display_title": "סניקרס עור MR530CK / גברים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w073410008-11754394048.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w073410008?color=7",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672919327_u7gzu",
+      "display_title": "נעלי סניקרס MR530 / גברים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/1/w196140005-11701327699.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w196140005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672920241_bdpnp",
+      "display_title": "נעלי סניקרס MR530 / נשים",
+      "price_ils": 535.92,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/1/w196130005-11709654725.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w196130005?color=22",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672921169_im0ng",
+      "display_title": "נעלי סניקרס MR530 / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/7/w711120002-11731923780.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w711120002?color=106",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672922083_lt6e3",
+      "display_title": "סניקרס M530 / גברים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "45.5",
+        "46.5",
+        "47.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w688172050-11727351708.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w688172050?color=1582",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672923009_qefao",
+      "display_title": "סניקרס U530ESA / נשים",
+      "price_ils": 669.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252720014-21757249826.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r252720014?color=111",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771672931076_g8wjr",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
       "size_available": "Available",
       "sizes": [
         "37",
@@ -69,13 +376,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/2/w278840018-11708945198.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w278840018?color=17762",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f313240016?_pos=1&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672800050_uvgt6",
-      "display_title": "נעלי ריצה 3 Cloud X / גברים",
-      "price_ils": 737.91,
+      "id": "item_1771672931911_jtxqq",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [
         "40",
@@ -86,13 +393,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/2/w211970001-11701276956.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w211970001?color=4",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530sg?_pos=2&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672801023_kmvfv",
-      "display_title": "נעלי ריצה CLOUD X 4 / גברים",
-      "price_ils": 737.91,
+      "id": "item_1771672932742_zo2zj",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [
         "40.5",
@@ -110,13 +417,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w822820001-11738486310.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w822820001?color=4",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530cc?_pos=3&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672801992_a4b2p",
-      "display_title": "נעלי ריצה CLOUD X 4 / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672933603_zdi65",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [
         "37",
@@ -130,13 +437,24 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w535320008-11729408584.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w535320008?color=7",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530ck?_pos=4&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672802960_oi4b7",
-      "display_title": "נעלי ריצה CLOUD X 4 / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672935046_63d6v",
+      "display_title": "NEW BALANCE סניקרס 530",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ewb_2.jpg?v=1730359513&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/mr530ewb?_pos=5&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672935917_pjk06",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -154,37 +472,24 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w823260011-11738487549.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w823260011?color=8",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530aa?_pos=6&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672803926_1uzlo",
-      "display_title": "נעלי ריצה CLOUD X 4 / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672936744_ck7yi",
+      "display_title": "NEW BALANCE סניקרס 530",
+      "price_ils": 564.98,
       "size_available": "Available",
-      "sizes": [
-        "36",
-        "36.5",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39",
-        "40",
-        "40.5",
-        "41",
-        "42",
-        "42.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w823270008-11738487581.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ema_2.jpg?v=1730124298&width=2500",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w823270008?color=7",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530ema-2?_pos=7&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672804890_c4bca",
-      "display_title": "נעלי ספורט CLOUD X 4 / גברים",
-      "price_ils": 765,
+      "id": "item_1771672938371_8cl4l",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
       "size_available": "Available",
       "sizes": [
         "41",
@@ -199,13 +504,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w535200001-21756883001.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w535200001?color=4",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f296990033?_pos=9&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672805854_imj5q",
-      "display_title": "נעלי ריצה CLOUD X 4 / גברים",
-      "price_ils": 737.91,
+      "id": "item_1771672939998_0m22l",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
       "size_available": "Available",
       "sizes": [
         "40",
@@ -223,13 +528,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w822810008-11756985346.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w822810008?color=7",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f296600016?_pos=11&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672806825_jgkgm",
-      "display_title": "נעלי ריצה CLOUD X 4 / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672940828_ma6z2",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -247,13 +552,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w823080008-11738486997.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w823080008?color=7",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f297000033?_pos=12&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672808591_53ley",
-      "display_title": "נעלי ריצה CLOUD X 4 / גברים",
-      "price_ils": 737.91,
+      "id": "item_1771672941661_z2q95",
+      "display_title": "NEW BALANCE 530 סניקרס בשילוב לוגו",
+      "price_ils": 413.4,
       "size_available": "Available",
       "sizes": [
         "40",
@@ -271,13 +576,13 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w822980001-11738486800.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w822980001?color=4",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f293210016?_pos=13&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672809565_mmgzn",
-      "display_title": "נעלי ספורט CLOUD X 4 / גברים",
-      "price_ils": 738,
+      "id": "item_1771672942486_84ylb",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
       "size_available": "Available",
       "sizes": [
         "40",
@@ -294,13 +599,24 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r270250008-11756889586.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r270250008?color=7",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f297020008?_pos=14&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672810541_s0o6e",
-      "display_title": "נעלי ריצה 3 Cloud X / גברים",
-      "price_ils": 737.91,
+      "id": "item_1771672943319_3osow",
+      "display_title": "NEW BALANCE סניקרס 530",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/FullSizeRender.jpg?v=1750093004&width=1668",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f306180033?_pos=15&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672944148_63b88",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [
         "41",
@@ -315,74 +631,30 @@
       ],
       "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w535140006-11730034783.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w535140006?color=9",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f304520002?_pos=16&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672811505_hpbih",
-      "display_title": "נעלי ריצה 3 Cloud X / נשים",
-      "price_ils": 737.91,
+      "id": "item_1771672944977_k2tsm",
+      "display_title": "NEW BALANCE סניקרס 530",
+      "price_ils": 564.98,
       "size_available": "Available",
-      "sizes": [
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39",
-        "40",
-        "40.5",
-        "41"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w535270012-11731931528.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/IMG_0002.jpg?v=1730978325&width=2100",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w535270012?color=100",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530aam?_pos=17&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771672812478_cvoan",
-      "display_title": "נעלי ספורט CLOUD X 4 AD / נשים",
-      "price_ils": 666,
+      "id": "item_1771672945851_jr9k9",
+      "display_title": "NEW BALANCE U5309TN סניקרס",
+      "price_ils": 689,
       "size_available": "Available",
-      "sizes": [
-        "36",
-        "36.5",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39",
-        "40",
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r279280008-11757575000.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/2ae6d89c-89b7-4226-a365-339866eb28f4.jpg?v=1771154499&width=800",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r279280008?color=7",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771672813516_m6n8d",
-      "display_title": "נעלי ספורט CLOUD X 4 AD / גברים",
-      "price_ils": 820,
-      "size_available": "Available",
-      "sizes": [
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46",
-        "47"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r279060004-11756889760.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r279060004?color=6",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f313250002?_pos=18&_sid=09a3dd7f2&_ss=r",
+      "store_name": "Foot Locker Israel"
     }
   ]
 }
