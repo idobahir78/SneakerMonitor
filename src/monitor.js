@@ -80,8 +80,25 @@ async function performSearch(brand, model, size) {
     return orchestrator.results;
 }
 
+function updateState(allResults, isScanning) {
+    const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+    let existingData = {};
+    if (fs.existsSync(jsonPath)) {
+        try { existingData = JSON.parse(fs.readFileSync(jsonPath, 'utf8')); } catch (e) { }
+    }
+
+    const dashboardData = {
+        ...existingData,
+        lastUpdate: new Date().toISOString(),
+        products: isScanning ? (existingData.products || []) : allResults,
+        isScanning: isScanning,
+        scheduledSearchEnabled: true
+    };
+    fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2));
+}
+
 async function run() {
-    console.log(`\n🚀 Sneaker Monitor v6.0 at ${new Date().toLocaleTimeString()}`.bold.green);
+    console.log(`\n🚀 Sneaker Monitor v7.0 at ${new Date().toLocaleTimeString()}`.bold.green);
     auditEnv();
 
     const args = process.argv.slice(2);
@@ -102,6 +119,8 @@ async function run() {
         }
     }
 
+    updateState([], true);
+
     let allResults = [];
     for (const task of searchTasks) {
         const results = await performSearch(task.brand, task.model, task.size);
@@ -114,13 +133,7 @@ async function run() {
         }
     }
 
-    const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
-    const dashboardData = {
-        lastUpdate: new Date().toISOString(),
-        products: allResults,
-        scheduledSearchEnabled: true
-    };
-    fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2));
+    updateState(allResults, false);
 
     console.log(`\n📊 Scanned ${searchTasks.length} tasks. Found ${allResults.length} matches.`.bold.green);
     process.exit(0);
@@ -128,5 +141,6 @@ async function run() {
 
 run().catch(err => {
     console.error(`\n❌ Fatal Error: ${err.message}`.red);
+    updateState([], false);
     process.exit(1);
 });

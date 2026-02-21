@@ -32,55 +32,47 @@ const Dashboard = () => {
 
     const fetchData = (retryCount = 0) => {
         setError(null);
-        const cacheBuster = new Date().getTime();
+        const timestamp = Date.now();
 
-        // REAL-TIME FETCH STRATEGY
-        // 1. Try fetching directly from GitHub Raw (updates immediately on push)
-        // 2. Fallback to local/hosted file if that fails
-        const rawUrl = `https://raw.githubusercontent.com/idobahir78/SneakerMonitor/main/frontend/public/data.json?v=${cacheBuster}`;
-        const localUrl = `/data.json?v=${cacheBuster}`;
+        const rawUrl = `https://raw.githubusercontent.com/idobahir78/SneakerMonitor/main/frontend/public/data.json?t=${timestamp}`;
+        const localUrl = `/data.json?t=${timestamp}`;
 
         const handleData = (jsonData) => {
-            const serverIsRunning = jsonData.isRunning === true;
-            const serverUpdateTime = new Date(jsonData.updatedAt || jsonData.lastUpdated || 0).getTime();
-            const currentTriggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
-            const isStale = currentTriggerTime > 0 && serverUpdateTime < currentTriggerTime;
-            const isStillScanning = serverIsRunning || isStale;
-            setIsScanning(isStillScanning);
+            const serverUpdateTime = new Date(jsonData.lastUpdate || 0).getTime();
+            const serverIsScanning = jsonData.isScanning === true;
+
+            const triggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
+            const now = Date.now();
+
+            // Safety Timeout: if scanning for > 5 minutes, force Idle
+            const isStuck = triggerTime > 0 && (now - triggerTime > 300000);
+            const isStale = triggerTime > 0 && serverUpdateTime < triggerTime;
+
+            const stillScanning = (serverIsScanning || isStale) && !isStuck;
+
+            setIsScanning(stillScanning);
 
             if (!isStale && JSON.stringify(jsonData) !== JSON.stringify(data)) {
                 setData(jsonData);
                 setRefreshFlash(true);
                 setTimeout(() => setRefreshFlash(false), 2000);
-            } else if (isStale) {
-                // If data is stale (server has old data), we want to show "Scanning" state.
-                // If 'data' is null (first load), we MUST initialize it to prevent "Initializing Data..." stick.
-                if (!data) {
-                    setData({
-                        results: [],
-                        searchTerm: triggeredSearchTerm || jsonData.searchTerm || '',
-                        updatedAt: jsonData.updatedAt,
-                        isRunning: true // Force running state visually
-                    });
-                } else if (data.results && data.results.length > 0) {
-                    setData(prev => ({ ...prev, results: [] }));
-                }
+            } else if (isStale && !data) {
+                setData({
+                    products: [],
+                    lastUpdate: jsonData.lastUpdate,
+                    isScanning: true
+                });
             }
             setLoading(false);
         };
 
-        // Try Raw First
         fetch(rawUrl)
             .then(res => {
                 if (!res.ok) throw new Error('Raw fetch failed');
                 return res.json();
             })
-            .then(data => {
-                console.log('Fetched real-time data from GitHub Raw');
-                handleData(data);
-            })
+            .then(data => handleData(data))
             .catch(() => {
-                console.log('Falling back to local data.json...');
                 fetch(localUrl)
                     .then(res => {
                         if (!res.ok) throw new Error('Data file not found');
