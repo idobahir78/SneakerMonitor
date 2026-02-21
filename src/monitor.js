@@ -19,6 +19,7 @@ const HokaIsraelAgent = require('./agents/HokaIsraelAgent');
 const AsicsIsraelAgent = require('./agents/AsicsIsraelAgent');
 const SauconyIsraelAgent = require('./agents/SauconyIsraelAgent');
 const OnCloudIsraelAgent = require('./agents/OnCloudIsraelAgent');
+const WeShoesAgent = require('./agents/WeShoesAgent');
 
 // Default target parameters
 let brandInput = 'Nike';
@@ -129,6 +130,7 @@ async function run() {
     orchestrator.registerWorker(new AsicsIsraelAgent());
     orchestrator.registerWorker(new SauconyIsraelAgent());
     orchestrator.registerWorker(new OnCloudIsraelAgent());
+    orchestrator.registerWorker(new WeShoesAgent());
 
     const accumulatedResults = [];
 
