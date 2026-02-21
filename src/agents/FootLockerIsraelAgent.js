@@ -54,8 +54,10 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             .filter(s => s && s.length < 12)
                             .map(s => s.replace(/^(US|EU|UK)\s*/i, '').trim());
 
-                        if (availableSizes.length > 0) sizeMap[key] = availableSizes;
-                        if (data.id) sizeMap[data.id.toString()] = availableSizes;
+                        if (availableSizes.length > 0) {
+                            sizeMap[key] = availableSizes;
+                            if (data.id) sizeMap[data.id.toString()] = availableSizes;
+                        }
                     }
 
                     document.querySelectorAll('script[id*="product-json"], script[data-product-json], script[data-product-id]').forEach(s => {
@@ -139,12 +141,21 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         let sizes = [];
                         if (productHandle && sizeMap[productHandle]) sizes = sizeMap[productHandle];
 
-                        const pid = tile.getAttribute('data-product-id') || tile.getAttribute('data-infinator-id') || tile.getAttribute('id')?.replace('product-', '') || '';
+                        const pid = tile.getAttribute('data-product-id') ||
+                            tile.getAttribute('data-infinator-id') ||
+                            tile.getAttribute('id')?.replace('product-', '') ||
+                            tile.querySelector('[data-product-id]')?.getAttribute('data-product-id') || '';
+
                         if (sizes.length === 0 && pid && sizeMap[pid]) sizes = sizeMap[pid];
 
                         if (sizes.length === 0) {
-                            tile.querySelectorAll('[data-option*="size"], [class*="size"] button, [class*="size"] span').forEach(el => {
-                                const s = el.innerText.trim();
+                            const altHandle = tile.getAttribute('data-handle') || tile.querySelector('[data-handle]')?.getAttribute('data-handle');
+                            if (altHandle && sizeMap[altHandle]) sizes = sizeMap[altHandle];
+                        }
+
+                        if (sizes.length === 0) {
+                            tile.querySelectorAll('[data-option*="size"], [class*="size"] button, [class*="size"] span, .variant-input input').forEach(el => {
+                                let s = el.innerText.trim() || el.value || '';
                                 if (s && !isNaN(parseFloat(s)) && s.length < 8) sizes.push(s);
                             });
                         }
