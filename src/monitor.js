@@ -108,23 +108,24 @@ async function run() {
 
     const orchestrator = new Orchestrator();
 
-    orchestrator.registerAgent(new TerminalXAgent());
-    orchestrator.registerAgent(new Factory54Agent());
-    orchestrator.registerAgent(new LimeShoesAgent());
-    orchestrator.registerAgent(new NikeIsraelAgent());
-    orchestrator.registerAgent(new AdidasIsraelAgent());
-    orchestrator.registerAgent(new FootLockerIsraelAgent());
-    orchestrator.registerAgent(new JDSportsAgent());
-    orchestrator.registerAgent(new MayersAgent());
-    orchestrator.registerAgent(new KicksAgent());
-    orchestrator.registerAgent(new NewBalanceIsraelAgent());
-    orchestrator.registerAgent(new HokaIsraelAgent());
-    orchestrator.registerAgent(new AsicsIsraelAgent());
-    orchestrator.registerAgent(new SauconyIsraelAgent());
-    orchestrator.registerAgent(new OnCloudIsraelAgent());
-    orchestrator.registerAgent(new WeShoesAgent());
+    orchestrator.registerWorker(new TerminalXAgent());
+    orchestrator.registerWorker(new Factory54Agent());
+    orchestrator.registerWorker(new LimeShoesAgent());
+    orchestrator.registerWorker(new NikeIsraelAgent());
+    orchestrator.registerWorker(new AdidasIsraelAgent());
+    orchestrator.registerWorker(new FootLockerIsraelAgent());
+    orchestrator.registerWorker(new JDSportsAgent());
+    orchestrator.registerWorker(new MayersAgent());
+    orchestrator.registerWorker(new KicksAgent());
+    orchestrator.registerWorker(new NewBalanceIsraelAgent());
+    orchestrator.registerWorker(new HokaIsraelAgent());
+    orchestrator.registerWorker(new AsicsIsraelAgent());
+    orchestrator.registerWorker(new SauconyIsraelAgent());
+    orchestrator.registerWorker(new OnCloudIsraelAgent());
+    orchestrator.registerWorker(new WeShoesAgent());
 
-    const results = await orchestrator.search(brandInput, modelInput);
+    await orchestrator.startSearch(brandInput, modelInput, sizeInput);
+    const results = orchestrator.results;
 
     const dashboardData = {
         lastUpdate: new Date().toISOString(),
