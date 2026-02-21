@@ -168,6 +168,10 @@ class TerminalXAgent extends DOMNavigator {
             }
         } catch (e) { }
 
+        if (sizes.length > 0) {
+            console.log(`[TerminalX] DEBUG: "${title}" → Sizes (labels): [${sizes.join(', ')}]`);
+        }
+
         // Extremely generous filtering so we don't drop viable items
         if (!title || title === 'Terminal X Sneaker' || priceVal <= 0) {
             try { require('fs').writeFileSync('tx-rejected.json', JSON.stringify(p, null, 2)); } catch (e) { }

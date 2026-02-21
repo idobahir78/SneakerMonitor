@@ -45,9 +45,15 @@ class QASentinel {
             // 3. Size Availability Check (if user specified a size)
             if (targetSize && targetSize !== '*') {
                 const sizes = normalizedItem.sizes || [];
-                if (sizes.length > 0 && !sizes.some(s => s.toString() === targetSize.toString())) {
-                    console.log(`[Agent 6 - QA Sentinel] REJECTED (Size ${targetSize} not in [${sizes.join(', ')}]): ${itemTitle}`);
-                    return false;
+                const storeName = normalizedItem.store_name || normalizedItem.store || 'Unknown';
+                if (sizes.length > 0) {
+                    const sizeFound = sizes.some(s => s.toString() === targetSize.toString());
+                    if (sizeFound) {
+                        console.log(`[Agent 6 - QA Sentinel] DEBUG: [${storeName}] Target size ${targetSize} verified in stock for ${itemTitle}`);
+                    } else {
+                        console.log(`[Agent 6 - QA Sentinel] REJECTED (Size ${targetSize} out of stock) [${storeName}]: ${itemTitle} — Available: [${sizes.join(', ')}]`);
+                        return false;
+                    }
                 }
             }
 

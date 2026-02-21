@@ -32,36 +32,72 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         return baseDomain + '/' + u;
                     }
 
-                    // === Build size map from Shopify JSON script tags ===
+                    // ========================================
+                    // SHOPIFY SIZE MAP: Scan ALL JSON sources
+                    // ========================================
                     const sizeMap = {};
-                    document.querySelectorAll('script[type="application/json"]').forEach(script => {
+
+                    function extractShopifyProduct(data) {
+                        if (!data || !data.variants) return;
+                        const key = data.handle || (data.id ? data.id.toString() : null);
+                        if (!key) return;
+
+                        // Shopify options: find which option index is "Size" (not Color/Material)
+                        let sizeOptionIndex = 0;
+                        if (data.options && Array.isArray(data.options)) {
+                            const sizeIdx = data.options.findIndex(opt =>
+                                (typeof opt === 'string' ? opt : (opt.name || '')).toLowerCase().match(/size|מידה|גודל/)
+                            );
+                            if (sizeIdx >= 0) sizeOptionIndex = sizeIdx;
+                        }
+
+                        const optionKey = `option${sizeOptionIndex + 1}`;
+                        const availableSizes = data.variants
+                            .filter(v => v.available === true)
+                            .map(v => v[optionKey] || v.title || '')
+                            .filter(s => s && s.length < 12)
+                            .map(s => s.replace(/^(US|EU|UK)\s*/i, '').trim());
+
+                        if (availableSizes.length > 0) sizeMap[key] = availableSizes;
+                    }
+
+                    // Source 1: script[type="application/json"] with product-json ID
+                    document.querySelectorAll('script[id*="product-json"], script[data-product-json], script[data-product-id]').forEach(s => {
+                        try { extractShopifyProduct(JSON.parse(s.textContent)); } catch (e) { }
+                    });
+
+                    // Source 2: All generic JSON script tags
+                    document.querySelectorAll('script[type="application/json"]').forEach(s => {
                         try {
-                            const raw = script.textContent.trim();
-                            if (!raw || raw.length < 10) return;
+                            const raw = s.textContent.trim();
+                            if (!raw || raw.length < 20) return;
                             const data = JSON.parse(raw);
-
-                            const processProduct = (p) => {
-                                if (!p || !p.variants) return;
-                                const key = p.handle || (p.id ? p.id.toString() : null);
-                                if (!key) return;
-                                const availableSizes = p.variants
-                                    .filter(v => v.available === true)
-                                    .map(v => v.option1 || v.title || '')
-                                    .filter(s => s && s.length < 10);
-                                if (availableSizes.length > 0) sizeMap[key] = availableSizes;
-                            };
-
-                            if (data && data.variants) processProduct(data);
-                            if (data && data.product && data.product.variants) processProduct(data.product);
-                            if (Array.isArray(data)) data.forEach(processProduct);
+                            if (data && data.variants) extractShopifyProduct(data);
+                            if (data && data.product && data.product.variants) extractShopifyProduct(data.product);
+                            if (Array.isArray(data)) data.forEach(extractShopifyProduct);
                         } catch (e) { }
                     });
 
+                    // Source 3: Inline scripts with Shopify.content or ShopifyAnalytics.meta.product
+                    document.querySelectorAll('script:not([src])').forEach(s => {
+                        const text = s.textContent || '';
+                        if (text.includes('var meta =') || text.includes('product')) {
+                            const jsonMatches = text.match(/\{[^{}]*"variants"\s*:\s*\[[\s\S]*?\]\s*[^{}]*\}/g);
+                            if (jsonMatches) {
+                                jsonMatches.forEach(m => {
+                                    try { extractShopifyProduct(JSON.parse(m)); } catch (e) { }
+                                });
+                            }
+                        }
+                    });
+
+                    // ========================================
+                    // TILE EXTRACTION
+                    // ========================================
                     const results = [];
                     const tiles = document.querySelectorAll('.product-item');
 
                     tiles.forEach(tile => {
-                        // === URL EXTRACTION ===
                         let productUrl = '';
                         let productHandle = '';
                         const allAnchors = [...tile.querySelectorAll('a')];
@@ -69,7 +105,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             const h = a.getAttribute('href') || '';
                             if (h.includes('/products/')) {
                                 productUrl = h;
-                                const handleMatch = h.match(/\/products\/([^?]+)/);
+                                const handleMatch = h.match(/\/products\/([^?#]+)/);
                                 if (handleMatch) productHandle = handleMatch[1];
                                 break;
                             }
@@ -85,25 +121,23 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         }
                         productUrl = norm(productUrl);
 
-                        // === BRAND EXTRACTION from .product-item-meta__vendor ===
+                        // Brand from vendor element
                         const vendorEl = tile.querySelector('.product-item-meta__vendor, [class*="vendor"]');
                         const brandName = vendorEl?.innerText?.trim() || '';
 
-                        // === TITLE EXTRACTION — prepend brand if not already in title ===
+                        // Title with brand prepend
                         const titleEl = tile.querySelector('.product-item-meta__title, .product-item__title, h3, h2, [class*="title"]');
                         let rawTitle = titleEl?.innerText?.trim() || '';
                         if (!rawTitle && productUrl) {
                             const slug = productUrl.split('/products/')[1]?.split('?')[0] || '';
                             rawTitle = slug.replace(/-/g, ' ');
                         }
-
-                        // Prepend brand to title if brand exists and title doesn't already contain it
                         let title = rawTitle;
                         if (brandName && !rawTitle.toUpperCase().includes(brandName.toUpperCase())) {
                             title = `${brandName} ${rawTitle}`;
                         }
 
-                        // === PRICE ===
+                        // Price
                         const priceEl = tile.querySelector('.price__current, .product-item__price, .price .money, .price, .money');
                         let price = 0;
                         if (priceEl) {
@@ -111,20 +145,16 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             price = parseFloat(priceText) || 0;
                         }
 
-                        // === IMAGE ===
+                        // Image
                         const imgEl = tile.querySelector('.product-item__primary-image, img');
                         const rawImg = norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('srcset')?.split(' ')[0] || '');
 
-                        // === SIZE LOOKUP ===
+                        // Size lookup: handle → sizeMap, then product-id fallback
                         let sizes = [];
-                        if (productHandle && sizeMap[productHandle]) {
-                            sizes = sizeMap[productHandle];
-                        }
+                        if (productHandle && sizeMap[productHandle]) sizes = sizeMap[productHandle];
                         if (sizes.length === 0) {
-                            const productId = tile.getAttribute('data-infinator-id') || tile.getAttribute('data-product-id') || '';
-                            if (productId && sizeMap[productId]) {
-                                sizes = sizeMap[productId];
-                            }
+                            const pid = tile.getAttribute('data-product-id') || tile.getAttribute('data-infinator-id') || '';
+                            if (pid && sizeMap[pid]) sizes = sizeMap[pid];
                         }
 
                         if (title) {
@@ -138,20 +168,14 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         }
                     });
 
-                    return { results, sizeMapKeys: Object.keys(sizeMap).length };
+                    return { results, sizeMapCount: Object.keys(sizeMap).length };
                 }, domain);
 
                 const items = products.results;
-                console.log(`[Foot Locker Israel] DEBUG: sizeMap has ${products.sizeMapKeys} entries`);
-
-                if (items.length === 0) {
-                    console.error(`[Foot Locker Israel] DEBUG: 0 products.`);
-                } else {
-                    console.log(`[Foot Locker Israel] Found ${items.length} products`);
-                    items.forEach(p => {
-                        console.log(`[Foot Locker Israel] DEBUG: "${p.raw_title}" → Sizes: [${p.raw_sizes.join(', ')}]`);
-                    });
-                }
+                console.log(`[Foot Locker Israel] Found ${items.length} products, sizeMap: ${products.sizeMapCount} entries`);
+                items.forEach(p => {
+                    console.log(`[Foot Locker Israel] DEBUG: "${p.raw_title}" → Sizes: [${p.raw_sizes.join(', ')}]`);
+                });
                 resolve(items);
             } catch (err) {
                 console.error(`[Foot Locker Israel] Scrape error: ${err.message}`);
