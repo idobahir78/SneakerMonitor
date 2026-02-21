@@ -1,13 +1,130 @@
 {
-  "updatedAt": "2026-02-21T09:14:10.281Z",
+  "updatedAt": "2026-02-21T09:28:52.535Z",
   "isRunning": false,
-  "lastSearchTerm": "On Cloud Cloud X",
+  "lastSearchTerm": "Hoka Arahi 7",
   "lastSizeInput": "*",
   "filters": {
     "models": [
-      "On Cloud Cloud X"
+      "Hoka Arahi 7"
     ],
     "sizes": []
   },
-  "results": []
+  "results": [
+    {
+      "id": "item_1771666019013_t98hx",
+      "display_title": "נעלי ספורט HOKA ARAHI 7 / גברים",
+      "price_ils": 500,
+      "size_available": "Available",
+      "sizes": [
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48",
+        "49"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w559320005-11721561113.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w559320005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771666019964_ktwmy",
+      "display_title": "נעלי ספורט HOKA ARAHI 7 / נשים",
+      "price_ils": 500,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "36.5",
+        "37",
+        "38",
+        "38.5",
+        "39",
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "43"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w559330005-11721561178.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w559330005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771666020892_kvauu",
+      "display_title": "נעלי ספורט M ARAHI 7 / גברים",
+      "price_ils": 500,
+      "size_available": "Available",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r158452050-11756281762.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r158452050?color=8330",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771666021808_mw9v9",
+      "display_title": "נעלי ספורט W ARAHI 7 / נשים",
+      "price_ils": 500,
+      "size_available": "Available",
+      "sizes": [
+        "36.5",
+        "37",
+        "38",
+        "38.5",
+        "39",
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "43"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r158462000-11754298513.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r158462000?color=8326",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771666022719_x1pkm",
+      "display_title": "נעלי ספורט W ARAHI 7 / נשים",
+      "price_ils": 500,
+      "size_available": "Available",
+      "sizes": [
+        "36.5",
+        "37",
+        "38",
+        "38.5",
+        "39",
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r158470027-11754298564.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r158470027?color=2148",
+      "store_name": "TerminalX"
+    }
+  ]
 }
