@@ -1,108 +1,166 @@
 {
-  "updatedAt": "2026-02-21T10:36:22.631Z",
+  "updatedAt": "2026-02-21T11:09:24.254Z",
   "isRunning": false,
-  "lastSearchTerm": "Hoka Arahi 7",
+  "lastSearchTerm": "New Balance 530",
   "lastSizeInput": "*",
   "filters": {
     "models": [
-      "Hoka Arahi 7"
+      "New Balance 530"
     ],
     "sizes": []
   },
   "results": [
     {
-      "id": "item_1771670070289_t3c3h",
-      "display_title": "נעלי ספורט HOKA ARAHI 7 / גברים",
-      "price_ils": 500,
-      "size_available": "Available",
-      "sizes": [
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46",
-        "46.5",
-        "47",
-        "48",
-        "49"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w559320005-11721561113.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w559320005?color=10",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771670071335_jt3wg",
-      "display_title": "נעלי ספורט HOKA ARAHI 7 / נשים",
-      "price_ils": 500,
+      "id": "item_1771672094254_746gd",
+      "display_title": "סניקרס New Balance 530 / נשים",
+      "price_ils": 669.9,
       "size_available": "Available",
       "sizes": [
         "36",
-        "36.5",
         "37",
+        "37.5",
         "38",
         "38.5",
-        "39",
+        "39.5",
         "40",
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43"
+        "40.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w559330005-11721561178.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252630018-11753794316.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w559330005?color=10",
+      "buy_link": "https://www.terminalx.com/default-category/r252630018?color=17762",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771670072390_cjxgy",
-      "display_title": "נעלי ספורט M ARAHI 7 / גברים",
-      "price_ils": 500,
+      "id": "item_1771672107246_p2u64",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
       "size_available": "Available",
-      "sizes": [
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46",
-        "46.5",
-        "47"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r158452050-11756281762.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/U5308EL-82_1_3fe05cba-d6b0-42c4-b5e0-7ae89c8d8e9a.webp?v=1767699728&width=1110",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r158452050?color=8330",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f313240016?_pos=1&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771670073455_5mzzu",
-      "display_title": "נעלי ספורט W ARAHI 7 / נשים",
-      "price_ils": 500,
+      "id": "item_1771672108144_08noq",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
       "size_available": "Available",
-      "sizes": [
-        "36.5",
-        "37",
-        "38",
-        "38.5",
-        "39",
-        "40",
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r158462000-11754298513.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657506.jpg?v=1726740842&width=800",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r158462000?color=8326",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/mr530sg?_pos=2&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672109003_5239t",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657036.jpg?v=1726740520&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/mr530cc?_pos=3&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672109857_rg30d",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657223.jpg?v=1726740653&width=1000",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/mr530ck?_pos=4&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672110710_cicgm",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657399.jpg?v=1726740773&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/mr530aa?_pos=6&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672111570_4f71u",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/u530sua_nb_02_i.webp?v=1759920531&width=1600",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f297010100?_pos=8&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672112433_eynhq",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/U530ESA_2.jpg?v=1754301105&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f296990033?_pos=9&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672113288_ho4i5",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/197967559754_2.jpg?v=1751528829&width=2800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f296600016?_pos=11&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672114153_8nbrl",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/U530ESB_2.jpg?v=1754301393&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f297000033?_pos=12&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672115005_il975",
+      "display_title": "NEW BALANCE 530 סניקרס בשילוב לוגו",
+      "price_ils": 413.4,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/U530CSE_2.jpg?v=1747818585&width=2500",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f293210016?_pos=13&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672115865_ecn1i",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/u530sub_nb_02_i.webp?v=1759920332&width=1600",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f297020008?_pos=14&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771672116726_ljs4u",
+      "display_title": "NEW BALANCE 530 סניקרס",
+      "price_ils": 564.98,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/MR530PB_2.webp?v=1754231803&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f304520002?_pos=16&_sid=9b8178157&_ss=r",
+      "store_name": "Foot Locker Israel"
     }
   ]
 }
