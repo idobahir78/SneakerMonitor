@@ -13,6 +13,12 @@ class TelegramService {
             return;
         }
 
+        const isChatValid = /^-?\d+$/.test(this.chatId);
+        if (!isChatValid) {
+            console.error(`[Telegram] Invalid CHAT_ID format: "${this.chatId}". Must be numeric.`);
+            return;
+        }
+
         let filtered = results;
         if (targetSize && targetSize !== '*') {
             filtered = results.filter(item => {
@@ -34,7 +40,7 @@ class TelegramService {
                 type: 'photo',
                 media: String(item.image_url),
                 caption: index === 0 ? caption : '',
-                parse_mode: 'MarkdownV2'
+                parse_mode: 'HTML'
             }));
 
         try {
@@ -47,95 +53,51 @@ class TelegramService {
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
                     text: caption,
-                    parse_mode: 'MarkdownV2'
+                    parse_mode: 'HTML'
                 });
             }
 
             for (const item of topResults) {
                 const title = this._cleanMetadata(item.display_title || item.title);
-                const escapedTitle = this.escapeMarkdownV2(title);
                 const url = item.buy_link || item.link;
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
-                    text: `🔗 [${escapedTitle}](${url})`,
-                    parse_mode: 'MarkdownV2',
+                    text: `🔗 <a href="${url}">${title}</a>`,
+                    parse_mode: 'HTML',
                     reply_markup: JSON.stringify({
                         inline_keyboard: [[{ text: '🛒 Buy Now', url: url }]]
                     })
                 });
             }
         } catch (error) {
-            if (error.message.includes('Bad Request') || error.message.includes('parse entities')) {
-                console.log('[Telegram] Markdown parsing failed. Attempting Fallback...');
-                await this._sendFallback(topResults, targetSize);
+            if (error.message.includes('chat not found') || error.message.includes('unauthorized')) {
+                console.log('\n[Telegram] ACTION REQUIRED: Send a /start message to your bot first or check your CHAT_ID.\n');
             } else {
                 console.error('[Telegram] Error sending notification:', error.message);
-                if (topResults[0]) {
-                    console.log('[Telegram] Failed Text Sample:', topResults[0].display_title || topResults[0].title);
-                }
             }
-        }
-    }
-
-    async _sendFallback(items, targetSize) {
-        try {
-            const plainText = this._buildPlainTextSummary(items, targetSize);
-            await this._apiCall('sendMessage', {
-                chat_id: this.chatId,
-                text: plainText
-            });
-            for (const item of items) {
-                const url = item.buy_link || item.link;
-                await this._apiCall('sendMessage', {
-                    chat_id: this.chatId,
-                    text: `🛒 Buy ${item.display_title || item.title}: ${url}`
-                });
-            }
-            console.log('[Telegram] Fallback notification sent successfully.');
-        } catch (e) {
-            console.error('[Telegram] Fallback failed:', e.message);
         }
     }
 
     _buildSummaryCaption(items, targetSize) {
-        let lines = [`*👟 New Sneaker Found\\!*`];
+        let lines = [`<b>👟 New Sneaker Found!</b>`];
         if (targetSize && targetSize !== '*') {
-            lines.push(`🎯 Target Size: *${this.escapeMarkdownV2(targetSize)}*`);
+            lines.push(`🎯 Target Size: <b>${targetSize}</b>`);
         }
         lines.push('');
 
         items.forEach(item => {
             const rawTitle = item.display_title || item.title;
-            const cleanTitle = this._cleanMetadata(rawTitle);
-            const title = this.escapeMarkdownV2(cleanTitle);
-            const price = this.escapeMarkdownV2(item.price_ils?.toString() || '0');
-            const store = this.escapeMarkdownV2(item.store_name || item.store);
-            const sizesList = this.escapeMarkdownV2((item.available_sizes || item.sizes || []).join(', '));
+            const title = this._cleanMetadata(rawTitle);
+            const price = item.price_ils?.toString() || '0';
+            const store = item.store_name || item.store;
+            const sizesList = (item.available_sizes || item.sizes || []).join(', ');
 
-            lines.push(`• *${title}*`);
-            lines.push(`  💰 *₪${price}* - _${store}_`);
+            lines.push(`• <b>${title}</b>`);
+            lines.push(`  💰 <b>₪${price}</b> - <i>${store}</i>`);
             lines.push(`  📏 ${sizesList}`);
             lines.push('');
         });
 
-        const final = lines.join('\n');
-        return this.escapeMarkdownV2(final, true);
-    }
-
-    _buildPlainTextSummary(items, targetSize) {
-        let lines = [`👟 New Sneaker Found!`];
-        if (targetSize && targetSize !== '*') lines.push(`🎯 Target Size: ${targetSize}`);
-        lines.push('');
-        items.forEach(item => {
-            const title = this._cleanMetadata(item.display_title || item.title);
-            const store = item.store_name || item.store;
-            const price = item.price_ils || 0;
-            const sizes = (item.available_sizes || item.sizes || []).join(', ');
-            lines.push(`• ${title}`);
-            lines.push(`  Price: ₪${price} - Store: ${store}`);
-            lines.push(`  Sizes: ${sizes}`);
-            lines.push('');
-        });
         return lines.join('\n');
     }
 
@@ -144,14 +106,8 @@ class TelegramService {
         return String(text)
             .replace(/\s*[|\-]\s*Intent\s*:\s*\w+/gi, '')
             .replace(/\s*[|\-]\s*Model\s*:\s*[^|\-]+/gi, '')
-            .replace(/\|/g, '-')
+            .replace(/[<>]/g, '')
             .trim();
-    }
-
-    escapeMarkdownV2(text, isFinal = false) {
-        if (!text) return '';
-        const escaped = String(text).replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
-        return isFinal ? escaped.replace(/\\+/g, '\\') : escaped;
     }
 
     async _apiCall(method, body) {

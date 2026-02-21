@@ -15,7 +15,6 @@ class WeShoesAgent extends DOMNavigator {
                 console.log(`[WeShoes] Navigating to: ${searchUrl}`);
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
-                // Allow some time for Shopify AJAX hydration
                 await new Promise(r => setTimeout(r, 2000));
 
                 try {
@@ -37,8 +36,10 @@ class WeShoesAgent extends DOMNavigator {
                     const sizeMap = {};
 
                     function processShopifyProduct(data) {
-                        if (!data || (!data.variants && !data.product?.variants)) return;
+                        if (!data) return;
                         const p = data.product || data;
+                        if (!p.variants) return;
+
                         const key = p.handle || (p.id ? p.id.toString() : null);
                         if (!key) return;
 
@@ -60,7 +61,6 @@ class WeShoesAgent extends DOMNavigator {
                         if (availableSizes.length > 0) sizeMap[key] = availableSizes;
                     }
 
-                    // Deep Search for Shopify JSON
                     document.querySelectorAll('script[data-product-json], script[id*="ProductJson"], script[id*="product-json"]').forEach(s => {
                         try { processShopifyProduct(JSON.parse(s.textContent)); } catch (e) { }
                     });
@@ -74,7 +74,6 @@ class WeShoesAgent extends DOMNavigator {
                         } catch (e) { }
                     });
 
-                    // Global variables search
                     if (window.product && window.product.variants) processShopifyProduct(window.product);
                     if (window.Shopify?.content?.product) processShopifyProduct(window.Shopify.content.product);
 
@@ -108,12 +107,6 @@ class WeShoesAgent extends DOMNavigator {
 
                         let sizes = [];
                         if (productHandle && sizeMap[productHandle]) sizes = sizeMap[productHandle];
-
-                        // Debug log if size extraction fails for a tile
-                        if (title && sizes.length === 0) {
-                            const snippet = tile.innerHTML.substring(0, 100).replace(/\s+/g, ' ');
-                            console.log(`[WeShoes] DEBUG: No sizes for "${title}". Snippet: ${snippet}`);
-                        }
 
                         if (title) {
                             results.push({
