@@ -190,7 +190,7 @@ const BRANDS_DATA = {
         "W GAVIOTA 5",
         "עם לוגו"
     ],
-    "On Cloud": [
+    "ON": [
         "Cloud 5",
         "Cloud X",
         "Cloudflow",

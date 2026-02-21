@@ -6,8 +6,17 @@ class OnCloudIsraelAgent extends DOMNavigator {
     }
 
     async scrape(brand, model) {
-        if (brand.toLowerCase() !== 'on cloud' && brand.toLowerCase() !== 'on' && brand.toLowerCase() !== 'on-running') return [];
-        const query = encodeURIComponent(model);
+        const brandLower = brand.toLowerCase();
+        if (brandLower !== 'on' && brandLower !== 'on cloud' && brandLower !== 'on-running') return [];
+
+        // Deduplicate query: avoid "ON Cloud Cloud X" → search just the model
+        const words = model.trim().split(/\s+/);
+        const uniqueWords = [];
+        for (const word of words) {
+            if (!uniqueWords.some(w => w.toLowerCase() === word.toLowerCase())) uniqueWords.push(word);
+        }
+        const cleanModel = uniqueWords.join(' ');
+        const query = encodeURIComponent(cleanModel);
         const searchUrl = `${this.targetUrl}/catalogsearch/result/?q=${query}`;
 
         return new Promise(async (resolve) => {

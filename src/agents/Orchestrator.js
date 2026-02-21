@@ -79,9 +79,17 @@ class Orchestrator extends EventEmitter {
                 // 2. Initialize Browser
                 await worker.init();
 
+                // Normalize model: remove duplicate words (e.g., "ON Cloud Cloud X" → "ON Cloud X")
+                const modelWords = model.trim().split(/\s+/);
+                const dedupWords = [];
+                for (const word of modelWords) {
+                    if (!dedupWords.some(w => w.toLowerCase() === word.toLowerCase())) dedupWords.push(word);
+                }
+                const cleanModel = dedupWords.join(' ');
+
                 // 3. AGENT 2: DOM Navigator Execution
                 console.log(`[Orchestrator] Executing Agent 2 (DOM Navigator) for ${worker.storeName}...`);
-                const rawItems = await worker.scrape(brand, model);
+                const rawItems = await worker.scrape(brand, cleanModel);
                 console.log(`[Orchestrator] ${worker.storeName} scraped ${rawItems.length} raw items.`);
 
                 // Scrape done — cancel timeout so pipeline can run to completion
