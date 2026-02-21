@@ -12,7 +12,6 @@ const FootLockerIsraelAgent = require('./agents/FootLockerIsraelAgent');
 const JDSportsAgent = require('./agents/JDSportsAgent');
 const MayersAgent = require('./agents/MayersAgent');
 const KicksAgent = require('./agents/KicksAgent');
-
 const NewBalanceIsraelAgent = require('./agents/NewBalanceIsraelAgent');
 const HokaIsraelAgent = require('./agents/HokaIsraelAgent');
 const AsicsIsraelAgent = require('./agents/AsicsIsraelAgent');
@@ -20,17 +19,6 @@ const SauconyIsraelAgent = require('./agents/SauconyIsraelAgent');
 const OnCloudIsraelAgent = require('./agents/OnCloudIsraelAgent');
 const WeShoesAgent = require('./agents/WeShoesAgent');
 const TelegramService = require('./services/TelegramService');
-
-let brandInput = 'Nike';
-let modelInput = '';
-let sizeInput = '*';
-let shouldLoadLast = false;
-
-const args = process.argv.slice(2);
-
-if (args.includes('--load-last')) {
-    shouldLoadLast = true;
-}
 
 const MULTI_WORD_BRANDS = [
     'New Balance', 'Under Armour', 'ON Running', 'Air Jordan',
@@ -45,10 +33,8 @@ function normalizeBrand(brand) {
 
 function parseSearchInput(input) {
     if (!input) return { brand: 'Nike', model: '' };
-
     const inputTrimmed = input.trim();
     const inputUpper = inputTrimmed.toUpperCase();
-
     const sortedBrands = [...MULTI_WORD_BRANDS].sort((a, b) => b.length - a.length);
     for (const mb of sortedBrands) {
         if (inputUpper.startsWith(mb.toUpperCase())) {
@@ -57,57 +43,23 @@ function parseSearchInput(input) {
             return { brand, model };
         }
     }
-
     const split = inputTrimmed.split(' ');
     const brand = normalizeBrand(split[0]);
     const model = split.slice(1).join(' ');
     return { brand, model };
 }
 
-if (args[0] && !args[0].startsWith('--')) {
-    const { brand, model } = parseSearchInput(args[0]);
-    brandInput = brand;
-    modelInput = model;
+function auditEnv() {
+    const token = process.env.TELEGRAM_BOT_TOKEN || '';
+    const chat = process.env.TELEGRAM_CHAT_ID || '';
+    const obsToken = token ? `${token.substring(0, 4)}...xxxx` : 'MISSING';
+    const obsChat = chat ? `${chat.substring(0, 4)}...xxxx` : 'MISSING';
+    console.log(`[Audit] Telegram Token: ${obsToken}, Chat ID: ${obsChat}`);
 }
 
-if (args[1] && !args[1].startsWith('--')) {
-    sizeInput = args[1];
-}
-
-const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
-
-if (shouldLoadLast) {
-    try {
-        if (fs.existsSync(jsonPath)) {
-            const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-
-            if (data.scheduledSearchEnabled === false) {
-                console.log('⏸ Scheduled search is PAUSED by user. Skipping execution.'.yellow);
-                process.exit(0);
-            }
-
-            if (data.lastSearchTerm) {
-                const { brand, model } = parseSearchInput(data.lastSearchTerm);
-                brandInput = brand;
-                modelInput = model;
-                console.log(`🔄 Loaded last search term: "${data.lastSearchTerm}"`.cyan);
-            }
-            if (data.lastSizeInput) {
-                sizeInput = data.lastSizeInput;
-                console.log(`🔄 Loaded last size input: "${data.lastSizeInput}"`.cyan);
-            }
-        }
-    } catch (e) {
-        console.error("Failed to load last search:", e.message);
-    }
-}
-
-async function run() {
-    console.log(`\n🚀 Starting Multi-Agent Orchestrator at ${new Date().toLocaleTimeString()}...`.bold.green);
-    console.log(`🔎 Target: Brand="${brandInput}" Model="${modelInput}" Size="${sizeInput}"`.cyan);
-
+async function performSearch(brand, model, size) {
+    console.log(`\n🔎 Running: Brand="${brand}" Model="${model}" Size="${size}"`.cyan);
     const orchestrator = new Orchestrator();
-
     orchestrator.registerWorker(new TerminalXAgent());
     orchestrator.registerWorker(new Factory54Agent());
     orchestrator.registerWorker(new LimeShoesAgent());
@@ -124,25 +76,53 @@ async function run() {
     orchestrator.registerWorker(new OnCloudIsraelAgent());
     orchestrator.registerWorker(new WeShoesAgent());
 
-    await orchestrator.startSearch(brandInput, modelInput, sizeInput);
-    const results = orchestrator.results;
+    await orchestrator.startSearch(brand, model, size);
+    return orchestrator.results;
+}
 
-    const dashboardData = {
-        lastUpdate: new Date().toISOString(),
-        lastSearchTerm: `${brandInput} ${modelInput}`.trim(),
-        lastSizeInput: sizeInput,
-        products: results,
-        scheduledSearchEnabled: true
-    };
+async function run() {
+    console.log(`\n🚀 Sneaker Monitor v6.0 at ${new Date().toLocaleTimeString()}`.bold.green);
+    auditEnv();
 
-    fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2));
-    console.log(`\n📊 Total Validated Products Found: ${results.length}`.bold.green);
-    console.log(`💾 Saved to ${jsonPath}`.gray);
+    const args = process.argv.slice(2);
+    let searchTasks = [];
 
-    if (results.length > 0) {
-        await TelegramService.sendNotification(results, sizeInput);
+    if (args[0] && !args[0].startsWith('--')) {
+        const { brand, model } = parseSearchInput(args[0]);
+        const size = (args[1] && !args[1].startsWith('--')) ? args[1] : '*';
+        searchTasks.push({ brand, model, size });
+    } else {
+        const watchPath = path.join(__dirname, '../watchlist.json');
+        if (fs.existsSync(watchPath)) {
+            console.log(`📋 Loading Watchlist from ${watchPath}`.cyan);
+            searchTasks = JSON.parse(fs.readFileSync(watchPath, 'utf8'));
+        } else {
+            console.log(`⚠️ No input and no watchlist.json found.`.yellow);
+            process.exit(0);
+        }
     }
 
+    let allResults = [];
+    for (const task of searchTasks) {
+        const results = await performSearch(task.brand, task.model, task.size);
+        allResults = [...allResults, ...results];
+
+        console.log(`DEBUG: Items passing final size filter: [${results.length}]`);
+        if (results.length > 0) {
+            console.log(`DEBUG: Starting Telegram notification flow...`);
+            await TelegramService.sendNotification(results, task.size);
+        }
+    }
+
+    const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+    const dashboardData = {
+        lastUpdate: new Date().toISOString(),
+        products: allResults,
+        scheduledSearchEnabled: true
+    };
+    fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2));
+
+    console.log(`\n📊 Scanned ${searchTasks.length} tasks. Found ${allResults.length} matches.`.bold.green);
     process.exit(0);
 }
 
