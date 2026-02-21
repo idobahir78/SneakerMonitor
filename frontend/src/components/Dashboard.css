@@ -595,3 +595,82 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(249, 168, 37, 0.3);
 }
+
+.busy-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+.busy-modal {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(187, 134, 252, 0.3);
+    border-radius: 20px;
+    padding: 32px 28px;
+    max-width: 380px;
+    text-align: center;
+    animation: slideUp 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.busy-icon {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.busy-modal h3 {
+    color: var(--error-color);
+    font-size: 1.2rem;
+    margin: 0 0 12px;
+}
+
+.busy-modal p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+.busy-close-btn {
+    background: var(--accent-gradient);
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.busy-close-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

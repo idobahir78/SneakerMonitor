@@ -2,7 +2,7 @@ const BRAND_MODEL_SIGNATURES = {
     'PUMA': ['MB.01', 'MB.02', 'MB.03', 'MB.04', 'MB.05', 'MB.06', 'CLYDE', 'RS-X', 'SUEDE'],
     'NIKE': ['DUNK', 'AIR MAX', 'AIR FORCE', 'JORDAN', 'BLAZER', 'CORTEZ', 'WAFFLE'],
     'ADIDAS': ['YEEZY', 'ULTRABOOST', 'NMD', 'STAN SMITH', 'SAMBA', 'GAZELLE', 'FORUM'],
-    'NEW BALANCE': ['990', '992', '993', '550', '574', '327', '2002'],
+    'NEW BALANCE': ['990', '992', '993', '550', '574', '327', '2002', '530', '9060'],
     'ASICS': ['GEL-LYTE', 'GEL-KAYANO', 'GEL-NIMBUS', 'GT-2000'],
 };
 
@@ -17,6 +17,25 @@ const NON_SHOE_BLACKLIST = [
 class SemanticValidator {
     constructor() { }
 
+    _extractAllModelNumbers(text) {
+        const numbers = [];
+        const patterns = [
+            /\b([A-Z]{1,4}[\s.-]?\d{2,4}(?:\.\d+)?)\b/g,
+            /\b(\d{3,4}(?:\.\d+)?)\b/g,
+        ];
+        for (const pattern of patterns) {
+            let match;
+            while ((match = pattern.exec(text)) !== null) {
+                numbers.push(match[1].replace(/[\s.-]/g, '').toUpperCase());
+            }
+        }
+        return numbers;
+    }
+
+    _normalizeModelString(model) {
+        return model.replace(/[\s.-]/g, '').toUpperCase();
+    }
+
     async validate(rawItem, brand, model, targetSize) {
         if (!rawItem || !rawItem.raw_title) return false;
 
@@ -28,9 +47,9 @@ class SemanticValidator {
         const contextUpper = (rawItem.full_context || '').toUpperCase();
         const combinedText = titleUpper + ' ' + contextUpper;
         const brandUpper = brand.toUpperCase();
-        const modelUpper = (model || '').toUpperCase();
+        const modelUpper = (model || '').toUpperCase().trim();
+        const normalizedTargetModel = this._normalizeModelString(modelUpper);
 
-        // === STEP 1: Anti-Noise Blacklist — reject non-shoe products immediately ===
         for (const keyword of NON_SHOE_BLACKLIST) {
             if (titleUpper.includes(keyword.toUpperCase())) {
                 console.log(`[Agent 3 - Semantic] REJECTED (Non-Shoe: "${keyword}"): ${rawItem.raw_title}`);
@@ -38,38 +57,6 @@ class SemanticValidator {
             }
         }
 
-        // === STEP 2: Strict Version Matching ===
-        const targetVersionMatch = modelUpper.match(/([A-Z]+)[.\s-]*(\d+(?:\.\d+)?)/);
-        if (targetVersionMatch) {
-            const prefix = targetVersionMatch[1];
-            const targetVersionString = targetVersionMatch[2];
-            const targetVersion = parseFloat(targetVersionString);
-
-            const regex = new RegExp(prefix + '[.\\s-]*(\\d+(?:\\.\\d+)?)', 'g');
-            let match;
-            let foundAnyVersion = false;
-            let exactVersionMatch = false;
-
-            while ((match = regex.exec(titleUpper)) !== null) {
-                foundAnyVersion = true;
-                if (parseFloat(match[1]) === targetVersion) exactVersionMatch = true;
-            }
-
-            if (!exactVersionMatch && !foundAnyVersion) {
-                regex.lastIndex = 0;
-                while ((match = regex.exec(contextUpper)) !== null) {
-                    foundAnyVersion = true;
-                    if (parseFloat(match[1]) === targetVersion) exactVersionMatch = true;
-                }
-            }
-
-            if (foundAnyVersion && !exactVersionMatch) {
-                console.log(`[Agent 3 - Semantic] REJECTED (Strict Version Mismatch: Expected ${prefix} ${targetVersionString}): ${rawItem.raw_title}`);
-                return false;
-            }
-        }
-
-        // === STEP 3: Junk/Accessory Filter ===
         const junkKeywords = ['LACES', 'BOX ONLY', 'CLEAN KIT', 'CLEANING KIT', 'INSOLE', 'KEEPER'];
         if (junkKeywords.some(k => titleUpper.includes(k))) {
             const shoeKeywords = ['SHOE', 'SNEAKER', 'BOOT', 'TRAINER', 'נעל', 'סניקר', 'כדורסל'];
@@ -79,22 +66,62 @@ class SemanticValidator {
             }
         }
 
-        // === STEP 4: Brand + Model Match (title OR full_context) ===
-        const brandFound = combinedText.includes(brandUpper);
+        if (modelUpper) {
+            const titleNumbers = this._extractAllModelNumbers(titleUpper);
+            const contextNumbers = this._extractAllModelNumbers(contextUpper);
+            const allFoundNumbers = [...titleNumbers, ...contextNumbers];
 
-        const modelFirstWord = modelUpper.split(' ')[0];
-        const modelInTitle = modelFirstWord.length > 2 && titleUpper.includes(modelFirstWord);
-        const modelInContext = modelFirstWord.length > 2 && contextUpper.includes(modelFirstWord);
+            const targetHasNumber = /\d{2,}/.test(normalizedTargetModel);
 
-        const signatures = BRAND_MODEL_SIGNATURES[brandUpper] || [];
-        const signatureFound = signatures.some(sig => combinedText.includes(sig.toUpperCase()));
+            if (targetHasNumber) {
+                const targetNumericPart = normalizedTargetModel.replace(/[^0-9]/g, '');
 
-        if (!brandFound && !modelInTitle && !modelInContext && !signatureFound) {
-            console.log(`[Agent 3 - Semantic] REJECTED (Wrong Brand): ${rawItem.raw_title}`);
-            return false;
+                const exactMatch = allFoundNumbers.some(n => {
+                    const nNumeric = n.replace(/[^0-9]/g, '');
+                    return nNumeric === targetNumericPart || n === normalizedTargetModel;
+                });
+
+                const directTextMatch = combinedText.includes(modelUpper) ||
+                    combinedText.includes(normalizedTargetModel) ||
+                    combinedText.includes(modelUpper.replace(/\./g, ' '));
+
+                if (!exactMatch && !directTextMatch) {
+                    const wrongModels = allFoundNumbers
+                        .filter(n => /\d{2,}/.test(n))
+                        .filter(n => n.replace(/[^0-9]/g, '') !== targetNumericPart);
+
+                    if (wrongModels.length > 0) {
+                        console.log(`[Agent 3 - Semantic] REJECTED (Model Mismatch: Found ${wrongModels[0]}, Expected ${modelUpper}): ${rawItem.raw_title}`);
+                        return false;
+                    }
+
+                    if (!brandUpper || !combinedText.includes(brandUpper)) {
+                        console.log(`[Agent 3 - Semantic] REJECTED (Model "${modelUpper}" not found): ${rawItem.raw_title}`);
+                        return false;
+                    }
+                }
+            } else {
+                const modelWords = modelUpper.split(/\s+/).filter(w => w.length > 1);
+                const modelFoundInText = modelWords.every(w => combinedText.includes(w));
+                if (!modelFoundInText) {
+                    const brandFound = combinedText.includes(brandUpper);
+                    const signatures = BRAND_MODEL_SIGNATURES[brandUpper] || [];
+                    const signatureFound = signatures.some(sig => combinedText.includes(sig.toUpperCase()));
+                    if (!brandFound && !signatureFound) {
+                        console.log(`[Agent 3 - Semantic] REJECTED (Wrong Brand): ${rawItem.raw_title}`);
+                        return false;
+                    }
+                }
+            }
+        } else {
+            const brandFound = combinedText.includes(brandUpper);
+            if (!brandFound) {
+                console.log(`[Agent 3 - Semantic] REJECTED (Wrong Brand): ${rawItem.raw_title}`);
+                return false;
+            }
         }
 
-        if (modelInContext && !modelInTitle) {
+        if (contextUpper && !titleUpper.includes(modelUpper) && contextUpper.includes(modelUpper)) {
             console.log(`[Agent 3 - Semantic] PASSED (Model found in full_context fallback): ${rawItem.raw_title}`);
             return true;
         }

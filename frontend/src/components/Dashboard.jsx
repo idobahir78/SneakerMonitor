@@ -163,6 +163,7 @@ const Dashboard = () => {
             <ScraperControl
                 onTrigger={handleScrapeTrigger}
                 autoScrapeEnabled={data?.autoScrapeEnabled}
+                isSystemBusy={isScanning}
             />
 
             <header className="dashboard-header">

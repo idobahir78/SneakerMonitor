@@ -4,7 +4,7 @@ import BRANDS_DATA from '../data/brands';
 const REPO = 'idobahir78/SneakerMonitor';
 const WORKFLOW_FILE = 'scrape.yml';
 
-const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
+const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = false }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [token, setToken] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
@@ -15,6 +15,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const [isAutoEnabled, setIsAutoEnabled] = useState(autoScrapeEnabled);
     const [status, setStatus] = useState(null);
     const [message, setMessage] = useState('');
+    const [showBusyOverlay, setShowBusyOverlay] = useState(false);
 
     useEffect(() => {
         const savedToken = localStorage.getItem('gh_pat');
@@ -27,6 +28,9 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         const savedModel = localStorage.getItem('scraper_model');
         const savedManual = localStorage.getItem('scraper_manual_term');
         const savedMode = localStorage.getItem('scraper_is_manual') === 'true';
+
+        const savedAutoEnabled = localStorage.getItem('scheduled_search_enabled');
+        if (savedAutoEnabled !== null) setIsAutoEnabled(savedAutoEnabled !== 'false');
 
         if (savedBrand && BRANDS_DATA[savedBrand]) {
             setSelectedBrand(savedBrand);
@@ -68,6 +72,14 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         return '';
     };
 
+    const toggleScheduler = () => {
+        const newState = !isAutoEnabled;
+        setIsAutoEnabled(newState);
+        localStorage.setItem('scheduled_search_enabled', newState.toString());
+        setMessage(newState ? 'Hourly auto-scan resumed ⏱' : 'Hourly auto-scan paused ⏸');
+        setTimeout(() => setMessage(''), 3000);
+    };
+
     const dispatchWorkflow = async (inputs = {}) => {
         const headers = {
             'Accept': 'application/vnd.github.v3+json',
@@ -81,6 +93,11 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     };
 
     const triggerScrape = async () => {
+        if (isSystemBusy) {
+            setShowBusyOverlay(true);
+            return;
+        }
+
         const termToScrape = getFinalSearchTerm();
 
         if (!token) {
@@ -95,6 +112,10 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
         }
 
         saveSettings();
+
+        localStorage.setItem('scheduled_search_enabled', 'false');
+        setIsAutoEnabled(false);
+
         setStatus('loading');
         setMessage(`Triggering scan for "${termToScrape}"...`);
 
@@ -106,7 +127,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
 
             if (response.ok || response.status === 204) {
                 setStatus('success');
-                setMessage('Scan started! 🚀 Results stream in shortly.');
+                setMessage('Scan started! 🚀 Auto-scan paused until you resume it.');
                 if (onTrigger) onTrigger({ progressiveMode: true, searchTerm: termToScrape });
             } else {
                 const errText = await response.text();
@@ -134,114 +155,131 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true }) => {
     const availableModels = selectedBrand ? BRANDS_DATA[selectedBrand] : [];
 
     return (
-        <div className="scraper-control-panel">
-            <div className="control-header">
-                <h3>Remote Control 🎮</h3>
-                <button onClick={() => setIsOpen(false)} className="close-btn">×</button>
-            </div>
+        <>
+            {showBusyOverlay && (
+                <div className="busy-overlay" onClick={() => setShowBusyOverlay(false)}>
+                    <div className="busy-modal" onClick={e => e.stopPropagation()}>
+                        <div className="busy-icon">🚨</div>
+                        <h3>System Busy</h3>
+                        <p>A scheduled search is currently active. Manual search is disabled to prevent data corruption.</p>
+                        <button className="busy-close-btn" onClick={() => setShowBusyOverlay(false)}>Got it</button>
+                    </div>
+                </div>
+            )}
 
-            <div className="control-group">
-                <label>GitHub Token</label>
-                <div className="token-input-wrapper">
+            <div className="scraper-control-panel">
+                <div className="control-header">
+                    <h3>Remote Control 🎮</h3>
+                    <button onClick={() => setIsOpen(false)} className="close-btn">×</button>
+                </div>
+
+                <div className="control-group">
+                    <label>GitHub Token</label>
+                    <div className="token-input-wrapper">
+                        <input
+                            type="password"
+                            value={token}
+                            onChange={(e) => setToken(e.target.value)}
+                            placeholder="ghp_..."
+                        />
+                    </div>
+                    <small className="hint">Saved locally in your browser only. Never sent to our servers.</small>
+                </div>
+
+                <div className="control-group">
+                    <div className="label-row">
+                        <label>Search For</label>
+                        <button
+                            className="text-btn small"
+                            onClick={() => setIsManualMode(!isManualMode)}
+                        >
+                            {isManualMode ? 'Switch to List' : 'Switch to Manual'}
+                        </button>
+                    </div>
+
+                    {isManualMode ? (
+                        <input
+                            type="text"
+                            value={manualSearchTerm}
+                            onChange={(e) => setManualSearchTerm(e.target.value)}
+                            placeholder="e.g. Nike Air Max"
+                        />
+                    ) : (
+                        <div className="select-group">
+                            <select
+                                value={selectedBrand}
+                                onChange={(e) => {
+                                    setSelectedBrand(e.target.value);
+                                    setSelectedModel('');
+                                }}
+                            >
+                                <option value="">Select Brand...</option>
+                                {Object.keys(BRANDS_DATA).map(brand => (
+                                    <option key={brand} value={brand}>{brand}</option>
+                                ))}
+                            </select>
+
+                            <select
+                                value={selectedModel}
+                                onChange={(e) => setSelectedModel(e.target.value)}
+                                disabled={!selectedBrand || availableModels.length === 0}
+                            >
+                                <option value="">Select Model...</option>
+                                {availableModels.map(model => (
+                                    <option key={model} value={model}>{model}</option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+                </div>
+
+                <div className="control-group">
+                    <label>Sizes</label>
                     <input
-                        type="password"
-                        value={token}
-                        onChange={(e) => setToken(e.target.value)}
-                        placeholder="ghp_..."
+                        type="text"
+                        value={sizes}
+                        onChange={(e) => setSizes(e.target.value)}
+                        placeholder="e.g. 42, 43 or *"
                     />
                 </div>
-                <small className="hint">Saved locally in your browser only. Never sent to our servers.</small>
-            </div>
 
-            <div className="control-group">
-                <div className="label-row">
-                    <label>Search For</label>
+                <div className="control-group">
                     <button
-                        className="text-btn small"
-                        onClick={() => setIsManualMode(!isManualMode)}
+                        className="scheduler-toggle-btn"
+                        onClick={toggleScheduler}
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            padding: '5px 12px',
+                            borderRadius: '20px',
+                            fontSize: '0.8rem',
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            background: isAutoEnabled ? 'rgba(76,175,80,0.15)' : 'rgba(255,152,0,0.15)',
+                            color: isAutoEnabled ? '#4CAF50' : '#FF9800',
+                            border: `1px solid ${isAutoEnabled ? 'rgba(76,175,80,0.3)' : 'rgba(255,152,0,0.3)'}`,
+                            transition: 'all 0.3s ease',
+                        }}
                     >
-                        {isManualMode ? 'Switch to List' : 'Switch to Manual'}
+                        {isAutoEnabled ? '⏱ Hourly Auto-Scan: ON' : '⏸ Hourly Auto-Scan: PAUSED'}
                     </button>
                 </div>
 
-                {isManualMode ? (
-                    <input
-                        type="text"
-                        value={manualSearchTerm}
-                        onChange={(e) => setManualSearchTerm(e.target.value)}
-                        placeholder="e.g. Nike Air Max"
-                    />
-                ) : (
-                    <div className="select-group">
-                        <select
-                            value={selectedBrand}
-                            onChange={(e) => {
-                                setSelectedBrand(e.target.value);
-                                setSelectedModel('');
-                            }}
-                        >
-                            <option value="">Select Brand...</option>
-                            {Object.keys(BRANDS_DATA).map(brand => (
-                                <option key={brand} value={brand}>{brand}</option>
-                            ))}
-                        </select>
-
-                        <select
-                            value={selectedModel}
-                            onChange={(e) => setSelectedModel(e.target.value)}
-                            disabled={!selectedBrand || availableModels.length === 0}
-                        >
-                            <option value="">Select Model...</option>
-                            {availableModels.map(model => (
-                                <option key={model} value={model}>{model}</option>
-                            ))}
-                        </select>
-                    </div>
-                )}
-            </div>
-
-            <div className="control-group">
-                <label>Sizes</label>
-                <input
-                    type="text"
-                    value={sizes}
-                    onChange={(e) => setSizes(e.target.value)}
-                    placeholder="e.g. 42, 43 or *"
-                />
-            </div>
-
-            <div className="control-group">
-                <div
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        padding: '5px 12px',
-                        borderRadius: '20px',
-                        fontSize: '0.8rem',
-                        fontWeight: 600,
-                        background: isAutoEnabled ? 'rgba(76,175,80,0.15)' : 'rgba(255,152,0,0.15)',
-                        color: isAutoEnabled ? '#4CAF50' : '#FF9800',
-                        border: `1px solid ${isAutoEnabled ? 'rgba(76,175,80,0.3)' : 'rgba(255,152,0,0.3)'}`,
-                    }}
-                >
-                    {isAutoEnabled ? '⏱ Hourly Auto-Scan: ON' : '⏸ Hourly Auto-Scan: PAUSED'}
+                <div className="action-row">
+                    <button onClick={saveSettings} className="save-btn">Save</button>
+                    <button
+                        className={`trigger-btn ${status}`}
+                        onClick={triggerScrape}
+                        disabled={status === 'loading'}
+                    >
+                        {status === 'loading' ? 'Sending...' : 'Start Scrape 🚀'}
+                    </button>
                 </div>
-            </div>
 
-            <div className="action-row">
-                <button onClick={saveSettings} className="save-btn">Save</button>
-                <button
-                    className={`trigger-btn ${status}`}
-                    onClick={triggerScrape}
-                    disabled={status === 'loading'}
-                >
-                    {status === 'loading' ? 'Sending...' : 'Start Scrape 🚀'}
-                </button>
+                {message && <div className={`status-message ${status}`}>{message}</div>}
             </div>
-
-            {message && <div className={`status-message ${status}`}>{message}</div>}
-        </div>
+        </>
     );
 };
 

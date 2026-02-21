@@ -49,6 +49,12 @@ if (shouldLoadLast) {
     try {
         if (fs.existsSync(jsonPath)) {
             const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+
+            if (data.scheduledSearchEnabled === false) {
+                console.log('⏸ Scheduled search is PAUSED by user. Skipping execution.'.yellow);
+                process.exit(0);
+            }
+
             if (data.lastSearchTerm) {
                 const termSplit = data.lastSearchTerm.split(' ');
                 brandInput = termSplit[0];
