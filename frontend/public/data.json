@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-02-21T18:38:43.624Z",
+  "updatedAt": "2026-02-21T18:44:37.046Z",
   "isRunning": false,
-  "lastSearchTerm": "Hoka M SKYWARD X",
+  "lastSearchTerm": "Hoka Mach 6",
   "lastSizeInput": "44",
   "filters": {
     "models": [
-      "Hoka M SKYWARD X"
+      "Hoka Mach 6"
     ],
     "sizes": [
       "44"
@@ -13,9 +13,31 @@
   },
   "results": [
     {
-      "id": "item_1771699001792_4kqzb",
-      "display_title": "נעלי ספורט M SKYWARD X / גברים",
-      "price_ils": 1100,
+      "id": "item_1771699321165_ued9d",
+      "display_title": "HOKA MACH 6 – נעלי ספורט לגברים הוקה...",
+      "price_ils": 399,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://limeshoes.co.il/wp-content/uploads/2025/11/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%9E%D7%A1%D7%9A-2025-11-25-164906-300x272.jpg",
+      "badges": [],
+      "buy_link": "https://limeshoes.co.il/product/hoka-mach-6-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%94%d7%95%d7%a7%d7%94-%d7%9e%d7%90%d7%9a-6-%d7%91%d7%a6%d7%91%d7%a2-%d7%9c%d7%91%d7%9f-2/",
+      "store_name": "Lime Shoes"
+    },
+    {
+      "id": "item_1771699322468_60nmb",
+      "display_title": "HOKA MACH 6 – נעלי ספורט לגברים הוקה...",
+      "price_ils": 399,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://limeshoes.co.il/wp-content/uploads/2025/11/%D7%A6%D7%99%D7%9C%D7%95%D7%9D-%D7%9E%D7%A1%D7%9A-2025-11-25-153312-300x270.jpg",
+      "badges": [],
+      "buy_link": "https://limeshoes.co.il/product/hoka-mach-6-%d7%a0%d7%a2%d7%9c%d7%99-%d7%a1%d7%a4%d7%95%d7%a8%d7%98-%d7%9c%d7%92%d7%91%d7%a8%d7%99%d7%9d-%d7%94%d7%95%d7%a7%d7%94-%d7%9e%d7%90%d7%9a-6-%d7%91%d7%a6%d7%91%d7%a2-%d7%a9%d7%97%d7%95/",
+      "store_name": "Lime Shoes"
+    },
+    {
+      "id": "item_1771699330282_yn30p",
+      "display_title": "HOKA MACH 6 נעלי ספורט",
+      "price_ils": 550,
       "size_available": "Available",
       "sizes": [
         "41",
@@ -30,20 +52,368 @@
         "47",
         "48"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r283550010-11754302118.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r514170006-11762850424.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r283550010?color=5",
+      "buy_link": "https://www.terminalx.com/default-category/r514170006?color=9",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771699123408_9a08h",
-      "display_title": "HOKA SKYWARD X - נעלי לגברים סקייווארד...",
-      "price_ils": 1099.90934,
+      "id": "item_1771699331241_wt6dn",
+      "display_title": "נעלי ריצה HOKA MACH 6 WIDE / גברים",
+      "price_ils": 550,
+      "size_available": "Available",
+      "sizes": [
+        "40.5",
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48",
+        "49"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w561622000-11732697394.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w561622000?color=8326",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771699332167_qwo3w",
+      "display_title": "נעלי ספורט MACH 6 / גברים",
+      "price_ils": 550,
+      "size_available": "Available",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/5/w541280652-11732697252.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w541280652?color=2094",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771699333096_059ag",
+      "display_title": "נעלי ספורט M MACH 6 / גברים",
+      "price_ils": 550,
+      "size_available": "Available",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r158520005-11756388821.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r158520005?color=10",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771699334099_rrmy5",
+      "display_title": "נעלי ספורט M MACH 6 / גברים",
+      "price_ils": 550,
+      "size_available": "Available",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r283492022-11754301845.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r283492022?color=9670",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771699335959_tqoil",
+      "display_title": "נעלי ספורט M MACH 6 / גברים",
+      "price_ils": 550,
+      "size_available": "Available",
+      "sizes": [
+        "41",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46",
+        "46.5",
+        "47",
+        "48"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r283500009-11754301901.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r283500009?color=21",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771699457292_erwg3",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לנשים מאך 6...",
+      "price_ils": 549.90467,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK211M-FLP-1.jpg?v=1745331360&width=533",
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206W-PLDS-1.jpg?v=1756376131&width=533",
       "badges": [],
-      "buy_link": "https://www.weshoes.co.il/products/hok211m-flp?_pos=1&_sid=2f337e992&_ss=r",
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%95%D7%A8%D7%95%D7%93-%D7%93%D7%9E%D7%93%D7%95%D7%9E%D7%99%D7%9D-%D7%A9%D7%97%D7%A3?_pos=1&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699458240_bgcfu",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-FRT-1.jpg?v=1745500533&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%99%D7%A8%D7%A7%D7%A8%D7%A7?_pos=2&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699459147_rzsdh",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-WNL-1.jpg?v=1753632928&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6?_pos=3&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699460061_d5al7",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-DDW-1.jpg?v=1717716511&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%9B%D7%97%D7%95%D7%9C-%D7%91%D7%99%D7%9F-%D7%A2%D7%A8%D7%91%D7%99%D7%99%D7%9D-%D7%A6%D7%9C?_pos=4&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699460948_zrxa8",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-CLRSS-1.jpg?v=1758824143&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-7?_pos=5&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699461849_s2cgs",
+      "display_title": "MACH 6 WIDE - נעלי ספורט HOKA לגברים...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK207M-BWHT-1.jpg?v=1753618528&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/mach-6-wide-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%94%D7%95%D7%A7%D7%94-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%9E%D7%90%D7%9A-6-%D7%A8%D7%97%D7%91%D7%95%D7%AA-%D7%91%D7%A6%D7%91%D7%A2-%D7%A9%D7%97%D7%95%D7%A8-%D7%9C%D7%91%D7%9F?_pos=6&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699462763_sv32b",
+      "display_title": "MACH 6 WIDE - נעלי ספורט HOKA לנשים מאך...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK207W-BWHT-1.jpg?v=1725257908&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/mach-6-wide-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%94%D7%95%D7%A7%D7%94-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%9E%D7%90%D7%9A-6-%D7%A8%D7%97%D7%91%D7%95%D7%AA-%D7%91%D7%A6%D7%91%D7%A2-%D7%A9%D7%97%D7%95%D7%A8-%D7%9C%D7%91%D7%9F?_pos=7&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699463663_xzon9",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לנשים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206W-VLD-1.jpg?v=1756376135&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-7?_pos=8&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699464581_hjjh0",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-FTST-1.jpg?v=1745504146&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%A4%D7%A8%D7%95%D7%A1%D7%98-%D7%90%D7%95%D7%A8-%D7%9B%D7%95%D7%9B%D7%91%D7%99%D7%9D?_pos=9&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699465480_pb5lg",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לנשים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206W-FTST-1.jpg?v=1756376133&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6?_pos=10&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699466375_uqml7",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-DHN-1.jpg?v=1743088554&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%9B%D7%97%D7%95%D7%9C-%D7%A2%D7%A0%D7%9F-%D7%9B%D7%97%D7%95%D7%9C-%D7%A8%D7%A2%D7%9D?_pos=11&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699467255_vra0k",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-WWH-1.jpg?v=1743088552&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%9C%D7%91%D7%9F?_pos=12&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699468159_gl05g",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לנשים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206W-TNDR-1.jpg?v=1756376139&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-9?_pos=13&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699469062_0tbz5",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-BNGH-1.jpg?v=1753618545&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%A9%D7%97%D7%95%D7%A8-%D7%9B%D7%97%D7%95%D7%9C-%D7%9C%D7%99%D7%9C%D7%94?_pos=14&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699469911_3duwq",
+      "display_title": "MACH 6 WIDE - נעלי ספורט HOKA לגברים...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK207M-ECC-1.jpg?v=1753632927&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/mach-6-wide-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%94%D7%95%D7%A7%D7%94-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%9E%D7%90%D7%9A-6-%D7%A8%D7%97%D7%91%D7%95%D7%AA-%D7%91%D7%A6%D7%91%D7%A2-%D7%A7%D7%95%D7%91%D7%9C%D7%98-%D7%A0%D7%99%D7%99%D7%91%D7%99?_pos=15&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699470740_0spjc",
+      "display_title": "MACH 6 WIDE - נעלי ספורט HOKA לנשים מאך...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK207W-JTL-1.jpg?v=1755094539&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/mach-6-wide-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%94%D7%95%D7%A7%D7%94-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%9E%D7%90%D7%9A-6-%D7%A8%D7%97%D7%91%D7%95%D7%AA?_pos=17&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699471631_2n54q",
+      "display_title": "MACH 6 WIDE - נעלי ספורט HOKA לנשים מאך...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK207W-ISK-1.jpg?v=1725257896&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/mach-6-wide-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%94%D7%95%D7%A7%D7%94-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%9E%D7%90%D7%9A-6-%D7%A8%D7%97%D7%91%D7%95%D7%AA-%D7%91%D7%A6%D7%91%D7%A2-%D7%9B%D7%AA%D7%95%D7%9D-%D7%90%D7%A9%D7%9C%D7%99%D7%94-%D7%9B%D7%97%D7%95%D7%9C-%D7%91%D7%99%D7%9F-%D7%A2%D7%A8%D7%91%D7%99%D7%99%D7%9D?_pos=18&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699472537_e27mh",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לנשים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206W-PGH-1.jpg?v=1756376126&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%95%D7%A8%D7%95%D7%93-%D7%93%D7%9E%D7%93%D7%95%D7%9E%D7%99%D7%9D-%D7%9C%D7%99%D7%9E%D7%95%D7%A0%D7%93%D7%94?_pos=19&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699473444_gr23n",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-BKLC-1.jpg?v=1753618543&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%A9%D7%97%D7%95%D7%A8-%D7%9B%D7%AA%D7%95%D7%9D?_pos=20&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699474340_sud95",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לנשים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206W-WHTV-1.jpg?v=1756376128&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%A0%D7%A9%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%9C%D7%91%D7%9F-%D7%9B%D7%97%D7%95%D7%9C?_pos=21&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699475245_u2oc8",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-WHTV-1.jpg?v=1731338292&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%9C%D7%91%D7%9F-%D7%9B%D7%97%D7%95%D7%9C?_pos=22&_sid=6ed5484d2&_ss=r",
+      "store_name": "WeShoes"
+    },
+    {
+      "id": "item_1771699476960_0ycb9",
+      "display_title": "HOKA MACH 6 - נעלי ספורט לגברים מאך 6...",
+      "price_ils": 549.90467,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://sfycdn.speedsize.com/1f99ce09-afb7-4435-9b06-8c28d6b78b8e/https://weshoes.co.il/cdn/shop/files/HOK206M-BWHT-1.jpg?v=1768850134&width=533",
+      "badges": [],
+      "buy_link": "https://www.weshoes.co.il/products/hoka-mach-6-%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A4%D7%95%D7%A8%D7%98-%D7%9C%D7%92%D7%91%D7%A8%D7%99%D7%9D-%D7%94%D7%95%D7%A7%D7%94-%D7%9E%D7%90%D7%9A-6-%D7%91%D7%A6%D7%91%D7%A2-%D7%A9%D7%97%D7%95%D7%A8-%D7%9C%D7%91%D7%9F?_pos=24&_sid=6ed5484d2&_ss=r",
       "store_name": "WeShoes"
     }
   ]
