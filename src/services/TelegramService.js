@@ -27,8 +27,6 @@ class TelegramService {
             .sort((a, b) => (a.price_ils || 0) - (b.price_ils || 0))
             .slice(0, 5);
 
-        console.log(`[Telegram] Sending alert for ${topResults.length} items...`);
-
         const media = topResults
             .filter(item => item.image_url)
             .map((item, index) => ({
@@ -53,19 +51,17 @@ class TelegramService {
             }
 
             for (const item of topResults) {
-                const escapedTitle = this._escape(item.display_title || item.title);
+                const escapedTitle = this.escapeMarkdownV2(item.display_title || item.title);
                 const url = item.buy_link || item.link;
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
                     text: `🔗 [${escapedTitle}](${url})`,
                     parse_mode: 'MarkdownV2',
                     reply_markup: JSON.stringify({
-                        inline_keyboard: [[{ text: 'Buy Now', url: url }]]
+                        inline_keyboard: [[{ text: '🛒 Buy Now', url: url }]]
                     })
                 });
             }
-
-            console.log(`DEBUG: Telegram alert sent for ${topResults.length} items.`);
         } catch (error) {
             console.error('[Telegram] Error sending notification:', error.message);
         }
@@ -74,15 +70,15 @@ class TelegramService {
     _buildSummaryCaption(items, targetSize) {
         let lines = [`*👟 New Sneaker Found\\!*`];
         if (targetSize && targetSize !== '*') {
-            lines.push(`🎯 Target Size: *${this._escape(targetSize)}*`);
+            lines.push(`🎯 Target Size: *${this.escapeMarkdownV2(targetSize)}*`);
         }
         lines.push('');
 
         items.forEach(item => {
-            const title = this._escape(item.display_title || item.title);
-            const price = this._escape(item.price_ils?.toString() || '0');
-            const store = this._escape(item.store_name || item.store);
-            const sizesList = this._escape((item.available_sizes || item.sizes || []).join(', '));
+            const title = this.escapeMarkdownV2(item.display_title || item.title);
+            const price = this.escapeMarkdownV2(item.price_ils?.toString() || '0');
+            const store = this.escapeMarkdownV2(item.store_name || item.store);
+            const sizesList = this.escapeMarkdownV2((item.available_sizes || item.sizes || []).join(', '));
 
             lines.push(`• *${title}*`);
             lines.push(`  💰 *₪${price}* | _${store}_`);
@@ -93,11 +89,9 @@ class TelegramService {
         return lines.join('\n');
     }
 
-    _escape(text) {
+    escapeMarkdownV2(text) {
         if (!text) return '';
-        const str = text.toString();
-        // Mandatory escaping for MarkdownV2: _ * [ ] ( ) ~ ` > # + - = | { } . !
-        return str.replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+        return String(text).replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
     }
 
     async _apiCall(method, body) {
@@ -106,11 +100,9 @@ class TelegramService {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)
         });
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.description || `API error: ${response.status}`);
-        }
-        return response.json();
+        const data = await response.json();
+        if (!data.ok) throw new Error(data.description || 'Unknown API error');
+        return data;
     }
 }
 
