@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-21T00:11:28.853Z",
+  "updatedAt": "2026-02-21T00:16:08.819Z",
   "isRunning": false,
   "lastSearchTerm": "New Balance 530",
   "lastSizeInput": "*",
@@ -11,21 +11,7 @@
   },
   "results": [
     {
-      "id": "item_1771632599047_iwv5z",
-      "display_title": "NEW BALANCE נעלי סניקרס 530",
-      "price_ils": 599.25,
-      "size_available": "Available",
-      "sizes": [
-        "10",
-        "10.5"
-      ],
-      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37344309/images/new/970002483/970002483_P_1.png?sw=476&sh=714",
-      "badges": [],
-      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
-      "store_name": "Factory 54"
-    },
-    {
-      "id": "item_1771632598863_wc4zz",
+      "id": "item_1771632880804_pt4px",
       "display_title": "סניקרס New Balance 530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -45,18 +31,21 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632600019_oqi2o",
+      "id": "item_1771632881893_au40s",
       "display_title": "NEW BALANCE נעלי סניקרס 530",
-      "price_ils": 669,
+      "price_ils": 599.25,
       "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf2c33d41/images/new/970002463/970002463_P_1.png?sw=476&sh=714",
+      "sizes": [
+        "10",
+        "10.5"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37344309/images/new/970002483/970002483_P_1.png?sw=476&sh=714",
       "badges": [],
-      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=1",
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1771632600144_825us",
+      "id": "item_1771632881910_uj6gz",
       "display_title": "סניקרס MR530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -77,7 +66,18 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632601217_8tb9d",
+      "id": "item_1771632882839_gl87z",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf2c33d41/images/new/970002463/970002463_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771632882924_7t5xg",
       "display_title": "נעלי ספורט New Balance 740v2 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -98,7 +98,18 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632602290_ncjat",
+      "id": "item_1771632883713_eo5as",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8320a881/images/new//970002558/970002558_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002558.html?pi=3",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771632883940_wv17q",
       "display_title": "סניקרס MR530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -118,7 +129,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632603388_e05so",
+      "id": "item_1771632885016_7ocqy",
       "display_title": "סניקרס רשת עם סוליית גומי MR530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -139,7 +150,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632604457_6iut7",
+      "id": "item_1771632886078_jwehh",
       "display_title": "סניקרס עור MR530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -159,7 +170,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632605510_1zc6x",
+      "id": "item_1771632887091_itdnu",
       "display_title": "נעלי סניקרס MR530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -180,7 +191,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632606609_dtyqs",
+      "id": "item_1771632888160_xprhz",
       "display_title": "נעלי סניקרס MR530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -201,7 +212,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632607713_ynda1",
+      "id": "item_1771632889228_sw64y",
       "display_title": "נעלי ספורט New Balance / נשים",
       "price_ils": 469.95,
       "size_available": "Available",
@@ -220,7 +231,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632608749_qz5y5",
+      "id": "item_1771632890264_5doih",
       "display_title": "נעלי סניקרס 530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -240,7 +251,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632609961_t3z5p",
+      "id": "item_1771632891427_diks7",
       "display_title": "נעלי סניקרס MR530 / נשים",
       "price_ils": 535.92,
       "size_available": "Available",
@@ -261,7 +272,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632611042_0qby0",
+      "id": "item_1771632892447_snikd",
       "display_title": "נעלי סניקרס MR530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -281,7 +292,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632612090_ipd6t",
+      "id": "item_1771632893462_iss8z",
       "display_title": "נעלי סניקרס MR530 / נשים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -302,7 +313,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632613194_ys3f1",
+      "id": "item_1771632894525_bm1uy",
       "display_title": "סניקרס M530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -323,245 +334,245 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771632621718_ii3eh",
+      "id": "item_1771632902973_ar1gf",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U5308EL-82_1_3fe05cba-d6b0-42c4-b5e0-7ae89c8d8e9a.webp?v=1767699728&width=1110",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f313240016?_pos=1&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f313240016?_pos=1&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632622667_z0ohq",
+      "id": "item_1771632903946_ogfvr",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657506.jpg?v=1726740842&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530sg?_pos=2&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530sg?_pos=2&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632623567_wl18m",
+      "id": "item_1771632904832_j6tu6",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657036.jpg?v=1726740520&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530cc?_pos=3&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530cc?_pos=3&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632624542_4uvtm",
+      "id": "item_1771632905716_3spye",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657223.jpg?v=1726740653&width=1000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ck?_pos=4&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ck?_pos=4&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632625451_608x2",
+      "id": "item_1771632906595_lzzgj",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ewb_2.jpg?v=1730359513&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ewb?_pos=5&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ewb?_pos=5&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632626352_ezm1d",
+      "id": "item_1771632907494_1k24o",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ema_2.jpg?v=1730124298&width=2500",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ema-2?_pos=6&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ema-2?_pos=6&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632627264_9df4q",
-      "display_title": "NEW BALANCE 530 סניקרס",
-      "price_ils": 564.98,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657399.jpg?v=1726740773&width=800",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530aa?_pos=7&_sid=68d96c5c9&_ss=r",
-      "store_name": "Foot Locker Israel"
-    },
-    {
-      "id": "item_1771632628168_dh7bn",
+      "id": "item_1771632909244_m98jr",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/u530sua_nb_02_i.webp?v=1759920531&width=1600",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297010100?_pos=8&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297010100?_pos=8&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632629066_sbujd",
+      "id": "item_1771632910141_85bdv",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U530ESA_2.jpg?v=1754301105&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f296990033?_pos=9&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f296990033?_pos=9&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632629967_e5fc8",
+      "id": "item_1771632911018_9fm37",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ce_2.jpg?v=1730020265&width=2500",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ce?_pos=10&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ce?_pos=10&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632630868_8i5h8",
+      "id": "item_1771632911894_nsw45",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/197967559754_2.jpg?v=1751528829&width=2800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f296600016?_pos=11&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f296600016?_pos=11&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632631799_huk8o",
+      "id": "item_1771632912814_ftz53",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U530ESB_2.jpg?v=1754301393&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297000033?_pos=12&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297000033?_pos=12&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632632772_k79od",
+      "id": "item_1771632913703_38urt",
       "display_title": "NEW BALANCE 530 סניקרס בשילוב לוגו",
       "price_ils": 413.4,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U530CSE_2.jpg?v=1747818585&width=2500",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f293210016?_pos=13&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f293210016?_pos=13&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632633678_qhfak",
+      "id": "item_1771632914619_df19f",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/FullSizeRender.jpg?v=1750093004&width=1668",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f306180033?_pos=14&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f306180033?_pos=14&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632634592_resdh",
+      "id": "item_1771632915520_00eyn",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 689,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/u530sub_nb_02_i.webp?v=1759920332&width=1600",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297020008?_pos=15&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297020008?_pos=15&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632635503_an7o4",
+      "id": "item_1771632916399_796xh",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/MR530PB_2.webp?v=1754231803&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f304520002?_pos=16&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f304520002?_pos=16&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632636413_us7z9",
+      "id": "item_1771632917301_uzocd",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 564.98,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/IMG_0002.jpg?v=1730978325&width=2100",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530aam?_pos=17&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530aam?_pos=17&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632638171_3yz96",
+      "id": "item_1771632918181_xqzuq",
+      "display_title": "NEW BALANCE U5309TN סניקרס",
+      "price_ils": 689,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/2ae6d89c-89b7-4226-a365-339866eb28f4.jpg?v=1771154499&width=800",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f313250002?_pos=18&_sid=b68584589&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1771632919079_zi1f2",
       "display_title": "NEW BALANCE Athletics Premium Relaxed...",
       "price_ils": 125.4,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/mt51900dkj_73.jpg?v=1745175253&width=2500",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mt51900dkj?_pos=19&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mt51900dkj?_pos=19&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632639142_j2wxv",
+      "id": "item_1771632919978_ksr79",
       "display_title": "NEW BALANCE FUELCELL REBEL V5 נעלי ריצה",
       "price_ils": 753.58,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/MFCXLL5_2.jpg?v=1754993268&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f311360031?_pos=20&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f311360031?_pos=20&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632640038_3rwjn",
+      "id": "item_1771632920872_tfnrh",
       "display_title": "NEW BALANCE UTRNAA נעלי ריצה",
       "price_ils": 786.38,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/UTRNAA_2.jpg?v=1751978998&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f306520008?_pos=21&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f306520008?_pos=21&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632640937_coj6k",
+      "id": "item_1771632921764_mstes",
       "display_title": "NEW BALANCE FUELCELL REBEL V5 נעלי ריצה",
       "price_ils": 696.18,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/WFCXLK5_2.jpg?v=1757682994&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f311450002?_pos=22&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f311450002?_pos=22&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1771632641892_r9318",
+      "id": "item_1771632922709_wuss0",
       "display_title": "NEW BALANCE FuelCell Rebel v5 נעלי ריצה",
       "price_ils": 712.58,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/WFCXLX5_2.jpg?v=1754821191&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f311460031?_pos=24&_sid=68d96c5c9&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f311460031?_pos=24&_sid=b68584589&_ss=r",
       "store_name": "Foot Locker Israel"
     }
   ]
