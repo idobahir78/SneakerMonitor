@@ -20,6 +20,7 @@ const AsicsIsraelAgent = require('./agents/AsicsIsraelAgent');
 const SauconyIsraelAgent = require('./agents/SauconyIsraelAgent');
 const OnCloudIsraelAgent = require('./agents/OnCloudIsraelAgent');
 const WeShoesAgent = require('./agents/WeShoesAgent');
+const TelegramService = require('./services/TelegramService');
 
 // Default target parameters
 let brandInput = 'Nike';
@@ -159,6 +160,11 @@ async function run() {
         console.log(`\n💾 Saved to ${jsonPath}`.cyan);
     } catch (e) {
         console.error(`❌ Failed to save final payload: ${e.message}`);
+    }
+
+    // Send Telegram Notification
+    if (accumulatedResults.length > 0) {
+        await TelegramService.sendNotification(accumulatedResults, sizeInput);
     }
 
     process.exit(0);
