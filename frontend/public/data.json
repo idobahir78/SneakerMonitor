@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-21T11:29:23.206Z",
+  "updatedAt": "2026-02-21T11:31:15.753Z",
   "isRunning": false,
   "lastSearchTerm": "ON Cloud X",
   "lastSizeInput": "*",
@@ -11,7 +11,7 @@
   },
   "results": [
     {
-      "id": "item_1771673282187_5fp40",
+      "id": "item_1771673395156_z8n0h",
       "display_title": "נעלי ספורט CLOUD X 4 / גברים",
       "price_ils": 765,
       "size_available": "Available",
@@ -28,7 +28,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673283155_1y9f3",
+      "id": "item_1771673396146_yja6i",
       "display_title": "נעלי ריצה 3 Cloud X / נשים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -53,7 +53,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673284143_sdcjw",
+      "id": "item_1771673397089_s51x7",
       "display_title": "נעלי ריצה 3 Cloud X / נשים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -73,7 +73,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673285099_eohah",
+      "id": "item_1771673398088_u6oat",
       "display_title": "נעלי ריצה 3 Cloud X / גברים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -90,7 +90,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673286100_pzbd8",
+      "id": "item_1771673399036_7s2xj",
       "display_title": "נעלי ריצה CLOUD X 4 / גברים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -114,7 +114,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673287059_ogj7d",
+      "id": "item_1771673399969_xux6j",
       "display_title": "נעלי ריצה CLOUD X 4 / נשים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -134,7 +134,31 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673288848_r9g7h",
+      "id": "item_1771673400894_7v3sq",
+      "display_title": "נעלי ריצה CLOUD X 4 / נשים",
+      "price_ils": 737.91,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "36.5",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39",
+        "40",
+        "40.5",
+        "41",
+        "42",
+        "42.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w823270008-11738487581.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w823260011?color=8",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771673401839_9pg39",
       "display_title": "נעלי ריצה CLOUD X 4 / נשים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -158,7 +182,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673289787_vkr7h",
+      "id": "item_1771673402843_l2uzn",
       "display_title": "נעלי ספורט CLOUD X 4 / גברים",
       "price_ils": 765,
       "size_available": "Available",
@@ -179,7 +203,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673290713_e1sn5",
+      "id": "item_1771673403789_2awlf",
       "display_title": "נעלי ריצה CLOUD X 4 / גברים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -203,7 +227,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673291644_o3ba2",
+      "id": "item_1771673404718_0wr0w",
       "display_title": "נעלי ריצה CLOUD X 4 / נשים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -227,7 +251,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673292602_74nbb",
+      "id": "item_1771673405641_j1xwj",
       "display_title": "נעלי ריצה CLOUD X 4 / גברים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -253,7 +277,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673293527_ig7il",
+      "id": "item_1771673406591_b7ofh",
       "display_title": "נעלי ריצה CLOUD X 4 / גברים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -277,7 +301,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673294533_r7y2m",
+      "id": "item_1771673407520_c3hxz",
       "display_title": "נעלי ספורט CLOUD X 4 / גברים",
       "price_ils": 738,
       "size_available": "Available",
@@ -300,7 +324,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673295466_xyk7o",
+      "id": "item_1771673408446_3800q",
       "display_title": "נעלי ריצה 3 Cloud X / גברים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -321,7 +345,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673296401_kdysi",
+      "id": "item_1771673409372_b4lkc",
       "display_title": "נעלי ריצה 3 Cloud X / נשים",
       "price_ils": 737.91,
       "size_available": "Available",
@@ -341,7 +365,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673297328_tk3n8",
+      "id": "item_1771673410311_lc12w",
       "display_title": "נעלי ספורט CLOUD X 4 AD / נשים",
       "price_ils": 666,
       "size_available": "Available",
@@ -366,7 +390,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673298260_5mwb2",
+      "id": "item_1771673411306_ptutn",
       "display_title": "נעלי ספורט CLOUD X 4 AD / גברים",
       "price_ils": 820,
       "size_available": "Available",
@@ -387,7 +411,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673299286_y8i6t",
+      "id": "item_1771673412241_fkl8v",
       "display_title": "נעלי ריצה CLOUDNOVA X / גברים",
       "price_ils": 764.91,
       "size_available": "Available",
@@ -411,7 +435,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673300232_fs42e",
+      "id": "item_1771673413165_4xc89",
       "display_title": "נעלי ריצה CLOUDNOVA X / נשים",
       "price_ils": 764.91,
       "size_available": "Available",
@@ -436,7 +460,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771673301167_8gc62",
+      "id": "item_1771673414126_fhwyp",
       "display_title": "נעלי ספורט CLOUDNOVA X / גברים",
       "price_ils": 850,
       "size_available": "Available",
@@ -459,17 +483,6 @@
       "badges": [],
       "buy_link": "https://www.terminalx.com/default-category/r278960008?color=7",
       "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771673311056_2uolk",
-      "display_title": "ON CLOUDSURFER NEXT WIDE נעלי ריצה",
-      "price_ils": 920,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/3ME30190106-cloudsurfer_next_wide-black_eclipse-m-g1.jpg?v=1769696045&width=1024",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f327830002?_pos=5&_sid=f5506c750&_ss=r",
-      "store_name": "Foot Locker Israel"
     }
   ]
 }
