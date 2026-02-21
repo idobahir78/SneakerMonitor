@@ -1,34 +1,25 @@
 {
-  "updatedAt": "2026-02-21T08:06:28.722Z",
+  "updatedAt": "2026-02-21T08:21:43.358Z",
   "isRunning": false,
-  "lastSearchTerm": "Asics GEL NYC UNISEX",
+  "lastSearchTerm": "Hoka RUNNING",
   "lastSizeInput": "*",
   "filters": {
     "models": [
-      "Asics GEL NYC UNISEX"
+      "Hoka RUNNING"
     ],
     "sizes": []
   },
   "results": [
     {
-      "id": "item_1771661086687_r15hh",
-      "display_title": "GEL NYC UNISEX נעלי סניקרס לגברים",
-      "price_ils": 799.9,
+      "id": "item_1771662036162_xwhl1",
+      "display_title": "NIKE REPEL RUNNING ז'קט",
+      "price_ils": 221.94,
       "size_available": "Available",
-      "sizes": [
-        "36",
-        "37",
-        "37.5",
-        "38",
-        "39",
-        "39.5",
-        "40",
-        "40.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r323420007-11760011503.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_DD4746-017_PHSYM001-2000.jpg?v=1765961019&width=2000",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r323420007?color=22",
-      "store_name": "TerminalX"
+      "buy_link": "https://footlocker.co.il/products/f297580035?_pos=20&_sid=80eff323c&_ss=r",
+      "store_name": "Foot Locker Israel"
     }
   ]
 }
