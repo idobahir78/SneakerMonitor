@@ -32,9 +32,6 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         return baseDomain + '/' + u;
                     }
 
-                    // ========================================
-                    // SHOPIFY SIZE MAP: Scan ALL JSON sources
-                    // ========================================
                     const sizeMap = {};
 
                     function extractShopifyProduct(data) {
@@ -42,7 +39,6 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         const key = data.handle || (data.id ? data.id.toString() : null);
                         if (!key) return;
 
-                        // Shopify options: find which option index is "Size" (not Color/Material)
                         let sizeOptionIndex = 0;
                         if (data.options && Array.isArray(data.options)) {
                             const sizeIdx = data.options.findIndex(opt =>
@@ -59,14 +55,13 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             .map(s => s.replace(/^(US|EU|UK)\s*/i, '').trim());
 
                         if (availableSizes.length > 0) sizeMap[key] = availableSizes;
+                        if (data.id) sizeMap[data.id.toString()] = availableSizes;
                     }
 
-                    // Source 1: script[type="application/json"] with product-json ID
                     document.querySelectorAll('script[id*="product-json"], script[data-product-json], script[data-product-id]').forEach(s => {
                         try { extractShopifyProduct(JSON.parse(s.textContent)); } catch (e) { }
                     });
 
-                    // Source 2: All generic JSON script tags
                     document.querySelectorAll('script[type="application/json"]').forEach(s => {
                         try {
                             const raw = s.textContent.trim();
@@ -78,7 +73,6 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         } catch (e) { }
                     });
 
-                    // Source 3: Inline scripts with Shopify.content or ShopifyAnalytics.meta.product
                     document.querySelectorAll('script:not([src])').forEach(s => {
                         const text = s.textContent || '';
                         if (text.includes('var meta =') || text.includes('product')) {
@@ -91,11 +85,8 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         }
                     });
 
-                    // ========================================
-                    // TILE EXTRACTION
-                    // ========================================
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-item');
+                    const tiles = document.querySelectorAll('.product-item, .product-card');
 
                     tiles.forEach(tile => {
                         let productUrl = '';
@@ -121,11 +112,9 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         }
                         productUrl = norm(productUrl);
 
-                        // Brand from vendor element
                         const vendorEl = tile.querySelector('.product-item-meta__vendor, [class*="vendor"]');
                         const brandName = vendorEl?.innerText?.trim() || '';
 
-                        // Title with brand prepend
                         const titleEl = tile.querySelector('.product-item-meta__title, .product-item__title, h3, h2, [class*="title"]');
                         let rawTitle = titleEl?.innerText?.trim() || '';
                         if (!rawTitle && productUrl) {
@@ -137,7 +126,6 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             title = `${brandName} ${rawTitle}`;
                         }
 
-                        // Price
                         const priceEl = tile.querySelector('.price__current, .product-item__price, .price .money, .price, .money');
                         let price = 0;
                         if (priceEl) {
@@ -145,16 +133,20 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             price = parseFloat(priceText) || 0;
                         }
 
-                        // Image
                         const imgEl = tile.querySelector('.product-item__primary-image, img');
                         const rawImg = norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('srcset')?.split(' ')[0] || '');
 
-                        // Size lookup: handle → sizeMap, then product-id fallback
                         let sizes = [];
                         if (productHandle && sizeMap[productHandle]) sizes = sizeMap[productHandle];
+
+                        const pid = tile.getAttribute('data-product-id') || tile.getAttribute('data-infinator-id') || tile.getAttribute('id')?.replace('product-', '') || '';
+                        if (sizes.length === 0 && pid && sizeMap[pid]) sizes = sizeMap[pid];
+
                         if (sizes.length === 0) {
-                            const pid = tile.getAttribute('data-product-id') || tile.getAttribute('data-infinator-id') || '';
-                            if (pid && sizeMap[pid]) sizes = sizeMap[pid];
+                            tile.querySelectorAll('[data-option*="size"], [class*="size"] button, [class*="size"] span').forEach(el => {
+                                const s = el.innerText.trim();
+                                if (s && !isNaN(parseFloat(s)) && s.length < 8) sizes.push(s);
+                            });
                         }
 
                         if (title) {
@@ -163,7 +155,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                                 raw_price: price,
                                 raw_url: productUrl,
                                 raw_image_url: rawImg,
-                                raw_sizes: sizes
+                                raw_sizes: [...new Set(sizes)]
                             });
                         }
                     });

@@ -27,12 +27,13 @@ class TelegramService {
             .sort((a, b) => (a.price_ils || 0) - (b.price_ils || 0))
             .slice(0, 5);
 
+        const caption = this._buildSummaryCaption(topResults, targetSize);
         const media = topResults
             .filter(item => item.image_url)
             .map((item, index) => ({
                 type: 'photo',
                 media: String(item.image_url),
-                caption: index === 0 ? this._buildSummaryCaption(topResults, targetSize) : '',
+                caption: index === 0 ? caption : '',
                 parse_mode: 'MarkdownV2'
             }));
 
@@ -45,7 +46,7 @@ class TelegramService {
             } else {
                 await this._apiCall('sendMessage', {
                     chat_id: this.chatId,
-                    text: this._buildSummaryCaption(topResults, targetSize),
+                    text: caption,
                     parse_mode: 'MarkdownV2'
                 });
             }
@@ -64,11 +65,37 @@ class TelegramService {
                 });
             }
         } catch (error) {
-            console.error('[Telegram] Error sending notification:', error.message);
-            if (filtered[0]) {
-                const sampleModel = filtered[0].display_title || filtered[0].title || 'Unknown';
-                console.log('[Telegram] Failed Text Sample:', sampleModel);
+            if (error.message.includes('Bad Request') || error.message.includes('parse entities')) {
+                console.log('[Telegram] Markdown parsing failed. Attempting Fallback...');
+                await this._sendFallback(topResults, targetSize);
+            } else {
+                console.error('[Telegram] Error sending notification:', error.message);
+                if (topResults[0]) {
+                    console.log('[Telegram] Failed Text Sample:', topResults[0].display_title || topResults[0].title);
+                }
             }
+        }
+    }
+
+    async _sendFallback(items, targetSize) {
+        try {
+            const plainText = this._buildPlainTextSummary(items, targetSize);
+            await this._apiCall('sendMessage', {
+                chat_id: this.chatId,
+                text: plainText,
+                parse_mode: null
+            });
+            for (const item of items) {
+                const url = item.buy_link || item.link;
+                await this._apiCall('sendMessage', {
+                    chat_id: this.chatId,
+                    text: `🛒 Buy ${item.display_title || item.title}: ${url}`,
+                    parse_mode: null
+                });
+            }
+            console.log('[Telegram] Fallback notification sent successfully.');
+        } catch (e) {
+            console.error('[Telegram] Fallback failed:', e.message);
         }
     }
 
@@ -88,25 +115,45 @@ class TelegramService {
             const sizesList = this.escapeMarkdownV2((item.available_sizes || item.sizes || []).join(', '));
 
             lines.push(`• *${title}*`);
-            lines.push(`  💰 *₪${price}* | _${store}_`);
+            lines.push(`  💰 *₪${price}* - _${store}_`);
             lines.push(`  📏 ${sizesList}`);
             lines.push('');
         });
 
+        const final = lines.join('\n');
+        return this.escapeMarkdownV2(final, true);
+    }
+
+    _buildPlainTextSummary(items, targetSize) {
+        let lines = [`👟 New Sneaker Found!`];
+        if (targetSize && targetSize !== '*') lines.push(`🎯 Target Size: ${targetSize}`);
+        lines.push('');
+        items.forEach(item => {
+            const title = this._cleanMetadata(item.display_title || item.title);
+            const store = item.store_name || item.store;
+            const price = item.price_ils || 0;
+            const sizes = (item.available_sizes || item.sizes || []).join(', ');
+            lines.push(`• ${title}`);
+            lines.push(`  Price: ₪${price} - Store: ${store}`);
+            lines.push(`  Sizes: ${sizes}`);
+            lines.push('');
+        });
         return lines.join('\n');
     }
 
     _cleanMetadata(text) {
         if (!text) return '';
         return String(text)
-            .replace(/\s*\|\s*Intent\s*:\s*\w+/gi, '')
-            .replace(/\s*\|\s*Model\s*:\s*[^|]+/gi, '')
+            .replace(/\s*[|\-]\s*Intent\s*:\s*\w+/gi, '')
+            .replace(/\s*[|\-]\s*Model\s*:\s*[^|\-]+/gi, '')
+            .replace(/\|/g, '-')
             .trim();
     }
 
-    escapeMarkdownV2(text) {
+    escapeMarkdownV2(text, isFinal = false) {
         if (!text) return '';
-        return String(text).replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+        const escaped = String(text).replace(/[_*[\]()~`>#+\-=|{}.!]/g, '\\$&');
+        return isFinal ? escaped.replace(/\\+/g, '\\') : escaped;
     }
 
     async _apiCall(method, body) {
