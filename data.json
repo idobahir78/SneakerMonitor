@@ -1,159 +1,42 @@
 {
-  "lastUpdate": "2026-02-23T11:59:52.881Z",
+  "lastUpdate": "2026-02-23T12:04:32.642Z",
   "products": [
     {
-      "id": "item_1771847885911_9r97s",
-      "display_title": "סניקרס New Balance 530 / נשים",
-      "price_ils": 669.9,
-      "size_available": "Available",
-      "sizes": [
-        "36",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39.5",
-        "40",
-        "40.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252630018-11753794316.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r252630018?color=17762",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771847886362_mza3l",
-      "display_title": "NEW BALANCE נעלי סניקרס 530",
-      "price_ils": 669,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8320a881/images/new//970002558/970002558_P_1.png?sw=476&sh=714",
-      "badges": [],
-      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002558.html?pi=1",
-      "store_name": "Factory 54"
-    },
-    {
-      "id": "item_1771847886894_qwm4h",
-      "display_title": "סניקרס MR530 / נשים",
-      "price_ils": 669.9,
-      "size_available": "Available",
-      "sizes": [
-        "36",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39.5",
-        "40",
-        "40.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/7/w738660018-11733641432.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w738660018?color=17762",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771847887222_cq9eu",
-      "display_title": "NEW BALANCE נעלי סניקרס 530",
-      "price_ils": 599.25,
+      "id": "item_1771848153266_lnxlx",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
       "size_available": "Available",
       "sizes": [
         "10",
-        "10.5"
+        "10.5",
+        "11",
+        "12"
       ],
-      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37344309/images/new/970002483/970002483_P_1.png?sw=476&sh=714",
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa504ff97/images/new/970002554/970002554_P_1.png?sw=476&sh=714",
       "badges": [],
-      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002483.html?pi=2",
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002554.html?pi=1",
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1771847887823_32cj5",
-      "display_title": "סניקרס MR530 / גברים",
-      "price_ils": 669.9,
+      "id": "item_1771848154368_jelg4",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
       "size_available": "Available",
       "sizes": [
-        "40.5",
-        "41.5",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46.5"
+        "10",
+        "10.5",
+        "11",
+        "12"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w826250001-11736761858.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwde77c4bd/images/new/970002425/970002425_P_1.png?sw=476&sh=714",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w826250001?color=4",
-      "store_name": "TerminalX"
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002425.html?pi=2",
+      "store_name": "Factory 54"
     },
     {
-      "id": "item_1771847888754_h0yrk",
-      "display_title": "סניקרס רשת עם סוליית גומי MR530 / נשים",
-      "price_ils": 669.9,
-      "size_available": "Available",
-      "sizes": [
-        "36",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39.5",
-        "40",
-        "40.5",
-        "41.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/x/8/x821410005-11680155987.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/x821410005?color=10",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771847890480_s40a6",
-      "display_title": "סניקרס MR530EMA D / נשים",
-      "price_ils": 669.9,
-      "size_available": "Available",
-      "sizes": [
-        "36",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39.5",
-        "40",
-        "40.5",
-        "41.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/5/z506950005-11656238277_8.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/z506950005?color=10",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771847892224_yf4fy",
-      "display_title": "נעלי סניקרס MR530 / נשים",
-      "price_ils": 669.9,
-      "size_available": "Available",
-      "sizes": [
-        "36",
-        "37",
-        "37.5",
-        "38",
-        "38.5",
-        "39.5",
-        "40",
-        "40.5",
-        "41.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/2/w255980018-11706435704.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w255980018?color=17762",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1771847893144_9ud88",
-      "display_title": "נעלי סניקרס 530 / נשים",
-      "price_ils": 669.9,
+      "id": "item_1771848155274_jomyg",
+      "display_title": "סניקרס / נשים New Balance 9060",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -165,15 +48,28 @@
         "40",
         "40.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w826320005-11736762021.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r152810012-31757249738.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w826320005?color=10",
+      "buy_link": "https://www.terminalx.com/default-category/r152810012?color=100",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771847894066_3d3hx",
-      "display_title": "סניקרס עור MR530CK / גברים",
-      "price_ils": 669.9,
+      "id": "item_1771848155229_sqnm3",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10.5"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw6ea14acf/images/new/970002513/970002513_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002513.html?pi=3",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848156210_q82nd",
+      "display_title": "סניקרס / גברים New Balance 9060",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "41.5",
@@ -185,15 +81,78 @@
         "45",
         "46.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w073410008-11754394048.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r152820012-11751520981.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w073410008?color=7",
+      "buy_link": "https://www.terminalx.com/default-category/r152820012?color=100",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771847894988_t9bns",
-      "display_title": "נעלי סניקרס MR530 / גברים",
-      "price_ils": 669.9,
+      "id": "item_1771848156320_nusm9",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10",
+        "10.5",
+        "12"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa0ac60ba/images/new/970002526/970002526_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002526.html?pi=4",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848157148_meqcg",
+      "display_title": "סניקרס / נשים New Balance 9060",
+      "price_ils": 999.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/1/r154610008-11751520463.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/r154610008?color=7",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771848157205_pznvx",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10",
+        "10.5",
+        "12"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw347864cd/images/new/970002354/970002354_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002354.html?pi=5",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848158076_zw8n5",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10",
+        "10.5",
+        "11"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw889a4d51/images/new/970002531/970002531_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002531.html?pi=6",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848158074_vncqo",
+      "display_title": "סניקרס 9060 / גברים",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "41.5",
@@ -205,15 +164,26 @@
         "45",
         "46.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/1/w196140005-11701327699.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/4/r489190005-11770817503.jpg",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w196140005?color=10",
+      "buy_link": "https://www.terminalx.com/default-category/r489190005?color=10",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771847895932_05vsb",
-      "display_title": "נעלי סניקרס MR530 / נשים",
-      "price_ils": 669.9,
+      "id": "item_1771848158937_yjgnj",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwd284cd41/images/new/970002520/970002520_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002520.html?pi=7",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848159000_l2l5c",
+      "display_title": "סניקרס 9060 / נשים",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -226,15 +196,93 @@
         "40.5",
         "41.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/7/w711120002-11731923780.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/9/w964350031-11743326666.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w711120002?color=106",
+      "buy_link": "https://www.terminalx.com/default-category/w964350031?color=8256",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771847896851_uih3v",
-      "display_title": "סניקרס M530 / גברים",
-      "price_ils": 669.9,
+      "id": "item_1771848159792_95cgy",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa1bd3fc0/images/new/970002536/970002536_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002536.html?pi=8",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848159933_swhz5",
+      "display_title": "סניקרס 9060 / גברים",
+      "price_ils": 999.9,
+      "size_available": "Available",
+      "sizes": [
+        "40",
+        "40.5",
+        "41.5",
+        "42",
+        "42.5",
+        "43",
+        "44",
+        "44.5",
+        "45",
+        "46.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w826330008-11736762044.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w826330008?color=7",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771848160633_5wm1m",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwa98739fc/images/new/970002450/970002450_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002450.html?pi=9",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848160875_h23ua",
+      "display_title": "סניקרס 9060 / נשים",
+      "price_ils": 999.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w826340027-11736762070.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w826340027?color=2148",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771848161464_bf5yx",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw7aa65185/images/new/970002521/970002521_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002521.html?pi=10",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848161803_6ev4v",
+      "display_title": "סניקרס זמש U9060BLK / גברים",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "42",
@@ -244,18 +292,96 @@
         "44.5",
         "45",
         "45.5",
+        "46",
         "46.5",
         "47.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/6/w688172050-11727351708.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/4/w490440001-11722776353.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w688172050?color=1582",
+      "buy_link": "https://www.terminalx.com/default-category/w490440001?color=4",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771847897785_0rybz",
-      "display_title": "סניקרס U530ESA / נשים",
-      "price_ils": 669.9,
+      "id": "item_1771848162317_s1lvh",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37972a36/images/new/970002512/970002512_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002512.html?pi=11",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848162728_qfsf0",
+      "display_title": "סניקרס זמש U9060BLK / נשים",
+      "price_ils": 999.9,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/z/7/z736200001-11673174118.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/z736200001?color=4",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771848163170_gmwd8",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 749.25,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4118cd12/images/new/970002459/970002459_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002459.html?pi=12",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848163661_tpren",
+      "display_title": "נעלי סניקרס U9060 / נשים",
+      "price_ils": 469.95,
+      "size_available": "Available",
+      "sizes": [
+        "36",
+        "37",
+        "37.5",
+        "38",
+        "38.5",
+        "39.5",
+        "40",
+        "40.5",
+        "41.5"
+      ],
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/3/w348680015-11710156057.jpg?image_type_mobile=webp_jpeg_like_70",
+      "badges": [],
+      "buy_link": "https://www.terminalx.com/default-category/w348680015?color=116",
+      "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771848164050_ez6jd",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw6b00be63/images/new/970002482/970002482_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002482.html?pi=13",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848164594_uht37",
+      "display_title": "סניקרס 9060CTD / נשים",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -267,15 +393,26 @@
         "40",
         "40.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252720014-21757249826.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r373290013-11756978118.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r252720014?color=111",
+      "buy_link": "https://www.terminalx.com/default-category/r373290013?color=8637",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1771847898713_6ujye",
-      "display_title": "סניקרס U530ESB / נשים",
-      "price_ils": 669.9,
+      "id": "item_1771848165159_x6l4b",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwe7d2bbd3/images/new/970002496/970002496_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002496.html?pi=14",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848165607_9qzof",
+      "display_title": "סניקרס 9060CTC / נשים",
+      "price_ils": 999.9,
       "size_available": "Available",
       "sizes": [
         "36",
@@ -287,10 +424,71 @@
         "40",
         "40.5"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r252730005-11752656567.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/3/r373270018-11756978040.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r252730005?color=10",
+      "buy_link": "https://www.terminalx.com/default-category/r373270018?color=9",
       "store_name": "TerminalX"
+    },
+    {
+      "id": "item_1771848166205_smyr6",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "10",
+        "10.5",
+        "12"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwe56673f2/images/new/970002468/970002468_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002468.html?pi=15",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848167420_74r0d",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwd3a69a9d/images/new/970002539/970002539_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002539.html?pi=16",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848168266_3lspx",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw37940830/images/new/970002538/970002538_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002538.html?pi=17",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848169295_awvo8",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw4d8acc69/images/new/970002469/970002469_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002469.html?pi=18",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1771848170165_qq04e",
+      "display_title": "NEW BALANCE נעלי סניקרס 9060",
+      "price_ils": 999,
+      "size_available": "Available",
+      "sizes": [
+        "12"
+      ],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwc5363efa/images/new/970002537/970002537_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-9060/970002537.html?pi=19",
+      "store_name": "Factory 54"
     }
   ],
   "scheduledSearchEnabled": true,
