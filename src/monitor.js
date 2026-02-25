@@ -102,15 +102,14 @@ async function updateSystemState(isScanning) {
 async function cleanupOldRecords() {
     if (!supabase) return;
     try {
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
+        // Drop all prior products before a new run
         const { error, count } = await supabase
             .from('products')
             .delete({ count: 'exact' })
-            .lt('created_at', yesterday.toISOString());
+            .not('id', 'is', null);
 
         if (error) throw error;
-        if (count > 0) console.log(`[Supabase] Cleaned up ${count} old records.`);
+        console.log(`[Supabase] Cleaned up prior records before new run.`);
     } catch (e) {
         console.error('[Supabase] Error cleaning up old records:', e.message);
     }

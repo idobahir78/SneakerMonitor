@@ -72,7 +72,7 @@ const Dashboard = () => {
             if (productsError) throw productsError;
 
             // Map DB schema to frontend ShoeCard schema
-            const mappedProducts = (productsData || []).map(p => ({
+            let mappedProducts = (productsData || []).map(p => ({
                 id: p.id,
                 title: `${p.brand} ${p.model}`,
                 price: p.price,
@@ -87,6 +87,11 @@ const Dashboard = () => {
                     }
                 })()
             }));
+
+            // Clear old results visually if we're waiting for the scraper to start (GitHub Action booting)
+            if (isStale) {
+                mappedProducts = [];
+            }
 
             const newDataState = {
                 products: mappedProducts,
