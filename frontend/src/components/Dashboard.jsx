@@ -51,18 +51,29 @@ const Dashboard = () => {
 
             if (stateError) throw stateError;
 
-            const serverIsScanning = stateData?.is_scanning || false;
-            const serverUpdateTime = new Date(stateData?.last_run || 0).getTime();
-
             const triggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
             const now = Date.now();
 
-            // Safety Timeout: if scanning for > 5 minutes, force Idle for local triggers
-            const isStale = triggerTime > 0 && serverUpdateTime < triggerTime;
-            const isStuck = isStale && (now - triggerTime > 300000);
+            // Safety Timeout: if local manual search for > 5 minutes, force Idle
+            const isStuck = triggerTime > 0 && (now - triggerTime > 300000);
 
-            // Trust the server's explicit state, otherwise rely on local stale flag (if not stuck)
-            const stillScanning = serverIsScanning || (isStale && !isStuck);
+            let stillScanning = false;
+
+            if (stateData) {
+                // If the backend has processed or is processing this row
+                stillScanning = stateData.is_scanning;
+            } else {
+                // Row doesn't exist yet (Github Action booting)
+                if (currentSearchId !== 'scheduled_system_run' && triggerTime > 0 && !isStuck) {
+                    stillScanning = true;
+                }
+            }
+
+            // Fallback: if stuck, stop polling UI
+            if (isStuck) {
+                stillScanning = false;
+            }
+
             setIsScanning(stillScanning);
 
             // 2. Fetch Products
@@ -91,10 +102,8 @@ const Dashboard = () => {
                 })()
             }));
 
-            // Clear old results visually if we're waiting for the scraper to start (GitHub Action booting)
-            if (isStale) {
-                mappedProducts = [];
-            }
+            // We no longer need isStale to clear mappedProducts because the DB natively 
+            // keeps isolated searches via currentSearchId! It naturally returns [] on boot.
 
             const newDataState = {
                 products: mappedProducts,
@@ -103,14 +112,17 @@ const Dashboard = () => {
             };
 
             // Detect new updates
-            if (JSON.stringify(newDataState.products) !== JSON.stringify(data.products)) {
+            const productsChanged = JSON.stringify(newDataState.products) !== JSON.stringify(data.products);
+            const statusChanged = data.isScanning !== stillScanning;
+
+            if (productsChanged || statusChanged) {
                 setData(newDataState);
-                if (!isStale) {
+                if (productsChanged) {
                     setRefreshFlash(true);
                     setTimeout(() => setRefreshFlash(false), 2000);
                 }
-            } else if (isStale && data.products.length === 0) {
-                // Ensure UI reflects scanning state even if no products
+            } else if (stillScanning && data.products.length === 0) {
+                // Ensure UI shows scanning state cleanly
                 setData(newDataState);
             }
 
