@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ShoeCard from './ShoeCard';
 import ScraperControl from './ScraperControl';
 import ScanningBanner from './ScanningBanner';
+import { supabase } from '../supabaseClient';
 
 const Dashboard = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState({ products: [], isScanning: false, lastUpdate: '' });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState('');
@@ -22,24 +23,28 @@ const Dashboard = () => {
 
         fetchData(); // Initial load
 
-        // Dynamic refresh interval: 3s when scanning, 60s when idle
+        // Dynamic refresh interval: 3s when scanning, 30s when idle
         const interval = setInterval(() => {
             fetchData();
-        }, isScanning ? 3000 : 60000);
+        }, isScanning ? 3000 : 30000);
 
         return () => clearInterval(interval);
     }, [isScanning]); // Re-create interval when scanning status changes
 
-    const fetchData = (retryCount = 0) => {
+    const fetchData = async () => {
         setError(null);
-        const timestamp = Date.now();
+        try {
+            // 1. Fetch System State
+            const { data: stateData, error: stateError } = await supabase
+                .from('system_state')
+                .select('*')
+                .eq('id', 1)
+                .single();
 
-        const rawUrl = `https://raw.githubusercontent.com/idobahir78/SneakerMonitor/main/frontend/public/data.json?t=${timestamp}`;
-        const localUrl = `/data.json?t=${timestamp}`;
+            if (stateError) throw stateError;
 
-        const handleData = (jsonData) => {
-            const serverUpdateTime = new Date(jsonData.lastUpdate || 0).getTime();
-            const serverIsScanning = jsonData.isScanning === true;
+            const serverIsScanning = stateData?.is_scanning || false;
+            const serverUpdateTime = new Date(stateData?.last_run || 0).getTime();
 
             const triggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
             const now = Date.now();
@@ -49,46 +54,51 @@ const Dashboard = () => {
             const isStale = triggerTime > 0 && serverUpdateTime < triggerTime;
 
             const stillScanning = (serverIsScanning || isStale) && !isStuck;
-
             setIsScanning(stillScanning);
 
-            if (!isStale && JSON.stringify(jsonData) !== JSON.stringify(data)) {
-                setData(jsonData);
-                setRefreshFlash(true);
-                setTimeout(() => setRefreshFlash(false), 2000);
-            } else if (isStale && !data) {
-                setData({
-                    products: [],
-                    lastUpdate: jsonData.lastUpdate,
-                    isScanning: true
-                });
-            }
-            setLoading(false);
-        };
+            // 2. Fetch Products
+            const { data: productsData, error: productsError } = await supabase
+                .from('products')
+                .select('*')
+                .order('created_at', { ascending: false });
 
-        fetch(rawUrl)
-            .then(res => {
-                if (!res.ok) throw new Error('Raw fetch failed');
-                return res.json();
-            })
-            .then(data => handleData(data))
-            .catch(() => {
-                fetch(localUrl)
-                    .then(res => {
-                        if (!res.ok) throw new Error('Data file not found');
-                        return res.json();
-                    })
-                    .then(data => handleData(data))
-                    .catch(err => {
-                        console.error("Error fetching data:", err);
-                        if (!data && retryCount < 2) {
-                            setTimeout(() => fetchData(retryCount + 1), 1000);
-                        } else {
-                            setError(err.message);
-                            setLoading(false);
-                        }
-                    });
-            });
+            if (productsError) throw productsError;
+
+            // Map DB schema to frontend ShoeCard schema
+            const mappedProducts = (productsData || []).map(p => ({
+                id: p.id,
+                title: `${p.brand} ${p.model}`,
+                price: p.price,
+                store: p.site,
+                link: p.product_url,
+                image_url: p.image_url,
+                sizes: p.sizes || []
+            }));
+
+            const newDataState = {
+                products: mappedProducts,
+                isScanning: stillScanning,
+                lastUpdate: stateData?.last_run || new Date().toISOString()
+            };
+
+            // Detect new updates
+            if (JSON.stringify(newDataState.products) !== JSON.stringify(data.products)) {
+                setData(newDataState);
+                if (!isStale) {
+                    setRefreshFlash(true);
+                    setTimeout(() => setRefreshFlash(false), 2000);
+                }
+            } else if (isStale && data.products.length === 0) {
+                // Ensure UI reflects scanning state even if no products
+                setData(newDataState);
+            }
+
+            setLoading(false);
+        } catch (err) {
+            console.error("Error fetching from Supabase:", err);
+            setError(err.message);
+            setLoading(false);
+        }
     };
 
     if (error) return (
@@ -100,38 +110,28 @@ const Dashboard = () => {
         </div>
     );
 
-    // Initial state handling to prevent "Black Screen"
-    // Use default values if data is not yet loaded
-    const effectiveResults = data?.results || [];
-    const effectiveUpdateAt = data?.updatedAt || data?.lastUpdated;
-    const currentSearchTerm = data?.searchTerm || data?.lastSearchTerm || '';
+    const effectiveResults = data?.products || [];
+    const effectiveUpdateAt = data?.lastUpdate;
+    const currentSearchTerm = triggeredSearchTerm || '';
 
-    // Display triggered term immediately if we're scanning and data hasn't caught up
-    const isWaitingForNewData = isScanning && triggeredSearchTerm && (currentSearchTerm !== triggeredSearchTerm);
-    const effectiveSearchTerm = isWaitingForNewData ? triggeredSearchTerm : (currentSearchTerm || 'Unknown');
-
-    // Filter results based on client-side search
     const filteredResults = effectiveResults.filter(item => {
-        const title = (item.display_title || item.title || '').toLowerCase();
-        const store = (item.store_name || item.store || '').toLowerCase();
+        const title = (item.title || '').toLowerCase();
+        const store = (item.store || '').toLowerCase();
         return title.includes(searchQuery.toLowerCase()) || store.includes(searchQuery.toLowerCase());
     });
 
     const totalFound = filteredResults.length;
-    // Support both new (price_ils) and legacy (price) field names
     const lowestPrice = filteredResults.reduce((min, item) => {
-        const p = item.price_ils ?? item.price;
-        return (p < min ? p : min);
+        const p = item.price;
+        return (p && p < min ? p : min);
     }, Infinity);
     const bestPriceDisplay = totalFound > 0 && lowestPrice !== Infinity ? `₪${lowestPrice.toFixed(2)}` : '-';
 
-    // Format Date
     const lastUpdatedDisplay = effectiveUpdateAt ? new Date(effectiveUpdateAt).toLocaleString() : 'Loading...';
 
     const handleScrapeTrigger = (options = {}) => {
         const now = new Date().getTime();
         const newSearchTerm = options.searchTerm || '';
-        console.log('Scrape triggered via UI at:', now, options);
 
         setLastTriggerTime(now);
         setTriggeredSearchTerm(newSearchTerm);
@@ -140,28 +140,22 @@ const Dashboard = () => {
         localStorage.setItem('lastTriggerTime', now.toString());
         localStorage.setItem('triggeredSearchTerm', newSearchTerm);
 
-        setData(prev => ({
-            ...prev,
-            results: [],
-            searchTerm: '',
-            lastSearchTerm: ''
-        }));
-
-        setTimeout(() => fetchData(), 10000);
+        // Flash UI to scanning state immediately
+        setData({ products: [], isScanning: true, lastUpdate: new Date().toISOString() });
+        setTimeout(() => fetchData(), 5000);
     };
 
     return (
         <div className="dashboard-container">
             <ScraperControl
                 onTrigger={handleScrapeTrigger}
-                autoScrapeEnabled={data?.autoScrapeEnabled}
+                autoScrapeEnabled={true}
                 isSystemBusy={isScanning}
             />
 
             <header className="dashboard-header">
                 <h1>Sneaker Monitor 👟</h1>
 
-                {/* Scanning Status Banner */}
                 {isScanning && (
                     <ScanningBanner startTime={lastTriggerTime || new Date().getTime()} />
                 )}
@@ -194,14 +188,13 @@ const Dashboard = () => {
                     </div>
                     <div className="stat-card">
                         <h3>Scraper Query</h3>
-                        <p className="stat-value small" title={effectiveSearchTerm}>{effectiveSearchTerm}</p>
+                        <p className="stat-value small" title={currentSearchTerm}>{currentSearchTerm || 'Unknown'}</p>
                     </div>
                 </div>
             </header>
 
             <main className="results-grid">
-                {!data ? (
-                    /* Skeleton / Loading State inside App Shell */
+                {loading ? (
                     <div className="empty-state">
                         <div className="spinner-small"></div>
                         <span>Loading Data...</span>
@@ -211,19 +204,17 @@ const Dashboard = () => {
                         {isScanning ? (
                             <>
                                 <div className="spinner-small"></div>
-                                <span>Scanning stores for "{effectiveSearchTerm}"...</span>
+                                <span>Scanning stores for "{currentSearchTerm}"...</span>
                             </>
                         ) : (
                             <>
-                                <span>No matches found for "{searchQuery || effectiveSearchTerm}"</span>
-                                <br />
-                                {searchQuery && <small>(Last search: {effectiveSearchTerm})</small>}
+                                <span>No matches found for "{searchQuery || currentSearchTerm}"</span>
                             </>
                         )}
                     </div>
                 ) : (
                     filteredResults.map((item) => (
-                        <ShoeCard key={item.buy_link || item.link || item.id} item={item} />
+                        <ShoeCard key={item.link || item.id} item={item} />
                     ))
                 )}
             </main>

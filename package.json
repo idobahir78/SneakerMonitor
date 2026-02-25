@@ -18,6 +18,7 @@
     "author": "Ido Bahir",
     "license": "ISC",
     "dependencies": {
+        "@supabase/supabase-js": "^2.97.0",
         "colors": "^1.4.0",
         "dotenv": "^16.3.1",
         "node-cron": "^3.0.3",

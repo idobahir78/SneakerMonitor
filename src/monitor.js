@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const colors = require('colors');
+const { createClient } = require('@supabase/supabase-js');
 
 const Orchestrator = require('./agents/Orchestrator');
 const TerminalXAgent = require('./agents/TerminalXAgent');
@@ -19,6 +20,10 @@ const SauconyIsraelAgent = require('./agents/SauconyIsraelAgent');
 const OnCloudIsraelAgent = require('./agents/OnCloudIsraelAgent');
 const WeShoesAgent = require('./agents/WeShoesAgent');
 const TelegramService = require('./services/TelegramService');
+
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supabaseKey) : null;
 
 const MULTI_WORD_BRANDS = [
     'New Balance', 'Under Armour', 'ON Running', 'Air Jordan',
@@ -55,6 +60,11 @@ function auditEnv() {
     const obsToken = token ? `${token.substring(0, 4)}...xxxx` : 'MISSING';
     const obsChat = chat ? `${chat.substring(0, 4)}...xxxx` : 'MISSING';
     console.log(`[Audit] Telegram Token: ${obsToken}, Chat ID: ${obsChat}`);
+    if (!supabaseUrl || !supabaseKey) {
+        console.warn(`[Audit] Supabase credentials missing. Will skip database operations.`.yellow);
+    } else {
+        console.log(`[Audit] Supabase connected: ${supabaseUrl.substring(0, 15)}...`);
+    }
 }
 
 async function performSearch(brand, model, size) {
@@ -80,21 +90,55 @@ async function performSearch(brand, model, size) {
     return orchestrator.results;
 }
 
-function updateState(allResults, isScanning) {
-    const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
-    let existingData = {};
-    if (fs.existsSync(jsonPath)) {
-        try { existingData = JSON.parse(fs.readFileSync(jsonPath, 'utf8')); } catch (e) { }
+async function updateSystemState(isScanning) {
+    if (!supabase) return;
+    try {
+        await supabase.from('system_state').upsert({ id: 1, is_scanning: isScanning, last_run: new Date().toISOString() });
+    } catch (e) {
+        console.error('[Supabase] Error updating state:', e.message);
     }
+}
 
-    const dashboardData = {
-        ...existingData,
-        lastUpdate: new Date().toISOString(),
-        products: isScanning ? (existingData.products || []) : allResults,
-        isScanning: isScanning,
-        scheduledSearchEnabled: true
-    };
-    fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2));
+async function cleanupOldRecords() {
+    if (!supabase) return;
+    try {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const { error, count } = await supabase
+            .from('products')
+            .delete({ count: 'exact' })
+            .lt('created_at', yesterday.toISOString());
+
+        if (error) throw error;
+        if (count > 0) console.log(`[Supabase] Cleaned up ${count} old records.`);
+    } catch (e) {
+        console.error('[Supabase] Error cleaning up old records:', e.message);
+    }
+}
+
+async function saveResultsToSupabase(results) {
+    if (!supabase || results.length === 0) return;
+
+    // Ensure all required fields exist to prevent DB errors
+    const productsToInsert = results.map(item => ({
+        brand: item.brand || 'Unknown',
+        model: item.model || 'Unknown',
+        price: item.price_ils ?? item.price ?? 0,
+        site: item.store_name || item.store || 'Unknown',
+        image_url: item.image_url || item.image || item.raw_image_url || '',
+        product_url: item.buy_link || item.link || item.url || item.raw_url || '',
+        sizes: item.sizes || item.raw_sizes || []
+    })).filter(p => p.product_url);
+
+    if (productsToInsert.length === 0) return;
+
+    try {
+        const { error } = await supabase.from('products').upsert(productsToInsert, { onConflict: 'product_url' });
+        if (error) throw error;
+        console.log(`[Supabase] Successfully saved ${productsToInsert.length} products to DB.`);
+    } catch (e) {
+        console.error('[Supabase] Error saving products:', e.message);
+    }
 }
 
 async function run() {
@@ -119,11 +163,13 @@ async function run() {
         }
     }
 
-    updateState([], true);
+    await updateSystemState(true);
+    await cleanupOldRecords();
 
     let allResults = [];
     for (const task of searchTasks) {
         const results = await performSearch(task.brand, task.model, task.size);
+        await saveResultsToSupabase(results);
         allResults = [...allResults, ...results];
 
         console.log(`DEBUG: Items passing final size filter: [${results.length}]`);
@@ -133,14 +179,24 @@ async function run() {
         }
     }
 
-    updateState(allResults, false);
+    await updateSystemState(false);
+
+    // Also save locally as a final fallback for local dev
+    const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
+    const dashboardData = {
+        lastUpdate: new Date().toISOString(),
+        products: allResults,
+        isScanning: false,
+        scheduledSearchEnabled: true
+    };
+    try { fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2)); } catch (e) { }
 
     console.log(`\n📊 Scanned ${searchTasks.length} tasks. Found ${allResults.length} matches.`.bold.green);
     process.exit(0);
 }
 
-run().catch(err => {
+run().catch(async err => {
     console.error(`\n❌ Fatal Error: ${err.message}`.red);
-    updateState([], false);
+    await updateSystemState(false);
     process.exit(1);
 });
