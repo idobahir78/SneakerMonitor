@@ -120,15 +120,19 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
         setMessage(`Triggering scan for "${termToScrape}"...`);
 
         try {
+            const searchId = crypto.randomUUID();
+            localStorage.setItem('currentSearchId', searchId);
+
             const response = await dispatchWorkflow({
                 search_term: termToScrape,
                 sizes: sizes,
+                search_id: searchId
             });
 
             if (response.ok || response.status === 204) {
                 setStatus('success');
                 setMessage('Scan started! 🚀 Auto-scan paused until you resume it.');
-                if (onTrigger) onTrigger({ progressiveMode: true, searchTerm: termToScrape });
+                if (onTrigger) onTrigger({ progressiveMode: true, searchTerm: termToScrape, searchId: searchId });
             } else {
                 const errText = await response.text();
                 throw new Error(`GitHub API: ${response.status} — ${errText}`);

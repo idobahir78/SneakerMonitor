@@ -42,11 +42,12 @@ const Dashboard = () => {
 
         try {
             // 1. Fetch System State
+            const currentSearchId = localStorage.getItem('currentSearchId') || 'scheduled_system_run';
             const { data: stateData, error: stateError } = await supabase
-                .from('system_state')
+                .from('search_jobs')
                 .select('*')
-                .eq('id', 1)
-                .single();
+                .eq('id', currentSearchId)
+                .maybeSingle();
 
             if (stateError) throw stateError;
 
@@ -68,6 +69,7 @@ const Dashboard = () => {
             const { data: productsData, error: productsError } = await supabase
                 .from('products')
                 .select('*')
+                .eq('search_id', currentSearchId)
                 .order('created_at', { ascending: false });
 
             if (productsError) throw productsError;
@@ -151,6 +153,7 @@ const Dashboard = () => {
     const handleScrapeTrigger = (options = {}) => {
         const now = new Date().getTime();
         const newSearchTerm = options.searchTerm || '';
+        const searchId = options.searchId;
 
         setLastTriggerTime(now);
         setTriggeredSearchTerm(newSearchTerm);
@@ -158,6 +161,7 @@ const Dashboard = () => {
 
         localStorage.setItem('lastTriggerTime', now.toString());
         localStorage.setItem('triggeredSearchTerm', newSearchTerm);
+        if (searchId) localStorage.setItem('currentSearchId', searchId);
 
         // Flash UI to scanning state immediately
         setData({ products: [], isScanning: true, lastUpdate: new Date().toISOString() });

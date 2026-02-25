@@ -18,6 +18,10 @@ on:
         description: 'Size filter (* = all sizes)'
         required: false
         default: '*'
+      search_id:
+        description: 'Unique Session ID for this scrape'
+        required: false
+        default: 'scheduled_system_run'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -64,12 +68,14 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL || secrets.VITE_SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.VITE_SUPABASE_ANON_KEY }}
+          SEARCH_ID: ${{ github.event.inputs.search_id || 'scheduled_system_run' }}
         run: |
           SEARCH_INPUT="${{ github.event.inputs.search_term }}"
           SIZE_INPUT="${{ github.event.inputs.sizes || '*' }}"
 
           echo "DEBUG: SEARCH_INPUT='$SEARCH_INPUT'"
           echo "DEBUG: SIZE_INPUT='$SIZE_INPUT'"
+          echo "DEBUG: SEARCH_ID='$SEARCH_ID'"
 
           if [ -z "$SEARCH_INPUT" ]; then
             echo "No search term provided — using --load-last"

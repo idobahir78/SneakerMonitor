@@ -24,6 +24,7 @@ const TelegramService = require('./services/TelegramService');
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 const supabase = (supabaseUrl && supabaseKey) ? createClient(supabaseUrl, supabaseKey) : null;
+const searchId = process.env.SEARCH_ID || 'scheduled_system_run';
 
 const MULTI_WORD_BRANDS = [
     'New Balance', 'Under Armour', 'ON Running', 'Air Jordan',
@@ -93,7 +94,7 @@ async function performSearch(brand, model, size) {
 async function updateSystemState(isScanning) {
     if (!supabase) return;
     try {
-        await supabase.from('system_state').upsert({ id: 1, is_scanning: isScanning, last_run: new Date().toISOString() });
+        await supabase.from('search_jobs').upsert({ id: searchId, is_scanning: isScanning, last_run: new Date().toISOString() });
     } catch (e) {
         console.error('[Supabase] Error updating state:', e.message);
     }
@@ -102,14 +103,16 @@ async function updateSystemState(isScanning) {
 async function cleanupOldRecords() {
     if (!supabase) return;
     try {
-        // Drop all prior products before a new run
+        // Drop records older than 24 hours to prevent db bloat across all users
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
         const { error, count } = await supabase
             .from('products')
             .delete({ count: 'exact' })
-            .not('id', 'is', null);
+            .lt('created_at', yesterday.toISOString());
 
         if (error) throw error;
-        console.log(`[Supabase] Cleaned up prior records before new run.`);
+        if (count > 0) console.log(`[Supabase] Cleaned up ${count} records older than 24h.`);
     } catch (e) {
         console.error('[Supabase] Error cleaning up old records:', e.message);
     }
@@ -120,6 +123,7 @@ async function saveResultsToSupabase(results, searchBrand, searchModel) {
 
     // Ensure all required fields exist to prevent DB errors
     const productsToInsert = results.map(item => ({
+        search_id: searchId,
         brand: item.brand || searchBrand || 'Unknown',
         model: item.model || searchModel || 'Unknown',
         price: item.price_ils ?? item.price ?? 0,
