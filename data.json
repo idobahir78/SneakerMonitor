@@ -1,8 +1,8 @@
 {
-  "lastUpdate": "2026-02-25T19:57:55.565Z",
+  "lastUpdate": "2026-02-25T20:02:19.030Z",
   "products": [
     {
-      "id": "item_1772049248647_2q0l8",
+      "id": "item_1772049513343_9hstr",
       "display_title": "סניקרס Twist Nike Dunk Low / נשים",
       "price_ils": 499.9,
       "size_available": "Available",
@@ -24,7 +24,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049249587_zv5yh",
+      "id": "item_1772049514299_qe5qy",
       "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
       "price_ils": 384.93,
       "size_available": "Available",
@@ -50,7 +50,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049250530_6jxh9",
+      "id": "item_1772049515272_s6jc5",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 439.92,
       "size_available": "Available",
@@ -77,7 +77,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049252393_pcbdk",
+      "id": "item_1772049517173_phiq6",
       "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
       "price_ils": 405.93,
       "size_available": "Available",
@@ -99,7 +99,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049253336_7plr0",
+      "id": "item_1772049518124_nbs6b",
       "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
       "price_ils": 349.93,
       "size_available": "Available",
@@ -123,7 +123,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049254304_9wfbl",
+      "id": "item_1772049519247_fxtqu",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 370.93,
       "size_available": "Available",
@@ -143,7 +143,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049255346_z0uf9",
+      "id": "item_1772049520178_lizjd",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 349.93,
       "size_available": "Available",
@@ -163,7 +163,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049257428_miliy",
+      "id": "item_1772049522288_v2vrl",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 349.93,
       "size_available": "Available",
@@ -187,7 +187,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049272108_2bw1f",
+      "id": "item_1772049538274_5qxb7",
       "display_title": "Nike Dunk Low",
       "price_ils": 379.9,
       "size_available": "Available",
@@ -198,7 +198,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049272928_49rxv",
+      "id": "item_1772049539128_9m403",
       "display_title": "Nike Dunk Low",
       "price_ils": 349.9,
       "size_available": "Available",
@@ -209,7 +209,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049273742_adlzo",
+      "id": "item_1772049539975_lxzf3",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -220,7 +220,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049274553_8gyji",
+      "id": "item_1772049540814_v453m",
       "display_title": "Nike Dunk Low SE",
       "price_ils": 429.9,
       "size_available": "Available",
@@ -231,7 +231,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049275366_g6u5w",
+      "id": "item_1772049541558_uw2di",
+      "display_title": "NIKE DUNK LOW סניקרס",
+      "price_ils": 30,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_II7639-001_PHSRH000-2000.jpg?v=1757671774&width=2000",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-20?_pos=1&_sid=28ca6d841&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1772049541652_ho9x0",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -242,7 +253,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049276178_7dlbj",
+      "id": "item_1772049542489_g0odb",
       "display_title": "Nike Dunk Low",
       "price_ils": 549.9,
       "size_available": "Available",
@@ -253,18 +264,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049276407_orz3y",
+      "id": "item_1772049542462_r2ci3",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 30,
+      "price_ils": 299.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_II7639-001_PHSRH000-2000.jpg?v=1757671774&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_CW1588-100_PHSRH000-1000.jpg?v=1731857039&width=1000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-20?_pos=1&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-ps-white?_pos=2&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049276992_4712f",
+      "id": "item_1772049543327_qqqdy",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -275,18 +286,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049277266_ln4ff",
+      "id": "item_1772049543354_fev1v",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 299.9,
+      "price_ils": 249.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_CW1588-100_PHSRH000-1000.jpg?v=1731857039&width=1000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9107-128_PHSRH000-2000.jpg?v=1756725264&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-ps-white?_pos=2&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f298010016?_pos=3&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049277802_8hb8c",
+      "id": "item_1772049544165_l09wn",
       "display_title": "Nike Dunk Low SE 'LNY'",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -297,18 +308,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049278136_469e7",
-      "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 249.9,
+      "id": "item_1772049544236_3n1yy",
+      "display_title": "NIKE DUNK LOW GTX סניקרס",
+      "price_ils": 629.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9107-128_PHSRH000-2000.jpg?v=1756725264&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2053-001_PHSRH000-2000.jpg?v=1762953916&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f298010016?_pos=3&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f299140002?_pos=4&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049278613_s6azo",
+      "id": "item_1772049545004_hl5vc",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -319,18 +330,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049278983_p6xim",
-      "display_title": "NIKE DUNK LOW GTX סניקרס",
-      "price_ils": 629.9,
+      "id": "item_1772049545093_zv4yi",
+      "display_title": "NIKE DUNK LOW RETRO סניקרס",
+      "price_ils": 559.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ2053-001_PHSRH000-2000.jpg?v=1762953916&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HF5441-007_PHSRH000-2000.jpg?v=1767004729&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f299140002?_pos=4&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f307260008?_pos=5&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049279423_q2ahm",
+      "id": "item_1772049545844_ntv3n",
       "display_title": "Nike Dunk Low",
       "price_ils": 299.9,
       "size_available": "Available",
@@ -341,29 +352,40 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049279829_suycy",
-      "display_title": "NIKE DUNK LOW RETRO סניקרס",
-      "price_ils": 559.9,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HF5441-007_PHSRH000-2000.jpg?v=1767004729&width=2000",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f307260008?_pos=5&_sid=1cf1ad691&_ss=r",
-      "store_name": "Foot Locker Israel"
-    },
-    {
-      "id": "item_1772049280668_pucza",
+      "id": "item_1772049545946_j58bx",
       "display_title": "NIKE DUNK LOW סניקרס",
       "price_ils": 299.9,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9108-125_PHSRH000-2000.jpg?v=1751869853&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-pse-8?_pos=6&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-pse-8?_pos=6&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049281036_7kt41",
+      "id": "item_1772049546685_17s3q",
+      "display_title": "Nike Dunk Low Retro",
+      "price_ils": 529.9,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0f76f73e-2578-4d62-abab-c5563ea4f78c/NIKE+DUNK+LOW+RETRO.png",
+      "badges": [],
+      "buy_link": "https://www.nike.com/il/t/dunk-low-retro-shoe-mhrtZC/DD1391-100",
+      "store_name": "Nike Israel"
+    },
+    {
+      "id": "item_1772049546793_eeb37",
+      "display_title": "NIKE DUNK LOW סניקרס",
+      "price_ils": 559.9,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB4417-105_PHSRH000-2000.jpg?v=1762954911&width=2000",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f300370100?_pos=7&_sid=28ca6d841&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1772049547522_9opdw",
       "display_title": "Nike Dunk Low Suede",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -374,18 +396,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049281549_qq5pa",
+      "id": "item_1772049547651_ojdb7",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 559.9,
+      "price_ils": 249.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB4417-105_PHSRH000-2000.jpg?v=1762954911&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9107-010_PHSRH000-2000_1.jpg?v=1761743358&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f300370100?_pos=7&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297990002?_pos=8&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049281847_tglej",
+      "id": "item_1772049548361_5ek2y",
       "display_title": "Nike Dunk Low Retro Premium",
       "price_ils": 549.9,
       "size_available": "Available",
@@ -396,18 +418,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049282395_hmhq0",
+      "id": "item_1772049548511_qgw6r",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 249.9,
+      "price_ils": 299.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9107-010_PHSRH000-2000_1.jpg?v=1761743358&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9108-128_PHSRH000-2000.jpg?v=1756724254&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297990002?_pos=8&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f298030016?_pos=9&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049282658_7mrhx",
+      "id": "item_1772049549199_7davu",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 339.9,
       "size_available": "Available",
@@ -418,18 +440,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049283231_tczcl",
+      "id": "item_1772049549409_q0ivy",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 299.9,
+      "price_ils": 249.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9108-128_PHSRH000-2000.jpg?v=1756724254&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9107-123_PHSRH000-2000.jpg?v=1759835707&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f298030016?_pos=9&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f298000008?_pos=10&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049283468_q7b7c",
+      "id": "item_1772049550038_26r1e",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -440,18 +462,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049284097_g3jk5",
+      "id": "item_1772049550310_m1gb1",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 249.9,
+      "price_ils": 439.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9107-123_PHSRH000-2000.jpg?v=1759835707&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9109-010_PHSRH000-2000.jpg?v=1756720601&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f298000008?_pos=10&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f298040008?_pos=11&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049284283_z0rr8",
+      "id": "item_1772049550876_5vqa7",
       "display_title": "Nike Dunk Low",
       "price_ils": 549.9,
       "size_available": "Available",
@@ -462,18 +484,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049284963_r4392",
-      "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 439.9,
+      "id": "item_1772049551184_nhe9w",
+      "display_title": "NIKE DUNK LOW RETRO SE סניקרס",
+      "price_ils": 559.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9109-010_PHSRH000-2000.jpg?v=1756720601&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB6651-002_PHSRH000-2000.jpg?v=1756720310&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f298040008?_pos=11&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f300410008?_pos=12&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049285095_q52h4",
+      "id": "item_1772049551729_uxzbg",
       "display_title": "Nike Dunk Low Retro",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -484,18 +506,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049285801_xpu6d",
-      "display_title": "NIKE DUNK LOW RETRO SE סניקרס",
-      "price_ils": 559.9,
+      "id": "item_1772049552075_nie5i",
+      "display_title": "NIKE DUNK LOW סניקרס",
+      "price_ils": 439.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB6651-002_PHSRH000-2000.jpg?v=1756720310&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/F247960032-3.jpg?v=1726499599&width=1000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f300410008?_pos=12&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-1?_pos=13&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049285905_hq6lg",
+      "id": "item_1772049552567_ru44g",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -506,18 +528,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049286631_y812d",
-      "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 439.9,
+      "id": "item_1772049552920_qkbbp",
+      "display_title": "NIKE DUNK LOW GTX סניקרס",
+      "price_ils": 629.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/F247960032-3.jpg?v=1726499599&width=1000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/HQ2053-002.1.avif?v=1760514922&width=1728",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-1?_pos=13&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f299150032?_pos=14&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049286715_bz7va",
+      "id": "item_1772049553409_qeqyl",
       "display_title": "Nike Dunk Low Retro 'Berlin'",
       "price_ils": 389.9,
       "size_available": "Available",
@@ -528,18 +550,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049287475_vrdyp",
-      "display_title": "NIKE DUNK LOW GTX סניקרס",
-      "price_ils": 629.9,
+      "id": "item_1772049553767_6vty3",
+      "display_title": "NIKE DUNK LOW סניקרס",
+      "price_ils": 449.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/HQ2053-002.1.avif?v=1760514922&width=1728",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ9293-200_PHSRH000-2000.jpg?v=1762097237&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f299150032?_pos=14&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f299500005?_pos=15&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049287527_jsksj",
+      "id": "item_1772049554248_0g4sk",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -550,7 +572,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049288337_nlw42",
+      "id": "item_1772049555088_6muya",
       "display_title": "Nike Dunk Low Unlocked By You",
       "price_ils": 679.9,
       "size_available": "Available",
@@ -561,18 +583,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049288314_d4d74",
+      "id": "item_1772049555435_tlbyz",
       "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 449.9,
+      "price_ils": 559.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ9293-200_PHSRH000-2000.jpg?v=1762097237&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB3079-300_PHSRH000-2000_1.jpg?v=1752753656&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f299500005?_pos=15&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-5?_pos=17&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049289150_1lm3w",
+      "id": "item_1772049555925_3viwf",
       "display_title": "Nike Dunk Low Retro SE",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -583,18 +605,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049289152_2xz0e",
+      "id": "item_1772049556273_0jnh1",
       "display_title": "NIKE DUNK LOW RETRO SE סניקרס",
       "price_ils": 559.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_HQ1965-100_PHSRH000-2000.jpg?v=1754502503&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB6651-003_PHSRH001-2000.jpg?v=1771404030&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-retro-se-15?_pos=16&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f308120008?_pos=18&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049289961_fqhcg",
+      "id": "item_1772049556763_nl4rv",
       "display_title": "Nike Dunk Low",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -605,18 +627,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049289984_7t10t",
-      "display_title": "NIKE DUNK LOW סניקרס",
-      "price_ils": 559.9,
+      "id": "item_1772049557130_wa2dk",
+      "display_title": "NIKE DUNK LOW RETRO PREMIUM סניקרס",
+      "price_ils": 579.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB3079-300_PHSRH000-2000_1.jpg?v=1752753656&width=2000",
+      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB7746-200_PHSRH000-2000.jpg?v=1771404302&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-5?_pos=17&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f308310005?_pos=19&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049290775_eiakt",
+      "id": "item_1772049557615_st739",
       "display_title": "Nike Dunk Low Retro SE",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -627,84 +649,62 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772049290815_14wbr",
-      "display_title": "NIKE DUNK LOW RETRO SE סניקרס",
-      "price_ils": 559.9,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB6651-003_PHSRH001-2000.jpg?v=1771404030&width=2000",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f308120008?_pos=18&_sid=1cf1ad691&_ss=r",
-      "store_name": "Foot Locker Israel"
-    },
-    {
-      "id": "item_1772049291653_8c0r4",
+      "id": "item_1772049558007_vka3y",
       "display_title": "NIKE DUNK LOW סניקרס",
       "price_ils": 299.9,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9108-010_PHSRH000-2000.jpg?v=1756724111&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f298020002?_pos=19&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f298020002?_pos=20&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049292516_p98lf",
-      "display_title": "NIKE DUNK LOW RETRO PREMIUM סניקרס",
-      "price_ils": 579.9,
-      "size_available": "Available",
-      "sizes": [],
-      "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB7746-200_PHSRH000-2000.jpg?v=1771404302&width=2000",
-      "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f308310005?_pos=20&_sid=1cf1ad691&_ss=r",
-      "store_name": "Foot Locker Israel"
-    },
-    {
-      "id": "item_1772049293367_zmjqo",
+      "id": "item_1772049558863_ds9n2",
       "display_title": "NIKE DUNK LOW RETRO סניקרס",
       "price_ils": 40,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_IB6399-600_PHSRH000-2000.jpg?v=1751872021&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-retro-se-13?_pos=21&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-retro-se-13?_pos=21&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049294204_76ne0",
+      "id": "item_1772049559703_kbr1i",
       "display_title": "NIKE DUNK LOW סניקרס",
       "price_ils": 40,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9109-006_PHSRH001-2000.jpg?v=1752162193&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-21?_pos=22&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-21?_pos=22&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049295041_h0kf7",
+      "id": "item_1772049560550_bcdfh",
       "display_title": "NIKE DUNK LOW סניקרס",
       "price_ils": 439.9,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/AURORA_FB9109-114_PHSRH001-2000.jpg?v=1736083934&width=2000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-14?_pos=23&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/nike-dunk-low-gs-14?_pos=23&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049295877_4nrwb",
+      "id": "item_1772049561417_5f03w",
       "display_title": "NIKE DUNK LOW סניקרס",
       "price_ils": 559.9,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/F142110016-5.jpg?v=1726499651&width=875",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/w-nike-dunk-low-white?_pos=24&_sid=1cf1ad691&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/w-nike-dunk-low-white?_pos=24&_sid=28ca6d841&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049366819_ozi8k",
+      "id": "item_1772049630726_26e53",
       "display_title": "סניקרס MR530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -725,7 +725,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049368247_4z49k",
+      "id": "item_1772049634778_izs27",
       "display_title": "NEW BALANCE נעלי סניקרס 530",
       "price_ils": 669,
       "size_available": "Available",
@@ -736,7 +736,7 @@
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1772049369092_iw4pg",
+      "id": "item_1772049635638_2feam",
       "display_title": "NEW BALANCE נעלי סניקרס 530",
       "price_ils": 669,
       "size_available": "Available",
@@ -747,27 +747,7 @@
       "store_name": "Factory 54"
     },
     {
-      "id": "item_1772049373302_mm3it",
-      "display_title": "סניקרס עור MR530CK / גברים",
-      "price_ils": 669.9,
-      "size_available": "Available",
-      "sizes": [
-        "41.5",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w073410008-11754394048.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w073410008?color=7",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1772049374230_71gc3",
+      "id": "item_1772049638299_lihyy",
       "display_title": "נעלי סניקרס MR530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -787,7 +767,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049376115_4jjft",
+      "id": "item_1772049640345_en4qg",
       "display_title": "סניקרס M530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -808,179 +788,190 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772049396333_tplcl",
+      "id": "item_1772049660322_234ef",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657506.jpg?v=1726740842&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530sg?_pos=1&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530sg?_pos=1&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049397194_lifw4",
+      "id": "item_1772049661203_yv2mo",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657036.jpg?v=1726740520&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530cc?_pos=2&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530cc?_pos=2&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049398026_ae5y9",
+      "id": "item_1772049662065_xlajq",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657223.jpg?v=1726740653&width=1000",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ck?_pos=3&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ck?_pos=3&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049398912_gn60a",
+      "id": "item_1772049662923_sop74",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U530CSB_2.jpg?v=1738656571&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f276680016?_pos=4&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f276680016?_pos=4&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049399795_u8jqf",
+      "id": "item_1772049663808_4traq",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ema_2.jpg?v=1730124298&width=2500",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ema-2?_pos=5&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ema-2?_pos=5&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049400646_hex4i",
+      "id": "item_1772049664738_m5hes",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/mr530ewb_2.jpg?v=1730359513&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530ewb?_pos=6&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530ewb?_pos=6&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049401521_hrzzu",
+      "id": "item_1772049665619_4a212",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/Footlocker_530_-_-3657399.jpg?v=1726740773&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530aa?_pos=7&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530aa?_pos=7&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049402352_ohd9f",
+      "id": "item_1772049666492_nefur",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/u530sua_nb_02_i.webp?v=1759920531&width=1600",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297010100?_pos=8&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297010100?_pos=8&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049403207_r8uz4",
+      "id": "item_1772049667345_lqkag",
       "display_title": "NEW BALANCE סניקרס 530",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/IMG_0002.jpg?v=1730978325&width=2100",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530aam?_pos=9&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530aam?_pos=9&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049404048_6d68b",
+      "id": "item_1772049668219_hbboj",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U530ESA_2.jpg?v=1754301105&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f296990033?_pos=10&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f296990033?_pos=10&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049404899_vpljb",
+      "id": "item_1772049669174_20bph",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/U530ESB_2.jpg?v=1754301393&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297000033?_pos=11&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297000033?_pos=11&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049405761_tsmts",
+      "id": "item_1772049670044_pv78g",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/197967559754_2.jpg?v=1751528829&width=2800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f296600016?_pos=12&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f296600016?_pos=12&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049406606_jbxjz",
+      "id": "item_1772049670937_oqctn",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/2ae6d89c-89b7-4226-a365-339866eb28f4.jpg?v=1771154499&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f313250002?_pos=13&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f313250002?_pos=13&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049407484_c07ux",
+      "id": "item_1772049671789_vqgjn",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/u530sub_nb_02_i.webp?v=1759920332&width=1600",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f297020008?_pos=14&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f297020008?_pos=14&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049409125_21yud",
+      "id": "item_1772049672662_02gb0",
+      "display_title": "NEW BALANCE סניקרס 530",
+      "price_ils": 530,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://footlocker.co.il/cdn/shop/files/FullSizeRender.jpg?v=1750093004&width=1668",
+      "badges": [],
+      "buy_link": "https://footlocker.co.il/products/f306180033?_pos=15&_sid=f5429b3db&_ss=r",
+      "store_name": "Foot Locker Israel"
+    },
+    {
+      "id": "item_1772049673551_4p2gu",
       "display_title": "NEW BALANCE 530 סניקרס",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/MR530PB_2.webp?v=1754231803&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/f304520002?_pos=16&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/f304520002?_pos=16&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     },
     {
-      "id": "item_1772049409963_ny4qj",
+      "id": "item_1772049674431_6k8zv",
       "display_title": "NEW BALANCE 530 סניקרס בשילוב רשת",
       "price_ils": 530,
       "size_available": "Available",
       "sizes": [],
       "image_url": "https://footlocker.co.il/cdn/shop/files/jpeg-optimizer_mr530asm_2.jpg?v=1729625038&width=800",
       "badges": [],
-      "buy_link": "https://footlocker.co.il/products/mr530asm?_pos=17&_sid=efef6721c&_ss=r",
+      "buy_link": "https://footlocker.co.il/products/mr530asm?_pos=17&_sid=f5429b3db&_ss=r",
       "store_name": "Foot Locker Israel"
     }
   ],
