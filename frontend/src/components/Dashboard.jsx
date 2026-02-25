@@ -33,6 +33,13 @@ const Dashboard = () => {
 
     const fetchData = async () => {
         setError(null);
+
+        if (!supabase) {
+            setError("🔴 Database Connection Missing: Please ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set in Netlify Environment Variables, and redeploy the site.");
+            setLoading(false);
+            return;
+        }
+
         try {
             // 1. Fetch System State
             const { data: stateData, error: stateError } = await supabase
