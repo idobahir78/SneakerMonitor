@@ -104,8 +104,9 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             title = `${brandName} ${title}`;
                         }
 
-                        const priceEl = tile.querySelector('.price__current, .product-item__price, .price .money, .price[class*="current"]');
-                        const price = priceEl ? parseFloat(priceEl.innerText.replace(/[^\d.]/g, '')) : 0;
+                        const priceEl = tile.querySelector('.price__current, .product-item__price, .price .money, .price[class*="current"], .price-item--regular');
+                        const priceText = priceEl ? priceEl.innerText : (tile.innerText.match(/₪?\s?(\d{2,4}\.?\d{0,2})/) || [])[1];
+                        const price = priceText ? parseFloat(priceText.replace(/[^\d.]/g, '')) : 0;
 
                         const imgEl = tile.querySelector('img');
                         const rawImg = norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || '');

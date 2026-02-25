@@ -109,8 +109,13 @@ class SemanticValidator {
 
         // === RULE 4: Exclusive Model Match ===
         if (cleanModel && cleanModel.length > 1) {
-            const modelFoundInTitle = this._coreNumberMatch(cleanModel, titleUpper);
-            const modelFoundInContext = this._coreNumberMatch(cleanModel, contextUpper);
+            let modelFoundInTitle = this._coreNumberMatch(cleanModel, titleUpper);
+            let modelFoundInContext = this._coreNumberMatch(cleanModel, contextUpper);
+
+            // Edge Case: Factory 54 translates "Puma MB.05 Fast & Furious" as "פומה X מהיר ועצבני" without "MB.05"
+            if (cleanModel === 'MB.05' && (combinedText.includes('מהיר ועצבני') || combinedText.includes('FAST & FURIOUS') || combinedText.includes('LAFRANCE'))) {
+                modelFoundInTitle = true;
+            }
 
             if (!modelFoundInTitle && !modelFoundInContext) {
                 console.log(`[Agent 3 - Semantic] REJECTED (Model "${cleanModel}" not found): ${title}`);
