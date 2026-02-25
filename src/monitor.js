@@ -136,7 +136,7 @@ async function saveResultsToSupabase(results, searchBrand, searchModel) {
     if (productsToInsert.length === 0) return;
 
     try {
-        const { error } = await supabase.from('products').upsert(productsToInsert, { onConflict: 'product_url' });
+        const { error } = await supabase.from('products').upsert(productsToInsert, { onConflict: 'product_url, search_id' });
         if (error) throw error;
         console.log(`[Supabase] Successfully saved ${productsToInsert.length} products to DB.`);
     } catch (e) {
