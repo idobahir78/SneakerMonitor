@@ -1,34 +1,8 @@
 {
-  "lastUpdate": "2026-02-25T13:26:15.868Z",
+  "lastUpdate": "2026-02-25T13:48:06.432Z",
   "products": [
     {
-      "id": "item_1772025739150_y6l9i",
-      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
-      "price_ils": 384.93,
-      "size_available": "Available",
-      "sizes": [
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "45.5",
-        "46",
-        "47",
-        "47.5",
-        "48.5",
-        "49.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r242010027-11757929610.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r242010027?color=2148",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1772025740169_li5bz",
+      "id": "item_1772027067860_1hyoh",
       "display_title": "סניקרס Twist Nike Dunk Low / נשים",
       "price_ils": 499.9,
       "size_available": "Available",
@@ -50,7 +24,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025741222_hvrn4",
+      "id": "item_1772027068834_506h4",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 439.92,
       "size_available": "Available",
@@ -77,7 +51,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025742244_oz78t",
+      "id": "item_1772027069763_t58xp",
       "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
       "price_ils": 405.93,
       "size_available": "Available",
@@ -99,7 +73,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025743261_0xl9d",
+      "id": "item_1772027070709_ovljb",
       "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
       "price_ils": 349.93,
       "size_available": "Available",
@@ -123,7 +97,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025745286_jkhz8",
+      "id": "item_1772027072632_30g2b",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 370.93,
       "size_available": "Available",
@@ -143,7 +117,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025746308_v8cgq",
+      "id": "item_1772027073575_2ghex",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 349.93,
       "size_available": "Available",
@@ -163,7 +137,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025748398_0uzwq",
+      "id": "item_1772027075345_hfl57",
       "display_title": "סניקרס Nike Dunk Low Retro / גברים",
       "price_ils": 349.93,
       "size_available": "Available",
@@ -187,7 +161,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025765365_3wdfx",
+      "id": "item_1772027091364_r3591",
       "display_title": "Nike Dunk Low",
       "price_ils": 379.9,
       "size_available": "Available",
@@ -198,7 +172,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025766335_ut40x",
+      "id": "item_1772027092214_nc03c",
       "display_title": "Nike Dunk Low",
       "price_ils": 349.9,
       "size_available": "Available",
@@ -209,7 +183,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025767303_cmrnq",
+      "id": "item_1772027093052_lr4ul",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -220,18 +194,29 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025769820_jkzwt",
-      "display_title": "Nike Dunk Low",
-      "price_ils": 549.9,
+      "id": "item_1772027093891_e5lpz",
+      "display_title": "Nike Dunk Low SE",
+      "price_ils": 429.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/fe9ddfb7-aa63-4821-85a2-1f792cf0e495/WMNS+NIKE+DUNK+LOW.png",
+      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0286659c-d55a-42ce-85e6-ee37aa45513f/NIKE+DUNK+LOW+SE+%28GS%29.png",
       "badges": [],
-      "buy_link": "https://www.nike.com/il/t/dunk-low-shoes-xoFseegK/IF3944-001",
+      "buy_link": "https://www.nike.com/il/t/dunk-low-se-older-shoes-bhOjGbm3/IB5691-100",
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025770756_daw1a",
+      "id": "item_1772027094728_epa4s",
+      "display_title": "Nike Dunk Low",
+      "price_ils": 419.9,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/2d576572-5f15-4868-af33-8f0117bdb45e/NIKE+DUNK+LOW+%28GS%29.png",
+      "badges": [],
+      "buy_link": "https://www.nike.com/il/t/dunk-low-older-shoes-rjlDpM/CW1590-100",
+      "store_name": "Nike Israel"
+    },
+    {
+      "id": "item_1772027096367_98wx2",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -242,7 +227,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025771690_1bri7",
+      "id": "item_1772027097204_dex75",
       "display_title": "Nike Dunk Low SE 'LNY'",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -253,7 +238,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025772632_9rdrx",
+      "id": "item_1772027098043_pvpif",
       "display_title": "Nike Dunk Low",
       "price_ils": 419.9,
       "size_available": "Available",
@@ -264,7 +249,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025773634_3xk33",
+      "id": "item_1772027098881_h2afc",
       "display_title": "Nike Dunk Low",
       "price_ils": 299.9,
       "size_available": "Available",
@@ -275,7 +260,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025775361_hln1h",
+      "id": "item_1772027099721_02uiq",
+      "display_title": "Nike Dunk Low Retro",
+      "price_ils": 529.9,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0f76f73e-2578-4d62-abab-c5563ea4f78c/NIKE+DUNK+LOW+RETRO.png",
+      "badges": [],
+      "buy_link": "https://www.nike.com/il/t/dunk-low-retro-shoe-mhrtZC/DD1391-100",
+      "store_name": "Nike Israel"
+    },
+    {
+      "id": "item_1772027100558_885s7",
       "display_title": "Nike Dunk Low Suede",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -286,7 +282,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025776307_0qu4j",
+      "id": "item_1772027101396_93ks9",
       "display_title": "Nike Dunk Low Retro Premium",
       "price_ils": 549.9,
       "size_available": "Available",
@@ -297,7 +293,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025777234_3uejz",
+      "id": "item_1772027102234_emxo2",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 339.9,
       "size_available": "Available",
@@ -308,7 +304,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025778147_mk10k",
+      "id": "item_1772027103071_phm43",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -319,7 +315,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025779134_ll2zh",
+      "id": "item_1772027103910_3timo",
       "display_title": "Nike Dunk Low",
       "price_ils": 549.9,
       "size_available": "Available",
@@ -330,7 +326,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025780093_9tn8i",
+      "id": "item_1772027104748_7fq3q",
       "display_title": "Nike Dunk Low Retro",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -341,7 +337,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025781871_kg9v5",
+      "id": "item_1772027105586_onhxo",
+      "display_title": "Nike Dunk Low Next Nature",
+      "price_ils": 529.9,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/99120a42-1aba-4630-ab54-3362666e3714/W+NIKE+DUNK+LOW+NEXT+NATURE.png",
+      "badges": [],
+      "buy_link": "https://www.nike.com/il/t/dunk-low-next-nature-shoes-tSZJWb/DD1873-112",
+      "store_name": "Nike Israel"
+    },
+    {
+      "id": "item_1772027106425_dzabv",
       "display_title": "Nike Dunk Low Retro 'Berlin'",
       "price_ils": 389.9,
       "size_available": "Available",
@@ -352,7 +359,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025782786_bk1kx",
+      "id": "item_1772027107261_rg86v",
       "display_title": "Nike Dunk Low Next Nature",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -363,7 +370,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025783921_xxu0u",
+      "id": "item_1772027108101_falhx",
       "display_title": "Nike Dunk Low Unlocked By You",
       "price_ils": 679.9,
       "size_available": "Available",
@@ -374,7 +381,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025784848_s545o",
+      "id": "item_1772027108938_pn3zn",
       "display_title": "Nike Dunk Low Retro SE",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -385,7 +392,7 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025785794_lavgx",
+      "id": "item_1772027109779_uwfh7",
       "display_title": "Nike Dunk Low",
       "price_ils": 529.9,
       "size_available": "Available",
@@ -396,18 +403,18 @@
       "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025861313_9yt58",
-      "display_title": "NEW BALANCE נעלי סניקרס 530",
-      "price_ils": 669,
+      "id": "item_1772027110616_i8prn",
+      "display_title": "Nike Dunk Low Retro SE",
+      "price_ils": 529.9,
       "size_available": "Available",
       "sizes": [],
-      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf2c33d41/images/new/970002463/970002463_P_1.png?sw=476&sh=714",
+      "image_url": "https://static.nike.com/a/images/t_web_pw_592_v2/f_auto/u_9ddf04c7-2a9a-4d76-add1-d15af8f0263d,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3449ffc4-b950-467c-86c3-dc5fb80fd715/NIKE+DUNK+LOW+RETRO+SE.png",
       "badges": [],
-      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
-      "store_name": "Factory 54"
+      "buy_link": "https://www.nike.com/il/t/dunk-low-retro-se-shoes-mxxNAib7/IB6651-200",
+      "store_name": "Nike Israel"
     },
     {
-      "id": "item_1772025866345_7ny1w",
+      "id": "item_1772027180383_ftshq",
       "display_title": "סניקרס MR530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -428,27 +435,29 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025873601_f9xyg",
-      "display_title": "סניקרס עור MR530CK / גברים",
-      "price_ils": 669.9,
+      "id": "item_1772027180700_admxx",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
       "size_available": "Available",
-      "sizes": [
-        "41.5",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/0/w073410008-11754394048.jpg?image_type_mobile=webp_jpeg_like_70",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dwf2c33d41/images/new/970002463/970002463_P_1.png?sw=476&sh=714",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w073410008?color=7",
-      "store_name": "TerminalX"
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002463.html?pi=2",
+      "store_name": "Factory 54"
     },
     {
-      "id": "item_1772025874623_jwshf",
+      "id": "item_1772027181545_zbwdx",
+      "display_title": "NEW BALANCE נעלי סניקרס 530",
+      "price_ils": 669,
+      "size_available": "Available",
+      "sizes": [],
+      "image_url": "https://www.factory54.co.il/dw/image/v2/BFLR_PRD/on/demandware.static/-/Sites-master-catalog/default/dw8320a881/images/new//970002558/970002558_P_1.png?sw=476&sh=714",
+      "badges": [],
+      "buy_link": "https://www.factory54.co.il/%D7%A0%D7%A2%D7%9C%D7%99-%D7%A1%D7%A0%D7%99%D7%A7%D7%A8%D7%A1-530/970002558.html?pi=3",
+      "store_name": "Factory 54"
+    },
+    {
+      "id": "item_1772027187699_h5h7a",
       "display_title": "נעלי סניקרס MR530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
@@ -468,7 +477,7 @@
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772025876662_qyzkd",
+      "id": "item_1772027189567_3agdx",
       "display_title": "סניקרס M530 / גברים",
       "price_ils": 669.9,
       "size_available": "Available",
