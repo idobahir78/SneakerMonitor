@@ -47,6 +47,33 @@ body {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.schedule-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+}
+
+.schedule-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.schedule-toggle.active {
+    background: rgba(3, 218, 198, 0.15);
+    border-color: var(--success-color);
+    color: var(--success-color);
+    box-shadow: 0 0 10px rgba(3, 218, 198, 0.2);
 }
 
 /* Search Bar */

@@ -15,46 +15,40 @@ class MayersAgent extends DOMNavigator {
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
                 try {
-                    await this.page.waitForSelector('.product-card, .grid__item, .product-item, .collection-product-card', { timeout: 30000 });
+                    await this.page.waitForSelector('.product-grid-item, .type-product, .product-wrapper, .product-card, .grid__item', { timeout: 30000 });
                 } catch (e) {
                     console.log('[Mayers] DEBUG: No product containers found after 30s wait.');
                 }
 
-                const debugInfo = await this.page.evaluate(() => {
-                    return {
-                        title: document.title,
-                        url: window.location.href,
-                        bodyText: document.body?.innerText?.substring(0, 500) || '',
-                        allProductClasses: [...document.querySelectorAll('[class*="product"]')].map(el => el.className).slice(0, 10)
-                    };
-                });
-                console.log(`[Mayers] DEBUG: Page title="${debugInfo.title}", URL="${debugInfo.url}"`);
-                console.log(`[Mayers] DEBUG: Product classes found: ${JSON.stringify(debugInfo.allProductClasses)}`);
-
                 const products = await this.page.evaluate(() => {
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-card, .grid__item, .product-item, .collection-product-card, .grid-product');
+                    const tiles = document.querySelectorAll('.product-grid-item, .type-product, .product-card, .grid__item, .product-item, .collection-product-card');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.product-card__title, .grid-view-item__title, h3, h2, .product-title, .product-name, a.product-card__link');
-                        const priceEl = tile.querySelector('.price-item--regular, .product-card__price, .price, .money, span[class*="price"]');
-                        const linkEl = tile.querySelector('a[href*="/products/"]') || tile.querySelector('a');
-                        const imgEl = tile.querySelector('img');
+                        const titleEl = tile.querySelector('.product-image-link, .product-card__title, .grid-view-item__title, h3.product-title, h2, .product-name');
+                        const priceEl = tile.querySelector('.price, .amount, .price-item--regular, .product-card__price, .money, span[class*="price"]');
+                        const linkEl = tile.querySelector('a.product-image-link, a[href*="/p/"], a[href*="/product/"]') || tile.querySelector('a');
+                        const imgEl = tile.querySelector('img.attachment-woocommerce_thumbnail, img');
 
                         if (titleEl) {
-                            const title = titleEl.innerText.trim();
+                            const title = titleEl.getAttribute('aria-label') || titleEl.innerText.trim();
                             let price = 0;
-                            if (priceEl) {
-                                const priceText = priceEl.innerText.replace(/[^\d.]/g, '');
-                                price = parseFloat(priceText) || 0;
+                            if (priceEl && priceEl.innerText) {
+                                // WooCommerce price blocks often have del (old price) and ins (new price).
+                                const newPriceEl = priceEl.querySelector('ins .amount') || priceEl.querySelector('.amount') || priceEl;
+                                const priceText = newPriceEl.innerText.replace(/[^\d.]/g, '');
+                                const priceMatch = priceText.match(/[\d.]+/);
+                                price = priceMatch ? parseFloat(priceMatch[0]) : 0;
                             }
 
-                            results.push({
-                                raw_title: title,
-                                raw_price: price,
-                                raw_url: linkEl?.href || '',
-                                raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('data-srcset')?.split(' ')[0] || ''
-                            });
+                            if (title && price > 0) {
+                                results.push({
+                                    raw_title: title,
+                                    raw_price: price,
+                                    raw_url: linkEl?.href || '',
+                                    raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || imgEl?.getAttribute('data-srcset')?.split(' ')[0] || ''
+                                });
+                            }
                         }
                     });
                     return results;

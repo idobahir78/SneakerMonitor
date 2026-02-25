@@ -8,7 +8,7 @@ on:
       - 'frontend/public/data.json'
       - '**.md'
   schedule:
-    - cron: '0 * * * *'   # Every hour
+    - cron: '0 6 * * *'   # Every day at 06:00 UTC (08:00 Israel Time)
   workflow_dispatch:
     inputs:
       search_term:
@@ -78,8 +78,8 @@ jobs:
           echo "DEBUG: SEARCH_ID='$SEARCH_ID'"
 
           if [ -z "$SEARCH_INPUT" ]; then
-            echo "No search term provided — using --load-last"
-            node src/monitor.js --load-last "$SIZE_INPUT"
+            echo "No manual search term provided — executing daily scheduled searches"
+            node src/monitor.js --run-scheduled
           else
             node src/monitor.js "$SEARCH_INPUT" "$SIZE_INPUT"
           fi

@@ -144,62 +144,167 @@ async function saveResultsToSupabase(results, searchBrand, searchModel) {
     }
 }
 
-async function run() {
+async function runScheduledJobs() {
+    if (!supabase) {
+        console.error("Supabase not connected. Cannot run scheduled jobs.");
+        return;
+    }
+
+    try {
+        console.log("\n📅 Fetching scheduled search jobs from Supabase...");
+        const { data: jobs, error } = await supabase
+            .from('search_jobs')
+            .select('*')
+            .eq('is_scheduled', true);
+
+        if (error) throw error;
+
+        if (!jobs || jobs.length === 0) {
+            console.log("No scheduled jobs found today. Exiting.");
+            return;
+        }
+
+        console.log(`Found ${jobs.length} scheduled jobs to run.`);
+
+        for (const job of jobs) {
+            const searchTerm = job.search_term || 'Nike';
+            const sizeFilter = job.size_filter || '*';
+            const targetSearchId = job.id;
+
+            console.log(`\n================================`);
+            console.log(`🏃 Running Scheduled Job for Search ID: ${targetSearchId}`);
+            console.log(`Query: "${searchTerm}", Size: "${sizeFilter}"`);
+            console.log(`================================`);
+
+            // Use the same extraction logic
+            const { brand, model } = parseSearchInput(searchTerm);
+
+            // Mark job as scanning
+            await supabase.from('search_jobs').upsert({
+                id: targetSearchId,
+                is_scanning: true,
+                last_run: new Date().toISOString()
+            });
+
+            // Execute the heavy scrape
+            const results = await performSearch(brand, model, sizeFilter);
+
+            // Wipe old results and save new ones for this specific user
+            await supabase.from('products').delete().eq('search_id', targetSearchId);
+
+            const recordsToInsert = results.map(p => ({
+                search_id: targetSearchId,
+                brand: p.raw_brand,
+                model: p.raw_title,
+                price: p.raw_price,
+                site: p.agent,
+                product_url: p.product_url,
+                image_url: p.raw_image_url,
+                sizes: JSON.stringify(p.raw_sizes)
+            }));
+
+            if (recordsToInsert.length > 0) {
+                await supabase.from('products').insert(recordsToInsert);
+            }
+
+            // Mark job as finished
+            await supabase.from('search_jobs').upsert({
+                id: targetSearchId,
+                is_scanning: false,
+                last_run: new Date().toISOString()
+            });
+
+            console.log(`✅ Finished Job for ${targetSearchId}. Saved ${recordsToInsert.length} products.`);
+
+            // Short delay between users to avoid hammering local RAM / APIs
+            await new Promise(r => setTimeout(r, 5000));
+        }
+
+    } catch (e) {
+        console.error("Scheduled Run Error:", e.message);
+    }
+}
+
+// ==========================================
+// Execution Control
+// ==========================================
+(async () => {
     console.log(`\n🚀 Sneaker Monitor v7.0 at ${new Date().toLocaleTimeString()}`.bold.green);
     auditEnv();
 
     const args = process.argv.slice(2);
-    let searchTasks = [];
 
-    if (args[0] && !args[0].startsWith('--')) {
-        const { brand, model } = parseSearchInput(args[0]);
-        const size = (args[1] && !args[1].startsWith('--')) ? args[1] : '*';
-        searchTasks.push({ brand, model, size });
-    } else {
-        const watchPath = path.join(__dirname, '../watchlist.json');
-        if (fs.existsSync(watchPath)) {
-            console.log(`📋 Loading Watchlist from ${watchPath}`.cyan);
-            searchTasks = JSON.parse(fs.readFileSync(watchPath, 'utf8'));
+    if (args.includes('--run-scheduled')) {
+        await runScheduledJobs();
+        process.exit(0);
+    }
+
+    const isLoadLast = args.includes('--load-last');
+
+    // We already do a Supabase update in a user-triggered flow handled below:
+    let searchInputDisplay = '';
+    let sizeFilter = '*';
+
+    if (isLoadLast && supabase) {
+        console.log('Fetching last manual query from system...'.cyan);
+        const { data } = await supabase.from('search_jobs').select('*').eq('id', searchId).single();
+        if (data && data.search_term) {
+            searchInputDisplay = data.search_term;
+            if (data.size_filter) sizeFilter = data.size_filter;
         } else {
-            console.log(`⚠️ No input and no watchlist.json found.`.yellow);
-            process.exit(0);
+            searchInputDisplay = "Nike Dunk";
         }
+    } else {
+        searchInputDisplay = args[0] || "Nike Dunk";
+        sizeFilter = args[1] || "*";
     }
 
     await updateSystemState(true);
-    await cleanupOldRecords();
 
-    let allResults = [];
-    for (const task of searchTasks) {
-        const results = await performSearch(task.brand, task.model, task.size);
-        await saveResultsToSupabase(results, task.brand, task.model);
-        allResults = [...allResults, ...results];
+    const { brand, model } = parseSearchInput(searchInputDisplay);
+    const results = await performSearch(brand, model, sizeFilter);
 
-        console.log(`DEBUG: Items passing final size filter: [${results.length}]`);
-        if (results.length > 0) {
-            console.log(`DEBUG: Starting Telegram notification flow...`);
-            await TelegramService.sendNotification(results, task.size);
+    // Save directly to Supabase for the manual invoker
+    if (supabase) {
+        console.log(`[Supabase] Deleting old records for search_id: ${searchId}...`.yellow);
+        await supabase.from('products').delete().eq('search_id', searchId);
+
+        console.log(`[Supabase] Inserting ${results.length} new records for ${searchId}...`.green);
+        const recordsToInsert = results.map(p => ({
+            search_id: searchId,
+            brand: p.raw_brand,
+            model: p.raw_title,
+            price: p.raw_price,
+            site: p.agent,
+            product_url: p.product_url,
+            image_url: p.raw_image_url,
+            sizes: JSON.stringify(p.raw_sizes)
+        }));
+
+        if (recordsToInsert.length > 0) {
+            const { error } = await supabase.from('products').insert(recordsToInsert);
+            if (error) console.error('[Supabase] Insert Error:', error.message);
         }
+
+        // Also update their search_term if they triggered it manually so it acts as their "last search"
+        await supabase.from('search_jobs').upsert({
+            id: searchId,
+            is_scanning: false,
+            last_run: new Date().toISOString(),
+            search_term: searchInputDisplay,
+            size_filter: sizeFilter
+        });
     }
 
-    await updateSystemState(false);
+    try {
+        const telegram = new TelegramService();
+        await telegram.sendSummary(results);
+    } catch (e) {
+        console.error(`[Telegram] Failed: ${e.message}`.red);
+    }
 
-    // Also save locally as a final fallback for local dev
-    const jsonPath = process.env.EXPORT_JSON || path.join(__dirname, '../frontend/public/data.json');
-    const dashboardData = {
-        lastUpdate: new Date().toISOString(),
-        products: allResults,
-        isScanning: false,
-        scheduledSearchEnabled: true
-    };
-    try { fs.writeFileSync(jsonPath, JSON.stringify(dashboardData, null, 2)); } catch (e) { }
-
-    console.log(`\n📊 Scanned ${searchTasks.length} tasks. Found ${allResults.length} matches.`.bold.green);
+    console.log(`\n📊 Scanned tasks. Found ${results.length} matches.`.bold.green);
     process.exit(0);
-}
+})();
 
-run().catch(async err => {
-    console.error(`\n❌ Fatal Error: ${err.message}`.red);
-    await updateSystemState(false);
-    process.exit(1);
-});
+

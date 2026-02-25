@@ -13,14 +13,9 @@ const Dashboard = () => {
     const [isScanning, setIsScanning] = useState(false);
     const [lastTriggerTime, setLastTriggerTime] = useState(null);
     const [triggeredSearchTerm, setTriggeredSearchTerm] = useState('');
+    const [isScheduled, setIsScheduled] = useState(false);
 
     useEffect(() => {
-        // Load persisted scanning state
-        const savedTriggerTime = localStorage.getItem('lastTriggerTime');
-        const savedTriggerTerm = localStorage.getItem('triggeredSearchTerm');
-        if (savedTriggerTime) setLastTriggerTime(parseInt(savedTriggerTime));
-        if (savedTriggerTerm) setTriggeredSearchTerm(savedTriggerTerm);
-
         fetchData(); // Initial load
 
         // Dynamic refresh interval: 3s when scanning, 30s when idle
@@ -126,11 +121,43 @@ const Dashboard = () => {
                 setData(newDataState);
             }
 
+            // Sync the scheduled toggle state
+            if (stateData && stateData.is_scheduled !== undefined) {
+                setIsScheduled(!!stateData.is_scheduled);
+            } else {
+                setIsScheduled(false);
+            }
+
             setLoading(false);
         } catch (err) {
             console.error("Error fetching from Supabase:", err);
             setError(err.message);
             setLoading(false);
+        }
+    };
+
+    const toggleSchedule = async () => {
+        if (!supabase) return;
+        const currentSearchId = localStorage.getItem('currentSearchId') || 'scheduled_system_run';
+        const newStatus = !isScheduled;
+        setIsScheduled(newStatus); // Optimistic UI update
+
+        try {
+            const { error } = await supabase
+                .from('search_jobs')
+                .update({
+                    is_scheduled: newStatus,
+                    // Store the current search terms so the cron job knows what to run!
+                    search_term: triggeredSearchTerm || 'Nike',
+                    size_filter: localStorage.getItem('lastSizeFilter') || '*'
+                })
+                .eq('id', currentSearchId);
+
+            if (error) throw error;
+        } catch (err) {
+            console.error("Error toggling schedule:", err);
+            setIsScheduled(!newStatus); // Revert on failure
+            alert("Failed to update schedule settings.");
         }
     };
 
@@ -200,6 +227,14 @@ const Dashboard = () => {
                     <span style={{ marginLeft: '10px', fontSize: '0.8em', opacity: 0.7 }}>
                         (↻ Auto-refresh {isScanning ? 'every 3s' : 'on'})
                     </span>
+
+                    <button
+                        onClick={toggleSchedule}
+                        className={`schedule-toggle ${isScheduled ? 'active' : ''}`}
+                        title="If enabled, the system will automatically search for this term once a day and save the results for you."
+                    >
+                        {isScheduled ? '✅ Daily Search ON' : '⏸️ Daily Search OFF'}
+                    </button>
                 </p>
 
                 <div className="search-bar-container">

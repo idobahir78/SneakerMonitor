@@ -53,14 +53,23 @@ class NikeIsraelAgent extends DOMNavigator {
 
                     tiles.forEach(tile => {
                         const titleEl = tile.querySelector('.product-card__title, .product-card__link-overlay');
+                        const subtitleEl = tile.querySelector('.product-card__subtitle');
                         const priceEl = tile.querySelector('.product-price');
                         const linkEl = tile.querySelector('a.product-card__link-overlay') || tile.querySelector('a');
                         const imgEl = tile.querySelector('img.product-card__hero-image');
 
                         if (titleEl && priceEl) {
+                            const rawTitle = titleEl.innerText.trim();
+                            const rawSubtitle = subtitleEl ? subtitleEl.innerText.trim() : '';
+                            const priceText = priceEl.getAttribute('data-product-price') || priceEl.innerText || '0';
+
+                            // Prevent "5 ILS" bug by extracting exact digits
+                            const priceMatch = priceText.match(/(\d{2,4}\.?\d{0,2})/);
+                            const rawPrice = priceMatch ? parseFloat(priceMatch[1]) : 0;
+
                             results.push({
-                                raw_title: titleEl.innerText.trim(),
-                                raw_price: parseFloat(priceEl.innerText.replace(/[^\d.]/g, '')) || 0,
+                                raw_title: `${rawTitle} ${rawSubtitle}`.trim(),
+                                raw_price: rawPrice,
                                 raw_url: linkEl?.href || '',
                                 raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
                             });

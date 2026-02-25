@@ -43,17 +43,18 @@ class LimeShoesAgent extends DOMNavigator {
                             if (priceEls.length > 0) {
                                 // Take the last price element (usually the sale price if multiple exist)
                                 const priceText = priceEls[priceEls.length - 1].innerText;
-                                raw_price = priceText;
+                                const priceMatch = priceText.match(/(\d{2,4}\.?\d{0,2})/);
+                                raw_price = priceMatch ? parseFloat(priceMatch[1]) : 0;
                             }
 
                             // Check for Out of Stock
                             const isOutOfStock = el.classList.contains('outofstock') ||
                                 (el.innerText && el.innerText.includes('אזל במלאי'));
 
-                            if (raw_title && raw_price && !isOutOfStock) {
+                            if (raw_title && raw_price > 0 && !isOutOfStock) {
                                 results.push({
                                     raw_title,
-                                    raw_price: raw_price.toString(),
+                                    raw_price,
                                     product_url,
                                     raw_image_url,
                                     raw_brand: 'Unknown'

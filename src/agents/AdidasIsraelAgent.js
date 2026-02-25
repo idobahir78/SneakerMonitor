@@ -49,18 +49,33 @@ class AdidasIsraelAgent extends DOMNavigator {
 
                 const domProducts = await this.page.evaluate(() => {
                     const results = [];
-                    const tiles = document.querySelectorAll('.product-card, .grid-item');
+                    const tiles = document.querySelectorAll('.product-card, .grid-item, .products-item, .product');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.product-card-title, .product-name');
-                        const priceEl = tile.querySelector('.product-price, .price-display');
-                        const linkEl = tile.querySelector('a.product-card-link') || tile.querySelector('a');
-                        const imgEl = tile.querySelector('img.product-card-image');
+                        // Extract from data-tracking JSON if available
+                        const trackingStr = tile.getAttribute('data-tracking-product-tile') || '{}';
+                        let trackingObj = {};
+                        try { trackingObj = JSON.parse(trackingStr); } catch (e) { }
 
-                        if (titleEl && priceEl) {
+                        const titleEl = tile.querySelector('.product-card-title, .product-name');
+                        const priceEl = tile.querySelector('.product-price, .price-display, .sales .value');
+                        const linkEl = tile.querySelector('a.product-card-link') || tile.querySelector('a.link') || tile.querySelector('a');
+                        const imgEl = tile.querySelector('img.product-card-image, img.tile-image');
+
+                        const rawTitle = trackingObj.product_name || (titleEl ? titleEl.innerText.trim() : '');
+
+                        // Parse price from JSON, fallback to exact digits regex from text
+                        let rawPrice = parseFloat(trackingObj.product_price) || 0;
+                        if (!rawPrice && priceEl) {
+                            const priceText = priceEl.getAttribute('content') || priceEl.innerText || '0';
+                            const priceMatch = priceText.match(/(\d{2,4}\.?\d{0,2})/);
+                            rawPrice = priceMatch ? parseFloat(priceMatch[1]) : 0;
+                        }
+
+                        if (rawTitle && rawPrice > 0) {
                             results.push({
-                                raw_title: titleEl.innerText.trim(),
-                                raw_price: parseFloat(priceEl.innerText.replace(/[^\d.]/g, '')) || 0,
+                                raw_title: rawTitle,
+                                raw_price: rawPrice,
                                 raw_url: linkEl?.href || '',
                                 raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
                             });
