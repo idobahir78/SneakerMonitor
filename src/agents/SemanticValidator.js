@@ -80,7 +80,7 @@ class SemanticValidator {
         const combinedText = titleUpper + ' ' + contextUpper;
         const brandUpper = (brand || '').toUpperCase().trim();
 
-        const genderIntent = this._detectGenderIntent(brand, model);
+        const genderIntent = (targetSize === '*') ? 'UNISEX' : this._detectGenderIntent(brand, model);
         const cleanModel = this._getCoreModel(model || '');
 
         console.log(`[Agent 3 - Semantic] Checking: "${title}" | Intent: ${genderIntent} | Model: ${cleanModel}`);

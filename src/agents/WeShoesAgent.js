@@ -108,6 +108,15 @@ class WeShoesAgent extends DOMNavigator {
                         let sizes = [];
                         if (productHandle && sizeMap[productHandle]) sizes = sizeMap[productHandle];
 
+                        if (sizes.length === 0) {
+                            tile.querySelectorAll('.qb-size-item:not(.not-available)').forEach(el => {
+                                const sizeText = el.innerText?.trim();
+                                if (sizeText && !isNaN(parseFloat(sizeText)) && sizeText.length < 8) {
+                                    sizes.push(sizeText);
+                                }
+                            });
+                        }
+
                         if (title) {
                             results.push({
                                 raw_title: title,
