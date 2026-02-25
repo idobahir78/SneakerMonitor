@@ -56,11 +56,12 @@ const Dashboard = () => {
             const triggerTime = lastTriggerTime || parseInt(localStorage.getItem('lastTriggerTime') || '0');
             const now = Date.now();
 
-            // Safety Timeout: if scanning for > 5 minutes, force Idle
-            const isStuck = triggerTime > 0 && (now - triggerTime > 300000);
+            // Safety Timeout: if scanning for > 5 minutes, force Idle for local triggers
             const isStale = triggerTime > 0 && serverUpdateTime < triggerTime;
+            const isStuck = isStale && (now - triggerTime > 300000);
 
-            const stillScanning = (serverIsScanning || isStale) && !isStuck;
+            // Trust the server's explicit state, otherwise rely on local stale flag (if not stuck)
+            const stillScanning = serverIsScanning || (isStale && !isStuck);
             setIsScanning(stillScanning);
 
             // 2. Fetch Products
