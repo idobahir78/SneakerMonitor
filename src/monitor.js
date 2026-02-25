@@ -116,13 +116,13 @@ async function cleanupOldRecords() {
     }
 }
 
-async function saveResultsToSupabase(results) {
+async function saveResultsToSupabase(results, searchBrand, searchModel) {
     if (!supabase || results.length === 0) return;
 
     // Ensure all required fields exist to prevent DB errors
     const productsToInsert = results.map(item => ({
-        brand: item.brand || 'Unknown',
-        model: item.model || 'Unknown',
+        brand: item.brand || searchBrand || 'Unknown',
+        model: item.model || searchModel || 'Unknown',
         price: item.price_ils ?? item.price ?? 0,
         site: item.store_name || item.store || 'Unknown',
         image_url: item.image_url || item.image || item.raw_image_url || '',
@@ -169,7 +169,7 @@ async function run() {
     let allResults = [];
     for (const task of searchTasks) {
         const results = await performSearch(task.brand, task.model, task.size);
-        await saveResultsToSupabase(results);
+        await saveResultsToSupabase(results, task.brand, task.model);
         allResults = [...allResults, ...results];
 
         console.log(`DEBUG: Items passing final size filter: [${results.length}]`);

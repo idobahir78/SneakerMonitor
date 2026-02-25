@@ -79,7 +79,13 @@ const Dashboard = () => {
                 store: p.site,
                 link: p.product_url,
                 image_url: p.image_url,
-                sizes: p.sizes || []
+                sizes: (() => {
+                    try {
+                        return typeof p.sizes === 'string' ? JSON.parse(p.sizes) : (p.sizes || []);
+                    } catch (e) {
+                        return [];
+                    }
+                })()
             }));
 
             const newDataState = {
