@@ -1,85 +1,10 @@
 {
-  "lastUpdate": "2026-02-25T11:45:49.062Z",
+  "lastUpdate": "2026-02-25T11:47:46.088Z",
   "products": [
     {
-      "id": "item_1772019721145_xs870",
-      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
-      "price_ils": 384.93,
-      "size_available": "Available",
-      "sizes": [
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "45.5",
-        "46",
-        "47",
-        "47.5",
-        "48.5",
-        "49.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/2/r242010027-11757929610.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r242010027?color=2148",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1772019722115_en3s4",
-      "display_title": "סניקרס Twist Nike Dunk Low / נשים",
-      "price_ils": 499.9,
-      "size_available": "Available",
-      "sizes": [
-        "36",
-        "36.5",
-        "37.5",
-        "38",
-        "38.5",
-        "39",
-        "40",
-        "40.5",
-        "41",
-        "42"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/3/w354620001-11716708698.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w354620001?color=7",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1772019723082_uvq8p",
-      "display_title": "סניקרס Nike Dunk Low Retro / גברים",
-      "price_ils": 439.92,
-      "size_available": "Available",
-      "sizes": [
-        "40",
-        "40.5",
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "45.5",
-        "46",
-        "47",
-        "47.5",
-        "48.5",
-        "49.5"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/8/w848850005-11737557989.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w848850005?color=10",
-      "store_name": "TerminalX"
-    },
-    {
-      "id": "item_1772019724051_mpzs5",
-      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
-      "price_ils": 405.93,
+      "id": "item_1772019986703_8fabs",
+      "display_title": "נעלי כדורסל MB.05 WINGS",
+      "price_ils": 454.93,
       "size_available": "Available",
       "sizes": [
         "41",
@@ -89,19 +14,17 @@
         "44",
         "44.5",
         "45",
-        "45.5",
-        "46",
-        "47"
+        "46"
       ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/w/9/w947560652-11741763018.jpg?image_type_mobile=webp_jpeg_like_70",
+      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
       "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/w947560652?color=2094",
+      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
       "store_name": "TerminalX"
     },
     {
-      "id": "item_1772019725018_el1w7",
-      "display_title": "סניקרס NIKE DUNK LOW RETRO / גברים",
-      "price_ils": 349.93,
+      "id": "item_1772019987619_ghal3",
+      "display_title": "נעלי כדורסל MB.05 WORLD TOUR",
+      "price_ils": 475.93,
       "size_available": "Available",
       "sizes": [
         "40.5",
