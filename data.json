@@ -1,27 +1,6 @@
 {
-  "lastUpdate": "2026-02-25T18:39:48.327Z",
-  "products": [
-    {
-      "id": "item_1772044710809_nmrza",
-      "display_title": "נעלי כדורסל MB.05 WINGS",
-      "price_ils": 454.93,
-      "size_available": "Available",
-      "sizes": [
-        "41",
-        "42",
-        "42.5",
-        "43",
-        "44",
-        "44.5",
-        "45",
-        "46"
-      ],
-      "image_url": "https://media.terminalx.com/pub/media/catalog/product/cache/f112238e8de94b6d480bd02e7a9501b8/r/5/r508300015-11762668909.jpg?image_type_mobile=webp_jpeg_like_70",
-      "badges": [],
-      "buy_link": "https://www.terminalx.com/default-category/r508300015?color=116",
-      "store_name": "TerminalX"
-    }
-  ],
+  "lastUpdate": "2026-02-25T18:42:38.899Z",
+  "products": [],
   "isScanning": false,
   "scheduledSearchEnabled": true
 }
