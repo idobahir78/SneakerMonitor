@@ -38,7 +38,13 @@ const Dashboard = () => {
 
         try {
             // 1. Fetch System State
-            const currentSearchId = localStorage.getItem('currentSearchId') || 'scheduled_system_run';
+            let currentSearchId = localStorage.getItem('currentSearchId');
+            if (!currentSearchId) {
+                // Generate a persistent ID for this user browser so they can toggle scheduled searches 
+                // even before running their first manual scan.
+                currentSearchId = crypto.randomUUID();
+                localStorage.setItem('currentSearchId', currentSearchId);
+            }
             const { data: stateData, error: stateError } = await supabase
                 .from('search_jobs')
                 .select('*')
@@ -141,7 +147,12 @@ const Dashboard = () => {
 
     const toggleSchedule = async () => {
         if (!supabase) return;
-        const currentSearchId = localStorage.getItem('currentSearchId') || 'scheduled_system_run';
+        let currentSearchId = localStorage.getItem('currentSearchId');
+        if (!currentSearchId) {
+            currentSearchId = crypto.randomUUID();
+            localStorage.setItem('currentSearchId', currentSearchId);
+        }
+
         const newStatus = !isScheduled;
         lastToggleTimeRef.current = Date.now();
         setIsScheduled(newStatus); // Optimistic UI update
@@ -149,13 +160,14 @@ const Dashboard = () => {
         try {
             const { error } = await supabase
                 .from('search_jobs')
-                .update({
+                .upsert({
+                    id: currentSearchId,
                     is_scheduled: newStatus,
                     // Store the current search terms so the cron job knows what to run!
-                    search_term: triggeredSearchTerm || 'Nike',
-                    size_filter: localStorage.getItem('lastSizeFilter') || '*'
-                })
-                .eq('id', currentSearchId);
+                    search_term: triggeredSearchTerm || localStorage.getItem('scraper_manual_term') || localStorage.getItem('scraper_brand') || 'Nike',
+                    size_filter: localStorage.getItem('scraper_sizes') || '*',
+                    last_run: new Date().toISOString()
+                });
 
             if (error) throw error;
         } catch (err) {

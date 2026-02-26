@@ -298,7 +298,7 @@ async function runScheduledJobs() {
 
     try {
         const telegram = new TelegramService();
-        await telegram.sendSummary(results);
+        await telegram.sendNotification(results, sizeFilter);
     } catch (e) {
         console.error(`[Telegram] Failed: ${e.message}`.red);
     }
