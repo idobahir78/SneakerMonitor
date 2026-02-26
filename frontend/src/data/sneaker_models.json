@@ -16,6 +16,10 @@
         "Blazer",
         "Cortez",
         "Huarache",
+        "Mercurial",
+        "Phantom",
+        "Tiempo",
+        "Zoom Vapor",
         "Presto",
         "Waffle One",
         "Daybreak",
@@ -63,7 +67,12 @@
         "Campus",
         "Forum Low",
         "Forum Mid",
-        "NMD_R1"
+        "NMD_R1",
+        "Predator",
+        "X",
+        "Copa",
+        "Barricade",
+        "Ubersonic"
       ]
     },
     {
@@ -124,7 +133,10 @@
         "Cruise Rider",
         "Pacer Future",
         "Enzo",
-        "Viz Runner"
+        "Viz Runner",
+        "Future",
+        "Ultra",
+        "King"
       ]
     },
     {
@@ -179,7 +191,10 @@
         "Numeric 306",
         "Numeric 440",
         "Numeric 508",
-        "Numeric 808"
+        "Numeric 808",
+        "Furon",
+        "Tekela",
+        "Coco CG1"
       ]
     },
     {
@@ -196,7 +211,10 @@
         "Magic Speed",
         "Dynablast",
         "GEL-Lyte III",
-        "GEL-Lyte V"
+        "GEL-Lyte V",
+        "Gel-Resolution",
+        "Court FF",
+        "Solution Speed"
       ]
     },
     {
