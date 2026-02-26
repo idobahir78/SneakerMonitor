@@ -65,6 +65,13 @@ const Dashboard = () => {
             if (stateData) {
                 // If the backend has processed or is processing this row
                 stillScanning = stateData.is_scanning;
+
+                // Robustness: If the user toggles the scheduler right after starting a manual scan, 
+                // it creates the DB row with is_scanning=false before the GitHub Action boots up to set it to true.
+                // We force it to remain "scanning" visually for at least 60 seconds after a manual trigger.
+                if (!stillScanning && currentSearchId !== 'scheduled_system_run' && triggerTime > 0 && (now - triggerTime < 60000)) {
+                    stillScanning = true;
+                }
             } else {
                 // Row doesn't exist yet (Github Action booting)
                 if (currentSearchId !== 'scheduled_system_run' && triggerTime > 0 && !isStuck) {
@@ -72,7 +79,7 @@ const Dashboard = () => {
                 }
             }
 
-            // Fallback: if stuck, stop polling UI
+            // Fallback: if stuck (running over 5 mins), stop polling UI
             if (isStuck) {
                 stillScanning = false;
             }
