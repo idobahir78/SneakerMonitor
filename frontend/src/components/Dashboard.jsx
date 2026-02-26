@@ -14,6 +14,7 @@ const Dashboard = () => {
     const [lastTriggerTime, setLastTriggerTime] = useState(null);
     const [triggeredSearchTerm, setTriggeredSearchTerm] = useState('');
     const [isScheduled, setIsScheduled] = useState(false);
+    const [sortBy, setSortBy] = useState('price-asc');
     const lastToggleTimeRef = React.useRef(0);
 
     useEffect(() => {
@@ -196,6 +197,13 @@ const Dashboard = () => {
         return title.includes(searchQuery.toLowerCase()) || store.includes(searchQuery.toLowerCase());
     });
 
+    const sortedResults = [...filteredResults].sort((a, b) => {
+        if (sortBy === 'price-asc') return (a.price || 0) - (b.price || 0);
+        if (sortBy === 'price-desc') return (b.price || 0) - (a.price || 0);
+        if (sortBy === 'store-asc') return (a.store || '').localeCompare(b.store || '');
+        return 0;
+    });
+
     const totalFound = filteredResults.length;
     const lowestPrice = filteredResults.reduce((min, item) => {
         const p = item.price;
@@ -246,14 +254,25 @@ const Dashboard = () => {
                     </span>
                 </p>
 
-                <div className="search-bar-container">
+                <div className="search-bar-container" style={{ display: 'flex', gap: '10px' }}>
                     <input
                         type="text"
                         placeholder="Search model, store..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="search-input"
+                        style={{ flex: 1 }}
                     />
+                    <select
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value)}
+                        className="search-input"
+                        style={{ width: 'auto', flex: 'none', cursor: 'pointer' }}
+                    >
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="store-asc">Store: A to Z</option>
+                    </select>
                 </div>
 
                 <div className="stats-grid">
@@ -278,7 +297,7 @@ const Dashboard = () => {
                         <div className="spinner-small"></div>
                         <span>Loading Data...</span>
                     </div>
-                ) : filteredResults.length === 0 ? (
+                ) : sortedResults.length === 0 ? (
                     <div className="empty-state">
                         {isScanning ? (
                             <>
@@ -292,7 +311,7 @@ const Dashboard = () => {
                         )}
                     </div>
                 ) : (
-                    filteredResults.map((item) => (
+                    sortedResults.map((item) => (
                         <ShoeCard key={item.link || item.id} item={item} />
                     ))
                 )}
