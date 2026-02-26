@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BRANDS_DATA from '../data/brands';
+import taxonomyData from '../data/sneaker_models.json';
 
 const REPO = 'idobahir78/SneakerMonitor';
 const WORKFLOW_FILE = 'scrape.yml';
@@ -28,9 +28,14 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
         const savedManual = localStorage.getItem('scraper_manual_term');
         const savedMode = localStorage.getItem('scraper_is_manual') === 'true';
 
-        if (savedBrand && BRANDS_DATA[savedBrand]) {
-            setSelectedBrand(savedBrand);
-            if (savedModel) setSelectedModel(savedModel);
+        if (savedBrand) {
+            const brandInfo = taxonomyData.brands.find(b => b.brand_name === savedBrand);
+            if (brandInfo) {
+                setSelectedBrand(savedBrand);
+                if (savedModel && brandInfo.models.includes(savedModel)) {
+                    setSelectedModel(savedModel);
+                }
+            }
         }
         if (savedManual) setManualSearchTerm(savedManual);
         setIsManualMode(savedMode);
@@ -143,7 +148,8 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
         );
     }
 
-    const availableModels = selectedBrand ? BRANDS_DATA[selectedBrand] : [];
+    const currentBrandInfo = taxonomyData.brands.find(b => b.brand_name === selectedBrand);
+    const availableModels = currentBrandInfo ? currentBrandInfo.models : [];
 
     return (
         <>
@@ -205,8 +211,10 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
                                 }}
                             >
                                 <option value="">Select Brand...</option>
-                                {Object.keys(BRANDS_DATA).map(brand => (
-                                    <option key={brand} value={brand}>{brand}</option>
+                                {taxonomyData.brands.map(brandObj => (
+                                    <option key={brandObj.brand_name} value={brandObj.brand_name}>
+                                        {brandObj.brand_name}
+                                    </option>
                                 ))}
                             </select>
 
