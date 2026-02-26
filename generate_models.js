@@ -39,10 +39,11 @@ async function generateTaxonomy() {
         Target Brand: ${brand}
 
         CRITICAL INSTRUCTIONS:
-        1. Provide up to 50 of their most popular, well-known sneaker lines and performance running shoes.
-        2. ABSOLUTELY DO NOT INCLUDE: Flip-flops, slides, sandals, boots, slippers, t-shirts, pants, bags, hats, or any clothing/accessories.
-        3. Do not include the brand name in the model string (e.g., return "Dunk Low" instead of "Nike Dunk Low").
-        4. Clean strings. No weird characters.
+        1. Provide up to 50 of their most popular, well-known sneaker lines, basketball shoes, signature lines, and performance running shoes.
+        2. Specifically ensure you include signature athlete lines (e.g. Puma MB, Nike LeBron, etc) if they exist for the brand.
+        3. ABSOLUTELY DO NOT INCLUDE: Flip-flops, slides, sandals, boots, slippers, t-shirts, pants, bags, hats, or any clothing/accessories.
+        4. Do not include the brand name in the model string (e.g., return "Dunk Low" instead of "Nike Dunk Low").
+        5. Clean strings. No weird characters.
         
         You MUST return the data EXACTLY in this JSON format:
         {
