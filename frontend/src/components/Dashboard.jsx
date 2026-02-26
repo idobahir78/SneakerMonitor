@@ -14,6 +14,7 @@ const Dashboard = () => {
     const [lastTriggerTime, setLastTriggerTime] = useState(null);
     const [triggeredSearchTerm, setTriggeredSearchTerm] = useState('');
     const [isScheduled, setIsScheduled] = useState(false);
+    const lastToggleTimeRef = React.useRef(0);
 
     useEffect(() => {
         fetchData(); // Initial load
@@ -121,11 +122,13 @@ const Dashboard = () => {
                 setData(newDataState);
             }
 
-            // Sync the scheduled toggle state
-            if (stateData && stateData.is_scheduled !== undefined) {
-                setIsScheduled(!!stateData.is_scheduled);
-            } else {
-                setIsScheduled(false);
+            // Sync the scheduled toggle state (skip if just toggled to avoid data races with 3s polling)
+            if (Date.now() - lastToggleTimeRef.current > 5000) {
+                if (stateData && stateData.is_scheduled !== undefined) {
+                    setIsScheduled(!!stateData.is_scheduled);
+                } else {
+                    setIsScheduled(false);
+                }
             }
 
             setLoading(false);
@@ -140,6 +143,7 @@ const Dashboard = () => {
         if (!supabase) return;
         const currentSearchId = localStorage.getItem('currentSearchId') || 'scheduled_system_run';
         const newStatus = !isScheduled;
+        lastToggleTimeRef.current = Date.now();
         setIsScheduled(newStatus); // Optimistic UI update
 
         try {
@@ -211,8 +215,9 @@ const Dashboard = () => {
         <div className="dashboard-container">
             <ScraperControl
                 onTrigger={handleScrapeTrigger}
-                autoScrapeEnabled={true}
                 isSystemBusy={isScanning}
+                isScheduled={isScheduled}
+                onToggleSchedule={toggleSchedule}
             />
 
             <header className="dashboard-header">
@@ -227,14 +232,6 @@ const Dashboard = () => {
                     <span style={{ marginLeft: '10px', fontSize: '0.8em', opacity: 0.7 }}>
                         (↻ Auto-refresh {isScanning ? 'every 3s' : 'on'})
                     </span>
-
-                    <button
-                        onClick={toggleSchedule}
-                        className={`schedule-toggle ${isScheduled ? 'active' : ''}`}
-                        title="If enabled, the system will automatically search for this term once a day and save the results for you."
-                    >
-                        {isScheduled ? '✅ Daily Search ON' : '⏸️ Daily Search OFF'}
-                    </button>
                 </p>
 
                 <div className="search-bar-container">

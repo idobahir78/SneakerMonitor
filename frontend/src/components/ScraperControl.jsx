@@ -4,7 +4,7 @@ import BRANDS_DATA from '../data/brands';
 const REPO = 'idobahir78/SneakerMonitor';
 const WORKFLOW_FILE = 'scrape.yml';
 
-const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = false }) => {
+const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, onToggleSchedule }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [token, setToken] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
@@ -12,7 +12,6 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
     const [isManualMode, setIsManualMode] = useState(false);
     const [manualSearchTerm, setManualSearchTerm] = useState('');
     const [sizes, setSizes] = useState('*');
-    const [isAutoEnabled, setIsAutoEnabled] = useState(autoScrapeEnabled);
     const [status, setStatus] = useState(null);
     const [message, setMessage] = useState('');
     const [showBusyOverlay, setShowBusyOverlay] = useState(false);
@@ -29,9 +28,6 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
         const savedManual = localStorage.getItem('scraper_manual_term');
         const savedMode = localStorage.getItem('scraper_is_manual') === 'true';
 
-        const savedAutoEnabled = localStorage.getItem('scheduled_search_enabled');
-        if (savedAutoEnabled !== null) setIsAutoEnabled(savedAutoEnabled !== 'false');
-
         if (savedBrand && BRANDS_DATA[savedBrand]) {
             setSelectedBrand(savedBrand);
             if (savedModel) setSelectedModel(savedModel);
@@ -47,12 +43,6 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
             }
         }
     }, []);
-
-    useEffect(() => {
-        if (typeof autoScrapeEnabled !== 'undefined') {
-            setIsAutoEnabled(autoScrapeEnabled);
-        }
-    }, [autoScrapeEnabled]);
 
     const saveSettings = () => {
         if (token) localStorage.setItem('gh_pat', token);
@@ -72,12 +62,12 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
         return '';
     };
 
-    const toggleScheduler = () => {
-        const newState = !isAutoEnabled;
-        setIsAutoEnabled(newState);
-        localStorage.setItem('scheduled_search_enabled', newState.toString());
-        setMessage(newState ? 'Hourly auto-scan resumed ⏱' : 'Hourly auto-scan paused ⏸');
-        setTimeout(() => setMessage(''), 3000);
+    const handleToggleScheduler = () => {
+        if (onToggleSchedule) {
+            onToggleSchedule();
+            setMessage(!isScheduled ? 'Daily search activated ✅' : 'Daily search paused ⏸');
+            setTimeout(() => setMessage(''), 3000);
+        }
     };
 
     const dispatchWorkflow = async (inputs = {}) => {
@@ -112,9 +102,6 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
         }
 
         saveSettings();
-
-        localStorage.setItem('scheduled_search_enabled', 'false');
-        setIsAutoEnabled(false);
 
         setStatus('loading');
         setMessage(`Triggering scan for "${termToScrape}"...`);
@@ -250,7 +237,7 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
                 <div className="control-group">
                     <button
                         className="scheduler-toggle-btn"
-                        onClick={toggleScheduler}
+                        onClick={handleToggleScheduler}
                         style={{
                             display: 'inline-flex',
                             alignItems: 'center',
@@ -260,14 +247,17 @@ const ScraperControl = ({ onTrigger, autoScrapeEnabled = true, isSystemBusy = fa
                             fontSize: '0.8rem',
                             fontWeight: 600,
                             cursor: 'pointer',
-                            background: isAutoEnabled ? 'rgba(76,175,80,0.15)' : 'rgba(255,152,0,0.15)',
-                            color: isAutoEnabled ? '#4CAF50' : '#FF9800',
-                            border: `1px solid ${isAutoEnabled ? 'rgba(76,175,80,0.3)' : 'rgba(255,152,0,0.3)'}`,
+                            background: isScheduled ? 'rgba(76,175,80,0.15)' : 'rgba(255,152,0,0.15)',
+                            color: isScheduled ? '#4CAF50' : '#FF9800',
+                            border: `1px solid ${isScheduled ? 'rgba(76,175,80,0.3)' : 'rgba(255,152,0,0.3)'}`,
                             transition: 'all 0.3s ease',
                         }}
                     >
-                        {isAutoEnabled ? '⏱ Hourly Auto-Scan: ON' : '⏸ Hourly Auto-Scan: PAUSED'}
+                        {isScheduled ? '✅ Daily Search: ON (Scheduled)' : '⏸ Daily Search: PAUSED'}
                     </button>
+                    <small className="hint" style={{ display: 'block', marginTop: '5px' }}>
+                        Searches automatically every day at 08:00 AM using this phrase and saves results to your account.
+                    </small>
                 </div>
 
                 <div className="action-row">

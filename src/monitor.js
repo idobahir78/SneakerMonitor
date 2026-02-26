@@ -194,13 +194,13 @@ async function runScheduledJobs() {
 
             const recordsToInsert = results.map(p => ({
                 search_id: targetSearchId,
-                brand: p.raw_brand,
-                model: p.raw_title,
-                price: p.raw_price,
-                site: p.agent,
-                product_url: p.product_url,
-                image_url: p.raw_image_url,
-                sizes: JSON.stringify(p.raw_sizes)
+                brand: p.brand || brand || 'Unknown',
+                model: p.display_title || p.model || model || 'Unknown',
+                price: p.price_ils || p.price || 0,
+                site: p.store_name || p.store || p.agent || 'Unknown',
+                product_url: p.buy_link || p.link || p.product_url || '',
+                image_url: p.image_url || p.raw_image_url || '',
+                sizes: JSON.stringify(p.sizes || p.raw_sizes || [])
             }));
 
             if (recordsToInsert.length > 0) {
@@ -272,13 +272,13 @@ async function runScheduledJobs() {
         console.log(`[Supabase] Inserting ${results.length} new records for ${searchId}...`.green);
         const recordsToInsert = results.map(p => ({
             search_id: searchId,
-            brand: p.raw_brand,
-            model: p.raw_title,
-            price: p.raw_price,
-            site: p.agent,
-            product_url: p.product_url,
-            image_url: p.raw_image_url,
-            sizes: JSON.stringify(p.raw_sizes)
+            brand: p.brand || brand || 'Unknown',
+            model: p.display_title || p.model || model || 'Unknown',
+            price: p.price_ils || p.price || 0,
+            site: p.store_name || p.store || p.agent || 'Unknown',
+            product_url: p.buy_link || p.link || p.product_url || '',
+            image_url: p.image_url || p.raw_image_url || '',
+            sizes: JSON.stringify(p.sizes || p.raw_sizes || [])
         }));
 
         if (recordsToInsert.length > 0) {

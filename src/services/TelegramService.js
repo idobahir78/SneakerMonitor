@@ -122,4 +122,4 @@ class TelegramService {
     }
 }
 
-module.exports = new TelegramService();
+module.exports = TelegramService;
