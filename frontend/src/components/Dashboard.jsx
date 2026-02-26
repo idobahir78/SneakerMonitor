@@ -173,7 +173,7 @@ const Dashboard = () => {
         } catch (err) {
             console.error("Error toggling schedule:", err);
             setIsScheduled(!newStatus); // Revert on failure
-            alert("Failed to update schedule settings.");
+            alert(`Failed: ${err.message || JSON.stringify(err)}`);
         }
     };
 
