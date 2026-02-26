@@ -286,14 +286,18 @@ async function runScheduledJobs() {
             if (error) console.error('[Supabase] Insert Error:', error.message);
         }
 
-        // Also update their search_term if they triggered it manually so it acts as their "last search"
-        await supabase.from('search_jobs').upsert({
-            id: searchId,
-            is_scanning: false,
-            last_run: new Date().toISOString(),
-            search_term: searchInputDisplay,
-            size_filter: sizeFilter
-        });
+        try {
+            // Also update their search_term if they triggered it manually so it acts as their "last search"
+            await supabase.from('search_jobs').upsert({
+                id: searchId,
+                is_scanning: false,
+                last_run: new Date().toISOString(),
+                search_term: searchInputDisplay,
+                size_filter: sizeFilter
+            });
+        } catch (e) {
+            console.error('[Supabase] Error saving manual search job state:', e.message);
+        }
     }
 
     try {
