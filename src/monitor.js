@@ -282,8 +282,8 @@ async function runScheduledJobs() {
         }));
 
         if (recordsToInsert.length > 0) {
-            const { error } = await supabase.from('products').insert(recordsToInsert);
-            if (error) console.error('[Supabase] Insert Error:', error.message);
+            const { error } = await supabase.from('products').upsert(recordsToInsert, { onConflict: 'product_url, search_id' });
+            if (error) console.error('[Supabase] Upsert Error:', error.message);
         }
 
         try {

@@ -1,10 +1,16 @@
 const crypto = require('crypto');
 const fs = require('fs');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 class VisualVerifier {
     constructor() {
         this.cacheFile = './vision_cache.json';
         this.cache = {};
+        this.genAI = null;
+
+        if (process.env.GEMINI_API_KEY) {
+            this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+        }
 
         // Load simple file-based JSON cache if SQLite is overkill or unavailable
         if (fs.existsSync(this.cacheFile)) {
@@ -47,22 +53,45 @@ class VisualVerifier {
         let isVerified = false;
 
         try {
-            // TODO: In production, integrate actual Google GenAI (Flash/Pro) SDK here
-            // Example Prompt:
-            // "Analyze this image. 1. Is the main object a shoe? 2. Does it visually match the characteristics of the model '${model}'? Reply with exactly 'YES' or 'NO'."
+            if (!this.genAI) {
+                console.warn('[Agent 4 - Visual] Missing GEMINI_API_KEY, defaulting to true to avoid blocking.');
+                isVerified = true;
+            } else {
+                // Fetch image buffer
+                const response = await fetch(imageUrl, {
+                    headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
+                });
 
-            // MOCK IMPLEMENTATION FOR DEMO
-            // Simulating API latency
-            await new Promise(resolve => setTimeout(resolve, 800));
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch image: ${response.status} ${response.statusText}`);
+                }
 
-            // Mock logic: randomly fail 5% of the time to simulate rejecting boxes/apparel
-            isVerified = Math.random() > 0.05;
+                const arrayBuffer = await response.arrayBuffer();
+                const base64Image = Buffer.from(arrayBuffer).toString('base64');
+                const mimeType = response.headers.get('content-type') || 'image/jpeg';
 
+                const modelGen = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' });
+
+                const prompt = `Analyze this image. Is the primary commercial product shown a sports shoe or sneaker? Note that apparel items like hoodies, shirts, bags, or pants are NOT shoes, even if a person in the photo is wearing shoes. The main product must be a single shoe or pair of shoes. Reply with exactly 'YES' if it is a shoe, or 'NO' if it is apparel or not a shoe.`;
+
+                const result = await modelGen.generateContent([
+                    prompt,
+                    {
+                        inlineData: {
+                            data: base64Image,
+                            mimeType
+                        }
+                    }
+                ]);
+
+                const text = result.response.text().trim().toUpperCase();
+                isVerified = text.includes('YES');
+                console.log(`[Agent 4 - Visual] Gemini result: ${text} => ${isVerified}`);
+            }
         } catch (error) {
             console.error(`[Agent 4 - Visual] API Error analyzing ${imageUrl}:`, error.message);
-            // On API error, default to true or false depending on risk tolerance. 
-            // We'll return false to be safe (prevent false positives).
-            isVerified = false;
+            // On API error, default to true depending on risk tolerance to prevent blocking all searches.
+            isVerified = true;
         }
 
         // 2. Save result to Cache
