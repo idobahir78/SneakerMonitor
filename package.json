@@ -23,9 +23,12 @@
         "colors": "^1.4.0",
         "dotenv": "^16.6.1",
         "node-cron": "^3.0.3",
+        "playwright": "^1.58.2",
+        "playwright-extra": "^4.3.6",
         "puppeteer": "^24.2.0",
         "puppeteer-extra": "^3.3.6",
         "puppeteer-extra-plugin-stealth": "^2.11.2",
+        "sneaks-api": "^1.2.3",
         "sqlite": "^5.1.1",
         "sqlite3": "^5.1.7"
     }

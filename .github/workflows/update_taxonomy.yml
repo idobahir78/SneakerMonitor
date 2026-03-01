@@ -21,6 +21,12 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
       - name: Run Dynamic Taxonomy Generator
         run: node generate_dynamic_taxonomy.js
         
