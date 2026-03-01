@@ -21,38 +21,50 @@ class MayersAgent extends DOMNavigator {
 
                 if (isProductPage) {
                     console.log(`[Mayers] Auto-redirected to PDP: ${finalUrl}`);
-                    // Extract directly from the product detail page
-                    const pdpProduct = await this.page.evaluate((storeUrl) => {
-                        const titleEl = document.querySelector('h1.product_title, .product_title');
-                        const priceEl = document.querySelector(
-                            '.price ins .woocommerce-Price-amount, ' +  // sale price on variable products
-                            '.price .woocommerce-Price-amount, ' +       // regular price
-                            '.woocommerce-Price-amount.amount, ' +
-                            '.woocommerce-variation-price .woocommerce-Price-amount, ' +
-                            '.summary .price bdi'
-                        );
-                        const imgEl = document.querySelector('.woocommerce-product-gallery img, .wp-post-image');
+                    // Wait for WooCommerce to finish rendering the price (variable products use JS to set price)
+                    try { await this.page.waitForSelector('.price .woocommerce-Price-amount, .woocommerce-Price-amount', { timeout: 8000 }); } catch (e) { }
+                    await new Promise(r => setTimeout(r, 1500));
 
+                    // Extract directly from the product detail page
+                    const pdpProduct = await this.page.evaluate(() => {
+                        const titleEl = document.querySelector('h1.product_title, .product_title');
                         if (!titleEl) return null;
                         const title = titleEl.innerText.trim();
-                        const priceText = priceEl ? priceEl.innerText.replace(/[^\d.]/g, '') : '0';
-                        const price = parseFloat(priceText) || 0;
 
-                        // Read available sizes from variation buttons (WooCommerce)
+                        // Try multiple price selectors in order of preference
+                        const priceSelectors = [
+                            '.price ins .woocommerce-Price-amount bdi',
+                            '.price ins .woocommerce-Price-amount',
+                            '.woocommerce-variation-price .woocommerce-Price-amount bdi',
+                            '.woocommerce-variation-price .woocommerce-Price-amount',
+                            '.price .woocommerce-Price-amount bdi',
+                            '.price .woocommerce-Price-amount',
+                            '.summary .price bdi',
+                        ];
+                        let price = 0;
+                        for (const sel of priceSelectors) {
+                            const el = document.querySelector(sel);
+                            if (el) {
+                                const raw = el.innerText.replace(/[^\d.]/g, '');
+                                const parsed = parseFloat(raw);
+                                if (parsed > 50) { price = parsed; break; }
+                            }
+                        }
+                        // Last resort: scan .summary text for price pattern "NNN ₪"
+                        if (price === 0) {
+                            const bodyText = document.querySelector('.summary')?.innerText || document.body.innerText;
+                            const m = bodyText.match(/(\d{3,5})(?:\.\d{0,2})?\s*(?:₪|ILS)/);
+                            if (m) price = parseFloat(m[1]);
+                        }
+
+                        const imgEl = document.querySelector('.woocommerce-product-gallery__image img, .wp-post-image');
                         const sizeEls = document.querySelectorAll(
                             '.variable-items-wrapper .variable-item:not(.disabled):not(.out-of-stock) .variable-item-span, ' +
                             '.woocommerce-variation-add-to-cart select option:not([value=""]):not([disabled])'
                         );
                         const raw_sizes = [...sizeEls].map(el => (el.innerText || el.value).trim()).filter(Boolean);
-
-                        return {
-                            raw_title: title,
-                            raw_price: price,
-                            raw_url: window.location.href,
-                            raw_image_url: imgEl?.src || '',
-                            raw_sizes
-                        };
-                    }, this.targetUrl);
+                        return { raw_title: title, raw_price: price, raw_url: window.location.href, raw_image_url: imgEl?.src || '', raw_sizes };
+                    });
 
                     if (pdpProduct) {
                         console.log(`[Mayers] PDP product found: ${pdpProduct.raw_title}`);

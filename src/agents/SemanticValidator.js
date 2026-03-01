@@ -145,8 +145,9 @@ class SemanticValidator {
 
         // === RULE 4: Exclusive Model Match ===
         if (cleanModel && cleanModel.length > 1) {
-            let modelFoundInTitle = this._coreNumberMatch(cleanModel, titleUpper);
-            let modelFoundInContext = this._coreNumberMatch(cleanModel, contextUpper);
+            // Use NORMALIZED versions so Hebrew transliterations ('סטן סמית') match English model ('STAN SMITH')
+            let modelFoundInTitle = this._coreNumberMatch(cleanModel, normalizedTitle);
+            let modelFoundInContext = this._coreNumberMatch(cleanModel, normalizedContext);
 
             // Edge Case: Factory 54 translates "Puma MB.05 Fast & Furious" as "פומה X מהיר ועצבני" without "MB.05"
             if (cleanModel === 'MB.05' && (combinedText.includes('מהיר ועצבני') || combinedText.includes('FAST & FURIOUS') || combinedText.includes('LAFRANCE'))) {
