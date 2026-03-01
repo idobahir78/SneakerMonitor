@@ -10,13 +10,15 @@ const JUNK_KEYWORDS = ['LACES', 'BOX ONLY', 'CLEAN KIT', 'CLEANING KIT', 'INSOLE
 const SHOE_KEYWORDS = ['SHOE', 'SNEAKER', 'SNEAKERS', 'BOOT', 'TRAINER', 'TRAINERS', 'נעל', 'נעלי', 'סניקר', 'כדורסל'];
 
 // Hebrew transliterations of popular model names → English equivalents
+// Note: Factory 54 uses both סטן (no alef) and סטאן (with alef), and both ' and ` punctuation
 const HEBREW_MODEL_ALIASES = {
     'סטן סמית': 'STAN SMITH',
-    'סטן סמית\'': 'STAN SMITH',
+    'סטאן סמית': 'STAN SMITH',  // Factory 54 variant with alef
     'סופרסטאר': 'SUPERSTAR',
     'דאנק': 'DUNK',
     'אייר פורס': 'AIR FORCE',
     'אדי פום': 'ADIFOM',
+    'אדיפום': 'ADIFOM',
     'סמבה': 'SAMBA',
     'גזל': 'GAZELLE',
     'ספציאל': 'SPEZIAL',
@@ -31,9 +33,10 @@ const HEBREW_MODEL_ALIASES = {
  * with their English model equivalents, making cross-language matching possible.
  */
 function normalizeHebrewAliases(text) {
-    let result = text.toUpperCase();
+    // Strip trailing punctuation chars (backtick, apostrophe) from Hebrew words
+    // so 'סטן סמית`' and 'סטן סמית\'' both match the base alias 'סטן סמית'
+    let result = text.toUpperCase().replace(/[`'\u2019\u05f3]/g, '');
     for (const [heb, eng] of Object.entries(HEBREW_MODEL_ALIASES)) {
-        // Replace case-insensitive Hebrew alias with English
         result = result.replace(new RegExp(heb, 'gi'), eng);
     }
     return result;

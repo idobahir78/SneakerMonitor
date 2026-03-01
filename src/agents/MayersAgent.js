@@ -24,7 +24,13 @@ class MayersAgent extends DOMNavigator {
                     // Extract directly from the product detail page
                     const pdpProduct = await this.page.evaluate((storeUrl) => {
                         const titleEl = document.querySelector('h1.product_title, .product_title');
-                        const priceEl = document.querySelector('.price .amount, .woocommerce-Price-amount');
+                        const priceEl = document.querySelector(
+                            '.price ins .woocommerce-Price-amount, ' +  // sale price on variable products
+                            '.price .woocommerce-Price-amount, ' +       // regular price
+                            '.woocommerce-Price-amount.amount, ' +
+                            '.woocommerce-variation-price .woocommerce-Price-amount, ' +
+                            '.summary .price bdi'
+                        );
                         const imgEl = document.querySelector('.woocommerce-product-gallery img, .wp-post-image');
 
                         if (!titleEl) return null;
