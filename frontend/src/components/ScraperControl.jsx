@@ -7,7 +7,6 @@ const WORKFLOW_FILE = 'scrape.yml';
 
 const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, onToggleSchedule }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [token, setToken] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedModel, setSelectedModel] = useState('');
     const [isCustomMode, setIsCustomMode] = useState(false);
@@ -45,9 +44,6 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
     useEffect(() => {
         const loadInitialData = async () => {
             const activeTaxonomy = await fetchCustomTaxonomy();
-
-            const savedToken = localStorage.getItem('gh_pat');
-            if (savedToken) setToken(savedToken);
 
             const savedSizes = localStorage.getItem('scraper_sizes');
             if (savedSizes) setSizes(savedSizes);
@@ -94,7 +90,6 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
     }, [isSystemBusy]);
 
     const saveSettings = () => {
-        if (token) localStorage.setItem('gh_pat', token);
         localStorage.setItem('scraper_sizes', sizes);
         localStorage.setItem('scraper_brand', selectedBrand);
         localStorage.setItem('scraper_model', selectedModel);
@@ -125,14 +120,13 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
     };
 
     const dispatchWorkflow = async (inputs = {}) => {
-        const headers = {
-            'Accept': 'application/vnd.github.v3+json',
-            'Content-Type': 'application/json',
-            ...(token ? { 'Authorization': `token ${token}` } : {}),
-        };
         return fetch(
-            `https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches`,
-            { method: 'POST', headers, body: JSON.stringify({ ref: 'main', inputs }) }
+            `/.netlify/functions/trigger-search`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(inputs)
+            }
         );
     };
 
@@ -144,11 +138,6 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
 
         const termToScrape = getFinalSearchTerm();
 
-        if (!token) {
-            setStatus('error');
-            setMessage('Please enter your GitHub Token first.');
-            return;
-        }
         if (!termToScrape) {
             setStatus('error');
             setMessage('Please select a model or enter a search term.');
@@ -219,19 +208,6 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
                 <div className="control-header">
                     <h3>Remote Control 🎮</h3>
                     <button onClick={() => setIsOpen(false)} className="close-btn">×</button>
-                </div>
-
-                <div className="control-group">
-                    <label>GitHub Token</label>
-                    <div className="token-input-wrapper">
-                        <input
-                            type="password"
-                            value={token}
-                            onChange={(e) => setToken(e.target.value)}
-                            placeholder="ghp_..."
-                        />
-                    </div>
-                    <small className="hint">Saved locally in your browser only. Never sent to our servers.</small>
                 </div>
 
                 <div className="control-group">
