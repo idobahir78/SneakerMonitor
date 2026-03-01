@@ -12,7 +12,7 @@ const Dashboard = () => {
     const [refreshFlash, setRefreshFlash] = useState(false);
     const [isScanning, setIsScanning] = useState(false);
     const [lastTriggerTime, setLastTriggerTime] = useState(null);
-    const [triggeredSearchTerm, setTriggeredSearchTerm] = useState('');
+    const [triggeredSearchTerm, setTriggeredSearchTerm] = useState(localStorage.getItem('triggeredSearchTerm') || '');
     const [isScheduled, setIsScheduled] = useState(false);
     const [sortBy, setSortBy] = useState('price-asc');
     const lastToggleTimeRef = React.useRef(0);
@@ -82,6 +82,10 @@ const Dashboard = () => {
             // Fallback: if stuck (running over 5 mins), stop polling UI
             if (isStuck) {
                 stillScanning = false;
+            }
+
+            if (stateData && stateData.search_term && stateData.search_term !== triggeredSearchTerm) {
+                setTriggeredSearchTerm(stateData.search_term);
             }
 
             setIsScanning(stillScanning);
