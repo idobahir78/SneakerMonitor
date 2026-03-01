@@ -1,0 +1,39 @@
+name: Monthly Sneaker Taxonomy Update
+
+on:
+  schedule:
+    # Run at 00:00 on day-of-month 1 (1st of every month)
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  update-taxonomy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push changes
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run Dynamic Taxonomy Generator
+        run: node generate_dynamic_taxonomy.js
+        
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and Push Changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add frontend/src/data/sneaker_models.json
+          git commit -m "chore(data): auto-update dynamic sneaker taxonomy"
+          git push
