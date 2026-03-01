@@ -6,12 +6,12 @@ class LimeShoesAgent extends DOMNavigator {
     }
 
     async scrape(brand, model) {
-        const searchTerm = `${brand} ${model}`;
+        const query = encodeURIComponent(model); // Omit brand to improve WooCommerce search
 
         return new Promise(async (resolve, reject) => {
             try {
                 // Determine target URL based on legacy WooCommerce fallbacks
-                let targetUrl = `${this.targetUrl}/?s=${encodeURIComponent(searchTerm)}&post_type=product`;
+                let targetUrl = `${this.targetUrl}/?s=${query}&post_type=product`;
 
                 await this.page.setDefaultNavigationTimeout(30000);
                 console.log(`[Lime Shoes] Navigating to: ${targetUrl}`);

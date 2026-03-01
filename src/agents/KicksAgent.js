@@ -6,7 +6,7 @@ class KicksAgent extends DOMNavigator {
     }
 
     async scrape(brand, model) {
-        const query = encodeURIComponent(`${brand} ${model}`);
+        const query = encodeURIComponent(model); // Omit brand to improve WooCommerce search on KICKS
         const searchUrl = `${this.targetUrl}/?s=${query}&post_type=product`;
 
         return new Promise(async (resolve) => {

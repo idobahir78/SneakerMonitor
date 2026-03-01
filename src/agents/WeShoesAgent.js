@@ -6,7 +6,7 @@ class WeShoesAgent extends DOMNavigator {
     }
 
     async scrape(brand, model) {
-        const query = encodeURIComponent(`${brand} ${model}`);
+        const query = encodeURIComponent(model); // Omit brand to improve search hit rate on WeShoes
         const searchUrl = `${this.targetUrl}/search?q=${query}&type=product`;
         const domain = this.targetUrl;
 
