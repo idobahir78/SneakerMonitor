@@ -3,11 +3,11 @@ const fs = require('fs');
 const path = require('path');
 
 const WIKIPEDIA_PAGES = {
-    'Nike': ['List_of_Nike_apparel_and_equipment'],
+    'Nike': ['List_of_Nike_apparel_and_equipment', 'Nike_Kobe', 'Nike_LeBron', 'Nike_KD'],
     'Adidas': ['List_of_Adidas_sponsorships'],
     'New Balance': ['New_Balance'],
     'Asics': ['Asics'],
-    'Puma': ['Puma_(brand)'],
+    'Puma': ['Puma_(brand)', 'LaMelo_Ball'],
     'Saucony': ['Saucony'],
     'Air Jordan': ['Air_Jordan'],
     'Hoka': ['Hoka_One_One'],
@@ -89,17 +89,31 @@ function extractModelsFromHTML(html, brand) {
     return Array.from(models);
 }
 
-// In case Wikipedia doesn't have enough for a specific brand, we merge with a solid core foundation
+// Dynamically build expansive core foundations to cover athlete models that Wikipedia's HTML formatting might obscure.
 const CORE_FOUNDATION = {
-    "Nike": ["Air Force 1", "Dunk Low", "Air Max 90", "Air Max 95", "Blazer Mid"],
-    "Adidas": ["Ultraboost", "Yeezy Boost 350", "Stan Smith", "Superstar", "Samba"],
-    "Puma": ["Suede", "RS-X", "Clyde", "MB.01", "MB.02", "MB.03"],
-    "New Balance": ["990", "2002R", "550", "327", "993"],
+    "Nike": [
+        "Air Force 1", "Dunk Low", "Air Max 90", "Air Max 95", "Blazer Mid",
+        ...Array.from({ length: 11 }, (_, i) => `Kobe ${i + 1}`),
+        ...Array.from({ length: 17 }, (_, i) => `KD ${i + 1}`),
+        ...Array.from({ length: 21 }, (_, i) => `LeBron ${i + 1}`),
+        "PG 1", "PG 2", "PG 3", "PG 4", "PG 5", "PG 6",
+        "Kyrie 1", "Kyrie 2", "Kyrie 3", "Kyrie 4", "Kyrie 5", "Kyrie 6", "Kyrie 7", "Kyrie Infinity"
+    ],
+    "Adidas": ["Ultraboost", "Yeezy Boost 350", "Stan Smith", "Superstar", "Samba", "Harden Vol. 1", "Harden Vol. 2", "Harden Vol. 3", "Harden Vol. 4", "Harden Vol. 5", "Harden Vol. 6", "Harden Vol. 7", "Harden Vol. 8", "Dame 1", "Dame 2", "Dame 3", "Dame 4", "Dame 5", "Dame 6", "Dame 7", "Dame 8", "Trae Young 1", "Trae Young 2", "Trae Young 3"],
+    "Puma": [
+        "Suede", "RS-X", "Clyde",
+        ...Array.from({ length: 6 }, (_, i) => `MB.0${i + 1}`), // MB.01 to MB.06 dynamically
+        "Scoot Zeros", "All-Pro Nitro", "Court Rider"
+    ],
+    "New Balance": ["990", "2002R", "550", "327", "993", "TWO WXY v1", "TWO WXY v2", "TWO WXY v3", "TWO WXY v4", "Kawhi 1", "Kawhi 2", "Kawhi 3"],
     "Asics": ["Gel-Kayano", "Gel-Nimbus", "Gel-Lyte III", "Metaspeed"],
     "Hoka": ["Clifton", "Bondi", "Speedgoat", "Mach", "Arahi"],
     "On Running": ["Cloud", "Cloudmonster", "Cloudflow", "Cloudswift"],
     "Saucony": ["Kinvara", "Endorphin Pro", "Ride", "Jazz", "Triumph"],
-    "Air Jordan": ["1 Retro High", "3 Retro", "4 Retro", "11 Retro"]
+    "Air Jordan": [
+        ...Array.from({ length: 38 }, (_, i) => `${i + 1} Retro`), // Automatically adds 1 Retro to 38 Retro
+        "Luka 1", "Luka 2", "Luka 3", "Zion 1", "Zion 2", "Zion 3", "Tatum 1", "Tatum 2"
+    ]
 };
 
 
