@@ -19,30 +19,32 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
     const [showBusyOverlay, setShowBusyOverlay] = useState(false);
     const [taxonomy, setTaxonomy] = useState(taxonomyData);
 
+    const fetchCustomTaxonomy = async () => {
+        if (!supabase) return taxonomyData;
+        try {
+            const { data, error } = await supabase.from('custom_taxonomy').select('*');
+            if (!error && data && data.length > 0) {
+                const merged = JSON.parse(JSON.stringify(taxonomyData)); // deep copy
+                data.forEach(item => {
+                    let brandObj = merged.brands.find(b => b.brand_name.toLowerCase() === item.brand.toLowerCase());
+                    if (brandObj) {
+                        if (!brandObj.models.includes(item.model)) brandObj.models.push(item.model);
+                    } else {
+                        merged.brands.push({ brand_name: item.brand, models: [item.model] });
+                    }
+                });
+                merged.brands.sort((a, b) => a.brand_name.localeCompare(b.brand_name));
+                merged.brands.forEach(b => b.models.sort((x, y) => x.localeCompare(y)));
+                setTaxonomy(merged);
+                return merged;
+            }
+        } catch (err) { }
+        return taxonomyData;
+    };
+
     useEffect(() => {
         const loadInitialData = async () => {
-            let activeTaxonomy = taxonomyData;
-
-            if (supabase) {
-                try {
-                    const { data, error } = await supabase.from('custom_taxonomy').select('*');
-                    if (!error && data && data.length > 0) {
-                        const merged = JSON.parse(JSON.stringify(taxonomyData)); // deep copy
-                        data.forEach(item => {
-                            let brandObj = merged.brands.find(b => b.brand_name.toLowerCase() === item.brand.toLowerCase());
-                            if (brandObj) {
-                                if (!brandObj.models.includes(item.model)) brandObj.models.push(item.model);
-                            } else {
-                                merged.brands.push({ brand_name: item.brand, models: [item.model] });
-                            }
-                        });
-                        merged.brands.sort((a, b) => a.brand_name.localeCompare(b.brand_name));
-                        merged.brands.forEach(b => b.models.sort((x, y) => x.localeCompare(y)));
-                        activeTaxonomy = merged;
-                        setTaxonomy(merged);
-                    }
-                } catch (err) { }
-            }
+            const activeTaxonomy = await fetchCustomTaxonomy();
 
             const savedToken = localStorage.getItem('gh_pat');
             if (savedToken) setToken(savedToken);
@@ -81,6 +83,15 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
         };
         loadInitialData();
     }, []);
+
+    const prevBusyRef = React.useRef(isSystemBusy);
+    useEffect(() => {
+        if (prevBusyRef.current === true && isSystemBusy === false) {
+            // System just finished scanning! Auto-refresh the learned taxonomy.
+            fetchCustomTaxonomy();
+        }
+        prevBusyRef.current = isSystemBusy;
+    }, [isSystemBusy]);
 
     const saveSettings = () => {
         if (token) localStorage.setItem('gh_pat', token);
