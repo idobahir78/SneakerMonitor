@@ -87,7 +87,8 @@ body {
     width: 100%;
     max-width: 500px;
     padding: 12px 20px;
-    font-size: 1rem;
+    font-size: 16px;
+    /* Forces 16px on mobile to prevent iOS auto-zoom */
     color: var(--text-primary);
     background-color: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -442,6 +443,8 @@ body {
     background: rgba(0, 0, 0, 0.3);
     color: white;
     font-family: inherit;
+    font-size: 16px;
+    /* Prevents auto-zoom on iOS */
 }
 
 .control-group select option {
