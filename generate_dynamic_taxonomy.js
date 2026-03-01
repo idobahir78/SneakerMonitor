@@ -93,16 +93,16 @@ function extractModelsFromHTML(html, brand) {
 const CORE_FOUNDATION = {
     "Nike": [
         "Air Force 1", "Dunk Low", "Air Max 90", "Air Max 95", "Blazer Mid",
-        ...Array.from({ length: 11 }, (_, i) => `Kobe ${i + 1}`),
-        ...Array.from({ length: 17 }, (_, i) => `KD ${i + 1}`),
-        ...Array.from({ length: 21 }, (_, i) => `LeBron ${i + 1}`),
+        ...Array.from({ length: 11 }, (_, i) => `Kobe ${i + 1}`), // Kobe 1 through 11
+        ...Array.from({ length: 17 }, (_, i) => `KD ${i + 1}`), // KD 1 through 17
+        ...Array.from({ length: 21 }, (_, i) => `LeBron ${i + 1}`), // LeBron 1 through 21
         "PG 1", "PG 2", "PG 3", "PG 4", "PG 5", "PG 6",
         "Kyrie 1", "Kyrie 2", "Kyrie 3", "Kyrie 4", "Kyrie 5", "Kyrie 6", "Kyrie 7", "Kyrie Infinity"
     ],
     "Adidas": ["Ultraboost", "Yeezy Boost 350", "Stan Smith", "Superstar", "Samba", "Harden Vol. 1", "Harden Vol. 2", "Harden Vol. 3", "Harden Vol. 4", "Harden Vol. 5", "Harden Vol. 6", "Harden Vol. 7", "Harden Vol. 8", "Dame 1", "Dame 2", "Dame 3", "Dame 4", "Dame 5", "Dame 6", "Dame 7", "Dame 8", "Trae Young 1", "Trae Young 2", "Trae Young 3"],
     "Puma": [
         "Suede", "RS-X", "Clyde",
-        ...Array.from({ length: 6 }, (_, i) => `MB.0${i + 1}`), // MB.01 to MB.06 dynamically
+        ...Array.from({ length: 4 }, (_, i) => `MB.0${i + 1}`), // MB.01 to MB.04 dynamically (MB.05 is arguably unreleased or barely teased, definitely no MB.06)
         "Scoot Zeros", "All-Pro Nitro", "Court Rider"
     ],
     "New Balance": ["990", "2002R", "550", "327", "993", "TWO WXY v1", "TWO WXY v2", "TWO WXY v3", "TWO WXY v4", "Kawhi 1", "Kawhi 2", "Kawhi 3"],
