@@ -205,6 +205,21 @@ async function runScheduledJobs() {
 
             if (recordsToInsert.length > 0) {
                 await supabase.from('products').insert(recordsToInsert);
+
+                // --- SMART LEARNING: Save newly verified models ---
+                try {
+                    const insertBrand = brand || 'Unknown';
+                    const insertModel = model || searchTerm.replace(new RegExp(`^${insertBrand}\\s`, 'i'), '').trim();
+                    if (insertBrand !== 'Unknown' && insertModel !== '') {
+                        console.log(`[Smart Learning] Saving verified model "${insertBrand} ${insertModel}" to custom_taxonomy.`);
+                        await supabase.from('custom_taxonomy').upsert(
+                            { brand: insertBrand, model: insertModel },
+                            { onConflict: 'brand, model' }
+                        );
+                    }
+                } catch (e) {
+                    console.error('[Smart Learning] Failed:', e.message);
+                }
             }
 
             // Mark job as finished
@@ -284,6 +299,22 @@ async function runScheduledJobs() {
         if (recordsToInsert.length > 0) {
             const { error } = await supabase.from('products').upsert(recordsToInsert, { onConflict: 'product_url, search_id' });
             if (error) console.error('[Supabase] Upsert Error:', error.message);
+
+            // --- SMART LEARNING: Save newly verified models ---
+            try {
+                const insertBrand = brand || 'Unknown';
+                const insertModel = model || searchInputDisplay.replace(new RegExp(`^${insertBrand}\\s`, 'i'), '').trim();
+                if (insertBrand !== 'Unknown' && insertModel !== '') {
+                    console.log(`\n[Smart Learning] Found verified results! Merging "${insertBrand} ${insertModel}" into global taxonomy...`.cyan);
+                    const { error: customErr } = await supabase.from('custom_taxonomy').upsert(
+                        { brand: insertBrand, model: insertModel },
+                        { onConflict: 'brand, model' }
+                    );
+                    if (customErr) console.error('[Smart Learning] Upsert Error:', customErr.message);
+                }
+            } catch (e) {
+                console.error('[Smart Learning] Failed:', e.message);
+            }
         }
 
         try {

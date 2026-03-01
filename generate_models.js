@@ -9,9 +9,21 @@ if (!process.env.GEMINI_API_KEY) {
 }
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const MODELS = [
+    "gemini-2.5-flash",
+    "gemini-2.0-flash-lite",
+    "gemini-1.5-flash",
+    "gemini-1.5-pro",
+    "gemini-1.5-flash-8b"
+];
+let currentModelIndex = 0;
 
-// The brands we want to build a taxonomy for
+function getNextModel() {
+    const modelName = MODELS[currentModelIndex];
+    currentModelIndex = (currentModelIndex + 1) % MODELS.length;
+    console.log('[System] Switching to model: ' + modelName);
+    return genAI.getGenerativeModel({ model: modelName });
+}
 const TARGET_BRANDS = [
     "Nike",
     "Adidas",
@@ -34,71 +46,58 @@ async function generateTaxonomy() {
         console.log(`\n🧠 Querying Gemini API for ${brand}...`);
 
         const prompt = `
-        I need a database of sneaker and running shoe models for an e-commerce platform.
+        I need a COMPREHENSIVE database of sneaker and running shoe models for an e - commerce platform.
         
         Target Brand: ${brand}
 
         CRITICAL INSTRUCTIONS:
-        1. Provide up to 70 of their most popular, well-known shoe lines across EVERY sport category (Sneakers, Basketball, Soccer/Football cleats, Running, Tennis, Training).
-        2. Specifically ensure you include signature athlete lines (e.g. Puma MB, Nike LeBron) and iconic sports cleats (e.g. Nike Mercurial, Adidas Predator).
-        3. ABSOLUTELY DO NOT INCLUDE: Flip-flops, slides, sandals, boots, slippers, t-shirts, pants, bags, hats, or any clothing/accessories.
-        4. Do not include the brand name in the model string (e.g., return "Dunk Low" instead of "Nike Dunk Low").
-        5. Clean strings. No weird characters.
+    1. Provide AT LEAST 80 to 120 of their most popular, well - known, and historical shoe lines across EVERY sport category(Sneakers, Basketball, Soccer / Football cleats, Running, Tennis, Training, Lifestyle).
+        2. Be EXHAUSTIVE for ' + brand + '. DO NOT stop at just 15 or 20 models.If ' + brand + ' is Adidas, include all Ultraboost variations, NMDs, Yeezys(if applicable), Predator, X, Copa, Stan Smith, Superstar, Forum, Gazelle, Samba, etc.If it is New Balance, include all 990v variations, 574, 327, 2002R, 550, Fresh Foam, FuelCell, etc.If it is Puma, include all RS series, Clyde, Suede, Future, Ultra, King, etc.YOU MUST PROVIDE A MASSIVE LIST FOR EVERY BRAND.
+        3. Specifically ensure you include signature athlete lines and iconic sports cleats.
+        4. ABSOLUTELY DO NOT INCLUDE: Flip - flops, slides, sandals, boots, slippers, t - shirts, pants, bags, hats, or any clothing / accessories.
+        5. Do not include the brand name in the model string(e.g., return "Dunk Low" instead of "Nike Dunk Low").
         
-        You MUST return the data EXACTLY in this JSON format:
-        {
-          "brand_name": "${brand}",
-          "models": ["Model 1", "Model 2", "Model 3"]
-        }
-        
-        DO NOT RETURN ANYTHING OTHER THAN VALID JSON. No markdown backticks.
+        You MUST return the data EXACTLY as plain text.Group by categories.Use commas between items.Do not use bullets.
         `;
 
         try {
+            const model = getNextModel();
             const result = await model.generateContent({
                 contents: [{ role: "user", parts: [{ text: prompt }] }],
                 generationConfig: {
-                    responseMimeType: "application/json",
-                    temperature: 0.1,
+                    responseMimeType: "text/plain",
+                    temperature: 0.8,
                     maxOutputTokens: 2048
                 }
             });
 
-            let responseText = result.response.text();
+            let responseText = result.response.text().trim();
 
-            responseText = responseText.trim();
-            if (responseText.startsWith('\`\`\`json')) {
-                responseText = responseText.replace(/^\`\`\`json\n/, '').replace(/\n\`\`\`$/, '');
-            }
+            let cleanText = responseText
+                .replace(/([a-zA-Z]+:)/g, ',') // remove "Basketball:" type strings
+                .replace(/\n|•|-/g, ',')
+                .replace(/[^a-zA-Z0-9\s,.-]/g, ''); // stip special chars except valid shoe name parts like dash or dot
 
-            let brandData;
-            try {
-                brandData = JSON.parse(responseText);
-            } catch (err) {
-                console.warn(`⚠️ JSON Parse failed for ${brand}, attempting regex extraction...`);
-                // Fallback: If JSON is truncated, extract what models we can using Regex
-                const extractedModels = [...responseText.matchAll(/"([^"]+)"/g)]
-                    .map(m => m[1])
-                    .filter(m => m !== brand && m !== "brand_name" && m !== "models");
+            let modelsArray = cleanText
+                .split(',')
+                .map(s => s.trim().replace(/^"|"$/g, '').replace(/^'|'$/g, ''))
+                .filter(s => s.length > 2 && s.toLowerCase() !== brand.toLowerCase() && !s.toLowerCase().includes('sure') && !s.toLowerCase().includes('here is') && !s.toLowerCase().includes('model'));
 
-                brandData = {
-                    brand_name: brand,
-                    models: extractedModels
-                };
-            }
+            // Deduplicate
+            modelsArray = [...new Set(modelsArray)];
 
-            if (brandData && brandData.models) {
-                taxonomy.brands.push(brandData);
-                console.log(`✅ Extracted ${brandData.models.length} models for ${brand}`);
+            if (modelsArray.length > 0) {
+                taxonomy.brands.push({ brand_name: brand, models: modelsArray });
+                console.log('✅ Extracted ' + modelsArray.length + ' models for ' + brand);
             } else {
-                console.error(`❌ Found no models for ${brand}`);
+                console.error('❌ Found no models for ' + brand);
             }
 
-            // Wait 2s to not hit rate limits on free tier
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Wait 10s to not hit rate limits on free tier
+            await new Promise(resolve => setTimeout(resolve, 10000));
 
         } catch (e) {
-            console.error(`❌ Failed to extract for ${brand}:`, e.message);
+            console.error('❌ Failed to extract for ' + brand + ': ', e.message);
         }
     }
 
@@ -110,14 +109,14 @@ async function generateTaxonomy() {
 
     fs.writeFileSync(TAXONOMY_PATH, JSON.stringify(taxonomy, null, 2), 'utf-8');
 
-    console.log(`\n🎯 Successfully generated and saved global taxonomy to ${TAXONOMY_PATH}`);
+    console.log('\\n🎯 Successfully generated and saved global taxonomy to ' + TAXONOMY_PATH);
 
     // Print stats
     let total = 0;
     taxonomy.brands.forEach(b => {
         total += b.models.length;
     });
-    console.log(`📊 Total curated sneaker models tracked globally: ${total}`);
+    console.log('📊 Total curated sneaker models tracked globally: ' + total);
 }
 
 generateTaxonomy();

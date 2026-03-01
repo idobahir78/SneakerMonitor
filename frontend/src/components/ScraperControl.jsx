@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import taxonomyData from '../data/sneaker_models.json';
+import { supabase } from '../supabaseClient';
 
 const REPO = 'idobahir78/SneakerMonitor';
 const WORKFLOW_FILE = 'scrape.yml';
@@ -9,44 +10,76 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
     const [token, setToken] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedModel, setSelectedModel] = useState('');
-    const [isManualMode, setIsManualMode] = useState(false);
-    const [manualSearchTerm, setManualSearchTerm] = useState('');
+    const [isCustomMode, setIsCustomMode] = useState(false);
+    const [customBrand, setCustomBrand] = useState('');
+    const [customModel, setCustomModel] = useState('');
     const [sizes, setSizes] = useState('*');
     const [status, setStatus] = useState(null);
     const [message, setMessage] = useState('');
     const [showBusyOverlay, setShowBusyOverlay] = useState(false);
+    const [taxonomy, setTaxonomy] = useState(taxonomyData);
 
     useEffect(() => {
-        const savedToken = localStorage.getItem('gh_pat');
-        if (savedToken) setToken(savedToken);
+        const loadInitialData = async () => {
+            let activeTaxonomy = taxonomyData;
 
-        const savedSizes = localStorage.getItem('scraper_sizes');
-        if (savedSizes) setSizes(savedSizes);
+            if (supabase) {
+                try {
+                    const { data, error } = await supabase.from('custom_taxonomy').select('*');
+                    if (!error && data && data.length > 0) {
+                        const merged = JSON.parse(JSON.stringify(taxonomyData)); // deep copy
+                        data.forEach(item => {
+                            let brandObj = merged.brands.find(b => b.brand_name.toLowerCase() === item.brand.toLowerCase());
+                            if (brandObj) {
+                                if (!brandObj.models.includes(item.model)) brandObj.models.push(item.model);
+                            } else {
+                                merged.brands.push({ brand_name: item.brand, models: [item.model] });
+                            }
+                        });
+                        merged.brands.sort((a, b) => a.brand_name.localeCompare(b.brand_name));
+                        merged.brands.forEach(b => b.models.sort((x, y) => x.localeCompare(y)));
+                        activeTaxonomy = merged;
+                        setTaxonomy(merged);
+                    }
+                } catch (err) { }
+            }
 
-        const savedBrand = localStorage.getItem('scraper_brand');
-        const savedModel = localStorage.getItem('scraper_model');
-        const savedManual = localStorage.getItem('scraper_manual_term');
-        const savedMode = localStorage.getItem('scraper_is_manual') === 'true';
+            const savedToken = localStorage.getItem('gh_pat');
+            if (savedToken) setToken(savedToken);
 
-        if (savedBrand) {
-            const brandInfo = taxonomyData.brands.find(b => b.brand_name === savedBrand);
-            if (brandInfo) {
-                setSelectedBrand(savedBrand);
-                if (savedModel && brandInfo.models.includes(savedModel)) {
-                    setSelectedModel(savedModel);
+            const savedSizes = localStorage.getItem('scraper_sizes');
+            if (savedSizes) setSizes(savedSizes);
+
+            const savedBrand = localStorage.getItem('scraper_brand');
+            const savedModel = localStorage.getItem('scraper_model');
+            const savedCustomBrand = localStorage.getItem('scraper_custom_brand');
+            const savedCustomModel = localStorage.getItem('scraper_custom_model');
+            const savedMode = localStorage.getItem('scraper_is_custom') === 'true';
+
+            if (savedBrand) {
+                const brandInfo = activeTaxonomy.brands.find(b => b.brand_name === savedBrand);
+                if (brandInfo) {
+                    setSelectedBrand(savedBrand);
+                    if (savedModel && brandInfo.models.includes(savedModel)) {
+                        setSelectedModel(savedModel);
+                    }
                 }
             }
-        }
-        if (savedManual) setManualSearchTerm(savedManual);
-        setIsManualMode(savedMode);
+            if (savedCustomBrand) setCustomBrand(savedCustomBrand);
+            if (savedCustomModel) setCustomModel(savedCustomModel);
+            setIsCustomMode(savedMode);
 
-        if (!savedBrand && !savedManual) {
-            const oldSearch = localStorage.getItem('scraper_search');
-            if (oldSearch) {
-                setManualSearchTerm(oldSearch);
-                setIsManualMode(true);
+            if (!savedBrand && !savedCustomBrand) {
+                const oldSearch = localStorage.getItem('scraper_search');
+                if (oldSearch) {
+                    // very basic fallback if transitioning from old manual string
+                    setCustomBrand(oldSearch.split(' ')[0] || '');
+                    setCustomModel(oldSearch.split(' ').slice(1).join(' ') || '');
+                    setIsCustomMode(true);
+                }
             }
-        }
+        };
+        loadInitialData();
     }, []);
 
     const saveSettings = () => {
@@ -54,14 +87,19 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
         localStorage.setItem('scraper_sizes', sizes);
         localStorage.setItem('scraper_brand', selectedBrand);
         localStorage.setItem('scraper_model', selectedModel);
-        localStorage.setItem('scraper_manual_term', manualSearchTerm);
-        localStorage.setItem('scraper_is_manual', isManualMode);
+        localStorage.setItem('scraper_custom_brand', customBrand);
+        localStorage.setItem('scraper_custom_model', customModel);
+        localStorage.setItem('scraper_is_custom', isCustomMode);
         setMessage('Settings saved!');
         setTimeout(() => setMessage(''), 2000);
     };
 
     const getFinalSearchTerm = () => {
-        if (isManualMode) return manualSearchTerm;
+        if (isCustomMode) {
+            if (customBrand && customModel) return `${customBrand} ${customModel}`;
+            if (customBrand) return customBrand;
+            return '';
+        }
         if (selectedBrand && selectedModel) return `${selectedBrand} ${selectedModel}`;
         if (selectedBrand) return selectedBrand;
         return '';
@@ -148,7 +186,7 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
         );
     }
 
-    const currentBrandInfo = taxonomyData.brands.find(b => b.brand_name === selectedBrand);
+    const currentBrandInfo = taxonomy.brands.find(b => b.brand_name === selectedBrand);
     const availableModels = currentBrandInfo ? currentBrandInfo.models : [];
 
     return (
@@ -188,19 +226,29 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
                         <label>Search For</label>
                         <button
                             className="text-btn small"
-                            onClick={() => setIsManualMode(!isManualMode)}
+                            onClick={() => setIsCustomMode(!isCustomMode)}
                         >
-                            {isManualMode ? 'Switch to List' : 'Switch to Manual'}
+                            {isCustomMode ? 'Switch to List' : '+ Add Custom Brand/Model'}
                         </button>
                     </div>
 
-                    {isManualMode ? (
-                        <input
-                            type="text"
-                            value={manualSearchTerm}
-                            onChange={(e) => setManualSearchTerm(e.target.value)}
-                            placeholder="e.g. Nike Air Max"
-                        />
+                    {isCustomMode ? (
+                        <div className="custom-input-group" style={{ display: 'flex', gap: '10px' }}>
+                            <input
+                                type="text"
+                                value={customBrand}
+                                onChange={(e) => setCustomBrand(e.target.value)}
+                                placeholder="Brand (e.g. Puma)"
+                                style={{ flex: 1 }}
+                            />
+                            <input
+                                type="text"
+                                value={customModel}
+                                onChange={(e) => setCustomModel(e.target.value)}
+                                placeholder="Model (e.g. MB.04)"
+                                style={{ flex: 1 }}
+                            />
+                        </div>
                     ) : (
                         <div className="select-group">
                             <select
@@ -211,7 +259,7 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
                                 }}
                             >
                                 <option value="">Select Brand...</option>
-                                {taxonomyData.brands.map(brandObj => (
+                                {taxonomy.brands.map(brandObj => (
                                     <option key={brandObj.brand_name} value={brandObj.brand_name}>
                                         {brandObj.brand_name}
                                     </option>

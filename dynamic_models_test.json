@@ -1,0 +1,52 @@
+{
+  "brands": [
+    {
+      "brand_name": "Nike",
+      "models": [
+        "Mind 001",
+        "Air Foamposite",
+        "Zoom Kobe 6"
+      ]
+    },
+    {
+      "brand_name": "Adidas",
+      "models": [
+        "Adistar Jellyfish",
+        "Yeezy Slides"
+      ]
+    },
+    {
+      "brand_name": "Puma",
+      "models": [
+        "LaFrancé",
+        "Speedcat"
+      ]
+    },
+    {
+      "brand_name": "New Balance",
+      "models": [
+        "2002R"
+      ]
+    },
+    {
+      "brand_name": "Asics",
+      "models": [
+        "Gel 1130"
+      ]
+    },
+    {
+      "brand_name": "Hoka",
+      "models": [
+        "Bondi 9",
+        "Clifton 10",
+        "Bondi Mary Jane"
+      ]
+    },
+    {
+      "brand_name": "Saucony",
+      "models": [
+        "ProGrid Omni 9"
+      ]
+    }
+  ]
+}
