@@ -70,7 +70,7 @@ class VisualVerifier {
                 const base64Image = Buffer.from(arrayBuffer).toString('base64');
                 const mimeType = response.headers.get('content-type') || 'image/jpeg';
 
-                const modelGen = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash-latest' });
+                const modelGen = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
 
                 const prompt = `Analyze this image. Is the primary commercial product shown a sports shoe or sneaker? Note that apparel items like hoodies, shirts, bags, or pants are NOT shoes, even if a person in the photo is wearing shoes. The main product must be a single shoe or pair of shoes. Reply with exactly 'YES' if it is a shoe, or 'NO' if it is apparel or not a shoe.`;
 

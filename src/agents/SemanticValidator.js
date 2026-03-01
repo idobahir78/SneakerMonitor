@@ -9,6 +9,36 @@ const NON_SHOE_BLACKLIST = [
 const JUNK_KEYWORDS = ['LACES', 'BOX ONLY', 'CLEAN KIT', 'CLEANING KIT', 'INSOLE', 'KEEPER', 'מדרסים'];
 const SHOE_KEYWORDS = ['SHOE', 'SNEAKER', 'SNEAKERS', 'BOOT', 'TRAINER', 'TRAINERS', 'נעל', 'נעלי', 'סניקר', 'כדורסל'];
 
+// Hebrew transliterations of popular model names → English equivalents
+const HEBREW_MODEL_ALIASES = {
+    'סטן סמית': 'STAN SMITH',
+    'סטן סמית\'': 'STAN SMITH',
+    'סופרסטאר': 'SUPERSTAR',
+    'דאנק': 'DUNK',
+    'אייר פורס': 'AIR FORCE',
+    'אדי פום': 'ADIFOM',
+    'סמבה': 'SAMBA',
+    'גזל': 'GAZELLE',
+    'ספציאל': 'SPEZIAL',
+    'פורמולה': 'FORMULA',
+    'קלאוד': 'CLOUD',
+    'ריבולושן': 'REVOLUTION',
+    'רן': 'RUN',
+};
+
+/**
+ * Normalizes a Hebrew text by replacing known Hebrew transliterations
+ * with their English model equivalents, making cross-language matching possible.
+ */
+function normalizeHebrewAliases(text) {
+    let result = text.toUpperCase();
+    for (const [heb, eng] of Object.entries(HEBREW_MODEL_ALIASES)) {
+        // Replace case-insensitive Hebrew alias with English
+        result = result.replace(new RegExp(heb, 'gi'), eng);
+    }
+    return result;
+}
+
 class SemanticValidator {
     constructor() { }
 
@@ -77,7 +107,10 @@ class SemanticValidator {
         const title = rawItem.raw_title;
         const titleUpper = title.toUpperCase();
         const contextUpper = (rawItem.full_context || '').toUpperCase();
-        const combinedText = titleUpper + ' ' + contextUpper;
+        // Normalize Hebrew transliterations so 'סטן סמית' matches 'STAN SMITH'
+        const normalizedTitle = normalizeHebrewAliases(titleUpper);
+        const normalizedContext = normalizeHebrewAliases(contextUpper);
+        const combinedText = normalizedTitle + ' ' + normalizedContext;
         const brandUpper = (brand || '').toUpperCase().trim();
 
         const genderIntent = (targetSize === '*') ? 'UNISEX' : this._detectGenderIntent(brand, model);
