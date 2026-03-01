@@ -1,21 +1,74 @@
 {
   "brands": [
     {
+      "brand_name": "Adidas",
+      "models": [
+        "Anthony Edwards 1",
+        "Campus 00s",
+        "Forum Low",
+        "Gazelle",
+        "Harden Vol. 8",
+        "NMD_R1",
+        "Samba",
+        "Stan Smith",
+        "Superstar",
+        "Trae Young 3",
+        "Ultraboost 1.0",
+        "Ultraboost Light"
+      ]
+    },
+    {
+      "brand_name": "Asics",
+      "models": [
+        "Gel-1130",
+        "Gel-Cumulus 26",
+        "Gel-Kayano 14",
+        "Gel-Kayano 30",
+        "Gel-Kayano 31",
+        "Gel-Nimbus 26",
+        "Gel-NYC",
+        "GT-2000 12",
+        "Novablast 4",
+        "Superblast"
+      ]
+    },
+    {
+      "brand_name": "New Balance",
+      "models": [
+        "1906R",
+        "2002R",
+        "327",
+        "550",
+        "574",
+        "9060",
+        "990v5",
+        "990v6",
+        "Fresh Foam 1080v13",
+        "Fresh Foam More v4",
+        "TWO WXY v4"
+      ]
+    },
+    {
       "brand_name": "Nike",
       "models": [
         "A'One \"Warning Label\"",
         "ACG Phassad",
         "ACG Ultrafly Trail",
+        "Air Diamond Turf",
+        "Air Diamond Turf 2",
         "Air Force 1 '07",
         "Air Force 1 '07 LV8",
         "Air Force 1 '07 Premium",
         "Air Force 1 '07 RealTree",
+        "Air Force 1 Flyknit 2.0",
         "Air Force 1 Low Protro 1",
         "Air Force 1 Retro \"Valentine’s Day\"",
+        "Air Griffey Max 1",
         "Air Jordan 1 Low G",
         "Air Jordan 1 Low SE",
         "Air Jordan 1 Mid",
         "Air Jordan 1 Retro High OG",
+        "Air Jordan 3 Retro \"Medium Olive\"",
         "Air Jordan 3 x Levi's® \"Black and White\"",
         "Air Jordan 3 x Levi's® \"Indigo and Gym Red\"",
         "Air Jordan 4 Retro \"Flight Club\"",
@@ -25,6 +78,8 @@
         "Air Jordan 6 Retro Low",
         "Air Jordan MVP 92",
         "Air Jordan Skyline Low",
+        "Air Max 2017",
+        "Air Max 270",
         "Air Max 270 Premium",
         "Air Max 95 \"Big Bubble\"",
         "Air Max 95 Big Bubble",
@@ -36,11 +91,15 @@
         "Air Max Dn8 SP",
         "Air Max Moto 2K",
         "Air Max Plus",
+        "Air Max Plus Premium",
         "Air Max Plus VII",
+        "Air Max Uptempo '95",
         "Air VaporMax Plus",
         "Alphafly 3",
+        "Ava Rover",
         "Book 2 \"Spiridon\"",
         "C1TY Premium CORDURA®",
+        "Calm 2.0",
         "Calm RealTree",
         "Diamond Showcase MCS",
         "Diamond Standout MTL",
@@ -82,6 +141,7 @@
         "Structure Plus",
         "Total 90 Premium",
         "Trunner O/S",
+        "V5 RNR",
         "Vapor Pro 1",
         "Vapor Speed 3",
         "Vaporfly 4",
@@ -93,6 +153,24 @@
         "Zoom Fly 6 Glam",
         "Zoom Vomero 5",
         "Zoom Vomero Roam"
+      ]
+    },
+    {
+      "brand_name": "Puma",
+      "models": [
+        "Clyde",
+        "Deviate Nitro",
+        "Future Rider",
+        "MB.01",
+        "MB.02",
+        "MB.03",
+        "MB.04",
+        "Palermo",
+        "RS-X",
+        "Slipstream",
+        "Suede Classic",
+        "Suede XL",
+        "Velocity Nitro"
       ]
     }
   ]

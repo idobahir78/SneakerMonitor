@@ -11,6 +11,25 @@ const BRAND_CONFIG = {
     'Asics': { urls: ['https://www.asics.com/us/en-us/mens-shoes/c/aa10000000/'], sel: '.product-name' }
 };
 
+const STARTER_PACKS = {
+    'Puma': [
+        "MB.01", "MB.02", "MB.03", "MB.04", "Palermo", "Suede Classic", "Suede XL",
+        "RS-X", "Clyde", "Future Rider", "Slipstream", "Deviate Nitro", "Velocity Nitro"
+    ],
+    'Adidas': [
+        "Samba", "Gazelle", "Campus 00s", "Ultraboost 1.0", "Ultraboost Light", "NMD_R1",
+        "Stan Smith", "Superstar", "Forum Low", "Anthony Edwards 1", "Harden Vol. 8", "Trae Young 3"
+    ],
+    'New Balance': [
+        "550", "9060", "2002R", "1906R", "990v6", "990v5", "327", "574",
+        "Fresh Foam 1080v13", "Fresh Foam More v4", "TWO WXY v4"
+    ],
+    'Asics': [
+        "Gel-Kayano 30", "Gel-Kayano 31", "Gel-Kayano 14", "Gel-Nimbus 26", "Novablast 4",
+        "Superblast", "GT-2000 12", "Gel-Cumulus 26", "Gel-1130", "Gel-NYC"
+    ]
+};
+
 async function autoScroll(page) {
     for (let i = 0; i < 5; i++) {
         await page.evaluate(() => window.scrollBy(0, document.body.scrollHeight / 3));
@@ -101,10 +120,15 @@ async function scrapeOfficialSites() {
         await browser.close();
     }
 
-    // Convert Sets to Arrays
+    // Convert Sets to Arrays and inject Starter Packs if blocked
     const cleanedResults = {};
     for (const brand in results) {
-        cleanedResults[brand] = Array.from(results[brand]);
+        if (results[brand].size === 0 && STARTER_PACKS[brand]) {
+            console.log(`🛡️ ${brand} returned 0 models (likely blocked). Injecting guaranteed Starter Pack.`);
+            cleanedResults[brand] = STARTER_PACKS[brand];
+        } else {
+            cleanedResults[brand] = Array.from(results[brand]);
+        }
     }
 
     return cleanedResults;
