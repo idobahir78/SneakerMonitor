@@ -51,12 +51,15 @@ async function scrapeOfficialSites() {
                         if (!t) return;
                         let name = t.trim().replace(/\n/g, ' ');
 
+                        const rejectWords = ['sandal', 'slide', 'boot', 'shirt', 'pant', 'short', 'hoodie', 'jacket', 'sock', 'hat', 'cap', 'cleat', 'spike', 'apparel', 'clothing', 'tee', 'jersey', 'tank', 'legging', 'tight', 'bra', 'bag', 'backpack', 'flip flop'];
+
                         // Clean up generic marketing fluff that might appear in H3s
                         if (name.length > 4 && name.length < 60 &&
                             !name.toLowerCase().includes('shoes') &&
                             !name.toLowerCase().includes('sneakers') &&
                             !name.toLowerCase().includes('running') &&
-                            !name.toLowerCase().includes('mens')) {
+                            !name.toLowerCase().includes('mens') &&
+                            !rejectWords.some(word => name.toLowerCase().includes(word))) {
 
                             // Strip out the brand itself from the string
                             const brandRegex = new RegExp(`^${brand}\\s`, 'i');

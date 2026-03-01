@@ -52,6 +52,10 @@ function isLikelySneakerModel(text, brand) {
     if (text.toLowerCase().includes('references')) return false;
     if (text.includes('://')) return false;
 
+    // Explicitly reject non-sneaker items (clothing, accessories, non-sneaker footwear)
+    const rejectWords = ['sandal', 'slide', 'boot', 'shirt', 'pant', 'short', 'hoodie', 'jacket', 'sock', 'hat', 'cap', 'cleat', 'spike', 'apparel', 'clothing', 'tee', 'jersey', 'tank', 'legging', 'tight', 'bra', 'bag', 'backpack', 'flip flop'];
+    if (rejectWords.some(word => text.toLowerCase().includes(word))) return false;
+
     // Most models are alphanumeric with spaces, sometimes hyphens or dots or apostrophes
     if (!/^[a-zA-Z0-9\s-.'&]+$/.test(text)) return false;
 
