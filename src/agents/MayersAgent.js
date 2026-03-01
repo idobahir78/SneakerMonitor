@@ -6,7 +6,9 @@ class MayersAgent extends DOMNavigator {
     }
 
     async scrape(brand, model) {
-        const query = encodeURIComponent(`${brand} ${model}`);
+        // Mayers' WooCommerce search fails to find products when the brand is prepended (e.g. "Adidas Stan Smith").
+        // Searching only by model ("Stan Smith") yields accurate matches on their site.
+        const query = encodeURIComponent(model);
         const searchUrl = `${this.targetUrl}/?s=${query}&post_type=product`;
 
         return new Promise(async (resolve) => {
