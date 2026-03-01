@@ -10,9 +10,9 @@ const LimeShoesAgent = require('./agents/LimeShoesAgent');
 const NikeIsraelAgent = require('./agents/NikeIsraelAgent');
 const AdidasIsraelAgent = require('./agents/AdidasIsraelAgent');
 const FootLockerIsraelAgent = require('./agents/FootLockerIsraelAgent');
-const JDSportsAgent = require('./agents/JDSportsAgent');
 const MayersAgent = require('./agents/MayersAgent');
-const KicksAgent = require('./agents/KicksAgent');
+// JDSportsAgent removed – JD Sports confirmed closing Israeli operations (Jan 2026)
+// KicksAgent removed – site defunct (SSL error + persistent 403)
 const NewBalanceIsraelAgent = require('./agents/NewBalanceIsraelAgent');
 const HokaIsraelAgent = require('./agents/HokaIsraelAgent');
 const AsicsIsraelAgent = require('./agents/AsicsIsraelAgent');
@@ -77,9 +77,7 @@ async function performSearch(brand, model, size) {
     orchestrator.registerWorker(new NikeIsraelAgent());
     orchestrator.registerWorker(new AdidasIsraelAgent());
     orchestrator.registerWorker(new FootLockerIsraelAgent());
-    orchestrator.registerWorker(new JDSportsAgent());
     orchestrator.registerWorker(new MayersAgent());
-    orchestrator.registerWorker(new KicksAgent());
     orchestrator.registerWorker(new NewBalanceIsraelAgent());
     orchestrator.registerWorker(new HokaIsraelAgent());
     orchestrator.registerWorker(new AsicsIsraelAgent());

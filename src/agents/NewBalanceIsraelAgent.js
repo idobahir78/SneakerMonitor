@@ -8,47 +8,53 @@ class NewBalanceIsraelAgent extends DOMNavigator {
     async scrape(brand, model) {
         if (brand.toLowerCase() !== 'new balance') return [];
         const query = encodeURIComponent(model);
-        // Updated URL for Demandware migration
-        const searchUrl = `${this.targetUrl}/he/category?q=${query}`;
+        // Correct NB Israel SFCC search URL (browser research confirmed)
+        const searchUrl = `${this.targetUrl}/he/search?q=${query}`;
 
         return new Promise(async (resolve) => {
             try {
-                // Demandware pages often need a moment to hydrate the product grid
+                console.log(`[New Balance IL] Navigating to: ${searchUrl}`);
                 await this.navigateWithRetry(searchUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
-                await new Promise(r => setTimeout(r, 4000));
+                // SFCC pages need extra time for React/JS hydration of the product grid
+                await new Promise(r => setTimeout(r, 5000));
+
+                try {
+                    await this.page.waitForSelector('.product-tile-item, .product-tile, .grid-tile', { timeout: 10000 });
+                } catch (e) { }
 
                 const products = await this.page.evaluate(() => {
                     const results = [];
-                    const tiles = document.querySelectorAll('.product, .product-item, .product-tile');
+                    // Confirmed selector from browser research
+                    const tiles = document.querySelectorAll('.product-tile-item, .product-tile');
 
                     tiles.forEach(tile => {
-                        // Attempt exact JSON extraction from GTM data
-                        const gtmDataStr = tile.getAttribute('data-gtmdata') || '{}';
-                        let gtmObj = {};
-                        try { gtmObj = JSON.parse(gtmDataStr); } catch (e) { }
+                        const titleEl = tile.querySelector('.product-tile__name, .product-name, .pdp-link a');
+                        const priceEl = tile.querySelector('.sales .value, .price-sales .value, .price .value');
+                        const linkEl = tile.querySelector('a.tile-image-link, a.thumb-link') || tile.querySelector('a');
+                        const imgEl = tile.querySelector('img.tile-image, img');
 
-                        const titleEl = tile.querySelector('.product-item-link, .product-name, .link, .pdp-link a');
-                        const priceEl = tile.querySelector('.price, .special-price .price, .sales .value');
-                        const linkEl = tile.querySelector('a.product-item-photo, a.tile-image-link') || tile.querySelector('a');
-                        const imgEl = tile.querySelector('img.product-image-photo, img.tile-image, img');
+                        const title = titleEl?.innerText?.trim() || '';
+                        if (!title) return;
 
-                        const title = gtmObj.name || (titleEl ? titleEl.innerText.trim() : '');
-
-                        let price = parseFloat(gtmObj.price) || 0;
-                        if (!price && priceEl) {
-                            const priceText = priceEl.getAttribute('content') || priceEl.innerText || '0';
-                            const match = priceText.match(/(\d{2,4}\.?\d{0,2})/);
-                            price = match ? parseFloat(match[1]) : 0;
+                        let price = 0;
+                        if (priceEl) {
+                            const raw = priceEl.getAttribute('content') || priceEl.innerText || '0';
+                            const m = raw.match(/(\d{2,5}\.?\d{0,2})/);
+                            price = m ? parseFloat(m[1]) : 0;
                         }
 
-                        if (title && price > 0) {
-                            results.push({
-                                raw_title: title,
-                                raw_price: price,
-                                raw_url: linkEl?.href || '',
-                                raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
-                            });
-                        }
+                        // Collect available sizes from swatches (disabled = out of stock)
+                        const raw_sizes = [...tile.querySelectorAll('.swatchable-radio:not(.disabled) input')]
+                            .map(inp => (inp.value || inp.getAttribute('data-value') || '').trim())
+                            .filter(Boolean);
+
+                        results.push({
+                            raw_title: title,
+                            raw_price: price,
+                            raw_url: linkEl?.href || '',
+                            raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || '',
+                            raw_sizes
+                        });
                     });
                     return results;
                 });

@@ -1,11 +1,21 @@
 const DOMNavigator = require('./DOMNavigator');
 
+// LimeShoes specializes in running/performance brands only.
+// Browser research confirmed they carry: Asics, Hoka, New Balance, Saucony, Brooks, Birkenstock
+// They do NOT stock Nike, Adidas, Reebok, Puma, Jordan, etc.
+const LIMESHOES_BRANDS = ['asics', 'hoka', 'new balance', 'saucony', 'brooks', 'birkenstock', 'on', 'mizuno'];
+
 class LimeShoesAgent extends DOMNavigator {
     constructor() {
         super('Lime Shoes', 'https://limeshoes.co.il');
     }
 
     async scrape(brand, model) {
+        // Skip immediately if LimeShoes doesn't carry this brand – saves a full browser boot
+        if (!LIMESHOES_BRANDS.includes(brand.toLowerCase())) {
+            console.log(`[Lime Shoes] Skipping – brand "${brand}" not in LimeShoes inventory.`);
+            return [];
+        }
         const query = encodeURIComponent(model); // Omit brand to improve WooCommerce search
 
         return new Promise(async (resolve, reject) => {
