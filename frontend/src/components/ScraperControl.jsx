@@ -172,8 +172,10 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
 
             if (response.ok || response.status === 204) {
                 setStatus('success');
-                setMessage('Scan started! 🚀 Auto-scan paused until you resume it.');
+                setMessage('Scan started! 🚀');
                 if (onTrigger) onTrigger({ progressiveMode: true, searchTerm: termToScrape, searchId: searchId });
+                // Automatically close the panel so the user returns to the main page
+                setTimeout(() => setIsOpen(false), 500);
             } else {
                 const errText = await response.text();
                 throw new Error(`GitHub API: ${response.status} — ${errText}`);
