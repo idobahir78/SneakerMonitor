@@ -45,11 +45,34 @@ class SauconyIsraelAgent extends DOMNavigator {
                         const priceMatch = priceText.match(/(\d{2,5}\.?\d{0,2})/);
                         const price = priceMatch ? parseFloat(priceMatch[1]) : 0;
 
+                        // Saucony (Demandware SFCC) – available size swatches
+                        const raw_sizes = [];
+                        // Strategy 1: swatch links that are NOT disabled/unselectable
+                        tile.querySelectorAll('.swatches a:not(.unselectable), .swatch-value:not(.unselectable) a').forEach(el => {
+                            const val = (el.getAttribute('title') || el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                            if (val && /^\d{2}(\.\d)?$/.test(val) && !raw_sizes.includes(val)) raw_sizes.push(val);
+                        });
+                        // Strategy 2: li.emptyswatch elements (Demandware in-stock indicator)
+                        if (raw_sizes.length === 0) {
+                            tile.querySelectorAll('li:not(.emptyswatch) a, li.swatchanchor a').forEach(el => {
+                                const val = (el.getAttribute('title') || el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                if (val && /^\d{2}(\.\d)?$/.test(val) && !raw_sizes.includes(val)) raw_sizes.push(val);
+                            });
+                        }
+                        // Strategy 3: data-attr-value or aria-label on size buttons
+                        if (raw_sizes.length === 0) {
+                            tile.querySelectorAll('[data-attr="size"] a, button[data-attr-value]').forEach(el => {
+                                const val = (el.getAttribute('data-attr-value') || el.getAttribute('aria-label') || el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                if (val && /^\d{2}(\.\d)?$/.test(val) && !raw_sizes.includes(val)) raw_sizes.push(val);
+                            });
+                        }
+
                         results.push({
                             raw_title: title,
                             raw_price: price,
                             raw_url: linkEl?.href || '',
-                            raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
+                            raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || '',
+                            raw_sizes
                         });
                     });
                     return results;

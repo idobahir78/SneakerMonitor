@@ -51,13 +51,27 @@ class DataNormalizer {
                 link: productUrl,              // ShoeCard reads item.link
                 store: storeName,              // ShoeCard reads item.store
                 image: rawItem.raw_image_url,  // legacy alias
-                sizes: rawItem.raw_sizes || [] // legacy sizes array
+                // Normalize sizes: strip "EU ", "US ", "UK " prefix + trailing suffixes
+                sizes: (rawItem.raw_sizes || []).map(s => DataNormalizer._normalizeSize(s)).filter(Boolean)
             };
 
         } catch (error) {
             console.error(`[Agent 5 - Normalizer] Error normalizing data from ${storeName}:`, error.message);
             return null; // Discard corrupted data
         }
+    }
+
+    /**
+     * Strips EU/US/UK prefix and trailing parenthetical suffixes from a size string.
+     * Examples: "EU 44" → "44",  "44 (EU)" → "44",  "US 11" → "11"
+     */
+    static _normalizeSize(s) {
+        if (typeof s !== 'string' && typeof s !== 'number') return '';
+        return s.toString()
+            .replace(/^(EU|US|UK)\s*/i, '')   // strip leading prefix
+            .replace(/\s*\(.*?\)$/g, '')        // strip trailing "(EU)" etc
+            .replace(/\/.*$/, '')               // strip fractions like "44/9"
+            .trim();
     }
 }
 

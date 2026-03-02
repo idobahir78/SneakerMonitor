@@ -103,11 +103,34 @@ class PumaIsraelAgent extends DOMNavigator {
                         const imgEl = tile.querySelector('img.tile-image, img');
 
                         if (titleEl) {
+                            // SFCC size swatches – multiple strategies
+                            const raw_sizes = [];
+                            // Strategy 1: data-attr="size" buttons that are not disabled/unselectable
+                            tile.querySelectorAll('[data-attr="size"] button:not([disabled]):not(.unselectable), [data-attr="size"] a:not(.unselectable)').forEach(el => {
+                                const val = (el.getAttribute('data-attr-value') || el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                if (val && /^\d{2}(\.\d)?$/.test(val) && !raw_sizes.includes(val)) raw_sizes.push(val);
+                            });
+                            // Strategy 2: .size-btn elements not disabled
+                            if (raw_sizes.length === 0) {
+                                tile.querySelectorAll('.size-btn:not(.disabled):not(.out-of-stock), .size-button:not(.disabled)').forEach(el => {
+                                    const val = (el.innerText || el.getAttribute('data-value') || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                    if (val && /^\d{2}(\.\d)?$/.test(val) && !raw_sizes.includes(val)) raw_sizes.push(val);
+                                });
+                            }
+                            // Strategy 3: swatches by data-id / aria-label
+                            if (raw_sizes.length === 0) {
+                                tile.querySelectorAll('[class*="size"] [aria-label]:not([aria-disabled="true"])').forEach(el => {
+                                    const val = (el.getAttribute('aria-label') || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                    if (val && /^\d{2}(\.\d)?$/.test(val) && !raw_sizes.includes(val)) raw_sizes.push(val);
+                                });
+                            }
+
                             results.push({
                                 raw_title: titleEl.innerText.trim(),
                                 raw_price: priceEl ? parseFloat(priceEl.innerText.replace(/[^\d.]/g, '')) || 0 : 0,
                                 raw_url: norm(linkEl?.getAttribute('href') || ''),
-                                raw_image_url: norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || '')
+                                raw_image_url: norm(imgEl?.getAttribute('src') || imgEl?.getAttribute('data-src') || ''),
+                                raw_sizes
                             });
                         }
                     });

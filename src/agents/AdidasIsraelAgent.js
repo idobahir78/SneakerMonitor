@@ -72,12 +72,35 @@ class AdidasIsraelAgent extends DOMNavigator {
                             rawPrice = priceMatch ? parseFloat(priceMatch[1]) : 0;
                         }
 
+                        // Adidas Israel SFCC – size swatches on search grid
+                        const raw_sizes = [];
+                        // Strategy 1: .gl-label not disabled (Adidas SFCC grid swatches)
+                        tile.querySelectorAll('.gl-label:not(.gl-label--disabled), [data-auto-id="size-available"]').forEach(el => {
+                            const v = (el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                            if (v && /^\d{2}(\.\d)?$/.test(v) && !raw_sizes.includes(v)) raw_sizes.push(v);
+                        });
+                        // Strategy 2: SFCC generic size buttons
+                        if (raw_sizes.length === 0) {
+                            tile.querySelectorAll('[data-attr="size"] button:not([disabled]):not([aria-disabled="true"]), .size-btn:not(.disabled)').forEach(el => {
+                                const v = (el.getAttribute('data-attr-value') || el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                if (v && /^\d{2}(\.\d)?$/.test(v) && !raw_sizes.includes(v)) raw_sizes.push(v);
+                            });
+                        }
+                        // Strategy 3: aria-label on swatch items
+                        if (raw_sizes.length === 0) {
+                            tile.querySelectorAll('[aria-label][class*="size"]:not([aria-disabled="true"]), [class*="swatch"]:not(.disabled) [aria-label]').forEach(el => {
+                                const v = (el.getAttribute('aria-label') || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                if (v && /^\d{2}(\.\d)?$/.test(v) && !raw_sizes.includes(v)) raw_sizes.push(v);
+                            });
+                        }
+
                         if (rawTitle && rawPrice > 0) {
                             results.push({
                                 raw_title: rawTitle,
                                 raw_price: rawPrice,
                                 raw_url: linkEl?.href || '',
-                                raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || ''
+                                raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || '',
+                                raw_sizes
                             });
                         }
                     });
@@ -109,11 +132,25 @@ class AdidasIsraelAgent extends DOMNavigator {
                 if (item && (item.displayName || item.name || item.modelId) && (item.price !== undefined || item.salePrice !== undefined)) {
                     const priceVal = item.salePrice || item.price;
                     if (priceVal && !isNaN(parseFloat(priceVal))) {
+                        // Extract sizes from API response – Adidas may include variationAttributes or sizes array
+                        const raw_sizes = [];
+                        const sizeAttr = (item.variationAttributes || []).find(a => /size/i.test(a.id || a.attributeId || ''));
+                        if (sizeAttr && sizeAttr.values) {
+                            sizeAttr.values.filter(v => v.orderable !== false && v.available !== false)
+                                .forEach(v => { const s = (v.displayValue || v.value || '').replace(/^(EU|US|UK)\s*/i, '').trim(); if (s) raw_sizes.push(s); });
+                        }
+                        if (raw_sizes.length === 0 && item.sizes) {
+                            (Array.isArray(item.sizes) ? item.sizes : []).forEach(s => {
+                                if (typeof s === 'string') raw_sizes.push(s.replace(/^(EU|US|UK)\s*/i, '').trim());
+                                else if (s.value && s.available !== false) raw_sizes.push((s.value || '').replace(/^(EU|US|UK)\s*/i, '').trim());
+                            });
+                        }
                         items.push({
                             raw_title: item.displayName || item.name || item.modelId || '',
                             raw_price: parseFloat(priceVal),
                             raw_url: item.link || item.url || '',
-                            raw_image_url: item.image?.src || item.imageUrl || ''
+                            raw_image_url: item.image?.src || item.imageUrl || '',
+                            raw_sizes
                         });
                     }
                 } else {

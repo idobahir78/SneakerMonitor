@@ -61,12 +61,35 @@ class LimeShoesAgent extends DOMNavigator {
                             const isOutOfStock = el.classList.contains('outofstock') ||
                                 (el.innerText && el.innerText.includes('אזל במלאי'));
 
+                            // WooCommerce available sizes – multiple selector strategies
+                            const raw_sizes = [];
+                            // Strategy 1: WooD theme swatch items not disabled
+                            el.querySelectorAll('.wd-attribute-item:not(.disabled) .wd-attribute-label, .wd-swatches__item:not(.disabled) .wd-swatches__label').forEach(s => {
+                                const v = s.innerText.replace(/^(EU|US|UK)\s*/i, '').trim();
+                                if (v && !raw_sizes.includes(v)) raw_sizes.push(v);
+                            });
+                            // Strategy 2: Standard WooCommerce swatches (not sold out)
+                            if (raw_sizes.length === 0) {
+                                el.querySelectorAll('.swatch-element:not(.soldout) .swatch-label, .variation-selector:not(.soldout)').forEach(s => {
+                                    const v = s.innerText.replace(/^(EU|US|UK)\s*/i, '').trim();
+                                    if (v && !raw_sizes.includes(v)) raw_sizes.push(v);
+                                });
+                            }
+                            // Strategy 3: size buttons / inputs
+                            if (raw_sizes.length === 0) {
+                                el.querySelectorAll('select option:not([disabled]):not([value=""])').forEach(o => {
+                                    const v = (o.textContent || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                    if (v && /\d/.test(v) && !raw_sizes.includes(v)) raw_sizes.push(v);
+                                });
+                            }
+
                             if (raw_title && raw_price > 0 && !isOutOfStock) {
                                 results.push({
                                     raw_title,
                                     raw_price,
-                                    product_url,
+                                    raw_url: product_url,
                                     raw_image_url,
+                                    raw_sizes,
                                     raw_brand: 'Unknown'
                                 });
                             }
