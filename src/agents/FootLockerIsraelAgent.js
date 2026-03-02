@@ -99,13 +99,13 @@ class FootLockerIsraelAgent extends DOMNavigator {
 
                     async function fetchSizes(handle) {
                         try {
-                            const res = await fetch(`/products/${handle}.json`, {
+                            // Use .js endpoint (not .json) — it includes the `available` boolean per variant
+                            const res = await fetch(`/products/${handle}.js`, {
                                 credentials: 'include',
                                 headers: { 'Accept': 'application/json' }
                             });
                             if (!res.ok) return [];
-                            const data = await res.json();
-                            const product = data.product;
+                            const product = await res.json(); // .js returns product directly (no `.product` wrapper)
                             if (!product?.variants) return [];
 
                             // Find which option index = size
