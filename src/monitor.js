@@ -28,7 +28,8 @@ const searchId = process.env.SEARCH_ID || 'scheduled_system_run';
 
 const MULTI_WORD_BRANDS = [
     'New Balance', 'Under Armour', 'ON Running', 'Air Jordan',
-    'On Cloud', 'Hoka One One'
+    'On Cloud'
+    // 'Hoka One One' removed – brand is officially 'Hoka' since 2019
 ];
 
 /**
