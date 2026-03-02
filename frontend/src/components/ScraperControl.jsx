@@ -204,7 +204,13 @@ const ScraperControl = ({ onTrigger, isSystemBusy = false, isScheduled = false, 
                 </div>
             )}
 
-            <div className="scraper-control-panel">
+            {/* Sheet backdrop – tap to close */}
+            <div className="sheet-backdrop" onClick={() => setIsOpen(false)} />
+
+            <div className="scraper-control-panel" onClick={e => e.stopPropagation()}>
+                {/* Drag handle */}
+                <div className="sheet-drag-handle" />
+
                 <div className="control-header">
                     <h3>Remote Control 🎮</h3>
                     <button onClick={() => setIsOpen(false)} className="close-btn">×</button>
