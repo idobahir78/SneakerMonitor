@@ -1,10 +1,11 @@
 const NON_SHOE_BLACKLIST = [
-    'SANDAL', 'SLIDE', 'SLIDES', 'FLIP FLOP', 'FLIP-FLOP', 'CROCS',
+    'SANDAL', 'SLIDE', 'SLIDES', 'FLIP FLOP', 'FLIP-FLOP', 'CROCS', 'MULE',
     'BACKPACK', 'BAG', 'TEE', 'SHIRT', 'T-SHIRT', 'HOODIE', 'JACKET',
     'SHORTS', 'PANTS', 'HAT', 'CAP', 'SOCKS', 'SOCK', 'INSOLE', 'מדרסים',
-    'סנדל', 'סנדלים', 'כפכף', 'כפכפים',
+    'סנדל', 'סנדלים', 'כפכף', 'כפכפים', 'כפכפי',  // כפכפי = construct form ("sandals of...")
     'תיק', 'חולצה', 'טי שירט', 'טישרט', 'מכנס', 'כובע', 'גרב', 'גרביים'
 ];
+
 
 const JUNK_KEYWORDS = ['LACES', 'BOX ONLY', 'CLEAN KIT', 'CLEANING KIT', 'INSOLE', 'KEEPER', 'מדרסים'];
 const SHOE_KEYWORDS = ['SHOE', 'SNEAKER', 'SNEAKERS', 'BOOT', 'TRAINER', 'TRAINERS', 'נעל', 'נעלי', 'סניקר', 'כדורסל'];
