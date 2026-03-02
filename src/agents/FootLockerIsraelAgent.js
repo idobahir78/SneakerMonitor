@@ -5,59 +5,9 @@ class FootLockerIsraelAgent extends DOMNavigator {
         super('Foot Locker Israel', 'https://footlocker.co.il');
     }
 
-    /**
-     * Fetch product JSON using the Puppeteer browser page (uses existing session/cookies).
-     * This bypasses Cloudflare and Shopify CSP that block plain Node.js https requests.
-     */
-    async _fetchProductJsonViaBrowser(handle) {
-        const apiUrl = `${this.targetUrl}/products/${handle}.json`;
-        let jsonPage = null;
-        try {
-            jsonPage = await this.browser.newPage();
-            jsonPage.setDefaultNavigationTimeout(12000);
-            jsonPage.setDefaultTimeout(12000);
-
-            // Match the same User-Agent to avoid fingerprint mismatch
-            await jsonPage.setUserAgent(this.getRandomUserAgent());
-
-            const res = await jsonPage.goto(apiUrl, { waitUntil: 'domcontentloaded', timeout: 12000 });
-            if (!res || res.status() !== 200) return [];
-
-            const raw = await jsonPage.evaluate(() => document.body.innerText);
-            const data = JSON.parse(raw);
-            const product = data.product;
-            if (!product || !product.variants) return [];
-
-            // Find which option index corresponds to "size"
-            let sizeOptIdx = 0;
-            if (product.options) {
-                const idx = product.options.findIndex(o => {
-                    const name = typeof o === 'string' ? o : (o.name || '');
-                    return name.toLowerCase().match(/size|מידה|גודל/);
-                });
-                if (idx >= 0) sizeOptIdx = idx;
-            }
-            const optKey = `option${sizeOptIdx + 1}`;
-
-            const sizes = product.variants
-                .filter(v => v.available === true)
-                .map(v => (v[optKey] || v.title || '').replace(/^(US|EU|UK)\s*/i, '').trim())
-                .filter(s => s && s.length < 12 && s !== 'Default Title');
-
-            return [...new Set(sizes)];
-        } catch (e) {
-            return [];
-        } finally {
-            if (jsonPage) {
-                try { await jsonPage.close(); } catch (_) { }
-            }
-        }
-    }
-
     async scrape(brand, model) {
         const query = encodeURIComponent(`${brand} ${model}`);
         const searchUrl = `${this.targetUrl}/search?q=${query}`;
-        const domain = this.targetUrl;
 
         return new Promise(async (resolve) => {
             try {
@@ -70,7 +20,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     console.log('[Foot Locker Israel] Timeout waiting for product grid.');
                 }
 
-                // Step 1: Extract product cards from DOM
+                // Step 1: Extract product cards + handles from DOM
                 const rawProducts = await this.page.evaluate((baseDomain) => {
                     function norm(u) {
                         if (!u) return '';
@@ -82,6 +32,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     }
 
                     const results = [];
+                    const seen = new Set();
                     const tiles = document.querySelectorAll('.product-item, .product-card, .grid__item');
 
                     tiles.forEach(tile => {
@@ -96,7 +47,8 @@ class FootLockerIsraelAgent extends DOMNavigator {
                                 break;
                             }
                         }
-                        if (!productUrl || !productHandle) return;
+                        if (!productUrl || !productHandle || seen.has(productHandle)) return;
+                        seen.add(productHandle);
 
                         const vendorEl = tile.querySelector('.product-item-meta__vendor, [class*="vendor"]');
                         const brandName = vendorEl?.innerText?.trim() || '';
@@ -108,25 +60,19 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         }
                         if (!title) return;
 
-                        // Price: priority-ordered selectors
+                        // Price: priority selectors
                         let price = 0;
-                        const priceSelectors = [
-                            '[data-product-price]',
-                            '.price__current .money',
-                            '.price .money',
-                            '.price-item--sale',
-                            '.price-item--regular',
-                            '.price'
-                        ];
-                        for (const sel of priceSelectors) {
+                        for (const sel of [
+                            '[data-product-price]', '.price__current .money',
+                            '.price .money', '.price-item--sale',
+                            '.price-item--regular', '.price'
+                        ]) {
                             const el = tile.querySelector(sel);
                             if (!el) continue;
                             const raw = el.getAttribute('data-product-price') || el.innerText || '';
-                            const cleaned = raw.replace(/[^\d.]/g, '');
-                            const parsed = parseFloat(cleaned);
+                            const parsed = parseFloat(raw.replace(/[^\d.]/g, ''));
                             if (parsed > 0) { price = parsed; break; }
                         }
-                        // Last resort: regex on tile text
                         if (price === 0) {
                             const m = tile.innerText.match(/(\d{3,4}(?:\.\d{1,2})?)/);
                             if (m) price = parseFloat(m[1]) || 0;
@@ -139,29 +85,73 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     });
 
                     return results;
-                }, domain);
+                }, this.targetUrl);
 
-                console.log(`[Foot Locker Israel] Found ${rawProducts.length} products. Fetching sizes via browser tabs...`);
+                console.log(`[Foot Locker Israel] Found ${rawProducts.length} products. Fetching sizes via same-origin fetch...`);
 
-                // Step 2: Open new browser tabs to fetch Shopify product JSON (bypasses CSP + Cloudflare)
-                const finalProducts = [];
-                for (const p of rawProducts) {
-                    const raw_sizes = await this._fetchProductJsonViaBrowser(p.productHandle);
+                // Step 2: Same-origin fetch to /products/{handle}.json from within footlocker.co.il page.
+                // This is the only reliable approach: already on footlocker.co.il → same-origin request
+                // → no Cloudflare block, no CSP restriction.
+                const handles = rawProducts.map(p => p.productHandle);
 
-                    finalProducts.push({
+                const sizeMap = await this.page.evaluate(async (handles) => {
+                    const results = {};
+
+                    async function fetchSizes(handle) {
+                        try {
+                            const res = await fetch(`/products/${handle}.json`, {
+                                credentials: 'include',
+                                headers: { 'Accept': 'application/json' }
+                            });
+                            if (!res.ok) return [];
+                            const data = await res.json();
+                            const product = data.product;
+                            if (!product?.variants) return [];
+
+                            // Find which option index = size
+                            let sizeOptIdx = 0;
+                            if (product.options) {
+                                const idx = product.options.findIndex(o => {
+                                    const name = typeof o === 'string' ? o : (o.name || '');
+                                    return /size|מידה|גודל/i.test(name);
+                                });
+                                if (idx >= 0) sizeOptIdx = idx;
+                            }
+                            const optKey = `option${sizeOptIdx + 1}`;
+
+                            const sizes = product.variants
+                                .filter(v => v.available === true)
+                                .map(v => (v[optKey] || v.title || '').replace(/^(US|EU|UK)\s*/i, '').trim())
+                                .filter(s => s && s.length < 12 && s !== 'Default Title');
+
+                            return [...new Set(sizes)];
+                        } catch (e) {
+                            return [];
+                        }
+                    }
+
+                    // Run all fetches in parallel (all same-origin, no rate limit concerns)
+                    const sizesArr = await Promise.all(handles.map(h => fetchSizes(h)));
+                    handles.forEach((h, i) => { results[h] = sizesArr[i]; });
+                    return results;
+                }, handles);
+
+                // Step 3: Merge sizes into products
+                const finalProducts = rawProducts.map(p => {
+                    const raw_sizes = sizeMap[p.productHandle] || [];
+                    if (raw_sizes.length > 0) {
+                        console.log(`[Foot Locker Israel] "${p.title}" → Sizes: [${raw_sizes.join(', ')}]`);
+                    } else {
+                        console.log(`[Foot Locker Israel] "${p.title}" → Sizes: [] (no stock data)`);
+                    }
+                    return {
                         raw_title: p.title,
                         raw_price: p.price,
                         raw_url: p.productUrl,
                         raw_image_url: p.rawImg,
                         raw_sizes
-                    });
-
-                    if (raw_sizes.length > 0) {
-                        console.log(`[Foot Locker Israel] "${p.title}" → Sizes: [${raw_sizes.join(', ')}]`);
-                    } else {
-                        console.log(`[Foot Locker Israel] "${p.title}" → Sizes: [] (unavailable or blocked)`);
-                    }
-                }
+                    };
+                });
 
                 console.log(`[Foot Locker Israel] Done: ${finalProducts.length} products.`);
                 resolve(finalProducts);
