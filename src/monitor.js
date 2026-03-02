@@ -42,6 +42,8 @@ function toTitleCase(str) {
     const KEEP_UPPER = new Set(['OG', 'XL', 'LO', 'PRO', 'GTX', 'GTX+', 'SP', 'II', 'III', 'IV', 'VI', 'VII']);
     return str.trim().split(/\s+/).map(word => {
         if (KEEP_UPPER.has(word.toUpperCase())) return word.toUpperCase();
+        // Preserve product codes like MB.05, GT-2000, P-6000 (all-caps + contains digit or dot/hyphen)
+        if (/^[A-Z0-9][A-Z0-9.\-]+$/.test(word) && /\d/.test(word)) return word.toUpperCase();
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
     }).join(' ');
 }
