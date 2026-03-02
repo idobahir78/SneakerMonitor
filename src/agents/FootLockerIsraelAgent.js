@@ -1,4 +1,3 @@
-const https = require('https');
 const DOMNavigator = require('./DOMNavigator');
 
 class FootLockerIsraelAgent extends DOMNavigator {
@@ -7,54 +6,52 @@ class FootLockerIsraelAgent extends DOMNavigator {
     }
 
     /**
-     * Server-side HTTPS request to Shopify product JSON endpoint.
-     * Bypasses browser CSP restrictions entirely.
+     * Fetch product JSON using the Puppeteer browser page (uses existing session/cookies).
+     * This bypasses Cloudflare and Shopify CSP that block plain Node.js https requests.
      */
-    _fetchProductJson(handle) {
-        return new Promise((resolve) => {
-            const url = `https://footlocker.co.il/products/${handle}.json`;
-            const options = {
-                headers: {
-                    'Accept': 'application/json',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                }
-            };
+    async _fetchProductJsonViaBrowser(handle) {
+        const apiUrl = `${this.targetUrl}/products/${handle}.json`;
+        let jsonPage = null;
+        try {
+            jsonPage = await this.browser.newPage();
+            jsonPage.setDefaultNavigationTimeout(12000);
+            jsonPage.setDefaultTimeout(12000);
 
-            https.get(url, options, (res) => {
-                let raw = '';
-                res.on('data', chunk => raw += chunk);
-                res.on('end', () => {
-                    try {
-                        if (res.statusCode !== 200) return resolve([]);
-                        const data = JSON.parse(raw);
-                        const product = data.product;
-                        if (!product || !product.variants) return resolve([]);
+            // Match the same User-Agent to avoid fingerprint mismatch
+            await jsonPage.setUserAgent(this.getRandomUserAgent());
 
-                        // Find which option index is the size
-                        let sizeOptIdx = 0;
-                        if (product.options) {
-                            const idx = product.options.findIndex(o =>
-                                (typeof o === 'string' ? o : (o.name || '')).toLowerCase().match(/size|מידה|גודל/)
-                            );
-                            if (idx >= 0) sizeOptIdx = idx;
-                        }
-                        const optKey = `option${sizeOptIdx + 1}`;
+            const res = await jsonPage.goto(apiUrl, { waitUntil: 'domcontentloaded', timeout: 12000 });
+            if (!res || res.status() !== 200) return [];
 
-                        const sizes = product.variants
-                            .filter(v => v.available === true)
-                            .map(v => (v[optKey] || v.title || '').replace(/^(US|EU|UK)\s*/i, '').trim())
-                            .filter(s => s && s.length < 12 && s !== 'Default Title');
+            const raw = await jsonPage.evaluate(() => document.body.innerText);
+            const data = JSON.parse(raw);
+            const product = data.product;
+            if (!product || !product.variants) return [];
 
-                        resolve([...new Set(sizes)]);
-                    } catch (e) {
-                        resolve([]);
-                    }
+            // Find which option index corresponds to "size"
+            let sizeOptIdx = 0;
+            if (product.options) {
+                const idx = product.options.findIndex(o => {
+                    const name = typeof o === 'string' ? o : (o.name || '');
+                    return name.toLowerCase().match(/size|מידה|גודל/);
                 });
-            }).on('error', () => resolve([]));
+                if (idx >= 0) sizeOptIdx = idx;
+            }
+            const optKey = `option${sizeOptIdx + 1}`;
 
-            // Timeout safety: 8 seconds per product
-            setTimeout(() => resolve([]), 8000);
-        });
+            const sizes = product.variants
+                .filter(v => v.available === true)
+                .map(v => (v[optKey] || v.title || '').replace(/^(US|EU|UK)\s*/i, '').trim())
+                .filter(s => s && s.length < 12 && s !== 'Default Title');
+
+            return [...new Set(sizes)];
+        } catch (e) {
+            return [];
+        } finally {
+            if (jsonPage) {
+                try { await jsonPage.close(); } catch (_) { }
+            }
+        }
     }
 
     async scrape(brand, model) {
@@ -73,7 +70,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     console.log('[Foot Locker Israel] Timeout waiting for product grid.');
                 }
 
-                // Step 1: Collect product handles + basic info from DOM
+                // Step 1: Extract product cards from DOM
                 const rawProducts = await this.page.evaluate((baseDomain) => {
                     function norm(u) {
                         if (!u) return '';
@@ -111,7 +108,7 @@ class FootLockerIsraelAgent extends DOMNavigator {
                         }
                         if (!title) return;
 
-                        // Price: try multiple selectors in priority order
+                        // Price: priority-ordered selectors
                         let price = 0;
                         const priceSelectors = [
                             '[data-product-price]',
@@ -129,10 +126,9 @@ class FootLockerIsraelAgent extends DOMNavigator {
                             const parsed = parseFloat(cleaned);
                             if (parsed > 0) { price = parsed; break; }
                         }
-
-                        // Last resort: regex on entire tile text
+                        // Last resort: regex on tile text
                         if (price === 0) {
-                            const m = tile.innerText.match(/(\d{2,4}(?:\.\d{1,2})?)/);
+                            const m = tile.innerText.match(/(\d{3,4}(?:\.\d{1,2})?)/);
                             if (m) price = parseFloat(m[1]) || 0;
                         }
 
@@ -145,12 +141,12 @@ class FootLockerIsraelAgent extends DOMNavigator {
                     return results;
                 }, domain);
 
-                console.log(`[Foot Locker Israel] Found ${rawProducts.length} products in DOM. Fetching sizes via Node.js HTTPS...`);
+                console.log(`[Foot Locker Israel] Found ${rawProducts.length} products. Fetching sizes via browser tabs...`);
 
-                // Step 2: Server-side HTTPS calls to /products/{handle}.json (bypasses Shopify CSP)
+                // Step 2: Open new browser tabs to fetch Shopify product JSON (bypasses CSP + Cloudflare)
                 const finalProducts = [];
                 for (const p of rawProducts) {
-                    const raw_sizes = await this._fetchProductJson(p.productHandle);
+                    const raw_sizes = await this._fetchProductJsonViaBrowser(p.productHandle);
 
                     finalProducts.push({
                         raw_title: p.title,
@@ -162,10 +158,12 @@ class FootLockerIsraelAgent extends DOMNavigator {
 
                     if (raw_sizes.length > 0) {
                         console.log(`[Foot Locker Israel] "${p.title}" → Sizes: [${raw_sizes.join(', ')}]`);
+                    } else {
+                        console.log(`[Foot Locker Israel] "${p.title}" → Sizes: [] (unavailable or blocked)`);
                     }
                 }
 
-                console.log(`[Foot Locker Israel] Final: ${finalProducts.length} products with sizes resolved.`);
+                console.log(`[Foot Locker Israel] Done: ${finalProducts.length} products.`);
                 resolve(finalProducts);
 
             } catch (err) {

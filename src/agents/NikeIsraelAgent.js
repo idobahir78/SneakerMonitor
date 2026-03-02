@@ -106,27 +106,56 @@ class NikeIsraelAgent extends DOMNavigator {
                         if (!res.ok) return [];
                         const html = await res.text();
 
-                        // Extract __NEXT_DATA__ from HTML
+                        // ── Step 1: ALL sizes from __NEXT_DATA__ ──
                         const match = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
                         if (!match) return [];
                         const data = JSON.parse(match[1]);
-
-                        // Path: pageProps.selectedProduct.sizes
-                        const sizes = data?.props?.pageProps?.selectedProduct?.sizes || [];
-                        return sizes
+                        const sizesData = data?.props?.pageProps?.selectedProduct?.sizes || [];
+                        const allSizes = sizesData
                             .map(s => (s.localizedLabel || s.label || '').replace(/^(EU|US|UK)\s*/i, '').trim())
                             .filter(s => s && /^\d/.test(s));
+                        if (allSizes.length === 0) return [];
+
+                        // ── Step 2: OOS detection from server-rendered HTML ──
+                        // Nike SSR includes aria-disabled="true" on out-of-stock size inputs
+                        const oosSet = new Set();
+
+                        // Pass A: aria-disabled on input/button with value or label containing size
+                        // e.g. ...aria-disabled="true" ... value="EU 35.5"...
+                        const patA = /aria-disabled="true"[^>]{0,400}/g;
+                        let m;
+                        while ((m = patA.exec(html)) !== null) {
+                            const fragment = m[0];
+                            const numM = fragment.match(/\b(\d{2}(?:\.\d)?)\b/g) || [];
+                            for (const cand of numM) {
+                                if (allSizes.includes(cand)) oosSet.add(cand);
+                            }
+                        }
+
+                        // Pass B: buttons/divs with "disabled" class + numeric label nearby
+                        const patB = /class="[^"]*\bdisabled\b[^"]*"[^>]{0,200}/g;
+                        while ((m = patB.exec(html)) !== null) {
+                            const fragment = m[0];
+                            const numM = fragment.match(/\b(\d{2}(?:\.\d)?)\b/g) || [];
+                            for (const cand of numM) {
+                                if (allSizes.includes(cand)) oosSet.add(cand);
+                            }
+                        }
+
+                        // ── Step 3: Return only in-stock sizes ──
+                        return oosSet.size > 0
+                            ? allSizes.filter(s => !oosSet.has(s))
+                            : allSizes;
+
                     } catch (e) {
                         return [];
                     }
                 }
 
-                // Fetch all in this batch in parallel
                 const sizeResults = await Promise.all(batchItems.map(p => fetchNikeSizes(p.raw_url)));
                 return sizeResults;
             }, batch.map(p => ({ raw_url: p.raw_url })));
 
-            // Merge sizes back into results
             for (let j = 0; j < batch.length; j++) {
                 const productIndex = i + j;
                 if (batchSizes[j] && batchSizes[j].length > 0) {
@@ -137,6 +166,7 @@ class NikeIsraelAgent extends DOMNavigator {
         }
         return results;
     }
+
 
     _parseNikeResponse(obj, depth = 0) {
         if (depth > 7 || !obj || typeof obj !== 'object') return [];
