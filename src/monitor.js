@@ -31,6 +31,20 @@ const MULTI_WORD_BRANDS = [
     'On Cloud', 'Hoka One One'
 ];
 
+/**
+ * Converts a string to Title Case.
+ * e.g. "new balance" → "New Balance", "stan smith" → "Stan Smith"
+ * Preserves known all-caps tokens like "OG", "XL", "LO", "PRO".
+ */
+function toTitleCase(str) {
+    if (!str) return str;
+    const KEEP_UPPER = new Set(['OG', 'XL', 'LO', 'PRO', 'GTX', 'GTX+', 'SP', 'II', 'III', 'IV', 'VI', 'VII']);
+    return str.trim().split(/\s+/).map(word => {
+        if (KEEP_UPPER.has(word.toUpperCase())) return word.toUpperCase();
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    }).join(' ');
+}
+
 function normalizeBrand(brand) {
     const b = brand.toUpperCase();
     if (b === 'ON CLOUD' || b === 'ON RUNNING' || b === 'ON') return 'ON';
@@ -42,18 +56,24 @@ function parseSearchInput(input) {
     const inputTrimmed = input.trim();
     const inputUpper = inputTrimmed.toUpperCase();
     const sortedBrands = [...MULTI_WORD_BRANDS].sort((a, b) => b.length - a.length);
+
     for (const mb of sortedBrands) {
         if (inputUpper.startsWith(mb.toUpperCase())) {
-            const brand = normalizeBrand(inputTrimmed.substring(0, mb.length).trim());
-            const model = inputTrimmed.substring(mb.length).trim();
-            return { brand, model };
+            // Use the canonical casing from MULTI_WORD_BRANDS (already correct)
+            const canonicalBrand = normalizeBrand(mb);
+            const rawModel = inputTrimmed.substring(mb.length).trim();
+            const model = toTitleCase(rawModel);
+            return { brand: canonicalBrand, model };
         }
     }
-    const split = inputTrimmed.split(' ');
-    const brand = normalizeBrand(split[0]);
-    const model = split.slice(1).join(' ');
+
+    // Single-word brand: apply title case to both brand and model
+    const split = inputTrimmed.split(/\s+/);
+    const brand = normalizeBrand(toTitleCase(split[0]));
+    const model = toTitleCase(split.slice(1).join(' '));
     return { brand, model };
 }
+
 
 function auditEnv() {
     const token = process.env.TELEGRAM_BOT_TOKEN || '';
