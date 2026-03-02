@@ -323,7 +323,7 @@ const Dashboard = () => {
                     </div>
                 ) : (
                     sortedResults.map((item) => (
-                        <ShoeCard key={item.link || item.id} item={item} />
+                        <ShoeCard key={item.link || item.id} item={item} targetSize={localStorage.getItem('scraper_sizes') || '*'} />
                     ))
                 )}
             </main>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const ShoeCard = ({ item }) => {
+const ShoeCard = ({ item, targetSize }) => {
     // Support both new schema (display_title, price_ils, buy_link, store_name)
     // and legacy schema (title, price, link, store) for backward compatibility
     const storeName = item.store_name || item.store || 'Unknown';
@@ -53,12 +53,20 @@ const ShoeCard = ({ item }) => {
                 )}
 
                 <div className="sizes-container">
-                    <span className="sizes-label">Sizes:</span>
+                    <span className="sizes-label">Sizes available:</span>
                     <div className="sizes-list">
                         {item.sizes && item.sizes.length > 0 ? (
-                            item.sizes.map((size, index) => (
-                                <span key={index} className="size-chip">{size}</span>
-                            ))
+                            item.sizes.map((size, index) => {
+                                const isMatch = targetSize && targetSize !== '*' && size.toString() === targetSize.toString();
+                                return (
+                                    <span
+                                        key={index}
+                                        className={`size-chip ${isMatch ? 'size-chip--match' : ''}`}
+                                    >
+                                        {size}{isMatch ? ' ✓' : ''}
+                                    </span>
+                                );
+                            })
                         ) : (
                             <span className="no-sizes visit-site-text">Visit Site to Check</span>
                         )}
