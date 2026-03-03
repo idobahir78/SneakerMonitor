@@ -317,8 +317,17 @@ async function runScheduledJobs() {
             sizes: JSON.stringify(p.sizes || p.raw_sizes || [])
         }));
 
-        if (recordsToInsert.length > 0) {
-            const { error } = await supabase.from('products').upsert(recordsToInsert, { onConflict: 'product_url, search_id' });
+        // Deduplicate by product_url to avoid "ON CONFLICT DO UPDATE cannot affect row a second time"
+        // (can happen when the same URL appears multiple times in results, e.g. NB Israel men/women variants)
+        const seenUrls = new Set();
+        const dedupedRecords = recordsToInsert.filter(r => {
+            if (!r.product_url || seenUrls.has(r.product_url)) return false;
+            seenUrls.add(r.product_url);
+            return true;
+        });
+
+        if (dedupedRecords.length > 0) {
+            const { error } = await supabase.from('products').upsert(dedupedRecords, { onConflict: 'product_url, search_id' });
             if (error) console.error('[Supabase] Upsert Error:', error.message);
 
             // --- SMART LEARNING: Save newly verified models ---
