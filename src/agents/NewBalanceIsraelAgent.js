@@ -22,15 +22,15 @@ class NewBalanceIsraelAgent extends DOMNavigator {
                     await this.page.waitForSelector('.product-tile-item, .product-tile, .grid-tile', { timeout: 10000 });
                 } catch (e) { }
 
-                const products = await this.page.evaluate(() => {
+                // Step 1: Collect product links and basic info from grid
+                const gridProducts = await this.page.evaluate(() => {
                     const results = [];
-                    // Confirmed selector from browser research
                     const tiles = document.querySelectorAll('.product-tile-item, .product-tile');
 
                     tiles.forEach(tile => {
-                        const titleEl = tile.querySelector('.product-tile__name, .product-name, .pdp-link a');
+                        const titleEl = tile.querySelector('.product-tile__name, .product-name, .pdp-link a, .link');
                         const priceEl = tile.querySelector('.sales .value, .price-sales .value, .price .value');
-                        const linkEl = tile.querySelector('a.tile-image-link, a.thumb-link') || tile.querySelector('a');
+                        const linkEl = tile.querySelector('a.tile-image-link, a.thumb-link, .pdp-link a') || tile.querySelector('a');
                         const imgEl = tile.querySelector('img.tile-image, img');
 
                         const title = titleEl?.innerText?.trim() || '';
@@ -43,24 +43,54 @@ class NewBalanceIsraelAgent extends DOMNavigator {
                             price = m ? parseFloat(m[1]) : 0;
                         }
 
-                        // Collect available sizes from swatches (disabled = out of stock)
-                        const raw_sizes = [...tile.querySelectorAll('.swatchable-radio:not(.disabled) input')]
-                            .map(inp => (inp.value || inp.getAttribute('data-value') || '').trim())
-                            .filter(Boolean);
-
                         results.push({
                             raw_title: title,
                             raw_price: price,
                             raw_url: linkEl?.href || '',
                             raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || '',
-                            raw_sizes
                         });
                     });
                     return results;
                 });
 
-                console.log(`[New Balance IL] Found ${products.length} products`);
-                resolve(products);
+                console.log(`[New Balance IL] Found ${gridProducts.length} products`);
+
+                // Step 2: Visit each PDP to fetch sizes (SFCC category page has no size swatches)
+                const finalProducts = [];
+                for (const item of gridProducts.slice(0, 12)) {
+                    if (!item.raw_url) {
+                        finalProducts.push({ ...item, raw_sizes: [] });
+                        continue;
+                    }
+                    try {
+                        await this.page.goto(item.raw_url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+                        await new Promise(r => setTimeout(r, 2000));
+
+                        const raw_sizes = await this.page.evaluate(() => {
+                            const sizes = [];
+
+                            // SFCC size attribute buttons
+                            document.querySelectorAll(
+                                '.size-btn:not(.unselectable):not(.out-of-stock), ' +
+                                '.attribute-values .value-item:not(.unavailable):not(.out-of-stock) span, ' +
+                                '.size-select option:not([disabled]):not([value=""]), ' +
+                                '.swatchable-radio:not(.disabled) input'
+                            ).forEach(el => {
+                                const v = (el.textContent || el.value || el.getAttribute('data-value') || '').trim();
+                                if (v && /^\d{2}(\.\d)?$/.test(v) && !sizes.includes(v)) sizes.push(v);
+                            });
+
+                            return sizes;
+                        });
+
+                        console.log(`[New Balance IL PDP] "${item.raw_title}" → Sizes: [${raw_sizes.join(', ')}]`);
+                        finalProducts.push({ ...item, raw_sizes });
+                    } catch (e) {
+                        finalProducts.push({ ...item, raw_sizes: [] });
+                    }
+                }
+
+                resolve(finalProducts);
             } catch (err) {
                 console.error(`[New Balance IL] Scrape error: ${err.message}`);
                 resolve([]);

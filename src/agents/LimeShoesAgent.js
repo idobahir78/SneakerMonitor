@@ -27,16 +27,57 @@ class LimeShoesAgent extends DOMNavigator {
                 await this.page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
 
                 try {
-                    await this.page.waitForSelector('.product, .product-item, li.product', { timeout: 10000 });
+                    await this.page.waitForSelector('li.product, ul.products li, article.product', { timeout: 10000 });
                 } catch (e) { }
 
                 // Scrape grid for product links + basic info
                 const gridItems = await this.page.evaluate(() => {
                     const results = [];
-                    const elements = document.querySelectorAll('li.product, .product-grid-item, div.product-item');
+
+                    // Debug: log counts for all candidate selectors
+                    const debugCounts = {
+                        'li.product': document.querySelectorAll('li.product').length,
+                        'ul.products li': document.querySelectorAll('ul.products li').length,
+                        'article.product': document.querySelectorAll('article.product').length,
+                        '.product-grid-item': document.querySelectorAll('.product-grid-item').length,
+                        'div.product-item': document.querySelectorAll('div.product-item').length,
+                    };
+                    console.log('[Lime Shoes DEBUG] Selector counts:', JSON.stringify(debugCounts));
+
+                    // Try multiple selectors in priority order
+                    let elements = document.querySelectorAll('li.product');
+                    if (elements.length === 0) elements = document.querySelectorAll('ul.products li');
+                    if (elements.length === 0) elements = document.querySelectorAll('article.product');
+                    if (elements.length === 0) elements = document.querySelectorAll('.product-grid-item, div.product-item');
+
+                    // Last resort: collect product links directly from the page
+                    if (elements.length === 0) {
+                        const anchors = [...document.querySelectorAll('a[href*="limeshoes.co.il/product/"], a[href*="limeshoes.co.il/%D"]')]
+                            .filter(a => {
+                                const parent = a.closest('li, article, div.product, div[class*="product"]');
+                                return parent !== null;
+                            });
+                        console.log('[Lime Shoes DEBUG] Fallback anchor count:', anchors.length);
+                        anchors.forEach(a => {
+                            const container = a.closest('li, article, div[class*="product"]') || a.parentElement;
+                            const titleEl = container?.querySelector('h1, h2, h3, .product-title, [class*="title"]');
+                            const imgEl = container?.querySelector('img');
+                            const raw_title = titleEl?.innerText?.trim() || a.innerText?.trim() || '';
+                            if (raw_title && a.href) {
+                                results.push({
+                                    raw_title,
+                                    raw_price: 0,
+                                    raw_url: a.href,
+                                    raw_image_url: imgEl?.src || '',
+                                    raw_brand: 'Unknown'
+                                });
+                            }
+                        });
+                        return results;
+                    }
 
                     elements.forEach(el => {
-                        const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2, .name');
+                        const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2, h1, .name, [class*="title"]');
                         const priceEls = el.querySelectorAll('.price bdi, .price .amount');
                         const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a[href*="/product/"], a');
                         const imgEl = el.querySelector('img.attachment-woocommerce_thumbnail, img');
