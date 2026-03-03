@@ -9,7 +9,7 @@ class NewBalanceIsraelAgent extends DOMNavigator {
         if (brand.toLowerCase() !== 'new balance') return [];
         const query = encodeURIComponent(model);
         // Correct NB Israel SFCC search URL (browser research confirmed)
-        const searchUrl = `${this.targetUrl}/he/search?q=${query}`;
+        const searchUrl = `${this.targetUrl}/he/category?q=${query}`;
 
         return new Promise(async (resolve) => {
             try {

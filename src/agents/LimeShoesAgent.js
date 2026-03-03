@@ -24,7 +24,8 @@ class LimeShoesAgent extends DOMNavigator {
 
                 await this.page.setDefaultNavigationTimeout(30000);
                 console.log(`[Lime Shoes] Navigating to: ${targetUrl}`);
-                await this.page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
+                await this.page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+                await new Promise(r => setTimeout(r, 2000)); // give JS time to render product grid
 
                 try {
                     await this.page.waitForSelector('.product, .product-item, li.product', { timeout: 10000 });
