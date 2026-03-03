@@ -6,7 +6,9 @@ class MayersAgent extends DOMNavigator {
     }
 
     async scrape(brand, model) {
-        const query = encodeURIComponent(model);
+        // Normalize model: insert space before version suffix (990v6 → 990 v6) for WooCommerce search
+        const normalizedModel = model.replace(/(\d+)(v\d+)/gi, '$1 $2');
+        const query = encodeURIComponent(normalizedModel);
         const searchUrl = `${this.targetUrl}/?s=${query}&post_type=product`;
 
         return new Promise(async (resolve) => {

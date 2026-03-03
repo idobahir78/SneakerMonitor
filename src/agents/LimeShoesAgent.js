@@ -56,7 +56,7 @@ class LimeShoesAgent extends DOMNavigator {
                         const isOutOfStock = el.classList.contains('outofstock') ||
                             (el.innerText && el.innerText.includes('אזל במלאי'));
 
-                        if (raw_title && raw_price > 0 && !isOutOfStock && product_url) {
+                        if (raw_title && !isOutOfStock && product_url) {
                             results.push({
                                 raw_title,
                                 raw_price,
