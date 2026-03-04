@@ -29,7 +29,9 @@ class NewBalanceIsraelAgent extends DOMNavigator {
 
                     tiles.forEach(tile => {
                         const titleEl = tile.querySelector('.product-tile__name, .product-name, .pdp-link a, .link');
-                        const priceEl = tile.querySelector('.sales .value, .price-sales .value, .price .value');
+                        // SFCC: .sales .value has the current/sale price (content attr = clean number)
+                        // .price .value fallback is DANGEROUS: picks the del/strike-through child first!
+                        const priceEl = tile.querySelector('.sales .value');
                         const linkEl = tile.querySelector('a.tile-image-link, a.thumb-link, .pdp-link a') || tile.querySelector('a');
                         const imgEl = tile.querySelector('img.tile-image, img');
 
@@ -38,8 +40,8 @@ class NewBalanceIsraelAgent extends DOMNavigator {
 
                         let price = 0;
                         if (priceEl) {
-                            const raw = priceEl.getAttribute('content') || priceEl.innerText || '0';
-                            const m = raw.match(/(\d{2,5}\.?\d{0,2})/);
+                            const raw = (priceEl.getAttribute('content') || priceEl.innerText || '0').replace(/,/g, '');
+                            const m = raw.match(/(\d{2,5})/);
                             price = m ? parseFloat(m[1]) : 0;
                         }
 

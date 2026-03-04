@@ -47,7 +47,10 @@ class LimeShoesAgent extends DOMNavigator {
                         // Confirmed class from live HTML: woocommerce-LoopProduct-link
                         const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a[href*="/product/"]');
                         const imgEl = el.querySelector('img');
-                        const priceEl = el.querySelector('.price .woocommerce-Price-amount, .price bdi, .price .amount');
+                        // Prefer sale price (inside <ins>) over original price (inside <del>)
+                        // WooCommerce renders: <del>₪1,099</del><ins>₪999</ins> for sale items
+                        const priceEl = el.querySelector('ins .woocommerce-Price-amount, ins bdi, ins .amount')
+                            || el.querySelector('.price .woocommerce-Price-amount, .price bdi, .price .amount');
 
                         if (!titleEl || !linkEl) return;
 
