@@ -49,7 +49,9 @@ class NewBalanceIsraelAgent extends DOMNavigator {
                             raw_title: title,
                             raw_price: price,
                             raw_url: linkEl?.href || '',
-                            raw_image_url: imgEl?.src || imgEl?.getAttribute('data-src') || '',
+                            // SFCC lazy loading: img.src is truncated (just the base domain).
+                            // The real full image URL is in data-lazy attribute.
+                            raw_image_url: imgEl?.getAttribute('data-lazy') || imgEl?.getAttribute('data-src') || imgEl?.src || '',
                         });
                     });
                     return results;
