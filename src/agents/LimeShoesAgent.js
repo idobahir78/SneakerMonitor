@@ -18,7 +18,7 @@ class LimeShoesAgent extends DOMNavigator {
         }
         const query = encodeURIComponent(model);
 
-        return new Promise(async (resolve, reject) => {
+        return new Promise(async (resolve) => {
             try {
                 const targetUrl = `${this.targetUrl}/?s=${query}&post_type=product`;
 
@@ -26,78 +26,44 @@ class LimeShoesAgent extends DOMNavigator {
                 console.log(`[Lime Shoes] Navigating to: ${targetUrl}`);
                 await this.page.goto(targetUrl, { waitUntil: 'domcontentloaded' });
 
+                // DOM research confirmed: WooCommerce uses ul.products as the grid container.
+                // Individual product tiles are <li> children of ul.products.
+                // The li class includes 'type-product' but NOT 'product' by itself.
                 try {
-                    await this.page.waitForSelector('li.product, ul.products li, article.product', { timeout: 10000 });
-                } catch (e) { }
+                    await this.page.waitForSelector('ul.products li', { timeout: 10000 });
+                } catch (e) { /* page might load without selector - continue anyway */ }
 
-                // Scrape grid for product links + basic info
+                // Scrape grid: confirmed selectors from live HTML inspection
                 const gridItems = await this.page.evaluate(() => {
                     const results = [];
 
-                    // Debug: log counts for all candidate selectors
-                    const debugCounts = {
-                        'li.product': document.querySelectorAll('li.product').length,
-                        'ul.products li': document.querySelectorAll('ul.products li').length,
-                        'article.product': document.querySelectorAll('article.product').length,
-                        '.product-grid-item': document.querySelectorAll('.product-grid-item').length,
-                        'div.product-item': document.querySelectorAll('div.product-item').length,
-                    };
-                    console.log('[Lime Shoes DEBUG] Selector counts:', JSON.stringify(debugCounts));
-
-                    // Try multiple selectors in priority order
-                    let elements = document.querySelectorAll('li.product');
-                    if (elements.length === 0) elements = document.querySelectorAll('ul.products li');
-                    if (elements.length === 0) elements = document.querySelectorAll('article.product');
-                    if (elements.length === 0) elements = document.querySelectorAll('.product-grid-item, div.product-item');
-
-                    // Last resort: collect product links directly from the page
-                    if (elements.length === 0) {
-                        const anchors = [...document.querySelectorAll('a[href*="limeshoes.co.il/product/"], a[href*="limeshoes.co.il/%D"]')]
-                            .filter(a => {
-                                const parent = a.closest('li, article, div.product, div[class*="product"]');
-                                return parent !== null;
-                            });
-                        console.log('[Lime Shoes DEBUG] Fallback anchor count:', anchors.length);
-                        anchors.forEach(a => {
-                            const container = a.closest('li, article, div[class*="product"]') || a.parentElement;
-                            const titleEl = container?.querySelector('h1, h2, h3, .product-title, [class*="title"]');
-                            const imgEl = container?.querySelector('img');
-                            const raw_title = titleEl?.innerText?.trim() || a.innerText?.trim() || '';
-                            if (raw_title && a.href) {
-                                results.push({
-                                    raw_title,
-                                    raw_price: 0,
-                                    raw_url: a.href,
-                                    raw_image_url: imgEl?.src || '',
-                                    raw_brand: 'Unknown'
-                                });
-                            }
-                        });
-                        return results;
-                    }
+                    // ul.products is the confirmed WooCommerce grid container on limeshoes.co.il
+                    const elements = document.querySelectorAll('ul.products li');
+                    console.log('[Lime Shoes] ul.products li count:', elements.length);
 
                     elements.forEach(el => {
-                        const titleEl = el.querySelector('.woocommerce-loop-product__title, .product-title, h3, h2, h1, .name, [class*="title"]');
-                        const priceEls = el.querySelectorAll('.price bdi, .price .amount');
-                        const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a.product-link, a[href*="/product/"], a');
-                        const imgEl = el.querySelector('img.attachment-woocommerce_thumbnail, img');
+                        // Confirmed class from live HTML: woocommerce-loop-product__title
+                        const titleEl = el.querySelector('.woocommerce-loop-product__title, h2, h3');
+                        // Confirmed class from live HTML: woocommerce-LoopProduct-link
+                        const linkEl = el.querySelector('a.woocommerce-LoopProduct-link, a[href*="/product/"]');
+                        const imgEl = el.querySelector('img');
+                        const priceEl = el.querySelector('.price .woocommerce-Price-amount, .price bdi, .price .amount');
 
                         if (!titleEl || !linkEl) return;
 
                         const raw_title = titleEl.innerText.trim();
-                        const product_url = linkEl.href || linkEl.getAttribute('href') || '';
+                        const product_url = linkEl.href || '';
                         let raw_price = 0;
 
-                        if (priceEls.length > 0) {
-                            const priceText = priceEls[priceEls.length - 1].innerText;
-                            const priceMatch = priceText.match(/(\d{2,4}\.?\d{0,2})/);
-                            raw_price = priceMatch ? parseFloat(priceMatch[1]) : 0;
+                        if (priceEl) {
+                            const m = (priceEl.innerText || '').match(/(\d{2,4}\.?\d{0,2})/);
+                            raw_price = m ? parseFloat(m[1]) : 0;
                         }
 
                         const isOutOfStock = el.classList.contains('outofstock') ||
-                            (el.innerText && el.innerText.includes('אזל במלאי'));
+                            el.innerText.includes('אזל במלאי');
 
-                        if (raw_title && !isOutOfStock && product_url) {
+                        if (raw_title && product_url && !isOutOfStock) {
                             results.push({
                                 raw_title,
                                 raw_price,
@@ -112,7 +78,8 @@ class LimeShoesAgent extends DOMNavigator {
 
                 console.log(`[Lime Shoes] Scraped ${gridItems.length} raw items from DOM. Fetching sizes from PDPs...`);
 
-                // Fetch sizes from each PDP sequentially (sizes are in a <select> on the product page)
+                // Fetch sizes from each PDP sequentially
+                // Confirmed from live HTML: sizes are in <select id="pa_shoe-sizes"> options
                 const finalItems = [];
                 for (const item of gridItems.slice(0, 10)) {
                     try {
@@ -122,19 +89,21 @@ class LimeShoesAgent extends DOMNavigator {
                         const raw_sizes = await this.page.evaluate(() => {
                             const sizes = [];
 
-                            // Strategy 1: WooCommerce <select> options (Lime Shoes uses this)
-                            document.querySelectorAll('.variations select option:not([disabled]):not([value=""])').forEach(o => {
-                                const v = (o.textContent || o.value || '').replace(/^(EU|US|UK)\s*/i, '').trim();
-                                if (v && /\d/.test(v) && !sizes.includes(v)) sizes.push(v);
-                            });
+                            // CONFIRMED: Lime Shoes PDP uses <select id="pa_shoe-sizes">
+                            // with options containing EU sizes like "40.5", "41", "42", "44" etc.
+                            const shoeSizeSelect = document.querySelector('select#pa_shoe-sizes, select[name="attribute_pa_shoe-sizes"]');
+                            if (shoeSizeSelect) {
+                                [...shoeSizeSelect.options].forEach(opt => {
+                                    if (!opt.value || opt.disabled) return;
+                                    const v = opt.textContent.replace(/^(EU|US|UK)\s*/i, '').trim();
+                                    if (v && /\d/.test(v) && !sizes.includes(v)) sizes.push(v);
+                                });
+                            }
 
-                            // Strategy 2: visual swatch/button items
+                            // Fallback: any .variations select options with numeric sizes
                             if (sizes.length === 0) {
-                                document.querySelectorAll(
-                                    '.variable-items-wrapper .variable-item:not(.disabled):not(.out-of-stock) .variable-item-span, ' +
-                                    '.wd-attribute-item:not(.disabled) .wd-attribute-label'
-                                ).forEach(el => {
-                                    const v = (el.innerText || '').replace(/^(EU|US|UK)\s*/i, '').trim();
+                                document.querySelectorAll('.variations select option:not([disabled]):not([value=""])').forEach(opt => {
+                                    const v = opt.textContent.replace(/^(EU|US|UK)\s*/i, '').trim();
                                     if (v && /\d/.test(v) && !sizes.includes(v)) sizes.push(v);
                                 });
                             }

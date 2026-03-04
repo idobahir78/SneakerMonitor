@@ -69,14 +69,15 @@ class NewBalanceIsraelAgent extends DOMNavigator {
                         const raw_sizes = await this.page.evaluate(() => {
                             const sizes = [];
 
-                            // SFCC size attribute buttons
-                            document.querySelectorAll(
-                                '.size-btn:not(.unselectable):not(.out-of-stock), ' +
-                                '.attribute-values .value-item:not(.unavailable):not(.out-of-stock) span, ' +
-                                '.size-select option:not([disabled]):not([value=""]), ' +
-                                '.swatchable-radio:not(.disabled) input'
-                            ).forEach(el => {
-                                const v = (el.textContent || el.value || el.getAttribute('data-value') || '').trim();
+                            // CONFIRMED via Puppeteer on live NB Israel PDP (W990V6):
+                            // Sizes are in LABEL elements with class "swatchable-radio"
+                            // Out-of-stock sizes have class "swatchable-radio disabled"
+                            // In-stock sizes have class "swatchable-radio  " (just whitespace, no 'disabled')
+                            // The text content of the label IS the EU size number (e.g. "37", "40.5", "44")
+                            document.querySelectorAll('label.swatchable-radio').forEach(el => {
+                                // Skip if disabled (out of stock)
+                                if (el.classList.contains('disabled')) return;
+                                const v = (el.textContent || '').trim();
                                 if (v && /^\d{2}(\.\d)?$/.test(v) && !sizes.includes(v)) sizes.push(v);
                             });
 
