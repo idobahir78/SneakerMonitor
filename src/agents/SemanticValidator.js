@@ -101,6 +101,23 @@ class SemanticValidator {
         if (!numMatch) return textUpper.includes(cleanCore);
 
         const coreNum = numMatch[1].replace('.', '\\.');
+
+        // Version-aware check: if the model specifies a version like V5, V6, v2 etc.,
+        // ensure the title contains the SAME version - not a different one.
+        // e.g. searching for 990V5 must NOT match "990v6" titles.
+        const versionMatch = cleanCore.match(/[Vv](\d)$/);
+        if (versionMatch) {
+            const targetVersion = versionMatch[1];
+            // Build pattern: 990 followed by optional letters then V5 (must match this version)
+            const versionedPattern = new RegExp(`${coreNum}[A-Z]*[Vv]${targetVersion}\\b`, 'i');
+            // If text contains the base number, it MUST contain the right version
+            const baseNumRegex = new RegExp(`${coreNum}`, 'i');
+            if (baseNumRegex.test(textUpper)) {
+                // Text has the base number - now check version explicitly
+                return versionedPattern.test(textUpper);
+            }
+        }
+
         const pattern = new RegExp(`(^|\\b|[A-Z]{1,4})(${coreNum})([A-Z0-9]*)?($|\\b)`, 'i');
         return pattern.test(textUpper);
     }

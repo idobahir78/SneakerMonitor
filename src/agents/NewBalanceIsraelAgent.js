@@ -58,13 +58,13 @@ class NewBalanceIsraelAgent extends DOMNavigator {
                 console.log(`[New Balance IL] Found ${gridProducts.length} products`);
 
                 // Step 2: Visit each PDP to fetch sizes (SFCC category page has no size swatches)
-                // Filter: prioritize 990-containing URLs to avoid wasting time on FuelCell/other models
-                // that appear in the search results due to broad SFCC category matching.
-                const nb990Products = gridProducts.filter(p => /990/i.test(p.raw_url));
-                const otherProducts = gridProducts.filter(p => !/990/i.test(p.raw_url));
-                // Visit 990 products first, then fallback to others if needed, cap at 12 total
-                const orderedProducts = [...nb990Products, ...otherProducts];
-                console.log(`[New Balance IL] 990-filtered: ${nb990Products.length} relevant, ${otherProducts.length} other`);
+                // Build a model-specific URL filter to avoid visiting wrong version PDPs.
+                // e.g. searching "990v5" → only visit URLs containing "990V5", skip "990v6" URLs.
+                const modelPattern = new RegExp(model.replace(/\s+/g, '').replace(/v(\d)/i, 'V?$1').replace(/(\d{3,4})/, '$1'), 'i');
+                const relevantProducts = gridProducts.filter(p => modelPattern.test(p.raw_url));
+                const otherProducts = gridProducts.filter(p => !modelPattern.test(p.raw_url));
+                const orderedProducts = [...relevantProducts, ...otherProducts];
+                console.log(`[New Balance IL] Model-filtered: ${relevantProducts.length} relevant (${model}), ${otherProducts.length} other`);
 
                 const finalProducts = [];
                 for (const item of orderedProducts.slice(0, 12)) {
