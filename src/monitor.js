@@ -19,6 +19,7 @@ const AsicsIsraelAgent = require('./agents/AsicsIsraelAgent');
 const SauconyIsraelAgent = require('./agents/SauconyIsraelAgent');
 const OnCloudIsraelAgent = require('./agents/OnCloudIsraelAgent');
 const WeShoesAgent = require('./agents/WeShoesAgent');
+const SportLibermanAgent = require('./agents/SportLibermanAgent');
 const TelegramService = require('./services/TelegramService');
 
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -107,6 +108,7 @@ async function performSearch(brand, model, size) {
     orchestrator.registerWorker(new SauconyIsraelAgent());
     orchestrator.registerWorker(new OnCloudIsraelAgent());
     orchestrator.registerWorker(new WeShoesAgent());
+    orchestrator.registerWorker(new SportLibermanAgent());
 
     await orchestrator.startSearch(brand, model, size);
     return orchestrator.results;
