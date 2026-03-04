@@ -102,19 +102,30 @@ class SemanticValidator {
 
         const coreNum = numMatch[1].replace('.', '\\.');
 
-        // Version-aware check: if the model specifies a version like V5, V6, v2 etc.,
-        // ensure the title contains the SAME version - not a different one.
-        // e.g. searching for 990V5 must NOT match "990v6" titles.
+        // Version-aware check: when model specifies a version (e.g. V5, V6),
+        // reject only if text explicitly contains the base number + a DIFFERENT version.
+        // This correctly handles:
+        //   "990 V5" (space) ✅ passes for 990V5 search
+        //   "990v6 Made in USA" ❌ rejected when searching 990V5
+        //   "M990 סניקרס" (no version) ✅ passes (falls through)
+        //   "M990GL6" (product code) ✅ passes (GL prefix, no V)
         const versionMatch = cleanCore.match(/[Vv](\d)$/);
         if (versionMatch) {
             const targetVersion = versionMatch[1];
-            // Build pattern: 990 followed by optional letters then V5 (must match this version)
-            const versionedPattern = new RegExp(`${coreNum}[A-Z]*[Vv]${targetVersion}\\b`, 'i');
-            // If text contains the base number, it MUST contain the right version
-            const baseNumRegex = new RegExp(`${coreNum}`, 'i');
+            const baseNumRegex = new RegExp(coreNum, 'i');
             if (baseNumRegex.test(textUpper)) {
-                // Text has the base number - now check version explicitly
-                return versionedPattern.test(textUpper);
+                // Only reject if text has an explicit WRONG version (e.g. V6 when target is V5)
+                // "[A-Z\s]{0,3}V" allows optional letters/space between number and V (handles "990 V5")
+                const wrongVersionPattern = new RegExp(`${coreNum}[A-Z\\s]{0,3}V(?!${targetVersion}\\b)\\d`, 'i');
+                if (wrongVersionPattern.test(textUpper)) {
+                    return false; // Wrong version explicitly in text
+                }
+                // Check for correct version (with optional space: "990 V5" or "990V5")
+                const rightVersionPattern = new RegExp(`${coreNum}[A-Z\\s]{0,3}V${targetVersion}\\b`, 'i');
+                if (rightVersionPattern.test(textUpper)) {
+                    return true; // Correct version explicitly in text
+                }
+                // No explicit version in text at all (e.g. "M990") → fall through
             }
         }
 
