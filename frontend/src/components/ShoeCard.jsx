@@ -27,6 +27,7 @@ const ShoeCard = ({ item, targetSize }) => {
                         alt={displayTitle}
                         className="card-image"
                         loading="lazy"
+                        referrerPolicy="no-referrer"
                         onError={(e) => { e.target.style.display = 'none'; }}
                     />
                     {hasBestPrice && (
