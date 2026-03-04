@@ -56,7 +56,9 @@ class LimeShoesAgent extends DOMNavigator {
                         let raw_price = 0;
 
                         if (priceEl) {
-                            const m = (priceEl.innerText || '').match(/(\d{2,4}\.?\d{0,2})/);
+                            // Handle Israeli thousands separator comma: ₪1,099 or ₪999
+                            const priceText = (priceEl.innerText || '').replace(/,/g, '');
+                            const m = priceText.match(/(\d{2,5})/);
                             raw_price = m ? parseFloat(m[1]) : 0;
                         }
 

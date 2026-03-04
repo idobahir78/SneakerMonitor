@@ -56,8 +56,16 @@ class NewBalanceIsraelAgent extends DOMNavigator {
                 console.log(`[New Balance IL] Found ${gridProducts.length} products`);
 
                 // Step 2: Visit each PDP to fetch sizes (SFCC category page has no size swatches)
+                // Filter: prioritize 990-containing URLs to avoid wasting time on FuelCell/other models
+                // that appear in the search results due to broad SFCC category matching.
+                const nb990Products = gridProducts.filter(p => /990/i.test(p.raw_url));
+                const otherProducts = gridProducts.filter(p => !/990/i.test(p.raw_url));
+                // Visit 990 products first, then fallback to others if needed, cap at 12 total
+                const orderedProducts = [...nb990Products, ...otherProducts];
+                console.log(`[New Balance IL] 990-filtered: ${nb990Products.length} relevant, ${otherProducts.length} other`);
+
                 const finalProducts = [];
-                for (const item of gridProducts.slice(0, 12)) {
+                for (const item of orderedProducts.slice(0, 12)) {
                     if (!item.raw_url) {
                         finalProducts.push({ ...item, raw_sizes: [] });
                         continue;
