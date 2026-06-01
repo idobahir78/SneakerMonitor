@@ -3,38 +3,50 @@
     {
       "brand_name": "Nike",
       "models": [
-        "Lifestyle",
+        "Lifestyle  Sneakers",
         "Air Force 1",
+        "Air Force 1 Low",
+        "Air Force 1 Mid",
+        "Air Force 1 High",
         "Dunk Low",
         "Dunk High",
-        "Blazer Low",
+        "SB Dunk Low",
+        "SB Dunk High",
         "Blazer Mid",
+        "Blazer Low",
         "Cortez",
-        "Waffle Trainer",
-        "Waffle One",
-        "Daybreak",
         "Air Max 1",
         "Air Max 90",
         "Air Max 95",
         "Air Max 97",
-        "Air Max Plus",
-        "Air Max 270",
-        "Air Max 720",
-        "VaporMax"
+        "Air Max Plus TN",
+        "Air Max 2"
       ]
     },
     {
       "brand_name": "Hoka",
       "models": [
-        "Hoka is primarily known for its extensive range of running shoes road and trail",
-        "hiking shoes",
-        "and increasingly",
-        "soccerfootball cleats",
-        "or traditional tennis shoes. The following list is exhaustive within Hokas actual product categories",
-        "Road",
+        "Running Road",
         "Clifton 1",
         "Clifton 2",
-        "Clifton"
+        "Clifton 3",
+        "Clifton 4",
+        "Clifton 5",
+        "Clifton 6",
+        "Clifton 7",
+        "Clifton 8",
+        "Clifton 9",
+        "Clifton X",
+        "Clifton L",
+        "Clifton LS",
+        "Bondi 2",
+        "Bondi 3",
+        "Bondi 4",
+        "Bondi 5",
+        "Bondi 6",
+        "Bondi 7",
+        "Bondi 8",
+        "Bondi X"
       ]
     }
   ]
