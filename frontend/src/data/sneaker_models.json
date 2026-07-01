@@ -3,30 +3,29 @@
     {
       "brand_name": "Nike",
       "models": [
-        "Lifestyle  Sneakers",
-        "Air Force 1",
+        "Sneakers  Lifestyle",
         "Air Force 1 Low",
         "Air Force 1 Mid",
         "Air Force 1 High",
         "Dunk Low",
         "Dunk High",
-        "SB Dunk Low",
-        "SB Dunk High",
-        "Blazer Mid",
+        "Dunk SB",
         "Blazer Low",
+        "Blazer Mid",
         "Cortez",
         "Air Max 1",
         "Air Max 90",
         "Air Max 95",
         "Air Max 97",
         "Air Max Plus TN",
-        "Air Max 2"
+        "Air Max 270",
+        "Air Max 7"
       ]
     },
     {
       "brand_name": "Hoka",
       "models": [
-        "Running Road",
+        "Running",
         "Clifton 1",
         "Clifton 2",
         "Clifton 3",
@@ -36,17 +35,18 @@
         "Clifton 7",
         "Clifton 8",
         "Clifton 9",
-        "Clifton X",
         "Clifton L",
-        "Clifton LS",
-        "Bondi 2",
-        "Bondi 3",
+        "Clifton Suede",
+        "Project Clifton",
         "Bondi 4",
         "Bondi 5",
         "Bondi 6",
         "Bondi 7",
         "Bondi 8",
-        "Bondi X"
+        "Bondi SR",
+        "Bondi L",
+        "Gaviota 2",
+        "Gavi"
       ]
     }
   ]
